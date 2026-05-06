@@ -35,6 +35,7 @@ run_on_fedora <<'EOF'
 EOF
 
 function build_nvim() {
+	sudo make clean distclean
 	verbose "Starting build process..."
 	make CMAKE_BUILD_TYPE=RelWithDebInfo
 

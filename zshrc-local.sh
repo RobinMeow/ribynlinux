@@ -13,22 +13,25 @@
 
 # NOTE: example on navigating the filesystem for a specific env more easy using fzf
 #
-# customerabbr() {
-# 	# associative array (apparently scoped to this fn)
-# 	declare -A commands=(
-# 		[build]="dotnet build /p:NuGetAudit=false -v m"
-# 		[cd]="cd \$( (fd --max-depth 1 --type d . ~/customer; fd --max-depth 1 --type d . ~/customer/other-projects) | fzf )"
-# 	)
-#
-# 	if [[ -n "$1" && -n "${commands[$1]}" ]]; then
-# 		eval "${commands[$1]}"
-# 	else
-# 		echo "ribyn: unknown key '$1'"
-# 		for k in "${!commands[@]}"; do
-# 			echo "  $k"
-# 		done
-# 		return 1
-# 	fi
-# }
-# # tab completion
-# complete -W "build cd" ropa
+abbr() {
+	local cmd="$1"
+
+	if [[ "$cmd" == "build" ]]; then
+		shift
+		dotnet build /p:NuGetAudit=false -v m "$@"
+	elif [[ "$cmd" == "cd" ]]; then
+		cd "$( (
+			fd --max-depth 1 --type d . ~/customer
+			fd --max-depth 1 --type d . ~/customer/other-projects
+		) | fzf)" || exit 1
+	elif [[ "$cmd" == "clone" ]]; then
+		shift
+		git clone "$@"
+	else
+		[[ -n "$cmd" ]] && echo "abbr: unknown command '$cmd'"
+		echo "Available commands: build, cd, clone"
+		return 1
+	fi
+}
+# tab completion
+complete -W "build cd clone" abbr
