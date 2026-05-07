@@ -1,6 +1,5 @@
 #!/bin/bash
-
-set -e
+set -euo pipefail
 
 source "$RIBYNS_ENV/scripts/utils.sh"
 REPO_DEST="$HOME/neovim"

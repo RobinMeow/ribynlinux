@@ -1,3 +1,6 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
 virt-install \
 	--name archlinux-base \
 	--memory 4096 \

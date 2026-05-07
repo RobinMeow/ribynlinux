@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
-
-set -u
+set -euo pipefail
 
 # overide the entries for core and advice
 # Not a real migration. If a previous version of ribyns-env had values and are not deleted

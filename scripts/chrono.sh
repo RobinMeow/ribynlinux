@@ -1,4 +1,5 @@
 #!/bin/bash
+set -euo pipefail
 
 # Simple Stopwatch with Lap/Note functionality
 # The clock keeps running while you type your note.

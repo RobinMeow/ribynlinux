@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-
+set -euo pipefail
 
 detect_win_user() {
 	source "$RIBYNS_ENV/scripts/utils.sh"

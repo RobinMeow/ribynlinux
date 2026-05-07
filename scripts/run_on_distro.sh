@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+set -euo pipefail
 
 # this is kinda of a guard based strategy pattern
 # or kinda of a single dispatch pattern

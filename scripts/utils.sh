@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+set -euo pipefail
 
 # Catppuccin Mocha 8-bit Color Palette
 # https://github.com/catppuccin/catppuccin

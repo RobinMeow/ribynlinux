@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
-
-set -u
+set -euo pipefail
 
 mkdir -p "$HOME/.config/vale"
 cp "$RIBYNS_ENV/config/vale/"* "$HOME/.config/vale/"

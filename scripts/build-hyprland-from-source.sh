@@ -1,9 +1,8 @@
 #!/usr/bin/env bash
+set -euo pipefail
 
 # NOTE: wip
 # https://wiki.hypr.land/Getting-Started/Installation/#cmake-recommended
-
-set -e
 
 source "$RIBYNS_ENV/scripts/utils.sh"
 source "$RIBYNS_ENV/scripts/run_on_distro.sh"

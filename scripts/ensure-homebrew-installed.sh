@@ -1,3 +1,6 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
 if [[ -d "/home/linuxbrew/" ]]; then
 	echo "skipping brew installed (already installed)"
 else

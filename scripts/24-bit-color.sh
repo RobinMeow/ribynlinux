@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
-#
+set -euo pipefail
+
 # Script origin: `https://gist.github.com/andersevenrud/015e61af2fd264371032763d4ed965b6`
 #
 #   This file echoes a bunch of 24-bit color codes

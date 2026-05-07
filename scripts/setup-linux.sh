@@ -1,8 +1,7 @@
 #!/usr/bin/env bash
+set -euo pipefail
 
 # Usage: curl -sSL <url> | bash
-
-set -e
 
 # --- Sudo Helper ---
 run_as_root() {

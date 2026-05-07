@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+set -euo pipefail
 
 clone_repo() {
 	source "$RIBYNS_ENV/scripts/utils.sh"

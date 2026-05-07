@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
-
-set -eu
+set -euo pipefail
 
 "$RIBYNS_ENV/scripts/ensure-homebrew-installed.sh"
 

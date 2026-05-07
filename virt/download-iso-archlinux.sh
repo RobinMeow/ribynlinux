@@ -1,4 +1,5 @@
 # available mirrors: https://archlinux.org/download/
+set -euo pipefail
 
 if [[ -d "$HOME/Downloads" ]]; then
 	mkdir "$HOME/Downloads"

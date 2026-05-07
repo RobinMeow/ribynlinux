@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
+set -euo pipefail
 
-set -u
 source "$RIBYNS_ENV/scripts/utils.sh"
 source "$RIBYNS_ENV/scripts/run_on_distro.sh"
 

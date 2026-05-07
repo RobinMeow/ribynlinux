@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+set -euo pipefail
 
 detect_env() {
 	source "$RIBYNS_ENV/scripts/utils.sh"

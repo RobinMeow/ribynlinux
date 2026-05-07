@@ -1,4 +1,5 @@
 #!/bin/bash
+set -euo pipefail
 # Test script for the stopwatch utility
 # This script demonstrates the stopwatch functionality with multiple named watches
 

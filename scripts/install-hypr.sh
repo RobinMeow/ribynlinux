@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
+set -euo pipefail
 
 # NOTE: SUPER+Q to launch kitty
 # hyprctl dispatch exit to forcefully close all apps and hypr
 
-set -eu
 source "$RIBYNS_ENV/scripts/run_on_distro.sh"
 source "$RIBYNS_ENV/scripts/utils.sh"
 

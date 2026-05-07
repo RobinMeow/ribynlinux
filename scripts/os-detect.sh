@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+set -euo pipefail
 
 # Source: https://github.com/DevelopersToolbox/os-detect/blob/master/src/os-detect.sh
 

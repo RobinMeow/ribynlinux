@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+set -euo pipefail
 
 export RIBYNS_ENV_INSTALL_PACMAN=true
 

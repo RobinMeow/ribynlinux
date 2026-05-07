@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
+set -euo pipefail
 
-set -u
 source "$RIBYNS_ENV/scripts/run_on_distro.sh"
 
 run_on_arch sudo pacman -S --needed --noconfirm btop

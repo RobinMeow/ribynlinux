@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
-
-set -e
+set -euo pipefail
 
 # URL of the official Microsoft .NET install script
 DOTNET_INSTALL_URL="https://dot.net/v1/dotnet-install.sh"

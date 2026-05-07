@@ -1,4 +1,5 @@
 #!/bin/bash
+set -euo pipefail
 
 # Function to play a soft alert (terminal bell)
 play_alarm() {

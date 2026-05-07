@@ -1,3 +1,6 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
 FEDORA_ISO=${ISO_PATH:-"$HOME/Downloads/Fedora-Workstation-Live-43-1.6.x86_64.iso"}
 # NOTE: fedora requires at least 8GB for base installation
 virt-install \

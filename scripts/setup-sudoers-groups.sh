@@ -1,4 +1,5 @@
 #!/bin/bash
+set -euo pipefail
 
 # Script to create a sudoers configuration file for admin groups
 # This script must be run as root.

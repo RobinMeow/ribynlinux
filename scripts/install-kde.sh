@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
-
-set -u
+set -euo pipefail
 
 # kde config files are usually directly in .config
 mkdir -p "$HOME/.config"
