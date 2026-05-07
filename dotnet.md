@@ -16,7 +16,9 @@ install efcore tools:
 
 usersecrets / user secrets / user-secrets
 are found in `~/.microsoft/usersecrets/<guid-which-corresponds-to-csproj-file>/secrets.json`
-`dotnet usersecrets init` writes to the .csproj file and creates the usersecrets file as json (empty json)
+`dotnet user-secrets init` writes to the .csproj file the assigned guid
+either create the json file and the guid dir manually or run:
+`dotnet user-secrets set a b` to have dotnet do it for you
 adding/chaning json values _(honestly its easier to just edit the file directly)_
 `dotnet user-secrets set "Movies:ServiceApiKey" "12345" --project "$HOME/ribyns-env"`
 

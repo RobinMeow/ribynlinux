@@ -38,6 +38,7 @@
 	canep = "!git commit --amend --no-edit && git push"
 	canepf = "!git commit --amend --no-edit && git push --force-with-lease"
 	aacapf = "!git add --all && git commit --amend --verbose && git push --force-with-lease"
+	aacanep = "!git add --all && git commit --amend --no-edit --verbose && git push"
 	aacanepf = "!git add --all && git commit --amend --no-edit --verbose && git push --force-with-lease"
 	cp = "!git commit --verbose && git push"
 	wt = worktree
