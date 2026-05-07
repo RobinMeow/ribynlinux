@@ -109,6 +109,15 @@ vim.keymap.set("n", "<leader><leader>y", ":%y+<CR>") -- yank whole buffer into s
 
 vim.api.nvim_set_keymap("n", "<leader>g", ":DiffviewOpen<CR>", { desc = "[ ][g]it :DiffviewOpen" })
 
+-- indent level folding
+vim.keymap.set("n", "<leader>f0", ":set foldlevel=0<CR>", { desc = "foldlevel 0" })
+vim.keymap.set("n", "<leader>f1", ":set foldlevel=1<CR>", { desc = "foldlevel 1" })
+vim.keymap.set("n", "<leader>f2", ":set foldlevel=2<CR>", { desc = "foldlevel 2" })
+vim.keymap.set("n", "<leader>f3", ":set foldlevel=3<CR>", { desc = "foldlevel 3" })
+vim.keymap.set("n", "<leader>f4", ":set foldlevel=4<CR>", { desc = "foldlevel 4" })
+vim.keymap.set("n", "<leader>f5", ":set foldlevel=5<CR>", { desc = "foldlevel 5" })
+vim.keymap.set("n", "<leader>f9", ":set foldlevel=99<CR>", { desc = "foldlevel 99" })
+
 -- snacks terminal
 vim.keymap.set("n", "<leader>t", function()
   require("snacks.terminal").toggle()
