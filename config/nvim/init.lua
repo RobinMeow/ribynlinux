@@ -101,6 +101,15 @@ vim.keymap.set("n", "<leader><leader>se", session.store_session_and_exit, { desc
 vim.keymap.set("n", "<leader><leader>sr", session.store_session_and_restart, { desc = "[ ][s]ession [r]estart" })
 vim.keymap.set("n", "<leader><leader>sd", session.delete_session, { desc = "[ ][s]ession [d]elete, if exists" })
 
+-- convert line endings to unix
+vim.keymap.set("n", "<leader><leader>u", function()
+  vim.cmd("e ++ff=dos")
+  vim.cmd("w")
+  vim.cmd("set ff=unix")
+  vim.cmd("w")
+  vim.cmd("e")
+end, { desc = "[ ] convert dos to [u]unix" })
+
 vim.keymap.set("n", "<leader>y", '"+y') -- yank motion into system clipboard
 vim.keymap.set("v", "<leader>y", '"+y') -- yank visual into system clipboard
 -- FIXME: doesnt behave like Y, which yanks till end of line. it yanks the whole line
