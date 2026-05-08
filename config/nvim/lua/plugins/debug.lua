@@ -58,6 +58,13 @@ return {
       end,
       desc = "Debug: Set Breakpoint",
     },
+    {
+      "<leader>dC",
+      function()
+        require("dap").run_to_cursor()
+      end,
+      desc = "Debug: Run to cursor",
+    },
     -- Toggle to see last session result. Without this, you can't see session output in case of unhandled exception.
     {
       "<F7>",
