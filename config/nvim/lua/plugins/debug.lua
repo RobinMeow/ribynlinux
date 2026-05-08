@@ -2,6 +2,9 @@
 --
 -- Primarily focused on configuring the debugger for Go, but can
 -- be extended to other languages as well.
+
+-- dotnet in easy-dotnet https://github.com/GustavEikaas/easy-dotnet.nvim/blob/main/docs/debugging.md
+
 return {
   enabled = true,
   "mfussenegger/nvim-dap",
@@ -91,7 +94,8 @@ return {
       -- online, please don't ask me how to install them :)
       ensure_installed = {
         -- Update this to ensure that you have the debuggers for the langs you want
-        "delve",
+        -- "delve", for go? i think
+        "netcoredbg", -- dotnet
       },
     })
 
