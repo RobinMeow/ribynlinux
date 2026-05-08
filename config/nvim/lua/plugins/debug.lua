@@ -2,11 +2,8 @@
 --
 -- Primarily focused on configuring the debugger for Go, but can
 -- be extended to other languages as well.
-
--- use :noa w
--- to write the file to prevent formatting
 return {
-  enabled = false,
+  enabled = true,
   "mfussenegger/nvim-dap",
   dependencies = {
     "rcarriga/nvim-dap-ui",
@@ -27,13 +24,6 @@ return {
       desc = "Debug: Start/Continue",
     },
     {
-      "<F11>",
-      function()
-        require("dap").step_into()
-      end,
-      desc = "Debug: Step Into",
-    },
-    {
       "<F10>",
       function()
         require("dap").step_over()
@@ -41,7 +31,14 @@ return {
       desc = "Debug: Step Over",
     },
     {
-      "<F9>",
+      "<F11>",
+      function()
+        require("dap").step_into()
+      end,
+      desc = "Debug: Step Into",
+    },
+    {
+      "<F12>",
       function()
         require("dap").step_out()
       end,
@@ -132,12 +129,12 @@ return {
     dap.listeners.before.event_exited["dapui_config"] = dapui.close
 
     -- Install golang specific config
-    require("dap-go").setup({
-      delve = {
-        -- On Windows delve must be run attached or it crashes.
-        -- See https://github.com/leoluz/nvim-dap-go/blob/main/README.md#configuring
-        detached = vim.fn.has("win32") == 0,
-      },
-    })
+    -- require("dap-go").setup({
+    --   delve = {
+    --     -- On Windows delve must be run attached or it crashes.
+    --     -- See https://github.com/leoluz/nvim-dap-go/blob/main/README.md#configuring
+    --     detached = vim.fn.has("win32") == 0,
+    --   },
+    -- })
   end,
 }
