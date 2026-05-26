@@ -4,7 +4,7 @@
 - learn sed
 - rebind outermost middle btn on moergo to normal shift, unlayerd
 - could make a script to update scripts into "$HOME/bin" to get rid of the .sh suffix so it feels more native
-- TODO: check if legit: sudo localectl set-x11-keymap de pc105 nodeadkeys caps:swapescape
+- check if legit: sudo localectl set-x11-keymap de pc105 nodeadkeys caps:swapescape
 
 ## Rust app ideas
 
@@ -35,6 +35,7 @@ make qwertz layout
 - current restore session solution, is good enough. but if i desore restored terminals or DBUI, or quickfix lists i might want to look for plugin
 - keymap, which folds the whole file based on indent e.g. fi3 (fold indent 3, any scope at 3rd indend level will get folded/toggeled)
 - got a few overlapping keymaps. didnt bother me enough so far tho (e.g. sg sgf)
+- virtual text for debugging https://github.com/theHamsta/nvim-dap-virtual-text?utm_source=chatgpt.com
 
 ## angular
 
