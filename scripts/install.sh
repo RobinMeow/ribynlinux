@@ -39,6 +39,9 @@ info "Installing tmux"
 info "Installing yazi"
 "$RIBYNS_ENV/scripts/install-yazi.sh"
 
+info "Installing zathura"
+"$RIBYNS_ENV/scripts/install-zathura.sh"
+
 full_install=false
 for arg in "$@"; do
 	if [[ "$arg" == "--full-install" ]]; then
