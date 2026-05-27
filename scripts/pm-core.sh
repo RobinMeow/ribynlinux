@@ -7,8 +7,6 @@ RIBYNS_ENV_LOG_INFO=true info "Installing core packages..."
 
 source "$RIBYNS_ENV/scripts/run_on_distro.sh"
 
-"$RIBYNS_ENV/scripts/ensure-homebrew-installed.sh"
-
 run_on_arch <<'EOF'
 	sudo pacman -S --needed --noconfirm \
 		base-devel \
@@ -83,7 +81,6 @@ run_on_fedora <<'EOF'
 		translate-shell \
 		tokei \
 		flameshot \
-		ffmpeg \
 		7zip \
 		ripgrep \
 		glow \
@@ -91,10 +88,14 @@ run_on_fedora <<'EOF'
 		chafa \
 		fd-find \
 		gource
+
+	sudo dnf install -y --allowerasing ffmpeg
 EOF
 
+"$RIBYNS_ENV/scripts/ensure-homebrew-installed.sh"
 # NOTE: gemini-cli is available in arch but might as well have things consistent
-brew install gemini-cli
+# using the binaries, cuz in fresh install with install.sh bre is not yet in PATH
+/home/linuxbrew/.linuxbrew/bin/brew install gemini-cli
 
 tldr --update
 
