@@ -15,10 +15,11 @@ install_dest="/usr/local/share/fonts/commit-mono"
 
 if [[ ! -d "$install_dest" ]] || [[ "$reinstall" == true ]]; then
 	# coreutils contain cut and xargs
-	run_on_fedora sudo dnf install -y unzip grep coreutils curl
+	run_on_fedora sudo dnf install -y unzip grep coreutils curl restorecon fc-cache
 	run_on_arch sudo pacman -S --needed --noconfirm unzip grep coreutils curl
 
 	# first curl gets infos of latest, next two pipes retrieve the url, las curl downloads it
+	mkdir "$HOME/Downloads"
 	font_zip="$HOME/Downloads/CommitMono.zip"
 	curl -s https://api.github.com/repos/eigilnikolajsen/commit-mono/releases/latest |
 		grep "browser_download_url" |

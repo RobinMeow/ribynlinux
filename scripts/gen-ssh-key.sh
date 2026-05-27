@@ -3,13 +3,13 @@ set -euo pipefail
 
 source "$RIBYNS_ENV/scripts/utils.sh"
 
-EMAIL="$1"
+COMMENT="${1:-}"
 
-if [[ -z "$EMAIL" ]]; then
-	error "Email is required as the first argument"
+if [[ -z "$COMMENT" ]]; then
+	error "Comment is required as the first argument"
 	exit 1
 fi
 
-ssh-keygen -t rsa -b 4096 -C "$EMAIL"
+ssh-keygen -t rsa -b 4096 -C "$COMMENT"
 ssh-keyscan -H github.com >>~/.ssh/known_hosts
 ssh-keyscan -H codeberg.org >>~/.ssh/known_hosts

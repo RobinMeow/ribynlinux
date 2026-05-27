@@ -8,8 +8,9 @@ echo "Installing from source: $RIBYNS_ENV"
 info "Installing zsh"
 "$RIBYNS_ENV/scripts/install-zsh.sh"
 
-info "Installing CommitMono"
-"$RIBYNS_ENV/scripts/install-commit-mono.sh"
+# TODO: should include check if needed, and the download
+# info "Installing CommitMono"
+# "$RIBYNS_ENV/scripts/install-commit-mono.sh"
 
 info "Installing .gitconfig"
 "$RIBYNS_ENV/scripts/install-gitconfig.sh"
