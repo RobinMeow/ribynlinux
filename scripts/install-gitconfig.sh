@@ -10,8 +10,10 @@ git config --file "$RIBYNS_ENV/gitconfig" --get-regexp '^(core|init|advice|pull|
 	git config --global "$key" "$value"
 done
 
-# discard all aliases
-git config --global --remove-section alias 2>/dev/null
+# discard all aliases, if there are some
+if cat "$HOME/.gitconfig" | grep '\[alias\]'; then
+	git config --global --remove-section alias || true
+fi
 
 # re-add them all
 git config --file "$RIBYNS_ENV/gitconfig" --get-regexp '^alias\.' | while read -r key value; do
