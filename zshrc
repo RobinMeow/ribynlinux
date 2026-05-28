@@ -80,9 +80,10 @@ alias mpdd='mpd --no-daemon &'
 alias book='zathura --mode=fullscreen "$HOME/books/Efficient Linux at the Command Line (Daniel J. Barrett) (Z-Library).pdf"'
 alias gourced="gource --no-vsync --fullscreen --auto-skip-seconds 1 --seconds-per-day 1"
 
-export PATH="$HOME/.dotnet:$PATH"
 # prepend to take preceedence over windows/wsl passthrough paths
-export PATH="$PATH:$HOME/.dotnet/tools"
+export PATH="$HOME/.dotnet:$HOME/.dotnet/tools:$PATH"
+export DOTNET_ROOT="$HOME/.dotnet"
+export DOTNET_ROOT_X64="$HOME/.dotnet"
 
 export PATH="$PATH:$HOME/.cargo/bin"
 
