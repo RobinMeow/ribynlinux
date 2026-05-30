@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# overide the entries for core and advice
+# Not a real migration. If a previous version of ribyns-env had values and are not deleted
+# they wont be removed
+# new ones will be added
+# existing ones overidden
+
+base_gitconfig="$RIBYNS_ENV/git/gitconfig"
+git config --file $base_gitconfig --get-regexp '^(core|init|advice|pull|push)\.' | while read -r key value; do
+	git config --global "$key" "$value"
+done
+
+# discard all aliases, if there are some
+if cat "$HOME/.gitconfig" | grep '\[alias\]'; then
+	git config --global --remove-section alias || true
+fi
+
+# re-add them all
+git config --file $base_gitconfig --get-regexp '^alias\.' | while read -r key value; do
+	key="${key#alias.}"
+	git config --global alias."$key" "$value"
+done

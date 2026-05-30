@@ -2,7 +2,7 @@
 set -euo pipefail
 
 source "$RIBYNS_ENV/config.sh"
-source "$RIBYNS_ENV/scripts/utils.sh"
+source "$RIBYNS_ENV/lib/utils.sh"
 
 # default values are based on what guarantees a most stable system
 
@@ -37,7 +37,7 @@ if [ -d "$REPO_DEST" ]; then
 		verbose "Commit unchanged. Skipping build."
 	fi
 else
-	source "$RIBYNS_ENV/scripts/run_on_distro.sh"
+	source "$RIBYNS_ENV/lib/run_on_distro.sh"
 
 	run_on_arch <<'EOF'
 	verbose "Detected Arch Linux. Installing dependencies..."

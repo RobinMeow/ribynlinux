@@ -1,8 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-source "$RIBYNS_ENV/scripts/utils.sh"
-source "$RIBYNS_ENV/scripts/clone_repo.sh"
+source "$RIBYNS_ENV/lib/utils.sh"
 
 if [ ! -d "$HOME/.oh-my-zsh" ]; then
 	info "Installing Oh My Zsh"
@@ -29,12 +28,29 @@ fi
 
 # Default ZSH_CUSTOM if not set
 ZSH_CUSTOM="${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}"
-mkdir -p "$ZSH_CUSTOM/plugins"
+zsh_custom_plugin_dir="$ZSH_CUSTOM/plugins"
+mkdir -p $zsh_custom_plugin_dir
 
-clone_repo --depth 1 https://github.com/jeffreytse/zsh-vi-mode "$ZSH_CUSTOM/plugins/zsh-vi-mode"
-clone_repo --depth 1 https://github.com/zsh-users/zsh-autosuggestions "$ZSH_CUSTOM/plugins/zsh-autosuggestions"
-clone_repo --depth 1 https://github.com/zsh-users/zsh-syntax-highlighting.git "$ZSH_CUSTOM/plugins/zsh-syntax-highlighting"
-clone_repo --depth 1 https://github.com/zsh-users/zsh-completions.git "$ZSH_CUSTOM/plugins/zsh-completions"
+# ["<destination-dir>"]="<git url>"
+declare -A plugins=(
+	["zsh-vi-mode"]="https://github.com/jeffreytse/zsh-vi-mode"
+	["zsh-autosuggestions"]="https://github.com/zsh-users/zsh-autosuggestions"
+	["zsh-syntax-highlighting"]="https://github.com/zsh-users/zsh-syntax-highlighting.git"
+	["zsh-completions"]="https://github.com/zsh-users/zsh-completions.git"
+)
+
+for plugin in "${!plugins[@]}"; do
+	url="${plugins[$plugin]}"
+	dest="$zsh_custom_plugin_dir/$plugin"
+
+	if [[ ! -d "$dest" ]]; then
+		info "Cloning $plugin from $url"
+		git clone --depth 1 "$url" "$dest"
+	fi
+done
 
 p10k_dest="${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k"
-clone_repo "--depth=1" "https://github.com/romkatv/powerlevel10k.git" "$p10k_dest"
+if [[ ! -d "$p10k_dest" ]]; then
+	info "Cloning powerlevel10k from $url"
+	git clone --depth 1 "https://github.com/romkatv/powerlevel10k.git" "$p10k_dest"
+fi

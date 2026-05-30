@@ -1,46 +1,52 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-source "$RIBYNS_ENV/scripts/utils.sh"
+source "$RIBYNS_ENV/lib/utils.sh"
 
 echo "Installing from source: $RIBYNS_ENV"
 
 info "Installing zsh"
 "$RIBYNS_ENV/zsh/install.sh"
 
-# TODO: should include check if needed, and the download
-# info "Installing CommitMono"
-# "$RIBYNS_ENV/scripts/install-commit-mono.sh"
+# TODO: first run fails. r-rf m the dest dir, rerun manually and it succeeds..
+info "Installing CommitMono"
+"$RIBYNS_ENV/installers/install-commit-mono.sh"
 
-info "Installing .gitconfig"
-"$RIBYNS_ENV/scripts/install-gitconfig.sh"
+info "Installing git"
+"$RIBYNS_ENV/git/install.sh"
 
 info "Installing bat"
-"$RIBYNS_ENV/scripts/install-bat.sh"
+"$RIBYNS_ENV/bat/install.sh"
 
 info "Installing btop"
-"$RIBYNS_ENV/scripts/install-btop.sh"
+"$RIBYNS_ENV/btop/install.sh"
 
 info "Installing kitty"
-"$RIBYNS_ENV/scripts/install-kitty.sh"
+"$RIBYNS_ENV/kitty/install.sh"
 
 info "Installing wezterm"
-"$RIBYNS_ENV/scripts/install-wezterm.sh"
+"$RIBYNS_ENV/wezterm/install.sh"
 
 info "Installing nvim"
 "$RIBYNS_ENV/nvim/install.sh"
 
-info "Installing Rust Music Player Client"
-"$RIBYNS_ENV/scripts/install-rmpc.sh"
+info "Installing vale"
+"$RIBYNS_ENV/vale/install.sh"
 
 info "Installing tmux"
-"$RIBYNS_ENV/scripts/install-tmux.sh"
+"$RIBYNS_ENV/tmux/install.sh"
 
 info "Installing yazi"
-"$RIBYNS_ENV/scripts/install-yazi.sh"
+"$RIBYNS_ENV/yazi/install.sh"
+
+info "Installing mpd"
+"$RIBYNS_ENV/mpd/install.sh"
+
+info "Installing rmpc"
+"$RIBYNS_ENV/rmpc/install.sh"
 
 info "Installing zathura"
-"$RIBYNS_ENV/scripts/install-zathura.sh"
+"$RIBYNS_ENV/zathura/install.sh"
 
 full_install=false
 for arg in "$@"; do
@@ -67,18 +73,18 @@ for arg in "$@"; do
 
 	if [[ "$arg" == "--kde" ]]; then
 		info "Installing kde"
-		"$RIBYNS_ENV/scripts/install-kde.sh"
+		"$RIBYNS_ENV/kde/install.sh"
 	fi
 
 	if [[ "$arg" == "--hypr" ]]; then
 		info "Installing rofi"
-		"$RIBYNS_ENV/scripts/install-rofi.sh"
+		"$RIBYNS_ENV/rofi/install.sh"
 
 		info "Installing waybar"
-		"$RIBYNS_ENV/scripts/install-waybar.sh"
+		"$RIBYNS_ENV/waybar/install.sh"
 
 		info "Installing hypr"
-		"$RIBYNS_ENV/scripts/install-hypr.sh"
+		"$RIBYNS_ENV/hypr/install.sh"
 	fi
 done
 

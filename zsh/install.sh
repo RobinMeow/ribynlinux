@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-source "$RIBYNS_ENV/scripts/run_on_distro.sh"
+source "$RIBYNS_ENV/lib/run_on_distro.sh"
 
 run_on_arch sudo pacman -S --needed --noconfirm zsh
 run_on_fedora sudo dnf install -y zsh

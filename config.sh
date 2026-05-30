@@ -12,3 +12,5 @@ export RIBYN_NVIM_GIT_REF=${RIBYN_NVIM_GIT_REF:-stable}
 
 # whether or not to fetch the latest commits before checking out the BUILD_REF
 export RIBYN_NVIM_GIT_FETCH=${RIBYN_NVIM_GIT_FETCH:-false}
+
+export RIBYN_WEZTERM_CLEAN_ON_SYNC=${RIBYN_WEZTERM_CLEAN_ON_SYNC:-false}

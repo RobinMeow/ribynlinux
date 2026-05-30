@@ -20,37 +20,6 @@ ribyns-env/
 │   ├── sync
 │   └── doctor
 │
-├── modules/          # domain modules
-│   ├── nvim/
-│   │   ├── files/
-│   │   │   └── .config/nvim/
-│   │   ├── install
-│   │   ├── build
-│   │   ├── sync
-│   │   └── README.md
-│   │
-│   ├── hypr/
-│   ├── kitty/
-│   ├── tmux/
-│   ├── zsh/
-│   ├── git/
-│   ├── mpd/
-│   └── virt/
-│
-├── bin/              # personal CLI tools (synced to ~/bin)
-│   ├── ng-test
-│   ├── timer
-│   ├── chrono
-│   ├── webpify
-│   └── mount-pc-white
-│
-├── lib/              # reusable shell libraries
-│   ├── os.sh
-│   ├── package-manager.sh
-│   ├── fs.sh
-│   ├── logging.sh
-│   └── utils.sh
-│
 ├── docs/             # markdown knowledgebase
 │   ├── arch-install.md
 │   ├── linux.md
@@ -61,45 +30,4 @@ ribyns-env/
 │   ├── images/
 │   ├── sounds/
 │   └── wallpapers/
-│
-├── state/            # generated/cache/runtime
-├── tmp/
-└── README.md
 ```
-
-more recommendations by ai2:
-
-```
-.
-├── config
-│   ├── nvim
-│   │   ├── init.lua
-│   │   ├── install-nvim.sh  <-- Functions: sync_nvim, build_nvim
-│   │   └── lua/
-│   ├── hypr
-│   │   ├── hyprland.conf
-│   │   └── install-hypr.sh
-├── bin  <-- SYNCED TO ~/bin
-│   ├── ng-test              <-- (Renamed from ng-test.sh)
-│   └── chrono               <-- (Renamed from chrono.sh)
-├── core
-│   ├── os-detect.sh
-│   ├── utils.sh
-│   └── install.sh           <-- Sources ./config/**/install-*.sh
-```
-
-```
-.
-├── modules
-│   ├── nvim
-│   │   ├── setup.sh         <-- Installation/Sync logic
-│   │   └── README.md
-│   ├── system
-│   │   ├── arch-install.sh
-│   │   └── pacman-list.txt
-│   └── network
-│       └── gen-ssh.sh
-├── bin                      <-- Your PATH tools
-└── config                   <-- Only the dotfiles
-```
-

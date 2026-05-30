@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-source "$RIBYNS_ENV/scripts/utils.sh"
+source "$RIBYNS_ENV/lib/utils.sh"
 
-source "$RIBYNS_ENV/scripts/run_on_distro.sh"
+source "$RIBYNS_ENV/lib/run_on_distro.sh"
 
 RIBYNS_ENV_LOG_INFO=true info "Installing gadget packages..."
 
