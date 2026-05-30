@@ -5,6 +5,7 @@
 - rebind outermost middle btn on moergo to normal shift, unlayerd
 - could make a script to update scripts into "$HOME/bin" to get rid of the .sh suffix so it feels more native
 - check if legit: sudo localectl set-x11-keymap de pc105 nodeadkeys caps:swapescape
+- log all output instead of using verbose
 
 ## Rust app ideas
 

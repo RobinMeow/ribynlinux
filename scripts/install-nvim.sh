@@ -37,3 +37,12 @@ EOF
 
 mkdir -p "$HOME/.config/nvim"
 cp -r "$RIBYNS_ENV/config/nvim/"* "$HOME/.config/nvim/"
+
+# TODO: improve script useability
+#
+# requirements:
+# - invoke from install.sh
+# - update only optionally
+# - switch between stable/master
+# - optionally clear the existing nvim config before installing the new one
+# - optionally install pm packages (often i just want to copy config files)

@@ -43,13 +43,13 @@ success() {
 }
 
 info() {
-	if [[ "${RIBYNS_ENV_LOG_INFO:-false}" =~ ^(true|1|yes)$ ]]; then
+	if [[ "${RIBYNS_ENV_LOG_INFO:-true}" =~ ^(true|1|yes)$ ]]; then
 		echo -e "${CATBLUE}[INFO]${NC} $*"
 	fi
 }
 
 verbose() {
-	if [[ "${RIBYNS_ENV_LOG_VERBOSE:-false}" =~ ^(true|1|yes)$ ]]; then
+	if [[ "${RIBYNS_ENV_LOG_VERBOSE:-true}" =~ ^(true|1|yes)$ ]]; then
 		echo -e "${CATSURFACE2}[VERBOSE]${NC} $*"
 	fi
 }

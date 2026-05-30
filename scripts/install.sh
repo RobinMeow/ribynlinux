@@ -27,9 +27,9 @@ info "Installing kitty"
 info "Installing wezterm"
 "$RIBYNS_ENV/scripts/install-wezterm.sh"
 
-# TODO: really need to prevent rebuilding nvim from source when there is no new commit
-# info "Installing nvim"
-# "$RIBYNS_ENV/scripts/install-nvim.sh"
+info "Installing nvim"
+"$RIBYNS_ENV/nvim/build-from-source.sh"
+"$RIBYNS_ENV/nvim/sync.sh"
 
 info "Installing Rust Music Player Client"
 "$RIBYNS_ENV/scripts/install-rmpc.sh"
