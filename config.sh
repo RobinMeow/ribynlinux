@@ -10,3 +10,8 @@ export RIBYN_NVIM_GIT_REF="stable"
 
 # whether or not to fetch the latest commits before checking out the BUILD_REF
 export RIBYN_NVIM_GIT_FETCH=false
+
+if [[ -f "$HOME/.config/ribyn/config.sh" ]]; then
+	# support local overrides
+	source "$HOME/.config/ribyn/config.sh"
+fi
