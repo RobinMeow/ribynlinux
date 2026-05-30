@@ -58,7 +58,7 @@ export ZVM_KEYTIMEOUT="2" # 2s timeout e.g. for cs"'
 
 export EDITOR='nvim'
 
-export PATH="$PATH:$HOME/ribyns-env/scripts"
+export PATH="$PATH:$HOME/ribyns-env/bin"
 export RIBYNS_ENV="$HOME/ribyns-env"
 
 # treeview of all git tracked files (ripgrep respects .gitignore)
