@@ -113,14 +113,15 @@ ribyn() {
 
 	if [[ "$cmd" == "env" ]]; then
 		shift
-		cd $RIBYNS_ENV
+		cd "$RIBYNS_ENV" || exit
 	elif [[ "$cmd" == "state" ]]; then
 		shift
-		cd $RIBYNS_
+		cd "$HOME/ribyns-state" || exit
 	elif [[ "$cmd" == "run" ]]; then
 		shift
-		# TODO: use fzf to select all .sh scripts in the repo and run the selected on
-		echo "Not yet implemented"
+		print -z "$( (
+				fd . "$RIBYNS_ENV" --extension=sh
+			) | fzf)"
 	else
 		echo "ribyn: unknown key '$1'"
 		for k in "${!temp_dirs[@]}"; do
