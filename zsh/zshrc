@@ -1,6 +1,7 @@
 # vim: ft=zsh
 # shellcheck disable=SC2148
-
+# shellcheck shell=zsh
+#
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -18,7 +19,8 @@ HISTCONTROL=ignoredups
 # Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
-if [[ -f "$HOME/.p10k.zsh" ]]; then
+p10kfile="$HOME/.config/ribyn/zsh/p10k.zsh"
+if [[ -f "$p10kfile" ]]; then
 	ZSH_THEME="powerlevel10k/powerlevel10k"
 else
 	ZSH_THEME="avit"
@@ -107,25 +109,27 @@ fh() {
 }
 
 ribyn() {
-	# associative array (apparently scoped to this fn)
-	declare -A temp_dirs=(
-		[env]="$HOME/ribyns-env/"
-		[state]="$HOME/ribyns-state/"
-	)
+	local cmd="$1"
 
-	if [[ -n "$1" && -n "${temp_dirs[$1]}" ]]; then
-		cd "${temp_dirs[$1]}" || return 1
+	if [[ "$cmd" == "env" ]]; then
+		shift
+		cd $RIBYNS_ENV
+	elif [[ "$cmd" == "state" ]]; then
+		shift
+		cd $RIBYNS_
+	elif [[ "$cmd" == "run" ]]; then
+		shift
+		# TODO: use fzf to select all .sh scripts in the repo and run the selected on
+		echo "Not yet implemented"
 	else
 		echo "ribyn: unknown key '$1'"
-		# echo "Available keys: ${(k)temp_dirs}" NOTE: this is zsh syntax and bashls doesnt like it
 		for k in "${!temp_dirs[@]}"; do
 			echo "  $k"
 		done
 		return 1
 	fi
 }
-# tab completion
-complete -W "env state" ribyn
+complete -W "env state run" ribyn
 
 # Then use y instead of yazi to start, and press q to quit, you'll see
 # the CWD changed. Sometimes, you don't want to change, press Q to quit.
@@ -144,4 +148,6 @@ echo ".zshrc startup duration: ${_total_ms}ms. $(date +%A,\ %Y-%m-%d\ %H:%M)"
 unset _start_time _total_ms
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+if [[ -f "$p10kfile"  ]]; then
+	source $p10kfile
+fi

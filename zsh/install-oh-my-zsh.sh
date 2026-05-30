@@ -2,11 +2,6 @@
 set -euo pipefail
 
 source "$RIBYNS_ENV/scripts/utils.sh"
-source "$RIBYNS_ENV/scripts/run_on_distro.sh"
-
-run_on_arch sudo pacman -S --needed --noconfirm zsh
-run_on_fedora sudo dnf install -y zsh
-
 source "$RIBYNS_ENV/scripts/clone_repo.sh"
 
 if [ ! -d "$HOME/.oh-my-zsh" ]; then
@@ -43,7 +38,3 @@ clone_repo --depth 1 https://github.com/zsh-users/zsh-completions.git "$ZSH_CUST
 
 p10k_dest="${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k"
 clone_repo "--depth=1" "https://github.com/romkatv/powerlevel10k.git" "$p10k_dest"
-cp "$RIBYNS_ENV/p10k.zsh" "$HOME/.p10k.zsh"
-
-# copy it last, in hope ohmyzsh doesnt override it
-cp "$RIBYNS_ENV/zshrc" "$HOME/.zshrc"

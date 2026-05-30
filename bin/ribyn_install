@@ -6,7 +6,7 @@ source "$RIBYNS_ENV/scripts/utils.sh"
 echo "Installing from source: $RIBYNS_ENV"
 
 info "Installing zsh"
-"$RIBYNS_ENV/scripts/install-zsh.sh"
+"$RIBYNS_ENV/zsh/install.sh"
 
 # TODO: should include check if needed, and the download
 # info "Installing CommitMono"
@@ -28,8 +28,7 @@ info "Installing wezterm"
 "$RIBYNS_ENV/scripts/install-wezterm.sh"
 
 info "Installing nvim"
-"$RIBYNS_ENV/nvim/build-from-source.sh"
-"$RIBYNS_ENV/nvim/sync.sh"
+"$RIBYNS_ENV/nvim/install.sh"
 
 info "Installing Rust Music Player Client"
 "$RIBYNS_ENV/scripts/install-rmpc.sh"
