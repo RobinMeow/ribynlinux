@@ -1,5 +1,6 @@
 [core]
 	pager = less --quit-if-one-screen --RAW-CONTROL-CHARS --no-init
+	editor = nvim
 [init]
 	defaultBranch = master
 [advice]
