@@ -6,47 +6,47 @@ source "$RIBYNS_ENV/lib/utils.sh"
 echo "Installing from source: $RIBYNS_ENV"
 
 info "Installing zsh"
-"$RIBYNS_ENV/zsh/install.sh"
+"$RIBYNS_ENV/apps/zsh/install.sh"
 
 # TODO: first run fails. r-rf m the dest dir, rerun manually and it succeeds..
 info "Installing CommitMono"
 "$RIBYNS_ENV/installers/install-commit-mono.sh"
 
 info "Installing git"
-"$RIBYNS_ENV/git/install.sh"
+"$RIBYNS_ENV/apps/git/install.sh"
 
 info "Installing bat"
-"$RIBYNS_ENV/bat/install.sh"
+"$RIBYNS_ENV/apps/bat/install.sh"
 
 info "Installing btop"
-"$RIBYNS_ENV/btop/install.sh"
+"$RIBYNS_ENV/apps/btop/install.sh"
 
 info "Installing kitty"
-"$RIBYNS_ENV/kitty/install.sh"
+"$RIBYNS_ENV/apps/kitty/install.sh"
 
 info "Installing wezterm"
-"$RIBYNS_ENV/wezterm/install.sh"
+"$RIBYNS_ENV/apps/wezterm/install.sh"
 
 info "Installing nvim"
-"$RIBYNS_ENV/nvim/install.sh"
+"$RIBYNS_ENV/apps/nvim/install.sh"
 
 info "Installing vale"
-"$RIBYNS_ENV/vale/install.sh"
+"$RIBYNS_ENV/apps/vale/install.sh"
 
 info "Installing tmux"
-"$RIBYNS_ENV/tmux/install.sh"
+"$RIBYNS_ENV/apps/tmux/install.sh"
 
 info "Installing yazi"
-"$RIBYNS_ENV/yazi/install.sh"
+"$RIBYNS_ENV/apps/yazi/install.sh"
 
 info "Installing mpd"
-"$RIBYNS_ENV/mpd/install.sh"
+"$RIBYNS_ENV/apps/mpd/install.sh"
 
 info "Installing rmpc"
-"$RIBYNS_ENV/rmpc/install.sh"
+"$RIBYNS_ENV/apps/rmpc/install.sh"
 
 info "Installing zathura"
-"$RIBYNS_ENV/zathura/install.sh"
+"$RIBYNS_ENV/apps/zathura/install.sh"
 
 full_install=false
 for arg in "$@"; do
@@ -73,18 +73,18 @@ for arg in "$@"; do
 
 	if [[ "$arg" == "--kde" ]]; then
 		info "Installing kde"
-		"$RIBYNS_ENV/kde/install.sh"
+		"$RIBYNS_ENV/apps/kde/install.sh"
 	fi
 
 	if [[ "$arg" == "--hypr" ]]; then
 		info "Installing rofi"
-		"$RIBYNS_ENV/rofi/install.sh"
+		"$RIBYNS_ENV/apps/rofi/install.sh"
 
 		info "Installing waybar"
-		"$RIBYNS_ENV/waybar/install.sh"
+		"$RIBYNS_ENV/apps/waybar/install.sh"
 
 		info "Installing hypr"
-		"$RIBYNS_ENV/hypr/install.sh"
+		"$RIBYNS_ENV/apps/hypr/install.sh"
 	fi
 done
 
