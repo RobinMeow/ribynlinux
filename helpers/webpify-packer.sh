@@ -38,7 +38,7 @@ done
 	usage
 }
 
-OUTPUT_DIR="$RIBYNS_ENV/images/zip"
+OUTPUT_DIR="$RIBYNS_ENV/assets/images/zip"
 
 if [ -d "$INPUT_DIR" ]; then
 	FILES=("$INPUT_DIR"/*)

@@ -28,8 +28,8 @@ if [[ $RIBYN_WEZTERM_CLEAN_ON_SYNC ]]; then
 fi
 
 mkdir -p "$DEST_CONFIG_DIR/wallpapers"
-if [[ -d "$RIBYNS_ENV/images/wallpapers" ]]; then
-	cp "$RIBYNS_ENV/images/wallpapers/"* "$DEST_CONFIG_DIR/wallpapers/"
+if [[ -d "$RIBYNS_ENV/assets/images/wallpapers" ]]; then
+	cp "$RIBYNS_ENV/assets/images/wallpapers/"* "$DEST_CONFIG_DIR/wallpapers/"
 fi
 
 # copy .config/wezterm content (excluding my-workspaces.lua)
@@ -40,6 +40,7 @@ for file in "$RIBYNS_ENV/apps/wezterm/config/"*; do
 	fi
 done
 
+# WARN: motions on other branches are not yet transferred to the new dir structure
 motions_dir="$RIBYNS_ENV/images/motions"
 if [[ -d $motions_dir ]]; then
 	mkdir -p "$DEST_CONFIG_DIR/motions"
