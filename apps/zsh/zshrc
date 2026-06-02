@@ -60,8 +60,11 @@ export ZVM_KEYTIMEOUT="2" # 2s timeout e.g. for cs"'
 
 export EDITOR='nvim'
 
-export PATH="$PATH:$HOME/ribyns-env/bin"
 export RIBYNS_ENV="$HOME/ribyns-env"
+export PATH="$PATH:$HOME/ribyns-env/bin"
+if [[ -d "$HOME/ribyns-state/bin" ]]; then
+	export PATH="$PATH:$HOME/ribyns-state/bin"
+fi
 
 # treeview of all git tracked files (ripgrep respects .gitignore)
 alias lstree='eza -1T'
@@ -80,7 +83,6 @@ alias ls='eza'
 alias lsd='eza -1 --group-directories-first --git-ignore'
 
 alias mpdd='mpd --no-daemon &'
-alias book='zathura --mode=fullscreen "$HOME/books/Efficient Linux at the Command Line (Daniel J. Barrett) (Z-Library).pdf"'
 alias gourced="gource --no-vsync --fullscreen --auto-skip-seconds 1 --seconds-per-day 1"
 
 # prepend to take preceedence over windows/wsl passthrough paths
