@@ -9,6 +9,7 @@ for literally every requirement. (cost is an implicit requirement)
 [Scylla MK2 kit](https://bastardkb.com/product/scylla-kit/?v=5f02f0889301)
 or Dactyl in general like [hotswap dactyl on etsy](https://www.etsy.com/de-en/listing/1893980117/hotswap-dactyl-manuform-ergonomic?ls=s&ga_order=most_relevant&ga_search_type=all&ga_view_type=gallery&ga_search_query=dactyl+keyboard+cases&ref=sr_gallery-1-2&sr_prefetch=0&pf_from=market&content_source=5e9dc094-fe18-46de-a420-cbf0c5d3de70%253ALTa047550c1aebd484ad7d7bf6423c261a5ef2b7f3&organic_search_click=1&logging_key=5e9dc094-fe18-46de-a420-cbf0c5d3de70%3ALTa047550c1aebd484ad7d7bf6423c261a5ef2b7f3)
 [Kinesis Advantage360 Profession](https://kinesis-ergo.com/shop/adv360pro/)
+https://www.diykeyboards.com/keyboards/keyboard-kits/product/dactyl-manuform-kit
 
 ## Requirements
 
