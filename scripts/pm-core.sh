@@ -50,7 +50,7 @@ run_on_arch <<'EOF'
 		gource
 EOF
 
-# TODO: bluetui requires build from source on fedora
+# TODO: bluetui requires build from source on fedora (cargo install bluetui will work, but doesnt cover updating on its own)
 run_on_fedora <<'EOF'
 	sudo dnf install -y \
 		@development-tools \

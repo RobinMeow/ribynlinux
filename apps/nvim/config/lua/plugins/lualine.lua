@@ -6,7 +6,6 @@ return {
       -- | A | B | C        X | Y | Z |
 
       return {
-        -- theme = "catppuccin", -- TODO: use catppuccin
         options = {
           -- defaults but i might remove them if i need more space
           component_separators = { left = "", right = "" },
