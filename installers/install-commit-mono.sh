@@ -19,14 +19,12 @@ if [[ ! -d "$install_dest" ]] || [[ "$reinstall" == true ]]; then
 	run_on_arch sudo pacman -S --needed --noconfirm unzip grep coreutils curl
 
 	# first curl gets infos of latest, next two pipes retrieve the url, las curl downloads it
-	if [[ ! -d "$HOME/Downloads/" ]]; then
-		mkdir "$HOME/Downloads"
-	fi
+	mkdir -p "$HOME/Downloads"
 	font_zip="$HOME/Downloads/CommitMono.zip"
-	curl -s https://api.github.com/repos/eigilnikolajsen/commit-mono/releases/latest |
+	curl https://api.github.com/repos/eigilnikolajsen/commit-mono/releases/latest |
 		grep "browser_download_url" |
 		cut -d '"' -f 4 |
-		xargs -I {} curl -fSL -o "$font_zip" "{}"
+		xargs -I downloadurl curl --fail --location --show-error --output "$font_zip" "downloadurl"
 
 	mkdir -p "$install_dest"
 
