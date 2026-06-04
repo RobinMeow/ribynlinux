@@ -47,6 +47,9 @@ info "Installing rmpc"
 info "Installing zathura"
 "$RIBYNS_ENV/apps/zathura/install.sh"
 
+info "Installing bluetui"
+"$RIBYNS_ENV/apps/bluetui/install.sh"
+
 full_install=false
 for arg in "$@"; do
 	if [[ "$arg" == "--full-install" ]]; then
