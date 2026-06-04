@@ -6,6 +6,7 @@
 - could make a script to update scripts into "$HOME/bin" to get rid of the .sh suffix so it feels more native
 - check if legit: sudo localectl set-x11-keymap de pc105 nodeadkeys caps:swapescape
 - log all output instead of using verbose
+- put my user into the docker group
 
 ## Rust app ideas
 
@@ -49,6 +50,7 @@ do it
 ## zsh / omz
 
 - learn about the magic space
+- add bible verses as message of the day
 
 ## Hyprland
 

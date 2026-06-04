@@ -3,5 +3,4 @@ set -euo pipefail
 
 # run with sudo, unless your
 # user is added to docker group
-# TODO:put my user into the docker group
 sudo docker run -it --rm fedora:latest /bin/bash

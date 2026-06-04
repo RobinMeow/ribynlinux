@@ -4,7 +4,7 @@ set -euo pipefail
 source "$RIBYNS_ENV/lib/utils.sh"
 source "$RIBYNS_ENV/config.sh"
 
-# TODO: i can still use wezterm from within wsl.
+# NOTE: i can still use wezterm from within wsl.
 # so might as well install as normally and for wsl copy additionially
 
 DEST_CONFIG_DIR="$HOME/.config/wezterm"
