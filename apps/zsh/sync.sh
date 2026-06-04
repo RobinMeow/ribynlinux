@@ -12,6 +12,6 @@ if [[ -f "$HOME/.zshrc-local.sh" ]]; then
 	mv "$HOME/.zshrc-local.sh" "$localdest"
 fi
 
-if [[ -f "$localdest" ]]; then
-	cp "$RIBYNS_ENV/apps/zsh/zshrc-local.sh" "$localdest"
+if [[ ! -f "$localdest" ]]; then
+	cp "$RIBYNS_ENV/apps/zsh/local.sh" "$localdest"
 fi
