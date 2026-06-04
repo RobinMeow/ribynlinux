@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-# TODO: move to .config/ribyn/zsh/local.sh
 
 # export RIBYNS_ENV_LOG_VERBOSE=false # defaults to true
 # export RIBYNS_ENV_LOG_INFO=false # defaults to true
