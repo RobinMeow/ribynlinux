@@ -1,21 +1,8 @@
-# A TOML linter such as https://taplo.tamasfe.dev/ can use this schema to validate your config.
-# If you encounter any issues, please make an issue at https://github.com/yazi-rs/schemas.
-"$schema" = "https://yazi-rs.github.io/schemas/yazi.json"
+#:schema https://yazi-rs.github.io/schemas/yazi.json
+# A TOML linter such as https://github.com/tombi-toml/tombi can use this schema to validate your config.
+# https://github.com/sxyazi/yazi/issues/3938
 
 [mgr]
-prepend_keymap = [
-	# NOTE: Example keymaps for using mediainfo.yazi
-	# { on = "<F3>", run = "plugin mediainfo -- toggle-metadata", desc = "Toggle media preview metadata" },
-	# { on = "<F4>", run = "plugin mediainfo -- toggle-preview", desc = "Toggle media preview image" },
-	# { on = "<F6>", run = "plugin mediainfo -- hide-metadata", desc = "Hide media preview metadata" },
-	# { on = "<F7>", run = "plugin mediainfo -- hide-preview", desc = "Hide media preview image" },
-	# { on = "<F8>", run = "plugin mediainfo -- show-metadata", desc = "Show media preview metadata" },
-	# { on = "<F9>", run = "plugin mediainfo -- show-preview", desc = "Show media preview image" },
-	# { on = "<F5>", run = "plugin mediainfo -- reset", desc = "Reset media preview to default settings" },
-	# { on = "<F10>", run = "plugin mediainfo -- --toggle-preview --toggle-metadata", desc = "Toggle both media preview image and metadata" },
-	# { on = "<F11>", run = "plugin mediainfo -- --show-preview --hide-metadata", desc = "Show media preview image and hide metadata" },
-	# { on = "<F12>", run = "plugin mediainfo -- --show-preview --hide-metadata --reset --show-metadata --hide-preview", desc = "Show media preview image and hide metadata" },
-]
 ratio          = [ 1, 4, 3 ]
 sort_by        = "alphabetical"
 sort_sensitive = false
@@ -27,7 +14,6 @@ show_hidden    = true
 show_symlink   = true
 scrolloff      = 5
 mouse_events   = [ "click", "scroll" ]
-title_format   = "Yazi: {cwd}"
 
 [preview]
 wrap            = "no"
@@ -108,9 +94,11 @@ rules = [
 ]
 
 [tasks]
-micro_workers    = 10
-macro_workers    = 10
-bizarre_retry    = 3
+# NOTE: got invalidated by yazis update (no longer exists. they got split up into multiple small ones)
+# ill stick to the default now a see where it takes me
+# micro_workers    = 10
+# macro_workers    = 10
+bizarre_retry    = 2
 image_alloc      = 536870912  # 512MB
 image_bound      = [ 10000, 10000 ]
 suppress_preload = false
@@ -118,9 +106,9 @@ suppress_preload = false
 [plugin]
 fetchers = [
 	# Mimetype
-	{ id = "mime", url = "*/",         run = "mime.dir", prio = "high" },
-	{ id = "mime", url = "local://*",  run = "mime.local", prio = "high" },
-	{ id = "mime", url = "remote://*", run = "mime.remote", prio = "high" },
+	{ group = "mime", url = "*/",         run = "mime.dir", prio = "high" },
+	{ group = "mime", url = "local://*",  run = "mime.local", prio = "high" },
+	{ group = "mime", url = "remote://*", run = "mime.remote", prio = "high" },
 ]
 spotters = [
 	{ url = "*/", run = "folder" },

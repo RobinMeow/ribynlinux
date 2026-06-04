@@ -1,0 +1,20 @@
+# A TOML linter such as https://github.com/tombi-toml/tombi can use this schema to validate your config.
+# If you encounter any problems, please make an issue at https://github.com/yazi-rs/schemas.
+  
+#:schema https://yazi-rs.github.io/schemas/keymap.json
+
+[mgr]
+prepend_keymap = [
+	# NOTE: Example keymaps for using mediainfo.yazi
+	# { on = "<F3>", run = "plugin mediainfo -- toggle-metadata", desc = "Toggle media preview metadata" },
+	# { on = "<F4>", run = "plugin mediainfo -- toggle-preview", desc = "Toggle media preview image" },
+	# { on = "<F6>", run = "plugin mediainfo -- hide-metadata", desc = "Hide media preview metadata" },
+	# { on = "<F7>", run = "plugin mediainfo -- hide-preview", desc = "Hide media preview image" },
+	# { on = "<F8>", run = "plugin mediainfo -- show-metadata", desc = "Show media preview metadata" },
+	# { on = "<F9>", run = "plugin mediainfo -- show-preview", desc = "Show media preview image" },
+	# { on = "<F5>", run = "plugin mediainfo -- reset", desc = "Reset media preview to default settings" },
+	# { on = "<F10>", run = "plugin mediainfo -- --toggle-preview --toggle-metadata", desc = "Toggle both media preview image and metadata" },
+	# { on = "<F11>", run = "plugin mediainfo -- --show-preview --hide-metadata", desc = "Show media preview image and hide metadata" },
+	# { on = "<F12>", run = "plugin mediainfo -- --show-preview --hide-metadata --reset --show-metadata --hide-preview", desc = "Show media preview image and hide metadata" },
+]
+
