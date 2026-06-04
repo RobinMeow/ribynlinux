@@ -79,6 +79,20 @@ vim.o.confirm = true
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 vim.keymap.set("t", "<Esc><Esc>", "<c-\\><c-n>")
 
+vim.keymap.set("n", "<leader><F2>", "*:%s///g<left><left>", { desc = "rename current word" })
+-- * (Asterisk): This is a built-in Vim command. It looks at the word under your cursor, searches forward for it, and highlights all matches. Crucially, it saves that word into Vim's internal "search register".
+-- :: Opens the command-line at the bottom of the screen.
+-- %s: Starts a global substitution (search and replace) across the entire (%) file.
+-- ///: The standard syntax is :%s/search/replace/. However, if you leave the search area empty, Vim automatically uses the last thing you searched for. Because you just pressed *, Vim secretly fills in the word under your cursor.
+-- g: The "global" flag, meaning it changes every occurrence on a line, not just the first one.
+-- <Left><Left>: Simulates pressing the Left arrow key twice. This moves your blinking cursor backward, landing it right between the two slashes: :%s//|/g.
+vim.keymap.set("x", "<leader><F2>", '"hy:%s/<C-r>h//g<left><left>', { desc = "rename visual selection" })
+-- "hy: * "h tells Vim to use a specific clipboard slot (the h register).
+-- y yanks (copies) your highlighted visual selection into that h slot.
+-- :: Opens the command line.
+-- %s/: Starts the global search and replace command.
+-- <C-r>h: In Vim's command line, pressing Ctrl + r followed by a register name pastes the contents of that register. This literally dumps whatever text you highlighted directly into the search field.
+
 -- Move selected lines up/down
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
