@@ -71,6 +71,7 @@ alias lstree='eza -1T'
 alias nvimconfig='cd $HOME/.config/nvim && nvim'
 
 alias gpl='git pull'
+alias gpll='git pull && git log -1 --pretty=format:"%C(auto)%h%d%Creset %s %C(green)%cn%Creset %C(cyan)(%cr)%Creset"'
 
 # override the defaults from the omz git plugin:
 alias gpf='git push --force-with-lease' # exlude flag: --force-if-includes
