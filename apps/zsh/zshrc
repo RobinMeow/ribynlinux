@@ -125,6 +125,17 @@ ribyn() {
 		print -z "$( (
 				fd . "$RIBYNS_ENV" --extension=sh
 			) | fzf)"
+	elif [[ "$cmd" == "keyboard" ]]; then
+		shift
+  	selected_img="$( (
+				fd . "$RIBYNS_ENV/keyboard/glove80" --extension=webp
+			) | fzf)"
+			if [[ -f "$selected_img" ]]; then
+				feh "$selected_img"
+			fi
+	elif [[ "$cmd" == "keyboard-symbols" ]]; then
+		shift
+		feh "$RIBYNS_ENV/keyboard/glove80/colossians3-23-symbols-fkeys-layer.webp"
 	elif [[ "$cmd" == "bin" ]]; then
 		shift
 		print -z "$( (
@@ -144,7 +155,7 @@ ribyn() {
 		return 1
 	fi
 }
-complete -W "env state run bin" ribyn
+complete -W "env state run bin keyboard keyboard-symbols" ribyn
 
 # Then use y instead of yazi to start, and press q to quit, you'll see
 # the CWD changed. Sometimes, you don't want to change, press Q to quit.
