@@ -68,39 +68,28 @@ return {
       vim.keymap.set("n", "<leader>sh", builtin.help_tags, { desc = "[S]earch [H]elp" })
       vim.keymap.set("n", "<leader>sk", builtin.keymaps, { desc = "[S]earch [K]eymaps (which_key i => C-/ n => ?)" })
       vim.keymap.set("n", "<leader>sf", builtin.find_files, { desc = "[S]earch [F]iles" })
-      vim.keymap.set("n", "<leader>srg", builtin.registers, { desc = "[S]earch [R]e[G]isters" })
-      vim.keymap.set("n", "<leader>sgf", builtin.git_files, { desc = "[S]earch [G]it [F]iles" })
-      vim.keymap.set("n", "<leader>si", function()
+      vim.keymap.set("n", '<leader>s"', builtin.registers, { desc = '[S]earch ["] registers' })
+      vim.keymap.set("n", "<leader>sb", builtin.buffers, { desc = "[s]earch [b]uffers" })
+      vim.keymap.set("n", "<leader>se", function()
         builtin.find_files({ hidden = false, no_ignore = true, no_ignore_parent = true })
-      end, { desc = "[s]earch [i]gnored" })
+      end, { desc = "[s]earch [e]verything (hidden, ignored and ignored by parent)" })
       vim.keymap.set("n", "<leader>scd", SearchCurrentDirectory, { desc = "[S]earch [C]urrent [D]irectory" })
       vim.keymap.set("n", "<leader>ss", builtin.builtin, { desc = "[S]earch [S]elect Telescope" })
-      vim.keymap.set("n", "<leader>sw", builtin.grep_string, { desc = "[S]earch current [W]ord" })
+      vim.keymap.set("n", "<leader>s*", builtin.grep_string, { desc = "[s]earch [w]ord under cursor" })
       vim.keymap.set("n", "<leader>sg", builtin.live_grep, { desc = "[S]earch by [G]rep" })
-      vim.keymap.set("n", "<leader>sgg", function()
-        builtin.live_grep({
-          additional_args = { "--hidden" },
-          -- This ensures we respect .gitignore but include hidden files
-          prompt_title = "grep (inlcuding hidden files)",
-        })
-      end, { desc = "[S]earch [G]rep [G]it files" })
       vim.keymap.set("n", "<leader>sd", builtin.diagnostics, { desc = "[S]earch [D]iagnostics" })
       vim.keymap.set("n", "<leader>sr", builtin.resume, { desc = "[S]earch [R]esume" })
       vim.keymap.set("n", "<leader>s.", builtin.oldfiles, { desc = '[S]earch Old Files ("." for repeat)' })
-      vim.keymap.set("n", "<leader>eb", builtin.buffers, { desc = "Search [E]xisting [B]uffers" })
-      vim.keymap.set("n", "<leader><leader>cs", builtin.colorscheme, { desc = "[ ][ ][c]olor[s]cheme" })
+      vim.keymap.set("n", "<leader>scs", builtin.colorscheme, { desc = "[s]earch [c]olor[s]cheme" })
 
-      -- Slightly advanced example of overriding default behavior and theme
+      -- two examples of reusing the exisitng builtins differently
       vim.keymap.set("n", "<leader>/", function()
-        -- You can pass additional configuration to Telescope to change the theme, layout, etc.
         builtin.current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
           winblend = 10,
           previewer = false,
         }))
-      end, { desc = "[/] Fuzzily search in current buffer" })
+      end, { desc = "[/] fuzzy search current buffer" })
 
-      -- It's also possible to pass additional configuration options.
-      --  See `:help telescope.builtin.live_grep()` for information about particular keys
       vim.keymap.set("n", "<leader>s/", function()
         builtin.live_grep({
           grep_open_files = true,
