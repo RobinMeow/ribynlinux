@@ -101,7 +101,7 @@
     # disk_usage            # disk usage
     # ram                   # free RAM
     # swap                  # used swap
-    todo                    # todo items (https://github.com/todotxt/todo.txt-cli)
+    task                    # task items (https://github.com/tasktxt/task.txt-cli)
     timewarrior             # timewarrior tracking status (https://timewarrior.net/)
     taskwarrior             # taskwarrior task count (https://taskwarrior.org/)
     per_directory_history   # Oh My Zsh per-directory-history local/global indicator
@@ -821,29 +821,29 @@
   # Custom icon.
   # typeset -g POWERLEVEL9K_LOAD_VISUAL_IDENTIFIER_EXPANSION='⭐'
 
-  ################[ todo: todo items (https://github.com/todotxt/todo.txt-cli) ]################
-  # Todo color.
-  typeset -g POWERLEVEL9K_TODO_FOREGROUND=4
-  # Hide todo when the total number of tasks is zero.
-  typeset -g POWERLEVEL9K_TODO_HIDE_ZERO_TOTAL=true
-  # Hide todo when the number of tasks after filtering is zero.
-  typeset -g POWERLEVEL9K_TODO_HIDE_ZERO_FILTERED=false
+  ################[ task: task items (https://github.com/tasktxt/task.txt-cli) ]################
+  # Task color.
+  typeset -g POWERLEVEL9K_TASK_FOREGROUND=4
+  # Hide task when the total number of tasks is zero.
+  typeset -g POWERLEVEL9K_TASK_HIDE_ZERO_TOTAL=true
+  # Hide task when the number of tasks after filtering is zero.
+  typeset -g POWERLEVEL9K_TASK_HIDE_ZERO_FILTERED=false
 
-  # Todo format. The following parameters are available within the expansion.
+  # Task format. The following parameters are available within the expansion.
   #
-  # - P9K_TODO_TOTAL_TASK_COUNT     The total number of tasks.
-  # - P9K_TODO_FILTERED_TASK_COUNT  The number of tasks after filtering.
+  # - P9K_TASK_TOTAL_TASK_COUNT     The total number of tasks.
+  # - P9K_TASK_FILTERED_TASK_COUNT  The number of tasks after filtering.
   #
-  # These variables correspond to the last line of the output of `todo.sh -p ls`:
+  # These variables correspond to the last line of the output of `task.sh -p ls`:
   #
-  #   TODO: 24 of 42 tasks shown
+  #   TASK: 24 of 42 tasks shown
   #
-  # Here 24 is P9K_TODO_FILTERED_TASK_COUNT and 42 is P9K_TODO_TOTAL_TASK_COUNT.
+  # Here 24 is P9K_TASK_FILTERED_TASK_COUNT and 42 is P9K_TASK_TOTAL_TASK_COUNT.
   #
-  # typeset -g POWERLEVEL9K_TODO_CONTENT_EXPANSION='$P9K_TODO_FILTERED_TASK_COUNT'
+  # typeset -g POWERLEVEL9K_TASK_CONTENT_EXPANSION='$P9K_TASK_FILTERED_TASK_COUNT'
 
   # Custom icon.
-  # typeset -g POWERLEVEL9K_TODO_VISUAL_IDENTIFIER_EXPANSION='⭐'
+  # typeset -g POWERLEVEL9K_TASK_VISUAL_IDENTIFIER_EXPANSION='⭐'
 
   ###########[ timewarrior: timewarrior tracking status (https://timewarrior.net/) ]############
   # Timewarrior color.
