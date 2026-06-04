@@ -1,0 +1,87 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+source "$RIBYNS_ENV/lib/utils.sh"
+
+echo "Syncing from source: $RIBYNS_ENV"
+
+info "Syncing zsh"
+"$RIBYNS_ENV/apps/zsh/sync.sh"
+
+info "Syncing git"
+"$RIBYNS_ENV/apps/git/sync.sh"
+
+info "Syncing bat"
+"$RIBYNS_ENV/apps/bat/sync.sh"
+
+info "Syncing btop"
+"$RIBYNS_ENV/apps/btop/sync.sh"
+
+info "Syncing kitty"
+"$RIBYNS_ENV/apps/kitty/sync.sh"
+
+info "Syncing wezterm"
+"$RIBYNS_ENV/apps/wezterm/sync.sh"
+
+info "Syncing nvim"
+"$RIBYNS_ENV/apps/nvim/sync.sh"
+
+info "Syncing vale"
+"$RIBYNS_ENV/apps/vale/sync.sh"
+
+info "Syncing tmux"
+"$RIBYNS_ENV/apps/tmux/sync.sh"
+
+info "Syncing yazi"
+"$RIBYNS_ENV/apps/yazi/sync.sh"
+
+info "Syncing mpd"
+"$RIBYNS_ENV/apps/mpd/sync.sh"
+
+info "Syncing rmpc"
+"$RIBYNS_ENV/apps/rmpc/sync.sh"
+
+info "Syncing zathura"
+"$RIBYNS_ENV/apps/zathura/sync.sh"
+
+full_install=false
+for arg in "$@"; do
+	if [[ "$arg" == "--full-install" ]]; then
+		full_install=true
+	fi
+done
+
+for arg in "$@"; do
+	if [[ "$arg" == "--pm" || $full_install ]]; then
+		info "Syncing core"
+		"$RIBYNS_ENV/scripts/pm-core.sh"
+	fi
+
+	if [[ "$arg" == "--webdev" || $full_install ]]; then
+		info "Syncing gadgets"
+		"$RIBYNS_ENV/scripts/pm-gadgets.sh"
+	fi
+
+	if [[ "$arg" == "--gadgets" ]]; then
+		info "Syncing gadgets"
+		"$RIBYNS_ENV/scripts/pm-gadgets.sh"
+	fi
+
+	if [[ "$arg" == "--kde" ]]; then
+		info "Syncing kde"
+		"$RIBYNS_ENV/apps/kde/sync.sh"
+	fi
+
+	if [[ "$arg" == "--hypr" ]]; then
+		info "Syncing rofi"
+		"$RIBYNS_ENV/apps/rofi/sync.sh"
+
+		info "Syncing waybar"
+		"$RIBYNS_ENV/apps/waybar/sync.sh"
+
+		info "Syncing hypr"
+		"$RIBYNS_ENV/apps/hypr/sync.sh"
+	fi
+done
+
+success "ribyns-env installed"
