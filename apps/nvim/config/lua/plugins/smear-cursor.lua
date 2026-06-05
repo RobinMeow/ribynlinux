@@ -1,5 +1,6 @@
 return {
   {
+    enabled = false, -- NOTE: wanna go without for a whil see how much I miss it remove it
     "sphamba/smear-cursor.nvim",
     -- default configuration from the github page (not yet modified 2025-12-06)
     opts = {

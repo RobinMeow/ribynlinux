@@ -27,6 +27,12 @@ vim.keymap.set("v", "<leader>d", '"_d') -- delete into void register
 
 vim.keymap.set("n", "<leader>st", [[:%s/\<<C-r><C-w>\>//gI<Left><Left><Left>]]) -- substituation for word under cursor
 
+vim.keymap.set("n", "<C-u>", "<C-u>zz", { desc = "Move half page up while keeping cursor centered" })
+vim.keymap.set("n", "<C-d>", "<C-d>zz", { desc = "Move half page down while keeping cursor centered" })
+
+vim.keymap.set("v", ">", ">gv", { desc = "Indent and keep selection" })
+vim.keymap.set("v", "<", "<gv", { desc = "Unindent and keep selection" })
+
 vim.keymap.set("n", "J", "mzJ`z", { desc = "join next line to current line w/o losing cursor position" })
 
 vim.keymap.set("n", "<leader>aic", ":CodeCompanionChat Toggle<CR>", { desc = "[ ][a]i [c]hat" })
@@ -59,9 +65,6 @@ vim.keymap.set("n", "<leader><leader>y", ":%y+<CR>") -- yank whole buffer into s
 
 vim.keymap.set("n", "<leader>g", ":DiffviewOpen<CR>", { desc = "[ ][g]it :DiffviewOpen" })
 vim.keymap.set("n", "<leader>fh", ":DiffviewFileHistory %<CR>", { desc = "Git File History" }) -- NOTE: not planning on keeping this keybind but i dont have enough git ones yet to reserve g for git
-
-vim.keymap.set("v", ">", ">gv", { desc = "Indent and keep selection" })
-vim.keymap.set("v", "<", "<gv", { desc = "Unindent and keep selection" })
 
 -- indent level folding
 vim.keymap.set("n", "<leader>f0", ":set foldlevel=0<CR>", { desc = "foldlevel 0" })
