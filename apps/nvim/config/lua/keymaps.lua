@@ -29,6 +29,8 @@ vim.keymap.set("n", "<leader>st", [[:%s/\<<C-r><C-w>\>//gI<Left><Left><Left>]]) 
 
 vim.keymap.set("n", "<C-u>", "<C-u>zz", { desc = "Move half page up while keeping cursor centered" })
 vim.keymap.set("n", "<C-d>", "<C-d>zz", { desc = "Move half page down while keeping cursor centered" })
+vim.keymap.set("n", "n", "nzzzv", { desc = "Move next while keeping cursor centered" })
+vim.keymap.set("n", "N", "Nzzzv", { desc = "Move prev while keeping cursor centered" })
 
 vim.keymap.set("v", ">", ">gv", { desc = "Indent and keep selection" })
 vim.keymap.set("v", "<", "<gv", { desc = "Unindent and keep selection" })
@@ -98,3 +100,8 @@ vim.keymap.set("n", "<leader>dc", ":compiler dotnet<CR>:make<CR>:copen<CR>", {
   desc = "[d]otnet [c]ompile and populate quickfixlist",
   silent = true,
 })
+
+vim.keymap.set("n", "<leader>u", function()
+  vim.cmd.packadd("nvim.undotree")
+  require("undotree").open()
+end, { desc = "(lazy)load and open [u]ndotree" })
