@@ -27,19 +27,11 @@ require("lazy").setup({
   -- For additional information with loading, sourcing and examples see:
   -- `<space>sh` search for `lazy.nvim-plugin`
 
-  -- imports lua files from lua/plugins/*
-  { import = "plugins" },
+  { import = "plugins" }, -- imports lua files from lua/plugins/*
 
   -- LSP Plugins
-  -- INFO: temporarly disabled in favor of easy-dotnet.
-  -- becuase it crashes on startup for some optional razor feature
-  -- { -- dotnet .NET
-  -- 	"seblyng/roslyn.nvim",
-  -- 	---@module 'roslyn.config'
-  -- 	---@type RoslynNvimConfig
-  -- 	opts = {},
-  -- },
   {
+    ft = { "cs", "csproj", "sln", "slnx" },
     "GustavEikaas/easy-dotnet.nvim",
     dependencies = {
       "nvim-lua/plenary.nvim",
