@@ -59,3 +59,11 @@ vim.o.scrolloff = 10 -- amount of lines to keep visible above and beneath the cu
 -- if performing an operation that would fail due to unsaved changes in the buffer (like `:q`),
 -- instead raise a dialog asking if you wish to save the current file(s)
 vim.o.confirm = true
+
+-- [[ DOTNET ]]
+-- comment in, if desired (when project is warning heavy)
+-- TODO: enable this on a by machine locally (read ENV variable)
+-- vim.g.dotnet_errors_only = true
+
+-- exclude file path to make the quickfix list less noisy
+-- vim.g.dotnet_show_project_file = false
