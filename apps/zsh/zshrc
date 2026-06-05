@@ -174,6 +174,7 @@ fi
 
 _total_ms=$(printf "%.2f" $((($EPOCHREALTIME - _start_time) * 1000)))
 echo "${_total_ms}ms. $(date +%A,\ %Y-%m-%d\ %H:%M)"
+echo "And whatever you do, do it heartily, as to the Lord and not to men, Colossians 3, 23 (NKJV)"
 unset _start_time _total_ms
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
