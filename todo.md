@@ -2,28 +2,17 @@
 
 - (practical bash scripting: what AI cant teach you)[https://www.youtube.com/watch?v=aqEIE6Jn0mU]
 - learn sed
-- rebind outermost middle btn on moergo to normal shift, unlayerd
-- could make a script to update scripts into "$HOME/bin" to get rid of the .sh suffix so it feels more native
-- check if legit: sudo localectl set-x11-keymap de pc105 nodeadkeys caps:swapescape
+- not if legit: sudo localectl set-x11-keymap de pc105 nodeadkeys caps:swapescape
 - log all output instead of using verbose
-- put my user into the docker group
 
 ## Rust app ideas
 
-- an app for workouts. Which shows a timer, and vie pre configured input how long a session is and how long a breka inbetween is. perpahs also aa plan format as input
-
-## usage tracking
-
-track how much each script is called.
-commit it to sourcecode.
-
-## Glove80
-
-make qwertz layout
+- music dl
+- calendar for birthdays
 
 ## Fedora
 
-- test virtualization
+- virtualization is not tested
 
 ## Kitty
 
@@ -32,20 +21,15 @@ make qwertz layout
 ## Neovim
 
 - harpoon https://github.com/ThePrimeagen/harpoon/tree/harpoon2
-- learn native nvim mitions and operations before re-enableing mini.surround/flash plugins
-- Telescope builtin pickers to keymaps mappen und lernen welche es gibt
+- read :help lua-guide
+- learn native nvim motions and operations before re-enableing mini.surround/flash plugins
 - current restore session solution, is good enough. but if i desore restored terminals or DBUI, or quickfix lists i might want to look for plugin
 - keymap, which folds the whole file based on indent e.g. fi3 (fold indent 3, any scope at 3rd indend level will get folded/toggeled)
-- got a few overlapping keymaps. didnt bother me enough so far tho (e.g. sg sgf)
 - virtual text for debugging https://github.com/theHamsta/nvim-dap-virtual-text?utm_source=chatgpt.com
 
 ## angular
 
 - ng-test-fzf.sh is runniung duplicated tests...
-
-## Local AI Image generation
-
-do it
 
 ## zsh / omz
 
