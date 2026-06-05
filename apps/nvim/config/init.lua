@@ -136,6 +136,7 @@ vim.keymap.set("v", "<leader>y", '"+y') -- yank visual into system clipboard
 vim.keymap.set("n", "<leader><leader>y", ":%y+<CR>") -- yank whole buffer into system clipboard
 
 vim.api.nvim_set_keymap("n", "<leader>g", ":DiffviewOpen<CR>", { desc = "[ ][g]it :DiffviewOpen" })
+vim.keymap.set("n", "<leader>fh", ":DiffviewFileHistory %<CR>", { desc = "Git File History" }) -- NOTE: not planning on keeping this keybind but i dont have enough git ones yet to reserve g for git
 
 -- indent level folding
 vim.keymap.set("n", "<leader>f0", ":set foldlevel=0<CR>", { desc = "foldlevel 0" })
