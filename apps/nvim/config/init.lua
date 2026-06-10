@@ -65,10 +65,10 @@ require("lazy").setup({
       {
         "mason-org/mason.nvim",
         opts = {
-          -- dotnet required registries TODO: not sure if this is till up2date. i think i can remove it. test at work
           registries = {
             "github:mason-org/mason-registry",
-            "github:Crashdummyy/mason-registry",
+            -- dotnet required registries required if using crashdummys more frequantly updated version
+            -- "github:Crashdummyy/mason-registry",
           },
         },
       },
@@ -237,7 +237,27 @@ require("lazy").setup({
       end
 
       -- NOTE: requires rosyln-language-server to be in path. dotnet tool install -g roslyn-language-server --prerelease
-      vim.lsp.config("roslyn_ls", {})
+      vim.lsp.config("roslyn_ls", {
+        settings = {
+          -- WARN: dont seem to work at all. leaving defaults to have less issues.
+          -- available options https://github.com/dotnet/vscode-csharp/blob/main/test/lsptoolshost/unitTests/configurationMiddleware.test.ts
+          -- ["csharp|background_analysis"] = {
+          -- 	dotnet_analyzer_diagnostics_scope = false,
+          -- 	dotnet_compiler_diagnostics_scope = false,
+          -- },
+          -- settings = {
+          -- 	["csharp|inlay_hints"] = {
+          -- 		dotnet_enable_inlay_hints_for_parameters = false,
+          -- 		dotnet_enable_inlay_hints_for_literal_parameters = false,
+          -- 		dotnet_enable_inlay_hints_for_indexer_parameters = false,
+          -- 		csharp_enable_inlay_hints_for_implicit_variable_types = false,
+          -- 	},
+          -- 	["csharp|code_lens"] = {
+          -- 		dotnet_enable_references_code_lens = true,
+          -- 	},
+          -- },
+        },
+      })
       vim.lsp.enable("roslyn_ls")
     end,
   },
