@@ -29,21 +29,22 @@ require("lazy").setup({
   { import = "plugins" }, -- imports lua files from lua/plugins/*
 
   -- LSP Plugins
-  {
-    ft = { "cs", "csproj", "sln", "slnx" },
-    "GustavEikaas/easy-dotnet.nvim",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "nvim-telescope/telescope.nvim",
-    },
-    config = function()
-      require("easy-dotnet").setup({
-        lsp = {
-          auto_refresh_codelens = false,
-        },
-      })
-    end,
-  },
+  -- { WARN: updated becuase it showed an error on startup all the time. then it no longer worked at all.
+  -- now replaced with manual install and enabling. on startup error is still there so it wasnt easies fault
+  --   ft = { "cs", "csproj", "sln", "slnx" },
+  --   "GustavEikaas/easy-dotnet.nvim",
+  --   dependencies = {
+  --     "nvim-lua/plenary.nvim",
+  --     "nvim-telescope/telescope.nvim",
+  --   },
+  --   config = function()
+  --     require("easy-dotnet").setup({
+  --       lsp = {
+  --         auto_refresh_codelens = false,
+  --       },
+  --     })
+  --   end,
+  -- },
   {
     -- `lazydev` configures Lua LSP for your Neovim config, runtime and plugins
     -- used for completion, annotations and signatures of Neovim apis
@@ -238,6 +239,10 @@ require("lazy").setup({
         vim.lsp.config(name, server)
         vim.lsp.enable(name)
       end
+
+      -- NOTE: requires rosyln-language-server to be in path. dotnet tool install -g roslyn-language-server --prerelease
+      vim.lsp.config("roslyn_ls", {})
+      vim.lsp.enable("roslyn_ls")
     end,
   },
 
