@@ -29,8 +29,7 @@ require("lazy").setup({
   { import = "plugins" }, -- imports lua files from lua/plugins/*
 
   -- LSP Plugins
-  -- { WARN: updated becuase it showed an error on startup all the time. then it no longer worked at all.
-  -- now replaced with manual install and enabling. on startup error is still there so it wasnt easies fault
+  -- {
   --   ft = { "cs", "csproj", "sln", "slnx" },
   --   "GustavEikaas/easy-dotnet.nvim",
   --   dependencies = {
@@ -101,11 +100,8 @@ require("lazy").setup({
 
           -- highlight word on CursorHold and clear highlight on CursorMoved
           local client = vim.lsp.get_client_by_id(event.data.client_id)
-          if
-            client
-            and client:supports_method(client, vim.lsp.protocol.Methods.textDocument_documentHighlight, event.buf)
-          then
-            local highlight_augroup = vim.api.nvim_create_augroup("lsp-highlight-word-while-linger", { clear = false })
+          if client and client:supports_method("textDocument/documentHighlight", event.buf) then
+            local highlight_augroup = vim.api.nvim_create_augroup("kickstart-lsp-highlight", { clear = false })
             vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
               buffer = event.buf,
               group = highlight_augroup,
@@ -122,14 +118,14 @@ require("lazy").setup({
               group = vim.api.nvim_create_augroup("kickstart-lsp-detach", { clear = true }),
               callback = function(event2)
                 vim.lsp.buf.clear_references()
-                vim.api.nvim_clear_autocmds({ group = "lsp-highlight-word-while-linger", buffer = event2.buf })
+                vim.api.nvim_clear_autocmds({ group = "kickstart-lsp-highlight", buffer = event2.buf })
               end,
             })
           end
 
-          -- The following code creates a keymap to toggle inlay hints (if supported by the lsp)
-          if client and client:supports_method(client, vim.lsp.protocol.Methods.textDocument_inlayHint, event.buf) then
-            map("<leader>th", function() -- TODO: overlaps with open terminal leader t keymap
+          -- The following code creates a keymap to toggle inlay hints
+          if client and client:supports_method("textDocument/inlayHint", event.buf) then
+            map("<leader>th", function()
               vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = event.buf }))
             end, "[T]oggle Inlay [H]ints")
           end
