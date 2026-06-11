@@ -16,9 +16,8 @@ vim.keymap.set("x", "<leader><F2>", '"hy:%s/<C-r>h//g<left><left>', { desc = "re
 -- %s/: Starts the global search and replace command.
 -- <C-r>h: In Vim's command line, pressing Ctrl + r followed by a register name pastes the contents of that register. This literally dumps whatever text you highlighted directly into the search field.
 
--- Move selected lines up/down
-vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
-vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move visual selectoin down" })
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move visual selection up" })
 
 -- delete into void, than paste (default: deleted text gets written into register)
 vim.keymap.set("x", "<leader>p", '"_dP') -- read like this: "register into _void PPaste before cursor

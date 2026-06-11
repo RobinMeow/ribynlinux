@@ -29,21 +29,21 @@ require("lazy").setup({
   { import = "plugins" }, -- imports lua files from lua/plugins/*
 
   -- LSP Plugins
-  -- {
-  --   ft = { "cs", "csproj", "sln", "slnx" },
-  --   "GustavEikaas/easy-dotnet.nvim",
-  --   dependencies = {
-  --     "nvim-lua/plenary.nvim",
-  --     "nvim-telescope/telescope.nvim",
-  --   },
-  --   config = function()
-  --     require("easy-dotnet").setup({
-  --       lsp = {
-  --         auto_refresh_codelens = false,
-  --       },
-  --     })
-  --   end,
-  -- },
+  {
+    ft = { "cs", "csproj", "sln", "slnx" },
+    "GustavEikaas/easy-dotnet.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-telescope/telescope.nvim",
+    },
+    config = function()
+      require("easy-dotnet").setup({
+        lsp = {
+          auto_refresh_codelens = false,
+        },
+      })
+    end,
+  },
   {
     -- `lazydev` configures Lua LSP for your Neovim config, runtime and plugins
     -- used for completion, annotations and signatures of Neovim apis
@@ -67,8 +67,7 @@ require("lazy").setup({
         opts = {
           registries = {
             "github:mason-org/mason-registry",
-            -- dotnet required registries required if using crashdummys more frequantly updated version
-            -- "github:Crashdummyy/mason-registry",
+            -- "github:Crashdummyy/mason-registry", -- dotnet required registries required if using crashdummys more frequantly updated version
           },
         },
       },
@@ -179,6 +178,7 @@ require("lazy").setup({
         ["html"] = {},
         ["pyright"] = {},
         ["rust_analyzer"] = {},
+        -- ["roslyn_ls"] = {}, -- WARN: installing in manually requies extra config in easy-dotnet i think. otherwise you get both running which becomes slow again
         -- Special Lua Config, as recommended by neovim help docs
         ["lua_ls"] = {
           on_init = function(client)
@@ -231,8 +231,8 @@ require("lazy").setup({
 
       require("mason-tool-installer").setup({ ensure_installed = vim.tbl_keys(servers or {}) })
 
-      for name, server in pairs(servers) do
-        vim.lsp.config(name, server)
+      for name, config in pairs(servers) do
+        vim.lsp.config(name, config)
         vim.lsp.enable(name)
       end
 
