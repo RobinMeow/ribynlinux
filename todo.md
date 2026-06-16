@@ -4,6 +4,7 @@
 - learn sed
 - not if legit: sudo localectl set-x11-keymap de pc105 nodeadkeys caps:swapescape
 - log all output instead of using verbose
+- rust tui for managing worktrees
 
 ## Rust app ideas
 
