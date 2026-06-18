@@ -5,6 +5,7 @@
 - not if legit: sudo localectl set-x11-keymap de pc105 nodeadkeys caps:swapescape
 - log all output instead of using verbose
 - rust tui for managing worktrees
+- text to neovim (voice: change inner word)
 
 ## Rust app ideas
 
@@ -21,6 +22,7 @@
 
 ## Neovim
 
+- enable tildeop with operator
 - harpoon https://github.com/ThePrimeagen/harpoon/tree/harpoon2
 - read :help lua-guide
 - learn native nvim motions and operations before re-enableing mini.surround/flash plugins
