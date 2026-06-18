@@ -34,7 +34,6 @@
 	ca = commit --amend --verbose
 	aaca = "!git add --all && git commit --amend --verbose"
 	cane = commit --amend --no-edit --verbose
-	aac = "!git add --all && git commit --verbose"
 	aacane = "!git add --all && git commit --amend --no-edit --verbose"
 	canep = "!git commit --amend --no-edit && git push"
 	canepf = "!git commit --amend --no-edit && git push --force-with-lease"
@@ -42,10 +41,9 @@
 	aacanep = "!git add --all && git commit --amend --no-edit --verbose && git push"
 	aacanepf = "!git add --all && git commit --amend --no-edit --verbose && git push --force-with-lease"
 	cp = "!git commit --verbose && git push"
-	wt = worktree
-	co = checkout
 	smfe = submodule foreach
 	skipped = !git ls-files -v | grep \"^S\"
 	skip = update-index --skip-worktree
 	no-skip = update-index --no-skip-worktree
 	crime = log --all --numstat --date=short --pretty=format:--%h--%ad--%aN
+	bvvawkgone = "!git branch --verbose --verbose | awk '/: gone]/ {print $1}'"
