@@ -5,6 +5,7 @@
 - not if legit: sudo localectl set-x11-keymap de pc105 nodeadkeys caps:swapescape
 - log all output instead of using verbose
 - rust tui for managing worktrees
+- rust tui instead of using ribyn complete in zshrc, doesnt scale well
 - text to neovim (voice: change inner word)
 
 ## Rust app ideas

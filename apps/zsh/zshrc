@@ -127,23 +127,20 @@ ribyn() {
 		shift
 		print -z "$( (
 				fd . "$RIBYNS_ENV" --extension=sh
+				fd . "$RIBYNS_ENV/bin"
 			) | fzf)"
-	elif [[ "$cmd" == "keyboard" ]]; then
+	elif [[ "$cmd" == "keyboard-feh" ]]; then
 		shift
   	selected_img="$( (
-				fd . "$RIBYNS_ENV/keyboard/glove80" --extension=webp
+				fd . "$RIBYNS_ENV/keyboard/glove80" --extension=png
 			) | fzf)"
 			if [[ -f "$selected_img" ]]; then
 				feh "$selected_img"
 			fi
-	elif [[ "$cmd" == "keyboard-symbols" ]]; then
+	elif [[ "$cmd" == "keyboard-chafa-all" ]]; then
 		shift
-		feh "$RIBYNS_ENV/keyboard/glove80/colossians3-23-symbols-fkeys-layer.webp"
-	elif [[ "$cmd" == "bin" ]]; then
-		shift
-		print -z "$( (
-				fd . "$RIBYNS_ENV/bin"
-			) | fzf)"
+			chafa "$RIBYNS_ENV/keyboard/glove80/nav-layer.png"
+			chafa "$RIBYNS_ENV/keyboard/glove80/symbol-fkeys-layer.png"
 	elif [[ "$cmd" == "install" ]]; then
 		shift
 		"$RIBYNS_ENV/bin/ribyn_install"
@@ -158,7 +155,7 @@ ribyn() {
 		return 1
 	fi
 }
-complete -W "env state run bin keyboard keyboard-symbols" ribyn
+complete -W "env state run keyboard-feh keyboard-chafa keyboard-chafa-all" ribyn
 
 # Then use y instead of yazi to start, and press q to quit, you'll see
 # the CWD changed. Sometimes, you don't want to change, press Q to quit.
