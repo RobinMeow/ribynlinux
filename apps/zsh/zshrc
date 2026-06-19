@@ -68,7 +68,6 @@ fi
 
 # treeview of all git tracked files (ripgrep respects .gitignore)
 alias lstree='eza -1T'
-alias nvimconfig='cd $HOME/.config/nvim && nvim'
 
 alias gpl='git pull'
 alias gpll='git pull && git log -1 --pretty=format:"%C(auto)%h%d%Creset %s %C(green)%cn%Creset %C(cyan)(%cr)%Creset"'
@@ -87,6 +86,8 @@ alias lsd='eza -1 --group-directories-first --git-ignore'
 
 alias mpdd='mpd --no-daemon &'
 alias gourced="gource --no-vsync --fullscreen --auto-skip-seconds 1 --seconds-per-day 1"
+
+alias dict="cat /usr/share/dict/words | fzf"
 
 # prepend to take preceedence over windows/wsl passthrough paths
 export PATH="$HOME/.dotnet:$HOME/.dotnet/tools:$PATH"
