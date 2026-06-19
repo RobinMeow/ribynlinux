@@ -47,7 +47,9 @@ run_on_arch <<'EOF'
 		chafa \
 		fd \
 		bluetui \
-		gource
+		gource \
+		words \
+		detox
 EOF
 
 run_on_fedora <<'EOF'
@@ -86,7 +88,9 @@ run_on_fedora <<'EOF'
 		mpv \
 		chafa \
 		fd-find \
-		gource
+		gource \
+		words \
+		detox
 
 	sudo dnf install -y --allowerasing ffmpeg
 EOF
