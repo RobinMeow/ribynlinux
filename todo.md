@@ -28,8 +28,8 @@
 - read :help lua-guide
 - learn native nvim motions and operations before re-enableing mini.surround/flash plugins
 - current restore session solution, is good enough. but if i desore restored terminals or DBUI, or quickfix lists i might want to look for plugin
-- keymap, which folds the whole file based on indent e.g. fi3 (fold indent 3, any scope at 3rd indend level will get folded/toggeled)
 - virtual text for debugging https://github.com/theHamsta/nvim-dap-virtual-text?utm_source=chatgpt.com
+- show cmd line in the middle of the screen for pair programming
 
 ## angular
 
