@@ -52,3 +52,4 @@ decided to wait at least until im no longer on nvidia. Even pre-configured "them
 - [yazi tips and tricks e.g. drag and drop](https://yazi-rs.github.io/docs/tips/#drag-and-drop)
 
 - https://makefiletutorial.com
+- make sure simple kind of man is in my music playlist

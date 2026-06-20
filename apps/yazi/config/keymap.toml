@@ -16,5 +16,10 @@ prepend_keymap = [
 	# { on = "<F10>", run = "plugin mediainfo -- --toggle-preview --toggle-metadata", desc = "Toggle both media preview image and metadata" },
 	# { on = "<F11>", run = "plugin mediainfo -- --show-preview --hide-metadata", desc = "Show media preview image and hide metadata" },
 	# { on = "<F12>", run = "plugin mediainfo -- --show-preview --hide-metadata --reset --show-metadata --hide-preview", desc = "Show media preview image and hide metadata" },
+	# NOTE: one shots, comment in and write what you need
+	# { on   = [ "<C-m>" ], run  = "shell 'mv %s ../'", desc = "Move file to parent directory instantly" },
+	# { on   = [ "<C-h>" ], run  = "shell 'mv %s ../howdy-f-did-that-get-in-here'", desc = "how dafuq did that get in here" },
+	# { on   = [ "<C-l>" ], run  = "shell 'mv %s ../late-night'", desc = "late night dark country blues" },
+	# { on   = [ "<C-t>" ], run  = "shell 'mv %s ../takes'", desc = "take actual Dark Country Blues" },
 ]
 

@@ -37,7 +37,7 @@ image = [
   { run = 'feh --full-screen --borderless --auto-zoom --start-at  "$1"', desc = "feh image viewer" }
 ]
 video = [
-  { run = 'mpv --fullscreen --loop --volume=50 "$1"', desc = "mpv video" }
+  { run = 'clear; printf "=== MPV CONTROLS ===\n  [←] / [→]  Seek -/+ 5s\n  [↓] / [↑]  Seek -/+ 1m\n  [9] / [0]  Volume -/+\n  [Space]    Pause/Play\n    [m]    Toggle Mute\n    [q]        Quit & Return\n====================\n\n"; echo $(basename "$1"); mpv --fullscreen --loop --volume=50 "$1"', desc = "mpv video", block = true }
 ]
 play = [
 	{ run = "xdg-open %s1",    desc = "Play", for = "linux", orphan = true },
