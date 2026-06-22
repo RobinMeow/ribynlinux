@@ -50,13 +50,7 @@ vim.keymap.set("n", "<C-Left>", "<cmd>vertical resize -2<cr>", { desc = "Decreas
 vim.keymap.set("n", "<C-Right>", "<cmd>vertical resize +2<cr>", { desc = "Increase Window Width" })
 
 -- convert line endings to unix
-vim.keymap.set("n", "<leader><leader>u", function()
-  vim.cmd("e ++ff=dos")
-  vim.cmd("w")
-  vim.cmd("set ff=unix")
-  vim.cmd("w")
-  vim.cmd("e")
-end, { desc = "[ ] convert dos to [u]unix" })
+vim.keymap.set("n", "<leader><leader>u", ":e ++ff=dos<CR>:w<CR>:set ff=unix<CR>:w<CR>:e<CR>", { desc = "[ ] convert dos to [u]unix" })
 
 vim.keymap.set("n", "<leader>y", '"+y') -- yank motion into system clipboard
 vim.keymap.set("v", "<leader>y", '"+y') -- yank visual into system clipboard
