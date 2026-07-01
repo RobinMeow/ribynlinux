@@ -7,6 +7,7 @@
 - rust tui for managing worktrees
 - rust tui instead of using ribyn complete in zshrc, doesnt scale well
 - text to neovim (voice: change inner word)
+- rust tui, which allows me to run multiple severs as tabs
 
 ## Rust app ideas
 
