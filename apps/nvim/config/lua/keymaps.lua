@@ -24,7 +24,7 @@ vim.keymap.set("x", "<leader>p", '"_dP') -- read like this: "register into _void
 vim.keymap.set("n", "<leader>d", '"_d') -- delete into void register
 vim.keymap.set("v", "<leader>d", '"_d') -- delete into void register
 
-vim.keymap.set("n", "<leader>st", [[:%s/\<<C-r><C-w>\>//gI<Left><Left><Left>]]) -- substituation for word under cursor
+vim.keymap.set("n", "<leader>st", [[:%s/\<<C-r><C-w>\>//gI<Left><Left><Left>]], { desc = "substituation for word under cursor" })
 
 vim.keymap.set("n", "<C-u>", "<C-u>zz", { desc = "Move half page up while keeping cursor centered" })
 vim.keymap.set("n", "<C-d>", "<C-d>zz", { desc = "Move half page down while keeping cursor centered" })

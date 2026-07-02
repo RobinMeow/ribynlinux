@@ -169,7 +169,16 @@ require("lazy").setup({
         ["bashls"] = {
           filetypes = { "bash", "csh", "ksh", "sh", "zsh" },
         },
-        ["ts_ls"] = {}, -- https://github.com/pmizio/typescript-tools.nvim can be considered when more speed is required
+        ["ts_ls"] = {
+          on_attach = function(client, bufnr)
+            -- some clients support workspace diagnostics natively
+            if client:supports_method("workspace/diagnostic", bufnr) then
+              vim.lsp.buf.workspace_diagnostics({ client_id = client.id })
+            else
+              require("workspace-diagnostics").populate_workspace_diagnostics(client, bufnr)
+            end
+          end,
+        }, -- https://github.com/pmizio/typescript-tools.nvim can be considered when more speed is required
         ["eslint"] = {},
         ["shellcheck"] = {},
         ["shellharden"] = {},
