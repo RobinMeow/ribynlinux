@@ -63,5 +63,10 @@ return {
         },
       })
     end,
+    keys = {
+      { "<leader>nr", "<cmd>Neotest run<cr>", { desc = "Run test under cursor" } },
+      { "<leader>no", "<cmd>Neotest output<cr>", { desc = "Show output of test under cursor" } },
+      { "<leader>ns", "<cmd>Neotest summary<cr>", { desc = "Toggle summray" } },
+    },
   },
 }
