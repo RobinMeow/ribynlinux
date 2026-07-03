@@ -36,6 +36,10 @@ return {
             filter_dir = function(name, rel_path, root)
               return name ~= "node_modules"
             end,
+            -- vitestCommand = "npm run test --",
+            -- vitestCommand = function(position_id)
+            --   return "npm test -- --include " .. position_id
+            -- end,
           }),
 
           -- require("neotest-jest")({
@@ -63,10 +67,28 @@ return {
         },
       })
     end,
+			 -- stylua: ignore
     keys = {
       { "<leader>nr", "<cmd>Neotest run<cr>", { desc = "Run test under cursor" } },
       { "<leader>no", "<cmd>Neotest output<cr>", { desc = "Show output of test under cursor" } },
       { "<leader>ns", "<cmd>Neotest summary<cr>", { desc = "Toggle summray" } },
-    },
+      {
+        "<leader>na",
+        "<cmd>lua require('neotest').run.run({ suite = true })<cr>",
+        { desc = "Run test suite of current buffer" },
+      },
+			-- NOTE: saw those in a post, but cant bother putting them in right now
+			-- { "<leader>t",  "", desc = "+test" },
+			-- { "<leader>tt", function() require("neotest").run.run(vim.fn.expand("%")) end,              desc = "Run File" },
+			-- { "<leader>tT", function() require("neotest").run.run(require("utils.path").current_project_root()) end,       desc = "Run Project" },
+			-- { "<leader>tA", function() require("neotest").run.run(vim.uv.cwd()) end,                    desc = "Run All" },
+			-- { "<leader>tr", function() require("neotest").run.run() end,                                desc = "Run Nearest" },
+			-- { "<leader>tl", function() require("neotest").run.run_last() end,                           desc = "Run Last" },
+			-- { "<leader>ts", function() require("neotest").summary.toggle() end,                         desc = "Toggle Summary" },
+			-- { "<leader>to", function() require("neotest").output.open({ enter = true, auto_close = true }) end, desc = "Show Output" },
+			-- { "<leader>tO", function() require("neotest").output_panel.toggle() end,                    desc = "Toggle Output Panel" },
+			-- { "<leader>tS", function() require("neotest").run.stop() end,                               desc = "Stop" },
+			-- { "<leader>tw", function() require("neotest").watch.toggle(vim.fn.expand("%")) end,         desc = "Toggle Watch" },
+		},
   },
 }
