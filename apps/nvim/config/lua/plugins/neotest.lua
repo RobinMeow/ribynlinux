@@ -18,6 +18,7 @@ return {
       }, -- does not requre setup call
       "https://github.com/rcasia/neotest-bash",
       "https://github.com/marilari88/neotest-vitest",
+      "https://github.com/nvim-neotest/neotest-jest",
       "https://github.com/thenbe/neotest-playwright",
       "https://github.com/nsidorenco/neotest-vstest",
       "https://github.com/Issafalcon/neotest-dotnet",
@@ -29,7 +30,24 @@ return {
     config = function()
       require("neotest").setup({
         adapters = {
-          require("neotest-vitest"), -- https://github.com/marilari88/neotest-vitest
+          require("neotest-vitest")({
+            -- Filter directories when searching for test files. Useful in large projects (see Filter directories notes).
+            filter_dir = function(name, rel_path, root)
+              return name ~= "node_modules"
+            end,
+          }),
+          require("neotest-jest")({
+            jestCommand = "npm test --",
+            jestArguments = function(defaultArguments, context)
+              return defaultArguments
+            end,
+            jestConfigFile = "custom.jest.config.ts",
+            env = { CI = true },
+            cwd = function(path)
+              return vim.fn.getcwd()
+            end,
+            isTestFile = require("neotest-jest.jest-util").defaultIsTestFile,
+          }),
           require("neotest-playwright"), -- https://github.com/thenbe/neotest-playwright
 
           require("neotest-vstest"), -- dotnet https://github.com/nsidorenco/neotest-vstest
