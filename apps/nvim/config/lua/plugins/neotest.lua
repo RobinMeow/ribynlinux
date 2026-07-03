@@ -16,16 +16,17 @@ return {
         -- No need for lazy.nvim to lazy-load it.
         lazy = false, -- lazy loaded by default within the plugin
       }, -- does not requre setup call
-      "https://github.com/rcasia/neotest-bash",
+      -- "https://github.com/rcasia/neotest-bash",
       "https://github.com/marilari88/neotest-vitest",
-      "https://github.com/nvim-neotest/neotest-jest",
-      "https://github.com/thenbe/neotest-playwright",
-      "https://github.com/nsidorenco/neotest-vstest",
-      "https://github.com/Issafalcon/neotest-dotnet",
-      "https://github.com/rouge8/neotest-rust",
-      "https://github.com/alfaix/neotest-gtest",
-      "https://github.com/orjangj/neotest-ctest",
-      "https://github.com/rcasia/neotest-bash",
+      -- WARN: when enabeling other adapters check their gh, if a specific setup call is required
+      -- "https://github.com/nvim-neotest/neotest-jest",
+      -- "https://github.com/thenbe/neotest-playwright",
+      -- "https://github.com/nsidorenco/neotest-vstest",
+      -- "https://github.com/Issafalcon/neotest-dotnet",
+      -- "https://github.com/rouge8/neotest-rust",
+      -- "https://github.com/alfaix/neotest-gtest",
+      -- "https://github.com/orjangj/neotest-ctest",
+      -- "https://github.com/rcasia/neotest-bash",
     },
     config = function()
       require("neotest").setup({
@@ -36,27 +37,29 @@ return {
               return name ~= "node_modules"
             end,
           }),
-          require("neotest-jest")({
-            jestCommand = "npm test --",
-            jestArguments = function(defaultArguments, context)
-              return defaultArguments
-            end,
-            jestConfigFile = "custom.jest.config.ts",
-            env = { CI = true },
-            cwd = function(path)
-              return vim.fn.getcwd()
-            end,
-            isTestFile = require("neotest-jest.jest-util").defaultIsTestFile,
-          }),
-          require("neotest-playwright"), -- https://github.com/thenbe/neotest-playwright
 
-          require("neotest-vstest"), -- dotnet https://github.com/nsidorenco/neotest-vstest
-          require("neotest-dotnet"), -- dotnet https://github.com/Issafalcon/neotest-dotnet
+          -- require("neotest-jest")({
+          --   jestCommand = "npm test --",
+          --   jestArguments = function(defaultArguments, context)
+          --     return defaultArguments
+          --   end,
+          --   jestConfigFile = "custom.jest.config.ts",
+          --   env = { CI = true },
+          --   cwd = function(path)
+          --     return vim.fn.getcwd()
+          --   end,
+          --   isTestFile = require("neotest-jest.jest-util").defaultIsTestFile,
+          -- }),
 
-          require("neotest-rust"), -- https://github.com/rouge8/neotest-rust
-          require("neotest-gtest"), -- C++ Google Test https://github.com/alfaix/neotest-gtest
-          require("neotest-ctest"), -- C/C++ CTest https://github.com/orjangj/neotest-ctest
-          require("neotest-bash"), -- https://github.com/rcasia/neotest-bash
+          -- require("neotest-playwright"), -- https://github.com/thenbe/neotest-playwright
+
+          -- require("neotest-vstest"), -- dotnet https://github.com/nsidorenco/neotest-vstest
+          -- require("neotest-dotnet"), -- dotnet https://github.com/Issafalcon/neotest-dotnet
+
+          -- require("neotest-rust"), -- https://github.com/rouge8/neotest-rust
+          -- require("neotest-gtest"), -- C++ Google Test https://github.com/alfaix/neotest-gtest
+          -- require("neotest-ctest"), -- C/C++ CTest https://github.com/orjangj/neotest-ctest
+          -- require("neotest-bash"), -- https://github.com/rcasia/neotest-bash
         },
       })
     end,
