@@ -180,6 +180,7 @@ require("lazy").setup({
           end,
         }, -- https://github.com/pmizio/typescript-tools.nvim can be considered when more speed is required
         ["clangd"] = {}, -- ls for cpp c++ cpluscplus
+        ["clang-format"] = {}, -- formatter for cpp c++ cpluscplus
         ["eslint"] = {},
         ["shellcheck"] = {},
         ["shellharden"] = {},
