@@ -181,6 +181,8 @@ require("lazy").setup({
         }, -- https://github.com/pmizio/typescript-tools.nvim can be considered when more speed is required
         ["clangd"] = {}, -- ls for cpp c++ cpluscplus
         ["clang-format"] = {}, -- formatter for cpp c++ cpluscplus
+        ["codelldb"] = {}, -- DAP for c/c++/rust/zig	(its installed via dap/debug.lua)
+        ["netcoredbg"] = {}, -- dotnet
         ["eslint"] = {},
         ["shellcheck"] = {},
         ["shellharden"] = {},

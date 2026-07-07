@@ -25,6 +25,7 @@
 
 ## Neovim
 
+- neovim tests against all my config
 - enable tildeop with operator
 - harpoon https://github.com/ThePrimeagen/harpoon/tree/harpoon2
 - read :help lua-guide
