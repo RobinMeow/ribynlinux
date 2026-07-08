@@ -370,7 +370,6 @@ require("lazy").setup({
     border = "rounded",
   },
 })
-vim.cmd("TransparentEnable")
 
 local function get_kanagawa_variant()
   local hour = tonumber(os.date("%H"))
