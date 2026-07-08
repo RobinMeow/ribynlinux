@@ -351,6 +351,8 @@ require("lazy").setup({
         "bash",
         "diff",
         "html",
+        "angular",
+        "c_sharp",
         "luadoc",
         "javascript",
         "json",
