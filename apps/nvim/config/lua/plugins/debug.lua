@@ -18,7 +18,7 @@ return {
 
     {
       "theHamsta/nvim-dap-virtual-text",
-      build = ":TSUpdate",
+      -- build = ":TSUpdate", -- threw an error on WSL. maybe would have on native linux as well. tho docs says to do it.
       config = function()
         require("nvim-dap-virtual-text").setup({
           enabled_commands = true, -- create commands DapVirtualTextEnable, DapVirtualTextDisable, DapVirtualTextToggle, (DapVirtualTextForceRefresh for refreshing when debug adapter did not notify its termination)
