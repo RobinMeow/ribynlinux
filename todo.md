@@ -8,6 +8,7 @@
 - rust tui instead of using ribyn complete in zshrc, doesnt scale well
 - text to neovim (voice: change inner word)
 - rust tui, which allows me to run multiple severs as tabs
+- Isaiah 35:6. "Then will the lame leap like a deer, and the mute tongue shout for joy. Water will gush forth in the wilderness and streams in the desert." (New International Version)
 - cpp tui https://github.com/ArthurSonzogni/FTXUI e.g. i can make quiz apps for what I have read in the bible
 
 ## app ideas
