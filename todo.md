@@ -10,10 +10,12 @@
 - rust tui, which allows me to run multiple severs as tabs
 - cpp tui https://github.com/ArthurSonzogni/FTXUI e.g. i can make quiz apps for what I have read in the bible
 
-## Rust app ideas
+## app ideas
 
-- music dl
-- calendar for birthdays
+- music dl (TUI)
+- calendar for birthdays (family sharable sync in Android?)
+- Raster-Selection for Kitty (not only left right, but also up down tab bar)
+- Ribyn-Distro installer
 
 ## Fedora
 
