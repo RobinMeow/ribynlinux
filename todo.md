@@ -60,3 +60,7 @@ decided to wait at least until im no longer on nvidia. Even pre-configured "them
 - https://makefiletutorial.com
 - make sure simple kind of man is in my music playlist
 - with godot an overlay grid which allows me to trigger mouse clicks
+
+# Walkolution
+
+wd40 zum nachschmieren
