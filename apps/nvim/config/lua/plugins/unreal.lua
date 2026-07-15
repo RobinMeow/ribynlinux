@@ -7,6 +7,8 @@ return {
       {
         "taku25/UNL.nvim", -- Core Library
         build = "cargo build --release --manifest-path scanner/Cargo.toml",
+        -- TODO: timeout doesnt work. use cd ~/.local/share/nvim/lazy/UNL.nvim/ and `cargo build --release --manifest-path scanner/Cargo.toml` to build manually
+        -- timeout = 300, -- 5min (for PC WHITE it tool 186.51s user 7.06s system 113% cpu 2:50.85 total)
         lazy = false,
       },
       "taku25/UEP.nvim", -- Project Explorer
@@ -40,7 +42,8 @@ return {
       -- WARN: already have lualine configured
       -- "nvim-lualine/lualine.nvim",
 
-      -- WARN: i wonder why he needs a manager to install his own tree sitter impl
+      -- WARN: tree-sitter-manager is still maintained, well aware of treesitter being archived
+      -- TODO: i should probably migrate my config
       {
         "romus204/tree-sitter-manager.nvim",
         opts = {
