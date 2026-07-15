@@ -33,12 +33,15 @@ zstyle ':omz:update' mode reminder
 # much, much faster.
 # DISABLE_UNTRACKED_FILES_DIRTY="true"
 
+zstyle ':omz:plugins:nvm' lazy yes
+
 plugins=(
 	git
 	zsh-vi-mode
 	zsh-autosuggestions
 	zsh-syntax-highlighting
-	# nvm # adds around 120ms. on pc-white from 85ms -> 200+ms avrg.
+	nvm 
+	# adds around 120ms. on pc-white from 85ms -> 200+ms avrg.
 )
 
 # load zsh-completions not as a standard plugin but manually
@@ -99,13 +102,6 @@ export PATH="$PATH:$HOME/.cargo/bin"
 if [[ -d "/home/linuxbrew/" ]]; then
 	eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv zsh)"
 fi
-
-# nvm node version manager
-nvm() {
-	unfunction nvm
-	[ -s "/usr/share/nvm/init-nvm.sh" ] && . "/usr/share/nvm/init-nvm.sh"
-	nvm "$@"
-}
 
 # find history (fzf a history cmd and select it for prompt editing and fire it off)
 fh() {
