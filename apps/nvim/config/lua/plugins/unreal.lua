@@ -1,5 +1,6 @@
 return {
   {
+    enabled = false,
     "taku25/UnrealDev.nvim",
     -- Define all plugins in the development suite.
     -- You can remove any plugins you don't use.
