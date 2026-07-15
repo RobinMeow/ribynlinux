@@ -3,6 +3,8 @@
 ## Gemini
 
 [github gemini-cli](https://github.com/google-gemini/gemini-cli)
+moved to antigravity apparently if its the free model: `curl -fsSL https://antigravity.google/cli/install.sh | bash`
+requires your google account to be agre verified
 [quota-and-pricing](https://geminicli.com/docs/resources/quota-and-pricing/)
 requires `gemini-cli` to be installed for codecompanion to work in nvim.
 > Free tier: 60 requests/min and 1,000 requests/day with personal Google account.
