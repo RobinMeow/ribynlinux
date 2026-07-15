@@ -360,7 +360,8 @@ require("lazy").setup({
         "regex",
         "tsx",
         "typescript",
-        "cpp",
+        -- NOTE: conflicts with taku25/tree-sitter-unreal-cpp
+        -- "cpp",
       })
     end,
   },
