@@ -88,7 +88,7 @@ echo "▶ Running Angular specs"
 echo "  Files: ${BASENAMES}"
 echo "--------------------------------------"
 
-npx ng test \
+exec npx ng test \
 	--browsers "$BROWSER" \
 	--watch "$WATCH_MODE" \
 	$INCLUDE_FLAGS
