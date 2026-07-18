@@ -59,6 +59,9 @@ return {
 	-- stylua: ignore
   keys = {
     -- Basic debugging keymaps, feel free to change to your liking!
+    { "<F3>", function() require("dap").close() end, desc = "Debug: Close", },
+    { "<F4>", function() require("dap").restart() end, desc = "Debug: Restart", },
+
     { "<F5>", function() require("dap").continue() end, desc = "Debug: Start/Continue", },
     { "<F9>", function() require("dap").toggle_breakpoint() end, desc = "Debug: Toggle Breakpoint", },
     { "<leader><F9>", function() require("dap").set_breakpoint(vim.fn.input("Breakpoint condition: ")) end, desc = "Debug: Set Breakpoint", },
@@ -160,6 +163,7 @@ return {
 
     -- INFO: Codelldb Manual: https://github.com/vadimcn/codelldb/blob/master/MANUAL.md
     dap.configurations.cpp = {
+      -- NOTE: default config for running files with main entry block
       {
         -- Common default config apparently
         name = "Launch file",
@@ -171,6 +175,22 @@ return {
         cwd = "${workspaceFolder}",
         stopOnEntry = false,
       },
+
+      -- NOTE: working example for running a specific unreal project (not well reuseable, but good enough since I never debug anyways)
+      -- {
+      --   name = "Unreal Editor (Launch Project)",
+      --   type = "codelldb",
+      --   request = "launch",
+      --   -- Point this to where your source-built or installed engine lives on Linux
+      --   program = "${env:HOME}/UnrealEngine/Engine/Binaries/Linux/UnrealEditor",
+      --   args = {
+      --     -- point this to your project
+      --     "${env:HOME}/ue/UENetworkTests/UENetworkTests.uproject",
+      --     "-log", -- Crucial on Linux: spawns a separate native terminal window for live engine stdout logs
+      --   },
+      --   cwd = "${workspaceFolder}",
+      --   stopOnEntry = false,
+      -- },
     }
     -- can use the same config
     dap.configurations.rust = dap.configurations.cpp
