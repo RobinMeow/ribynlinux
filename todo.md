@@ -7,7 +7,6 @@
 - log all output instead of using verbose
 - rust tui for managing worktrees
 - rust tui instead of using ribyn complete in zshrc, doesnt scale well
-- text to neovim (voice: change inner word)
 - rust tui, which allows me to run multiple severs as tabs
 - Isaiah 35:6. "Then will the lame leap like a deer, and the mute tongue shout for joy. Water will gush forth in the wilderness and streams in the desert." (New International Version)
 - cpp tui https://github.com/ArthurSonzogni/FTXUI e.g. i can make quiz apps for what I have read in the bible
@@ -29,6 +28,8 @@
 
 ## Neovim
 
+- custom emoji loader :) see spinners.json origin: https://github.com/zadirion/Unreal.nvim/blob/main/lua/spinners.json
+- text to neovim (voice: change inner word)
 - neovim tests against all my config
 - enable tildeop with operator
 - harpoon https://github.com/ThePrimeagen/harpoon/tree/harpoon2
