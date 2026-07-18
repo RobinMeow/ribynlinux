@@ -169,6 +169,11 @@ require("lazy").setup({
         ["bashls"] = {
           filetypes = { "bash", "csh", "ksh", "sh", "zsh" },
         },
+        ["gopls"] = {}, -- go (programming) language server (the p is probably a pun ..) (includes gofmt formatter)
+        ["golangci-lint"] = {}, -- go linter (which runs multiple linters)
+        ["delve"] = {}, -- go debugger
+        ["goimports"] = {}, -- go formatter, import manager
+        -- ["gofumpt"] = {}, -- stricter (probably opioniated) go formatter
         ["ts_ls"] = {
           on_attach = function(client, bufnr)
             -- some clients support workspace diagnostics natively
@@ -327,30 +332,38 @@ require("lazy").setup({
     lazy = false,
     branch = "main",
     config = function()
-      require("nvim-treesitter").setup({
-        -- Autoinstall languages that are not installed
-        auto_install = true,
-        highlight = {
-          enable = true,
-          -- Some languages depend on vim's regex highlighting system (such as Ruby) for indent rules.
-          --  If you are experiencing weird indenting issues, add the language to
-          --  the list of additional_vim_regex_highlighting and disabled languages for indent.
-          additional_vim_regex_highlighting = { "ruby" },
-        },
-        indent = { enable = true, disable = { "ruby" } },
-      })
-      require("nvim-treesitter").install({
+      local treesitter = require("nvim-treesitter")
+      local ensure_installed = {
         "c",
         "lua",
         "vim",
         "vimdoc",
         "query",
+        "go",
+        "rust",
+
+        -- for bevy rust based game engine
+        "wgsl",
+        "wgsl_bevy",
+
         "markdown",
         "markdown_inline",
         "yaml",
         "bash",
+        "zsh",
         "diff",
         "html",
+        "css",
+        "scss",
+        "toml",
+        "yaml",
+        "regex",
+        "kitty", -- for kitty.conf files
+        "csv",
+        "cmake",
+        -- NOTE: not sure if I should include those two
+        -- "awk",
+        -- "jq",
         "angular",
         "c_sharp",
         "luadoc",
@@ -361,6 +374,30 @@ require("lazy").setup({
         "tsx",
         "typescript",
         "cpp",
+      }
+
+      treesitter.install(ensure_installed)
+
+      vim.api.nvim_create_autocmd("FileType", {
+        pattern = "*",
+        callback = function(args)
+          local buf = args.buf
+          local ft = vim.bo[buf].filetype
+
+          local lang = vim.treesitter.language.get_lang(ft)
+          if not lang then
+            return
+          end
+
+          pcall(vim.treesitter.start, buf, lang)
+
+          -- enable indentation (skip yaml/markdown) idk why ask him: https://youtu.be/nB2EIjKtJ8U?t=479
+          if ft ~= "yaml" and ft ~= "markdown" then
+            vim.bo[buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+            vim.bo[buf].smartindent = false
+            vim.bo[buf].cindent = false
+          end
+        end,
       })
     end,
   },

@@ -1,5 +1,6 @@
 # TicketSystem
 
+- rename shell variable $RIBYNS_ENV to $RIBYN or $RIBYNLINUX
 - (practical bash scripting: what AI cant teach you)[https://www.youtube.com/watch?v=aqEIE6Jn0mU]
 - learn sed
 - not if legit: sudo localectl set-x11-keymap de pc105 nodeadkeys caps:swapescape

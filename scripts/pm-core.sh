@@ -17,7 +17,7 @@ run_on_arch <<'EOF'
 		eza \
 		vi \
 		vim \
-		nvim \
+		go \
 		tree-sitter-cli \
 		unzip \
 		xclip \
@@ -62,6 +62,7 @@ run_on_fedora <<'EOF'
 		eza \
 		vi \
 		vim \
+		golang \
 		tree-sitter-cli \
 		unzip \
 		xclip \
