@@ -3,6 +3,9 @@
 writing my own installer with my perferred defaults.
 With easy selection for per-machine difference, which can deviate.
 
+> this is on hold. Since Im not sure if I really need go for this. Also the installation guide is pretty small.
+> prolly will rename this one, into another go app as soon as I know what.
+
 ## Development
 
 to run the installer 
