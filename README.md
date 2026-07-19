@@ -6,48 +6,50 @@ My personalized environment for Arch Linux, Fedora, Neovim, WSL and many other t
 
 ## Arch
 
-`git clone ssh://git@codeberg.com:Ribyn/ribyns-env.git $HOME/ribyns-env`
+```sh
+export RIBYN_ROOT="$HOME/ribynlinux"
+git clone ssh://git@codeberg.com:Ribyn/ribynlinux.git "$RIBYN_ROOT"
+"$RIBYN_ROOT/bin/ribyn_install"
+```
 
-if zsh is not yet synced, ake sure to export the `RIBYNS_ENV` environment variable before running any scripts:
-`export RIBYNS_ENV="$HOME/ribyns-env"`
+> `RIBYN_ROOT` environment variable is required by almost every script
+> this is mostly only relevant for the first install. The zshrc exports this variable
 
-> if zsh is already installed, .zshrc exports this variable
+> the ribyn_install script frequently changes, perhaps look into it to see which flags are supported
 
-Run the install script:
-`~/ribyns-env/scripts/install.sh --pacman`
+### Migrate from ribyns-env to ribynlinux
 
+easiest way is to edit your .zshrc to export RIBYN_ROOT, source it and run ribyn_install
 
-## Terminal
+## Terminal Emulator
 
-### Emulator
+using `kitty` and optionally `wezterm` for wsl
 
-using `kitty`
-
-on arch build from source (e.g. `yay wezterm-git`)
-
-install the font commit-mono `yay extra/oft-commit-mono-nerd`
-choose the nerd one `otf-commit-mono-nerd`
-
-## Notes on easy to forget keybinds
+## Oh my zsh default keybind
 
 `CTRL+e` to accept ghost-like zsh-autosuggestions
+`CTRL+r` search past commands _(this is default outside of omz, and I dont use it anyways I have my own fh fn for this)_
 
 ## WSL
 
 **Wezterm**
-Terminal Emulator is `wezterm`. Since kitty is not supported.
-The font needs to be installed on windows to be available for wezterm
-on windows just go to the [website.org](https://wezterm.org) and download it.
+Terminal Emulator is `wezterm`. 
+Kitty is supported, but performance is worse. 
+Drastically worse on fedora. 
+On arch it can be improved but, I dont think I have automated this, and forgot what exactly I did.
+
+The font needs to be installed on windows to be available for wezterm.
+You can download it here [website.org](https://wezterm.org) and drag and drop it into fonts.
 
 **Neovim**
 nvim path `%AppData%/local/nvim`
 but Telescope and maybe other features using the Linux ecosystem do not work.
+I had no need to make support for this yet, since I only use nvim within wsl.
 
-### Scripts
+## Binaries
 
-the `scripts` directory is added to the `$PATH`,
-and therefore can be invoked using their filename.
-e.g. `install.sh --pacman`
+the `./bin` directory is added to `$PATH`, so all of those
+scripts are available for ease of use.
 
 ### MonkeyType 
 
@@ -82,3 +84,9 @@ Sat Jun 20 11:21:42 PM CEST 2026
  Total                   150        11062         6559         3160         1343
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
+
+### FAQ / Troubleshooting
+
+if the installer throws pacman errors when installer, make sure to update your system upfront: `sudo pacman -Syu`
+then try again. none of the scripts update, but when installing new apps, it might fail, becuase it pulls their
+latest version which might depend on newer bins

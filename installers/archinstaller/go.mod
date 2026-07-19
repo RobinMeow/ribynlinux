@@ -1,4 +1,4 @@
-module codeberg.org/Ribyn/ribyns-env/installers/archinstaller
+module codeberg.org/Ribyn/ribynlinux/installers/archinstaller
 
 go 1.26.5
 

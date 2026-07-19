@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-source "$RIBYNS_ENV/lib/run_on_distro.sh"
+source "$RIBYN_ROOT/lib/run_on_distro.sh"
 
 run_on_arch <<'EOF'
 	sudo pacman -S --needed --noconfirm \
@@ -13,7 +13,7 @@ run_on_fedora <<'EOF'
     chafa ffmpeg 7zip jq poppler fd-find ripgrep fzf ImageMagick mediainfo feh file mpv
 EOF
 
-"$RIBYNS_ENV/lib/ensure_installed_homebrew.sh"
+"$RIBYN_ROOT/lib/ensure_installed_homebrew.sh"
 
 # NOTE: optional dependencies, tho i got em all using dnf/pacman (excluding zoxide i dont use that)
 # brew install sevenzip jq poppler fd ripgrep fzf
@@ -36,4 +36,4 @@ else
 	git -C "$dest_mediainfo" pull
 fi
 
-"$RIBYNS_ENV/apps/yazi/sync.sh"
+"$RIBYN_ROOT/apps/yazi/sync.sh"

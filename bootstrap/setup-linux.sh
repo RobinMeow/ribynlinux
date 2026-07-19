@@ -71,15 +71,15 @@ EOF
 		echo "skipping git clone and install"
 	else
 		su - "$USERNAME" <<'EOF'
-git clone --depth 1 -b master https://codeberg.org/Ribyn/ribyns-env
-export RIBYNS_ENV="$HOME/ribyns-env"
-"$RIBYNS_ENV/scripts/install.sh" --full-install
+git clone --depth 1 -b master https://codeberg.org/Ribyn/ribynlinux
+export RIBYN_ROOT="$HOME/ribynlinux"
+"$RIBYN_ROOT/scripts/install.sh" --full-install
 EOF
 	fi
 	echo "you now now login in using: su --login $USERNAME"
 else
-	git clone --depth 1 -b master https://codeberg.org/Ribyn/ribyns-env
-	export RIBYNS_ENV="$HOME/ribyns-env"
-	"$RIBYNS_ENV/scripts/install.sh" --full-install
+	git clone --depth 1 -b master https://codeberg.org/Ribyn/ribynlinux
+	export RIBYN_ROOT="$HOME/ribynlinux"
+	"$RIBYN_ROOT/scripts/install.sh" --full-install
 	echo "Setup complete for '$(whoami)'."
 fi

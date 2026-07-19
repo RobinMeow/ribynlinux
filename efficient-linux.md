@@ -102,7 +102,7 @@ end with an @ symbol would be matched by the shell in this command:
 $ ls [A-Z]*_*@
 
 at the end of the book:
-- write something, which will traverse a through subdirs and read all files and find project wide duplicated lines (e.g. source "$RIBYNS_ENV/lib/utils.sh" should accor often)
+- write something, which will traverse a through subdirs and read all files and find project wide duplicated lines (e.g. source "$RIBYN_ROOT/lib/utils.sh" should accor often)
 - write something which detects duplicated files
 
 

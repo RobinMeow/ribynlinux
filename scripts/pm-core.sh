@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-source "$RIBYNS_ENV/lib/utils.sh"
+source "$RIBYN_ROOT/lib/utils.sh"
 
-RIBYNS_ENV_LOG_INFO=true info "Installing core packages..."
+RIBYN_ROOT_LOG_INFO=true info "Installing core packages..."
 
-source "$RIBYNS_ENV/lib/run_on_distro.sh"
+source "$RIBYN_ROOT/lib/run_on_distro.sh"
 
 run_on_arch <<'EOF'
 	sudo pacman -S --needed --noconfirm \
@@ -96,11 +96,11 @@ run_on_fedora <<'EOF'
 	sudo dnf install -y --allowerasing ffmpeg
 EOF
 
-"$RIBYNS_ENV/lib/ensure_installed_homebrew.sh"
+"$RIBYN_ROOT/lib/ensure_installed_homebrew.sh"
 # NOTE: gemini-cli is available in arch but might as well have things consistent
 # using the binaries, cuz in fresh install with install.sh bre is not yet in PATH
 /home/linuxbrew/.linuxbrew/bin/brew install gemini-cli
 
 tldr --update
 
-RIBYNS_ENV_LOG_INFO=true success "Core packages installed"
+RIBYN_ROOT_LOG_INFO=true success "Core packages installed"

@@ -1,54 +1,54 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-source "$RIBYNS_ENV/lib/utils.sh"
+source "$RIBYN_ROOT/lib/utils.sh"
 
-echo "Installing from source: $RIBYNS_ENV"
+echo "Installing from source: $RIBYN_ROOT"
 
 info "Installing zsh"
-"$RIBYNS_ENV/apps/zsh/install.sh"
+"$RIBYN_ROOT/apps/zsh/install.sh"
 
 info "Installing CommitMono"
-"$RIBYNS_ENV/installers/install-commit-mono.sh"
+"$RIBYN_ROOT/installers/install-commit-mono.sh"
 
 info "Installing git"
-"$RIBYNS_ENV/apps/git/install.sh"
+"$RIBYN_ROOT/apps/git/install.sh"
 
 info "Installing bat"
-"$RIBYNS_ENV/apps/bat/install.sh"
+"$RIBYN_ROOT/apps/bat/install.sh"
 
 info "Installing btop"
-"$RIBYNS_ENV/apps/btop/install.sh"
+"$RIBYN_ROOT/apps/btop/install.sh"
 
 info "Installing kitty"
-"$RIBYNS_ENV/apps/kitty/install.sh"
+"$RIBYN_ROOT/apps/kitty/install.sh"
 
 info "Installing wezterm"
-"$RIBYNS_ENV/apps/wezterm/install.sh"
+"$RIBYN_ROOT/apps/wezterm/install.sh"
 
 info "Installing nvim"
-"$RIBYNS_ENV/apps/nvim/install.sh"
+"$RIBYN_ROOT/apps/nvim/install.sh"
 
 info "Installing vale"
-"$RIBYNS_ENV/apps/vale/install.sh"
+"$RIBYN_ROOT/apps/vale/install.sh"
 
 info "Installing tmux"
-"$RIBYNS_ENV/apps/tmux/install.sh"
+"$RIBYN_ROOT/apps/tmux/install.sh"
 
 info "Installing yazi"
-"$RIBYNS_ENV/apps/yazi/install.sh"
+"$RIBYN_ROOT/apps/yazi/install.sh"
 
 info "Installing mpd"
-"$RIBYNS_ENV/apps/mpd/install.sh"
+"$RIBYN_ROOT/apps/mpd/install.sh"
 
 info "Installing rmpc"
-"$RIBYNS_ENV/apps/rmpc/install.sh"
+"$RIBYN_ROOT/apps/rmpc/install.sh"
 
 info "Installing zathura"
-"$RIBYNS_ENV/apps/zathura/install.sh"
+"$RIBYN_ROOT/apps/zathura/install.sh"
 
 info "Installing bluetui"
-"$RIBYNS_ENV/apps/bluetui/install.sh"
+"$RIBYN_ROOT/apps/bluetui/install.sh"
 
 full_install=false
 for arg in "$@"; do
@@ -60,34 +60,34 @@ done
 for arg in "$@"; do
 	if [[ "$arg" == "--pm" || $full_install ]]; then
 		info "Installing core"
-		"$RIBYNS_ENV/scripts/pm-core.sh"
+		"$RIBYN_ROOT/scripts/pm-core.sh"
 	fi
 
 	if [[ "$arg" == "--webdev" || $full_install ]]; then
 		info "Installing gadgets"
-		"$RIBYNS_ENV/scripts/pm-gadgets.sh"
+		"$RIBYN_ROOT/scripts/pm-gadgets.sh"
 	fi
 
 	if [[ "$arg" == "--gadgets" ]]; then
 		info "Installing gadgets"
-		"$RIBYNS_ENV/scripts/pm-gadgets.sh"
+		"$RIBYN_ROOT/scripts/pm-gadgets.sh"
 	fi
 
 	if [[ "$arg" == "--kde" ]]; then
 		info "Installing kde"
-		"$RIBYNS_ENV/apps/kde/install.sh"
+		"$RIBYN_ROOT/apps/kde/install.sh"
 	fi
 
 	if [[ "$arg" == "--hypr" ]]; then
 		info "Installing rofi"
-		"$RIBYNS_ENV/apps/rofi/install.sh"
+		"$RIBYN_ROOT/apps/rofi/install.sh"
 
 		info "Installing waybar"
-		"$RIBYNS_ENV/apps/waybar/install.sh"
+		"$RIBYN_ROOT/apps/waybar/install.sh"
 
 		info "Installing hypr"
-		"$RIBYNS_ENV/apps/hypr/install.sh"
+		"$RIBYN_ROOT/apps/hypr/install.sh"
 	fi
 done
 
-success "ribyns-env installed"
+success "ribynliniux installed"

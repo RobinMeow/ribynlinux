@@ -2,7 +2,7 @@
 set -euo pipefail
 
 # https://docs.fedoraproject.org/en-US/quick-docs/fonts/#unpackaged
-source "$RIBYNS_ENV/lib/run_on_distro.sh"
+source "$RIBYN_ROOT/lib/run_on_distro.sh"
 
 reinstall=false
 for arg in "$@"; do
@@ -40,5 +40,5 @@ if [[ ! -d "$install_dest" ]] || [[ "$reinstall" == true ]]; then
 	# update font cache
 	fc-cache -f -v
 else
-	echo "CommitMono is already installed. run '$RIBYNS_ENV/installers/install-commit-mono.sh --reinstall' to reinstall"
+	echo "CommitMono is already installed. run '$RIBYN_ROOT/installers/install-commit-mono.sh --reinstall' to reinstall"
 fi

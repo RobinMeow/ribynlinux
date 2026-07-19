@@ -4,8 +4,8 @@ set -euo pipefail
 # NOTE: wip
 # https://wiki.hypr.land/Getting-Started/Installation/#cmake-recommended
 
-source "$RIBYNS_ENV/lib/utils.sh"
-source "$RIBYNS_ENV/lib/run_on_distro.sh"
+source "$RIBYN_ROOT/lib/utils.sh"
+source "$RIBYN_ROOT/lib/run_on_distro.sh"
 
 run_on_arch <<'EOF'
     echo "ERROR: Use pacman on archlinux to install hyperland."
@@ -15,8 +15,8 @@ EOF
 
 # Building Hyprland on Fedora HOWTO #284 https://github.com/hyprwm/Hyprland/discussions/284
 
-git clone --recursive https://github.com/hyprwm/Hyprland "$RIBYNS_ENV/apps/hyprland"
-cd "$RIBYNS_ENV/apps/hyprland"
+git clone --recursive https://github.com/hyprwm/Hyprland "$RIBYN_ROOT/apps/hyprland"
+cd "$RIBYN_ROOT/apps/hyprland"
 
 # NOTE: using cmake (recommended)
 

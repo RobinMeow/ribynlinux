@@ -17,7 +17,7 @@ EOF
 	exit 0
 }
 
-source "$RIBYNS_ENV/lib/utils.sh"
+source "$RIBYN_ROOT/lib/utils.sh"
 
 # Defaults
 fps=30
@@ -58,11 +58,11 @@ done
 
 if [ -d "$INPUT_DIR" ]; then
 	# Directory mode: loop through files
-	OUTPUT_DIR="$RIBYNS_ENV/tmp/$(basename "$INPUT_DIR")"
+	OUTPUT_DIR="$RIBYN_ROOT/tmp/$(basename "$INPUT_DIR")"
 	FILES=("$INPUT_DIR"/*.mp4)
 else
 	# Single file mode: just one item
-	OUTPUT_DIR="$RIBYNS_ENV/tmp"
+	OUTPUT_DIR="$RIBYN_ROOT/tmp"
 	FILES=("$INPUT_DIR")
 fi
 

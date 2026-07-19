@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-"$RIBYNS_ENV/apps/nvim/build-from-source.sh"
-"$RIBYNS_ENV/apps/nvim/sync.sh"
+"$RIBYN_ROOT/apps/nvim/build-from-source.sh"
+"$RIBYN_ROOT/apps/nvim/sync.sh"

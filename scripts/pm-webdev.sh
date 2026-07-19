@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-source "$RIBYNS_ENV/lib/utils.sh"
+source "$RIBYN_ROOT/lib/utils.sh"
 
-source "$RIBYNS_ENV/lib/run_on_distro.sh"
+source "$RIBYN_ROOT/lib/run_on_distro.sh"
 
-RIBYNS_ENV_LOG_INFO=true info "Installing webdev packages..."
+RIBYN_ROOT_LOG_INFO=true info "Installing webdev packages..."
 
 run_on_arch <<'EOF'
 	sudo pacman -S --needed --noconfirm \
@@ -33,4 +33,4 @@ run_on_fedora <<'EOF'
 		jq
 EOF
 
-RIBYNS_ENV_LOG_INFO=true success "Webdev packages installed"
+RIBYN_ROOT_LOG_INFO=true success "Webdev packages installed"

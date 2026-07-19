@@ -63,8 +63,8 @@ export ZVM_KEYTIMEOUT="2" # 2s timeout e.g. for cs"'
 
 export EDITOR='nvim'
 
-export RIBYNS_ENV="$HOME/ribyns-env"
-export PATH="$PATH:$HOME/ribyns-env/bin"
+export RIBYN_ROOT="$HOME/ribynlinux"
+export PATH="$PATH:$RIBYN_ROOT/bin"
 if [[ -d "$HOME/ribyns-state/bin" ]]; then
 	export PATH="$PATH:$HOME/ribyns-state/bin"
 fi
@@ -113,36 +113,36 @@ fh() {
 ribyn() {
 	local cmd="$1"
 
-	if [[ "$cmd" == "env" ]]; then
+	if [[ "$cmd" == "root" ]]; then
 		shift
-		cd "$RIBYNS_ENV" || exit
+		cd "$RIBYN_ROOT" || exit
 	elif [[ "$cmd" == "state" ]]; then
 		shift
 		cd "$HOME/ribyns-state" || exit
 	elif [[ "$cmd" == "run" ]]; then
 		shift
 		print -z "$( (
-				fd . "$RIBYNS_ENV" --extension=sh
-				fd . "$RIBYNS_ENV/bin"
+				fd . "$RIBYN_ROOT" --extension=sh
+				fd . "$RIBYN_ROOT/bin"
 			) | fzf)"
 	elif [[ "$cmd" == "keyboard-feh" ]]; then
 		shift
   	selected_img="$( (
-				fd . "$RIBYNS_ENV/keyboard/glove80" --extension=png
+				fd . "$RIBYN_ROOT/keyboard/glove80" --extension=png
 			) | fzf)"
 			if [[ -f "$selected_img" ]]; then
 				feh "$selected_img"
 			fi
 	elif [[ "$cmd" == "keyboard-chafa-all" ]]; then
 		shift
-			chafa "$RIBYNS_ENV/keyboard/glove80/nav-layer.png"
-			chafa "$RIBYNS_ENV/keyboard/glove80/symbol-fkeys-layer.png"
+			chafa "$RIBYN_ROOT/keyboard/glove80/nav-layer.png"
+			chafa "$RIBYN_ROOT/keyboard/glove80/symbol-fkeys-layer.png"
 	elif [[ "$cmd" == "install" ]]; then
 		shift
-		"$RIBYNS_ENV/bin/ribyn_install"
+		"$RIBYN_ROOT/bin/ribyn_install"
 	elif [[ "$cmd" == "sync" ]]; then
 		shift
-		"$RIBYNS_ENV/bin/ribyn_sync"
+		"$RIBYN_ROOT/bin/ribyn_sync"
 	else
 		echo "ribyn: unknown key '$1'"
 		for k in "${!temp_dirs[@]}"; do
@@ -151,7 +151,7 @@ ribyn() {
 		return 1
 	fi
 }
-complete -W "env state run keyboard-feh keyboard-chafa keyboard-chafa-all" ribyn
+complete -W "root state run keyboard-feh keyboard-chafa keyboard-chafa-all" ribyn
 
 # Then use y instead of yazi to start, and press q to quit, you'll see
 # the CWD changed. Sometimes, you don't want to change, press Q to quit.

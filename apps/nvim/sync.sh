@@ -13,4 +13,4 @@ if $CLEAN; then
 fi
 
 mkdir -p "$HOME/.config/nvim"
-cp -r "$RIBYNS_ENV/apps/nvim/config/"* "$HOME/.config/nvim/"
+cp -r "$RIBYN_ROOT/apps/nvim/config/"* "$HOME/.config/nvim/"

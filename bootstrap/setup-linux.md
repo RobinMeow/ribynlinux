@@ -4,14 +4,17 @@ To prepare a Fedora or Arch Linux instance, run the following command. The scrip
 
 ## Quick Start
 
+> setup script is in rework. wip on archinstaller
+
 ```bash
-sh -c "$(curl -fsSL https://codeberg.org/Ribyn/ribyns-env/raw/branch/master/scripts/setup-linux.sh)"
-SKIP_INSTALL=true sh -c "$(curl -fsSL https://codeberg.org/Ribyn/ribyns-env/raw/branch/master/scripts/setup-linux.sh)"
+sh -c "$(curl -fsSL https://codeberg.org/Ribyn/ribynlinux/raw/branch/master/scripts/setup-linux.sh)"
+SKIP_INSTALL=true sh -c "$(curl -fsSL https://codeberg.org/Ribyn/ribynlinux/raw/branch/master/scripts/setup-linux.sh)"
 ```
 
 or manually (Recommended: the setup script is iffy):
 ```bash
-git clone ssh://git@codeberg.org:Ribyn/ribyns-env.git $HOME/ribyns-env
-$RIBYNS_ENV/scripts/install.sh --full-install
+export RIBYN_ROOT="$HOME/ribynlinux"
+git clone ssh://git@codeberg.org:Ribyn/ribynlinux.git $RIBYN_ROOT
+$RIBYN_ROOT/scripts/install.sh --full-install
 ```
 

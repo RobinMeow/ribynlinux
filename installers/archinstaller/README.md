@@ -8,7 +8,7 @@ With easy selection for per-machine difference, which can deviate.
 to run the installer 
 
 ```sh
-cd $RIBYNS_ENV/installers/archinstaller/
+cd $RIBYN_ROOT/installers/archinstaller/
 go run .`
 ```
 

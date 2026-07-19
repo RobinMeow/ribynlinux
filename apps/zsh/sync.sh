@@ -2,8 +2,8 @@
 set -euo pipefail
 
 mkdir -p "$HOME/.config/ribyn/zsh"
-cp "$RIBYNS_ENV/apps/zsh/p10k.zsh" "$HOME/.config/ribyn/zsh/"
-cp "$RIBYNS_ENV/apps/zsh/zshrc" "$HOME/.zshrc"
+cp "$RIBYN_ROOT/apps/zsh/p10k.zsh" "$HOME/.config/ribyn/zsh/"
+cp "$RIBYN_ROOT/apps/zsh/zshrc" "$HOME/.zshrc"
 
 localdest="$HOME/.config/ribyn/zsh/local.sh"
 
@@ -13,5 +13,5 @@ if [[ -f "$HOME/.zshrc-local.sh" ]]; then
 fi
 
 if [[ ! -f "$localdest" ]]; then
-	cp "$RIBYNS_ENV/apps/zsh/local.sh" "$localdest"
+	cp "$RIBYN_ROOT/apps/zsh/local.sh" "$localdest"
 fi
