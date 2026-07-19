@@ -28,6 +28,13 @@ vim.keymap.set("n", "<leader><F2>", "*:%s///g<left><left>", { desc = "rename/sub
 -- <C-r>h: In Vim's command line, pressing Ctrl + r followed by a register name pastes the contents of that register. This literally dumps whatever text you highlighted directly into the search field.
 vim.keymap.set("x", "<leader><F2>", '"hy:%s/<C-r>h//g<left><left>', { desc = "rename/substitute visual selection" })
 
+local function copy_filepath_to_clipboard()
+  local filepath = vim.fn.expand("%:~")
+  vim.fn.setreg("+", filepath)
+  print("filepath copied to clipboard:" .. filepath)
+end
+vim.keymap.set("n", "<leader>fp", copy_filepath_to_clipboard, { desc = "copy filepath to clipboard" })
+
 vim.keymap.set("n", "<C-u>", "<C-u>zz", { desc = "Move half page up while keeping cursor centered" })
 vim.keymap.set("n", "<C-d>", "<C-d>zz", { desc = "Move half page down while keeping cursor centered" })
 vim.keymap.set("n", "n", "nzzzv", { desc = "Move next while keeping cursor centered" })
