@@ -161,6 +161,13 @@ return {
       -- detached = false,
     }
 
+    -- TODO: test if those work. copied from here: https://github.com/Mathijs-Bakker/godotdev.nvim/blob/master/lua/godotdev/dap.lua
+    dap.adapters.godot = {
+      type = "server",
+      host = config.editor_host or "127.0.0.1",
+      port = config.debug_port or 6006,
+    }
+
     -- INFO: Codelldb Manual: https://github.com/vadimcn/codelldb/blob/master/MANUAL.md
     dap.configurations.cpp = {
       -- NOTE: default config for running files with main entry block
@@ -196,5 +203,15 @@ return {
     dap.configurations.rust = dap.configurations.cpp
     -- dap.configurations.c = dap.configurations.cpp
     -- dap.configurations.zig = dap.configurations.cpp
+
+    dap.configurations.gdscript = {
+      {
+        type = "godot",
+        request = "launch",
+        name = "Launch scene",
+        project = "${workspaceFolder}",
+        launch_scene = true,
+      },
+    }
   end,
 }

@@ -245,6 +245,24 @@ require("lazy").setup({
         ["stylua"] = {},
         ["markdownlint"] = {},
         ["vale"] = {},
+
+        -- godot
+        ["gdtoolkit"] = {},
+        ["gdscript-formatter"] = {},
+        -- TODO: no idea if I need this
+        -- ["gdscript"] = {
+        --   name = "godot_editor",
+        --   cmd = cmd,
+        --   filetypes = { "gd", "gdscript", "gdshader", "gdscript3" },
+        --   root_markers = { "project.godot", ".git" },
+        --   capabilities = capabilities,
+        --   on_attach = function(client, bufnr)
+        --     utils.suppress_client_messages(client, { "Method not found: godot/reloadScript" })
+        --     inline_hints.enable_for_buffer(client, bufnr)
+        --   end,
+        -- },
+        -- TODO: External Editor Setup: This is actually the only thing I need, I think since I develop on csharp, and got dotnet stuff already configured
+        -- https://github.com/Mathijs-Bakker/godotdev.nvim/blob/master/doc/neovim-external-editor-setup.md
       }
 
       require("mason-tool-installer").setup({ ensure_installed = vim.tbl_keys(servers or {}) })
@@ -333,6 +351,13 @@ require("lazy").setup({
     branch = "main",
     config = function()
       local treesitter = require("nvim-treesitter")
+
+      -- TODO: checkout these tree sitter parsers, they sound interesting:
+      -- git_config	unstable	HF J 	@amaanq
+      -- git_rebase	unstable	H  J 	@gbprod
+      -- gitattributes	unstable	H  JL	@ObserverOfTime
+      -- gitcommit	unstable	H  J 	@gbprod
+      -- gitignore	unstable	H  J 	@theHamsta
       local ensure_installed = {
         "c",
         "lua",
@@ -374,6 +399,11 @@ require("lazy").setup({
         "tsx",
         "typescript",
         "cpp",
+
+        -- godot
+        "gdscript",
+        "godot-resource",
+        "gdshader",
       }
 
       treesitter.install(ensure_installed)
@@ -437,3 +467,6 @@ vim.cmd("colorscheme " .. get_kanagawa_variant())
 -- 		})
 -- 	end,
 -- })
+
+-- NOTE: wip
+-- require("godot")

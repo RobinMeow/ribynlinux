@@ -24,7 +24,7 @@ sudo pacman -Sy --noconfirm --needed \
 	clang \
 	mold
 # pulseaudio
-exec scons platform=linuxbsd target=editor debug_symbols=yes optimize=debug se_llvm=yes linker=mold
+exec scons platform=linuxbsd target=editor debug_symbols=yes optimize=debug se_llvm=yes linker=mold module_mono_enabled=yes
 
 # se_llvm=yes linker=lld
 # just to use clang, which is faster (disable for production builds tho)
