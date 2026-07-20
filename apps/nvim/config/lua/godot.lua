@@ -1,4 +1,5 @@
 -- TODO: set up csharp debugging
+-- TODO: set up godot templates
 -- TODO: checkout gdtoolscipt and gdscriptformattter (already set up the install for them) i think its gdscript only
 
 -- WARN: dont think I need this. my serach already respects gitignore etc,

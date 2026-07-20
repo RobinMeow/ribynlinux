@@ -237,6 +237,7 @@ require("lazy").setup({
         },
         ["prettierd"] = {},
         ["prettier"] = {},
+        ["csharpier"] = {},
         ["shfmt"] = {},
         ["yaml-language-server"] = {},
         ["yamlfmt"] = {},
