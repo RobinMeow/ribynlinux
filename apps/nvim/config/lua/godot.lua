@@ -1,15 +1,18 @@
+-- TODO: set up csharp debugging
+-- TODO: checkout gdtoolscipt and gdscriptformattter (already set up the install for them) i think its gdscript only
+
 -- WARN: dont think I need this. my serach already respects gitignore etc,
 -- tho those files might not be gitignored
 -- ignore godot .uid files in wild menus
 -- vim.cmd("set wildignore+=**.uid")
 
--- TODO: also interesting feature
+-- NOTE: also interesting feature
 -- spell check
 -- vim.cmd("set spell")
 -- vim.cmd("set spelllang=en_us,cjk")
 -- vim.cmd("set spellsuggest=best,9")
 
--- TODO: I dont think I have this one yet.
+-- NOTE: I dont think I have this one yet.
 -- spaces instead of tabs
 -- vim.cmd("set expandtab")
 
@@ -20,7 +23,7 @@
 --   command = "set noexpandtab",
 -- })
 
--- TODO: dont use netrw but, still need to check if I need to filter those files out
+-- NOTE: dont use netrw but, still need to check if I need to filter those files out
 -- hide godot files
 -- vim.g.netrw_list_hide = "\\.uid"
 
@@ -35,9 +38,6 @@
 -- vim.keymap.set("n", "<leader>cc", ":cclose<CR>")
 -- vim.keymap.set("n", "<leader>cf", ":cnfile<CR>")
 
--- TODO: is this checking for root?
--- paths to check for project.godot file
-local function gd_log(msg) end
 local paths_to_check = { "/", "/../" }
 local is_godot_project = false
 local godot_project_path = ""
@@ -79,5 +79,3 @@ end
 -- Exec Path: /usr/local/bin/nvim (or whereever else your nvim bin is)
 -- Exec Flags: --server {project}/server.pipe --remote-send "<C-\><C-N>:e {file}<CR>:call cursor({line},{col})<CR>"
 -- Exec Flags: --server {project}/server.pipe --remote-send ":e {file}<CR>:call cursor({line}+1,{col})<CR>"
-
--- TODO: checkout gdtoolscipt and gdscriptformattter (already set up the install for them)
