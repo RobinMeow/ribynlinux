@@ -61,21 +61,22 @@ config.use_fancy_tab_bar = false
 -- Windows/Wsl/Linux
 -- ensure wezterm starts in wsl and cwd is correctly carried over to new panes/tabs
 --
--- INFO: repurposing wezterm on windows to use as terminal to run wsl commands
---
--- local running_on_windows = package.config:sub(1, 1) == "\\"
--- if running_on_windows then
---   -- https://wezterm.org/config/lua/config/default_domain.html
---   -- https://github.com/wezterm/wezterm/issues/2090
---   local wsl_domains = wezterm.default_wsl_domains()
---
---   for _, dom in ipairs(wsl_domains) do
---     dom.default_cwd = "~"
---   end
---
---   config.wsl_domains = wsl_domains
---   config.default_domain = "WSL:archlinux"
--- end
+-- WARN: tried to use wezterm on windows for normal windows commands
+-- but I want the performance now. So I'm using wezterm again.
+
+local running_on_windows = package.config:sub(1, 1) == "\\"
+if running_on_windows then
+  -- https://wezterm.org/config/lua/config/default_domain.html
+  -- https://github.com/wezterm/wezterm/issues/2090
+  local wsl_domains = wezterm.default_wsl_domains()
+
+  for _, dom in ipairs(wsl_domains) do
+    dom.default_cwd = "~"
+  end
+
+  config.wsl_domains = wsl_domains
+  config.default_domain = "WSL:archlinux"
+end
 
 -- background
 local bg_mode = "wallpapers" -- "wallpapers" | "motions"
