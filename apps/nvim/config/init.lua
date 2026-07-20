@@ -402,7 +402,7 @@ require("lazy").setup({
 
         -- godot
         "gdscript",
-        "godot-resource",
+        "godot_resource",
         "gdshader",
       }
 
@@ -468,5 +468,4 @@ vim.cmd("colorscheme " .. get_kanagawa_variant())
 -- 	end,
 -- })
 
--- NOTE: wip
--- require("godot")
+require("godot")

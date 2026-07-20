@@ -37,6 +37,7 @@
 
 -- TODO: is this checking for root?
 -- paths to check for project.godot file
+local function gd_log(msg) end
 local paths_to_check = { "/", "/../" }
 local is_godot_project = false
 local godot_project_path = ""
@@ -47,15 +48,26 @@ for key, value in pairs(paths_to_check) do
   if vim.uv.fs_stat(cwd .. value .. "project.godot") then
     is_godot_project = true
     godot_project_path = cwd .. value
+    print("[Godot] Found project:" .. godot_project_path)
     break
   end
 end
 
+local server_pipe = godot_project_path .. "server.pipe"
 -- check if server is already running in godot project path
-local is_server_running = vim.uv.fs_stat(godot_project_path .. "/server.pipe")
+local is_server_running = vim.uv.fs_stat(server_pipe)
 -- start server, if not already running
 if is_godot_project and not is_server_running then
-  vim.fn.serverstart(godot_project_path .. "/server.pipe")
+  print("[Godot] Starting server at: " .. server_pipe)
+
+  local ok, err = pcall(vim.fn.serverstart, server_pipe)
+  if ok then
+    print("[Godot] Server started at: " .. server_pipe)
+  else
+    print("[Godot][ERROR] Failed to start server: " .. tostring(err))
+  end
+elseif is_godot_project and is_server_running then
+  print("[Godot] Server is already running at: " .. server_pipe)
 end
 
 if is_godot_project then
