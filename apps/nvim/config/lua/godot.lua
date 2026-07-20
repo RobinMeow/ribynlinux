@@ -74,4 +74,10 @@ if is_godot_project then
   -- WARN: here were a lot of debugging Breakpoints keymaps, but they didnt appeal to me
 end
 
+-- NOTE:
+-- external editor:
+-- Exec Path: /usr/local/bin/nvim (or whereever else your nvim bin is)
+-- Exec Flags: --server {project}/server.pipe --remote-send "<C-\><C-N>:e {file}<CR>:call cursor({line},{col})<CR>"
+-- Exec Flags: --server {project}/server.pipe --remote-send ":e {file}<CR>:call cursor({line}+1,{col})<CR>"
+
 -- TODO: checkout gdtoolscipt and gdscriptformattter (already set up the install for them)

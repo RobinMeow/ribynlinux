@@ -164,8 +164,8 @@ return {
     -- TODO: test if those work. copied from here: https://github.com/Mathijs-Bakker/godotdev.nvim/blob/master/lua/godotdev/dap.lua
     dap.adapters.godot = {
       type = "server",
-      host = config.editor_host or "127.0.0.1",
-      port = config.debug_port or 6006,
+      host = "127.0.0.1",
+      port = 6006,
     }
 
     -- INFO: Codelldb Manual: https://github.com/vadimcn/codelldb/blob/master/MANUAL.md
