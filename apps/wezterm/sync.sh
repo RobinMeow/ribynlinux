@@ -20,7 +20,7 @@ if [[ "$OS_TYPE" == "wsl" ]]; then
 	DEST_HOME_DIR="$WINDOWS_HOME"
 fi
 
-cp "$RIBYN_ROOT/apps/wezterm/wezterm.lua" "$DEST_HOME_DIR"
+cp "$RIBYN_ROOT/apps/wezterm/wezterm.lua" "$DEST_HOME_DIR/.wezterm.lua"
 
 if [[ $RIBYN_WEZTERM_CLEAN_ON_SYNC ]]; then
 	info "Cleaning up wezterm config dir"
