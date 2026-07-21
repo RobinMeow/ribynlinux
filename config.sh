@@ -14,3 +14,8 @@ export RIBYN_NVIM_GIT_REF=${RIBYN_NVIM_GIT_REF:-stable}
 export RIBYN_NVIM_GIT_FETCH=${RIBYN_NVIM_GIT_FETCH:-false}
 
 export RIBYN_WEZTERM_CLEAN_ON_SYNC=${RIBYN_WEZTERM_CLEAN_ON_SYNC:-false}
+
+export RIBYN_GODOT_ROOT="${RIBYN_GODOT_ROOT:-"$HOME/godot"}"
+
+# Only tags are supported, do not use branches or commit hashes
+export RIBYN_GODOT_GIT_TAG="${RIBYN_GODOT_GIT_TAG:-"4.7.1-stable"}" # release was 2026/07/13
