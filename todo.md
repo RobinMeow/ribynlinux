@@ -40,10 +40,7 @@
 - current restore session solution, is good enough. but if i desore restored terminals or DBUI, or quickfix lists i might want to look for plugin
 - virtual text for debugging https://github.com/theHamsta/nvim-dap-virtual-text?utm_source=chatgpt.com
 - show cmd line in the middle of the screen for pair programming
-
-## angular
-
-- ng-test-fzf.sh is runniung duplicated tests...
+- populate tsc/tsgo/lint errors into quickfix
 
 ## zsh / omz
 
