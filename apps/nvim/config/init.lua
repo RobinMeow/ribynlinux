@@ -175,14 +175,15 @@ require("lazy").setup({
         ["goimports"] = {}, -- go formatter, import manager
         -- ["gofumpt"] = {}, -- stricter (probably opioniated) go formatter
         ["ts_ls"] = {
-          on_attach = function(client, bufnr)
-            -- some clients support workspace diagnostics natively
-            if client:supports_method("workspace/diagnostic", bufnr) then
-              vim.lsp.buf.workspace_diagnostics({ client_id = client.id })
-            else
-              require("workspace-diagnostics").populate_workspace_diagnostics(client, bufnr)
-            end
-          end,
+          -- NOTE: was kinda nice, but I did notice the start up being slower and the benefits werent that great. so disabled for now again
+          -- on_attach = function(client, bufnr)
+          --   -- some clients support workspace diagnostics natively
+          --   if client:supports_method("workspace/diagnostic", bufnr) then
+          --     vim.lsp.buf.workspace_diagnostics({ client_id = client.id })
+          --   else
+          --     require("workspace-diagnostics").populate_workspace_diagnostics(client, bufnr)
+          --   end
+          -- end,
         }, -- https://github.com/pmizio/typescript-tools.nvim can be considered when more speed is required
         ["clangd"] = {}, -- ls for cpp c++ cpluscplus
         ["clang-format"] = {}, -- formatter for cpp c++ cpluscplus
