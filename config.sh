@@ -6,6 +6,8 @@ set -euo pipefail
 #
 # if you want to override values locally (per machine) use zshrc-local
 
+# INFO: NEOVIM
+
 # anything you can call git checkout on.
 # usually 'master' branch or 'stable' tag
 export RIBYN_NVIM_GIT_REF=${RIBYN_NVIM_GIT_REF:-stable}
@@ -13,9 +15,18 @@ export RIBYN_NVIM_GIT_REF=${RIBYN_NVIM_GIT_REF:-stable}
 # whether or not to fetch the latest commits before checking out the BUILD_REF
 export RIBYN_NVIM_GIT_FETCH=${RIBYN_NVIM_GIT_FETCH:-false}
 
+# INFO: WEZTERM
+
 export RIBYN_WEZTERM_CLEAN_ON_SYNC=${RIBYN_WEZTERM_CLEAN_ON_SYNC:-false}
 
+# INFO: GODOT
+
+# where to clone, compile and build the engine
 export RIBYN_GODOT_ROOT="${RIBYN_GODOT_ROOT:-"$HOME/godot"}"
 
 # Only tags are supported, do not use branches or commit hashes
 export RIBYN_GODOT_GIT_TAG="${RIBYN_GODOT_GIT_TAG:-"4.7.1-stable"}" # release was 2026/07/13
+
+# the latest major version godot supports (minor and patches do not matter usually)
+# https://dotnet.microsoft.com/en-us/download/dotnet
+export RIBYN_GODOT_DOTNET_VERSION="${RIBYN_GODOT_DOTNET_VERSION:-"8.0.423"}" # as of 2026/07/21

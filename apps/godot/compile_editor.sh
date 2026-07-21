@@ -1,8 +1,25 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-source "$RIBYN_ROOT/lib/utils.sh"
-source "$RIBYN_ROOT/lib/run_on_distro.sh"
+. "$RIBYN_ROOT/config.sh"
+. "$RIBYN_ROOT/lib/utils.sh"
+. "$RIBYN_ROOT/lib/run_on_distro.sh"
+
+if ! command -v dotnet &>/dev/null; then
+	error "Error: .NET CLI is not installed or not found in PATH." >&2
+	exit 1
+fi
+if ! dotnet --list-sdks | grep -q "$RIBYN_GODOT_DOTNET_VERSION"; then
+	warn "[Godot] Required .NET SDK version $RIBYN_GODOT_DOTNET_VERSION is not installed." >&2
+
+	if confirm "Wish to install .NET SDK version $RIBYN_GODOT_DOTNET_VERSION"; then
+		"$RIBYN_ROOT/installers/dotnet-install.sh" --version "$RIBYN_GODOT_DOTNET_VERSION"
+		exit 1
+	else
+		warn "[Godot] skipping"
+		exit 1
+	fi
+fi
 
 run_on_arch sudo pacman -Sy --noconfirm --needed \
 	scons \
