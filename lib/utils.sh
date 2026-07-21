@@ -186,3 +186,16 @@ if [[ "${BASH_SOURCE[0]}" == "${0}" ]]; then
 		;;
 	esac
 fi
+
+confirm() {
+	# * **`read`**: The built-in Bash command that waits for user keyboard input.
+	# * **`-p "..."`**: Prints the prompt text to the screen without adding a newline, displaying the variable's value and the `[y/N]` choice.
+	# * **`-r`**: Treats backslashes literally (raw mode), preventing them from acting as escape characters.
+	local prompt="$1"
+	# use printf so the terminal interprets the ANSI escape sequences
+	printf "${CATLAVENDER}%s [y/N]${NC} " "$prompt"
+	read -r || true
+	echo # Move to a new line
+
+	[[ "${REPLY:-n}" =~ ^[Yy]$ ]]
+}
