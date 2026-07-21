@@ -143,6 +143,9 @@ ribyn() {
 	elif [[ "$cmd" == "sync" ]]; then
 		shift
 		"$RIBYN_ROOT/bin/ribyn_sync"
+	elif [[ "$cmd" == "wezterm-guide" ]]; then
+		shift
+		"$RIBYN_ROOT/apps/wezterm/wezterm-guide.sh"
 	else
 		echo "ribyn: unknown key '$1'"
 		for k in "${!temp_dirs[@]}"; do
@@ -151,7 +154,7 @@ ribyn() {
 		return 1
 	fi
 }
-complete -W "root state run keyboard-feh keyboard-chafa keyboard-chafa-all" ribyn
+complete -W "root state run wezterm-guide keyboard-feh keyboard-chafa keyboard-chafa-all" ribyn
 
 # Then use y instead of yazi to start, and press q to quit, you'll see
 # the CWD changed. Sometimes, you don't want to change, press Q to quit.
