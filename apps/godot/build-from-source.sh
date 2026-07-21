@@ -1,14 +1,10 @@
 #!/usr/bin/env bash
+set -euo pipefail
 
-# fedora
-# sudo dnf install -y \
-#   scons \
-#   pkgconfig \
-#   gcc-c++ \
-#   libstdc++-static \
-#   wayland-devel
+source "$RIBYN_ROOT/lib/utils.sh"
+source "$RIBYN_ROOT/lib/run_on_distro.sh"
 
-sudo pacman -Sy --noconfirm --needed \
+run_on_arch sudo pacman -Sy --noconfirm --needed \
 	scons \
 	pkgconf \
 	gcc \
@@ -23,8 +19,19 @@ sudo pacman -Sy --noconfirm --needed \
 	alsa-lib \
 	clang \
 	mold
-# pulseaudio
-exec scons platform=linuxbsd target=editor debug_symbols=yes optimize=debug use_llvm=yes linker=mold module_mono_enabled=yes
+# pulseaudio (didnt work on my pc, cuz I had pulse wire I think but it worked without)
+
+run_on_fedora warn "Fedora godot is not yet tested."
+run_on_fedora sudo dnf install -y \
+	scons \
+	pkgconfig \
+	gcc-c++ \
+	libstdc++-static \
+	clang \
+	mold \
+	wayland-devel
+
+scons platform=linuxbsd target=editor debug_symbols=yes optimize=debug use_llvm=yes linker=mold module_mono_enabled=yes
 
 # se_llvm=yes linker=lld
 # just to use clang, which is faster (disable for production builds tho)
