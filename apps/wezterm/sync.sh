@@ -43,6 +43,7 @@ done
 # WARN: motions on other branches are not yet transferred to the new dir structure
 motions_dir="$RIBYN_ROOT/images/motions"
 if [[ -d $motions_dir ]]; then
+	info "Syncing motions $motions_dir"
 	mkdir -p "$DEST_CONFIG_DIR/motions"
 	cp "$RIBYN_ROOT/images/motions/"* "$DEST_CONFIG_DIR/motions/"
 else
