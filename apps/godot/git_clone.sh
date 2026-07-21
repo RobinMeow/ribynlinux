@@ -34,7 +34,7 @@ if [[ -d "$RIBYN_GODOT_ROOT" ]]; then
 		fi
 	)
 else
-	info "[Godot] cloning godotengine/godot"
+	info "[Godot] cloning godotengine/godot $RIBYN_GODOT_GIT_TAG"
 	git clone --depth 1 --branch "$RIBYN_GODOT_GIT_TAG" git@github.com:godotengine/godot.git "$RIBYN_GODOT_ROOT"
 	exit 0
 fi

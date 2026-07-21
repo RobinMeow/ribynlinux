@@ -48,7 +48,17 @@ run_on_fedora sudo dnf install -y \
 	mold \
 	wayland-devel
 
-scons platform=linuxbsd target=editor debug_symbols=yes optimize=debug use_llvm=yes linker=mold module_mono_enabled=yes
+(
+	cd "$RIBYN_GODOT_ROOT"
+	scons \
+		platform=linuxbsd \
+		target=editor \
+		debug_symbols=yes \
+		optimize=debug \
+		use_llvm="$RIBYN_GODOT_USE_LLVM" \
+		linker=mold \
+		module_mono_enabled=yes
+)
 
 # se_llvm=yes linker=lld
 # just to use clang, which is faster (disable for production builds tho)

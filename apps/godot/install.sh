@@ -1,9 +1,22 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-source "$RIBYN_ROOT/lib/utils.sh"
+. "$RIBYN_ROOT/lib/utils.sh"
+. "$RIBYN_ROOT/config.sh"
 
-warn "[Godot] install not supported. manually clone the repo for the version you desire and call the $RIBYN_ROOT/apps/godot/build-from-source.sh from within the cloned repo"
-warn "[Godot] sync skipped. Manually run the sync, when godot is installed."
+git_clone_exit=0
+("$RIBYN_ROOT/apps/godot/git_clone.sh") || git_clone_exit=$?
 
-# "$RIBYN_ROOT/apps/godot/sync.sh"
+if [[ "$git_clone_exit" -eq 2 ]]; then
+	info "[Godot] Git clone/checkout was skipped (exit 2). Skipping install."
+	exit 0
+fi
+
+"$RIBYN_ROOT/apps/godot/build_from_source.sh"
+
+if [[ "$RIBYN_GODOT_SYNC_ENALBED" =~ ^(y|yes|true|1)$ ]]; then
+	info "[Godot] syncing editor preferences"
+	"$RIBYN_ROOT/apps/godot/sync.sh"
+else
+	warn "[Godot] skipped sync"
+fi
