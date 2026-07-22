@@ -277,6 +277,9 @@ require("lazy").setup({
       vim.lsp.config("roslyn_ls", {
         -- TODO: test performance in larger project. it was fast in small one.
         -- otherwise get easy-dotnet back? or go into its repo to copy they vscode conf
+        ["csharp|code_lens"] = {
+          dotnet_enable_tests_code_lens = false,
+        },
       })
       vim.lsp.enable("roslyn_ls")
 

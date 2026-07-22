@@ -149,64 +149,83 @@ return {
     --   },
     -- })
 
+    -- NOTE: its being overrien, annoyingly
+    -- dap.adapters.netcoredbg = {
+    --   type = "executable",
+    --   command = vim.fn.exepath("netcoredbg"),
+    --   args = { "--interpreter=vscode" },
+    -- } -- needed for debugging Program.cs
+    -- dap.adapters.coreclr = dap.adapters.netcoredbg -- needed for debugging unit test
+    -- dap.configurations.cs = {
+    --   {
+    --     type = "coreclr",
+    --     name = "microslop",
+    --     program = function()
+    --       return require("microslop").build_dll_path()
+    --     end,
+    --     request = "attach",
+    --     cwd = "${workspaceFolder}",
+    --   },
+    -- }
+
     -- WARN: test if those work. copied from here: https://github.com/Mathijs-Bakker/godotdev.nvim/blob/master/lua/godotdev/dap.lua
     -- GDScript adapter for non-csharp projects
-    dap.adapters.godot = {
-      type = "server",
-      host = "127.0.0.1",
-      port = 6006, -- when a godot project opens it says "Debug adapter server started on port 6006" (and gdscript lsp on 6005)
-    }
-    dap.configurations.gdscript = {
-      {
-        type = "godot",
-        request = "launch",
-        name = "Launch scene",
-        project = "${workspaceFolder}",
-        launch_scene = true,
-      },
-    }
+    -- dap.adapters.godot = {
+    --   type = "server",
+    --   host = "127.0.0.1",
+    --   port = 6006, -- when a godot project opens it says "Debug adapter server started on port 6006" (and gdscript lsp on 6005)
+    -- }
+    -- dap.configurations.gdscript = {
+    --   {
+    --     type = "godot",
+    --     request = "launch",
+    --     name = "Launch scene",
+    --     project = "${workspaceFolder}",
+    --     launch_scene = true,
+    --   },
+    -- }
 
-    -- INFO: Codelldb Manual: https://github.com/vadimcn/codelldb/blob/master/MANUAL.md
-    -- c/c++/rust/zig specific dap config
-    dap.adapters.codelldb = {
-      type = "executable",
-      command = "codelldb", -- or if not in $PATH: "/absolute/path/to/codelldb"
-      -- On windows you may have to uncomment this:
-      -- detached = false,
-    }
-    dap.configurations.cpp = {
-      -- NOTE: default config for running files with main entry block
-      {
-        -- Common default config apparently
-        name = "Launch file",
-        type = "codelldb",
-        request = "launch",
-        program = function()
-          return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
-        end,
-        cwd = "${workspaceFolder}",
-        stopOnEntry = false,
-      },
-
-      -- NOTE: working example for running a specific unreal project (not well reuseable, but good enough since I never debug anyways)
-      -- {
-      --   name = "Unreal Editor (Launch Project)",
-      --   type = "codelldb",
-      --   request = "launch",
-      --   -- Point this to where your source-built or installed engine lives on Linux
-      --   program = "${env:HOME}/UnrealEngine/Engine/Binaries/Linux/UnrealEditor",
-      --   args = {
-      --     -- point this to your project
-      --     "${env:HOME}/ue/UENetworkTests/UENetworkTests.uproject",
-      --     "-log", -- Crucial on Linux: spawns a separate native terminal window for live engine stdout logs
-      --   },
-      --   cwd = "${workspaceFolder}",
-      --   stopOnEntry = false,
-      -- },
-    }
-    -- can use the same config
-    dap.configurations.rust = dap.configurations.cpp
-    -- dap.configurations.c = dap.configurations.cpp
-    -- dap.configurations.zig = dap.configurations.cpp
+    -- WARN: not really needed they were overriden anyways
+    --
+    -- -- INFO: Codelldb Manual: https://github.com/vadimcn/codelldb/blob/master/MANUAL.md
+    -- -- c/c++/rust/zig specific dap config
+    -- dap.adapters.codelldb = {
+    --   type = "executable",
+    --   command = "codelldb", -- or if not in $PATH: "/absolute/path/to/codelldb"
+    -- }
+    -- dap.configurations.cpp = {
+    --   -- NOTE: default config for running files with main entry block
+    --   {
+    --     -- Common default config apparently
+    --     name = "Launch file",
+    --     type = "codelldb",
+    --     request = "launch",
+    --     program = function()
+    --       return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
+    --     end,
+    --     cwd = "${workspaceFolder}",
+    --     stopOnEntry = false,
+    --   },
+    --
+    --   -- NOTE: working example for running a specific unreal project (not well reuseable, but good enough since I never debug anyways)
+    --   -- {
+    --   --   name = "Unreal Editor (Launch Project)",
+    --   --   type = "codelldb",
+    --   --   request = "launch",
+    --   --   -- Point this to where your source-built or installed engine lives on Linux
+    --   --   program = "${env:HOME}/UnrealEngine/Engine/Binaries/Linux/UnrealEditor",
+    --   --   args = {
+    --   --     -- point this to your project
+    --   --     "${env:HOME}/ue/UENetworkTests/UENetworkTests.uproject",
+    --   --     "-log", -- Crucial on Linux: spawns a separate native terminal window for live engine stdout logs
+    --   --   },
+    --   --   cwd = "${workspaceFolder}",
+    --   --   stopOnEntry = false,
+    --   -- },
+    -- }
+    -- -- can use the same config
+    -- dap.configurations.rust = dap.configurations.cpp
+    -- -- dap.configurations.c = dap.configurations.cpp
+    -- -- dap.configurations.zig = dap.configurations.cpp
   end,
 }
