@@ -80,16 +80,12 @@ return {
     require("mason-nvim-dap").setup({
       -- Makes a best effort to setup the various debuggers with
       -- reasonable debug configurations
-      automatic_installation = true,
+      automatic_installation = false,
 
       -- You can provide additional configuration to the handlers,
       -- see mason-nvim-dap README for more information
       handlers = {},
-      -- I specified the dap's in init.lua
-      ensure_installed = {
-        -- "netcoredbg", -- dotnet
-        -- "codelldb", -- c/c++/rust/zig
-      },
+      ensure_installed = {}, -- not using this. install using mason
     })
 
     -- Dap UI setup
@@ -153,14 +149,6 @@ return {
     --   },
     -- })
 
-    -- c/c++/rust/zig specific dap config
-    dap.adapters.codelldb = {
-      type = "executable",
-      command = "codelldb", -- or if not in $PATH: "/absolute/path/to/codelldb"
-      -- On windows you may have to uncomment this:
-      -- detached = false,
-    }
-
     -- WARN: test if those work. copied from here: https://github.com/Mathijs-Bakker/godotdev.nvim/blob/master/lua/godotdev/dap.lua
     -- GDScript adapter for non-csharp projects
     dap.adapters.godot = {
@@ -178,39 +166,14 @@ return {
       },
     }
 
-    dap.adapters.coreclr = {
-      type = "executable",
-      command = vim.fn.exepath("netcoredbg"), -- since mason adds to PATH we should be able to use a string
-      args = { "--interpreter=vscode" }, -- tells the adapter to speak the DA-Protocol
-    }
-    dap.configurations.cs = {
-      {
-        type = "coreclr",
-        name = "Launch Godot C# project",
-        request = "launch",
-        -- Dynamically prompt for the DLL path in your debug folder
-        program = function()
-          local cwd = vim.fn.getcwd()
-          -- ai generated. apparently points to the correct dotnet version
-          return vim.fn.input("Path to DLL: ", cwd .. "/bin/Debug/", "file")
-        end,
-        cwd = "${workspaceFolder}",
-        stopOnEntry = false,
-      },
-    }
-    dap.configurations.cs = {
-      {
-        type = "coreclr",
-        name = "Launch Godot C# project",
-        request = "launch",
-        program = function()
-          local cwd = vim.fn.getcwd()
-          return vim.fn.input("Path to DLL: ", cwd .. "/.godot/mono/temp/bin/Debug/", "file")
-        end,
-      },
-    }
-
     -- INFO: Codelldb Manual: https://github.com/vadimcn/codelldb/blob/master/MANUAL.md
+    -- c/c++/rust/zig specific dap config
+    dap.adapters.codelldb = {
+      type = "executable",
+      command = "codelldb", -- or if not in $PATH: "/absolute/path/to/codelldb"
+      -- On windows you may have to uncomment this:
+      -- detached = false,
+    }
     dap.configurations.cpp = {
       -- NOTE: default config for running files with main entry block
       {

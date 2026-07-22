@@ -29,21 +29,21 @@ require("lazy").setup({
   { import = "plugins" }, -- imports lua files from lua/plugins/*
 
   -- LSP Plugins
-  {
-    ft = { "cs", "csproj", "sln", "slnx" },
-    "GustavEikaas/easy-dotnet.nvim",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "nvim-telescope/telescope.nvim",
-    },
-    config = function()
-      require("easy-dotnet").setup({
-        lsp = {
-          auto_refresh_codelens = false,
-        },
-      })
-    end,
-  },
+  -- {
+  --   ft = { "cs", "csproj", "sln", "slnx" },
+  --   "GustavEikaas/easy-dotnet.nvim",
+  --   dependencies = {
+  --     "nvim-lua/plenary.nvim",
+  --     "nvim-telescope/telescope.nvim",
+  --   },
+  --   config = function()
+  --     require("easy-dotnet").setup({
+  --       lsp = {
+  --         auto_refresh_codelens = false,
+  --       },
+  --     })
+  --   end,
+  -- },
   {
     -- `lazydev` configures Lua LSP for your Neovim config, runtime and plugins
     -- used for completion, annotations and signatures of Neovim apis
@@ -187,7 +187,7 @@ require("lazy").setup({
         }, -- https://github.com/pmizio/typescript-tools.nvim can be considered when more speed is required
         ["clangd"] = {}, -- ls for cpp c++ cpluscplus
         ["clang-format"] = {}, -- formatter for cpp c++ cpluscplus
-        ["codelldb"] = {}, -- DAP for c/c++/rust/zig	(its installed via dap/debug.lua)
+        ["codelldb"] = {}, -- DAP for c/c++/rust/zig	(its installed via dap.lua)
         ["netcoredbg"] = {}, -- dotnet
         ["eslint"] = {},
         ["shellcheck"] = {},
@@ -273,6 +273,12 @@ require("lazy").setup({
         vim.lsp.config(name, config)
         vim.lsp.enable(name)
       end
+
+      vim.lsp.config("roslyn_ls", {
+        -- TODO: test performance in larger project. it was fast in small one.
+        -- otherwise get easy-dotnet back? or go into its repo to copy they vscode conf
+      })
+      vim.lsp.enable("roslyn_ls")
 
       -- NOTE: requires rosyln-language-server to be in path. dotnet tool install -g roslyn-language-server --prerelease
       -- WARN: do not enable manually when using easy-dotnet
