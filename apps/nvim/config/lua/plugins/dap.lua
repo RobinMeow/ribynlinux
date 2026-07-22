@@ -161,11 +161,53 @@ return {
       -- detached = false,
     }
 
-    -- TODO: test if those work. copied from here: https://github.com/Mathijs-Bakker/godotdev.nvim/blob/master/lua/godotdev/dap.lua
+    -- WARN: test if those work. copied from here: https://github.com/Mathijs-Bakker/godotdev.nvim/blob/master/lua/godotdev/dap.lua
+    -- GDScript adapter for non-csharp projects
     dap.adapters.godot = {
       type = "server",
       host = "127.0.0.1",
-      port = 6006,
+      port = 6006, -- when a godot project opens it says "Debug adapter server started on port 6006" (and gdscript lsp on 6005)
+    }
+    dap.configurations.gdscript = {
+      {
+        type = "godot",
+        request = "launch",
+        name = "Launch scene",
+        project = "${workspaceFolder}",
+        launch_scene = true,
+      },
+    }
+
+    dap.adapters.coreclr = {
+      type = "executable",
+      command = vim.fn.exepath("netcoredbg"), -- since mason adds to PATH we should be able to use a string
+      args = { "--interpreter=vscode" }, -- tells the adapter to speak the DA-Protocol
+    }
+    dap.configurations.cs = {
+      {
+        type = "coreclr",
+        name = "Launch Godot C# project",
+        request = "launch",
+        -- Dynamically prompt for the DLL path in your debug folder
+        program = function()
+          local cwd = vim.fn.getcwd()
+          -- ai generated. apparently points to the correct dotnet version
+          return vim.fn.input("Path to DLL: ", cwd .. "/bin/Debug/", "file")
+        end,
+        cwd = "${workspaceFolder}",
+        stopOnEntry = false,
+      },
+    }
+    dap.configurations.cs = {
+      {
+        type = "coreclr",
+        name = "Launch Godot C# project",
+        request = "launch",
+        program = function()
+          local cwd = vim.fn.getcwd()
+          return vim.fn.input("Path to DLL: ", cwd .. "/.godot/mono/temp/bin/Debug/", "file")
+        end,
+      },
     }
 
     -- INFO: Codelldb Manual: https://github.com/vadimcn/codelldb/blob/master/MANUAL.md
@@ -203,15 +245,5 @@ return {
     dap.configurations.rust = dap.configurations.cpp
     -- dap.configurations.c = dap.configurations.cpp
     -- dap.configurations.zig = dap.configurations.cpp
-
-    dap.configurations.gdscript = {
-      {
-        type = "godot",
-        request = "launch",
-        name = "Launch scene",
-        project = "${workspaceFolder}",
-        launch_scene = true,
-      },
-    }
   end,
 }
