@@ -11,6 +11,11 @@
 - Isaiah 35:6. "Then will the lame leap like a deer, and the mute tongue shout for joy. Water will gush forth in the wilderness and streams in the desert." (New International Version)
 - cpp tui https://github.com/ArthurSonzogni/FTXUI e.g. i can make quiz apps for what I have read in the bible
 
+## Godot
+
+- with godot an overlay grid which allows me to trigger mouse clicks
+- https://github.com/CSharpGodotTools/Template godot learning resource for visualized debugging and multiplayer
+
 ## app ideas
 
 - music dl (TUI)
@@ -60,7 +65,6 @@ decided to wait at least until im no longer on nvidia. Even pre-configured "them
 
 - https://makefiletutorial.com
 - make sure simple kind of man is in my music playlist
-- with godot an overlay grid which allows me to trigger mouse clicks
 
 # Walkolution
 
