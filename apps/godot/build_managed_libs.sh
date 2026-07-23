@@ -2,7 +2,9 @@
 set -euo pipefail
 
 source "$RIBYN_ROOT/lib/utils.sh"
+source "$RIBYN_ROOT/config.sh"
 
-GODOT_ROOT="$HOME/godot"
-
-"$GODOT_ROOT/modules/mono/build_scripts/build_assemblies.py" --godot-output-dir=./bin
+(
+	cd "$RIBYN_GODOT_ROOT"
+	"$RIBYN_GODOT_ROOT/modules/mono/build_scripts/build_assemblies.py" --godot-output-dir=./bin
+)
