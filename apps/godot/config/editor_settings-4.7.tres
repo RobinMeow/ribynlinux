@@ -108,6 +108,7 @@ filesystem/directories/default_project_path = "/home/ribyn"
 filesystem/file_dialog/display_mode = 0
 filesystem/file_dialog/thumbnail_size = 64
 filesystem/quick_open_dialog/max_results = 100
+filesystem/quick_open_dialog/instant_preview = true
 filesystem/quick_open_dialog/max_fuzzy_misses = 2
 filesystem/quick_open_dialog/default_display_mode = 0
 filesystem/import/blender/blender_path = ""
