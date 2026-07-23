@@ -91,4 +91,7 @@ echo "--------------------------------------"
 exec npx ng test \
 	--browsers "$BROWSER" \
 	--watch "$WATCH_MODE" \
-	$INCLUDE_FLAGS
+	$INCLUDE_FLAGS </dev/null
+
+# WARN: the pipe indirection prevents the pipefail from triggering causing the process to become unresponsive
+# $INCLUDE_FLAGS </dev/null
