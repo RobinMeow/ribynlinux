@@ -6,7 +6,7 @@ play_alarm() {
 	while true; do
 		# echo -e "\a" # System bell
 		ffplay -volume 25 -nodisp -autoexit -loglevel quiet "$RIBYN_ROOT/assets/sounds/tuturu.mp3"
-		sleep 1
+		sleep 10
 	done
 }
 
