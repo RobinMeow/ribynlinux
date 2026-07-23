@@ -431,13 +431,6 @@ require("lazy").setup({
           end
 
           pcall(vim.treesitter.start, buf, lang)
-
-          -- enable indentation (skip yaml/markdown) idk why ask him: https://youtu.be/nB2EIjKtJ8U?t=479
-          if ft ~= "yaml" and ft ~= "markdown" then
-            vim.bo[buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
-            vim.bo[buf].smartindent = false
-            vim.bo[buf].cindent = false
-          end
         end,
       })
     end,
