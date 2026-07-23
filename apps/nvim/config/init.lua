@@ -277,9 +277,6 @@ require("lazy").setup({
       vim.lsp.config("roslyn_ls", {
         -- TODO: test performance in larger project. it was fast in small one.
         -- otherwise get easy-dotnet back? or go into its repo to copy they vscode conf
-        ["csharp|code_lens"] = {
-          dotnet_enable_tests_code_lens = false,
-        },
       })
       vim.lsp.enable("roslyn_ls")
 
@@ -420,7 +417,7 @@ require("lazy").setup({
       treesitter.install(ensure_installed)
 
       vim.api.nvim_create_autocmd("FileType", {
-        pattern = "*",
+        pattern = "cs",
         callback = function(args)
           local buf = args.buf
           local ft = vim.bo[buf].filetype
@@ -431,6 +428,9 @@ require("lazy").setup({
           end
 
           pcall(vim.treesitter.start, buf, lang)
+          vim.opt_local.tabstop = 4
+          vim.opt_local.shiftwidth = 4
+          vim.opt_local.expandtab = true
         end,
       })
     end,
