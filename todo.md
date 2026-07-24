@@ -18,6 +18,7 @@
 
 ## app ideas
 
+- go tui app for pomodora using my own timer bin
 - music dl (TUI)
 - calendar for birthdays (family sharable sync in Android?)
 - Raster-Selection for Kitty (not only left right, but also up down tab bar)
