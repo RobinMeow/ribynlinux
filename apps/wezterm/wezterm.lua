@@ -210,14 +210,11 @@ end)
 bind_key("CTRL|SHIFT", "LeftArrow", act.ActivateTabRelative(-1))
 bind_key("CTRL|SHIFT", "RightArrow", act.ActivateTabRelative(1))
 
-bind_key("LEADER", "x", act.CloseCurrentPane({ confirm = true }))
-bind_key("LEADER", "c", act.SpawnTab("CurrentPaneDomain"))
-
 -- navigation
-bind_key("LEADER", "h", act.ActivatePaneDirection("Left"))
-bind_key("LEADER", "j", act.ActivatePaneDirection("Down"))
-bind_key("LEADER", "k", act.ActivatePaneDirection("Up"))
-bind_key("LEADER", "l", act.ActivatePaneDirection("Right"))
+bind_key("CTRL|SHIFT", "h", act.ActivatePaneDirection("Left"))
+bind_key("CTRL|SHIFT", "j", act.ActivatePaneDirection("Down"))
+bind_key("CTRL|SHIFT", "k", act.ActivatePaneDirection("Up"))
+bind_key("CTRL|SHIFT", "l", act.ActivatePaneDirection("Right"))
 
 bind_key("CTRL|SHIFT", "K", act.EmitEvent("increase-light"))
 bind_key("CTRL|SHIFT", "J", act.EmitEvent("decrease-light"))

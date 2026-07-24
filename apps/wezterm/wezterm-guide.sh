@@ -17,19 +17,18 @@ Leader Key: CTRL + b (Timeout: 2000ms)
   CTRL+SHIFT+J      Decrease background brightness / opacity
 
 [ Tab Navigation ]
-  CTRL+b c          Create a new tab
-  CTRL+b p          Switch to previous tab
-  CTRL+b n          Switch to next tab
-  CTRL+b 1..9       Switch to tab 1 - 9
+  CTRL|SHIFT t             Create a new tab
+  CTRL|SHIFT Arrow Right   Switch to previous tab
+  CTRL|SHIFT Arrow Left    Switch to next tab
 
 [ Pane Management ]
   CTRL+b %          Split pane horizontally
   CTRL+b "          Split pane vertically
-  CTRL+b x          Close current pane (with confirmation)
-  CTRL+b h          Focus pane LEFT
-  CTRL+b j          Focus pane DOWN
-  CTRL+b k          Focus pane UP
-  CTRL+b l          Focus pane RIGHT
+  CTRL|SHIFT w      Close current pane
+  CTRL|SHIFT h      Focus pane LEFT
+  CTRL|SHIFT j      Focus pane DOWN
+  CTRL|SHIFT k      Focus pane UP
+  CTRL|SHIFT l      Focus pane RIGHT
 
 [ Pane Resizing Sub-Mode ]
   CTRL+b + [Arrow]  Enter Pane Resize Mode
