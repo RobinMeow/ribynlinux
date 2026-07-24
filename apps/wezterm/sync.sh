@@ -22,7 +22,8 @@ fi
 
 cp "$RIBYN_ROOT/apps/wezterm/wezterm.lua" "$DEST_HOME_DIR/.wezterm.lua"
 
-if [[ $RIBYN_WEZTERM_CLEAN_ON_SYNC ]]; then
+source "$RIBYN_ROOT/config.sh"
+if [[ "$RIBYN_WEZTERM_CLEAN_ON_SYNC" == "yes" ]]; then
 	info "Cleaning up wezterm config dir"
 	rm -rf "$DEST_CONFIG_DIR"
 fi

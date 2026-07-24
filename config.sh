@@ -4,7 +4,8 @@ set -euo pipefail
 # these config values are my personal perference and can
 # deviate from the default values used within the scripts
 #
-# if you want to override values locally (per machine) use zshrc-local
+# if you want to override values locally (per machine) use your zshrc local
+# located in ~/.config/ribyn/zsh/local.sh
 
 # INFO: NEOVIM
 
@@ -13,11 +14,11 @@ set -euo pipefail
 export RIBYN_NVIM_GIT_REF=${RIBYN_NVIM_GIT_REF:-stable}
 
 # whether or not to fetch the latest commits before checking out the BUILD_REF
-export RIBYN_NVIM_GIT_FETCH=${RIBYN_NVIM_GIT_FETCH:-false}
+export RIBYN_NVIM_GIT_FETCH=${RIBYN_NVIM_GIT_FETCH:-"no"}
 
 # INFO: WEZTERM
-
-export RIBYN_WEZTERM_CLEAN_ON_SYNC=${RIBYN_WEZTERM_CLEAN_ON_SYNC:-false}
+# yes/no (yes will clean everything. mostly relevant for the motions)
+export RIBYN_WEZTERM_CLEAN_ON_SYNC=${RIBYN_WEZTERM_CLEAN_ON_SYNC:-"no"}
 
 # INFO: GODOT
 
@@ -32,7 +33,7 @@ export RIBYN_GODOT_GIT_TAG="${RIBYN_GODOT_GIT_TAG:-"4.7.1-stable"}" # release wa
 export RIBYN_GODOT_DOTNET_VERSION="${RIBYN_GODOT_DOTNET_VERSION:-"8.0.423"}" # as of 2026/07/21
 
 # syncing godot editr settings (I assume, that the locals ones are more up2date, so I would lose em if I overwrite them)
-export RIBYN_GODOT_SYNC_ENALBED="${RIBYN_GODOT_SYNC_ENALBED:-"false"}"
+export RIBYN_GODOT_SYNC_ENABLED="${RIBYN_GODOT_SYNC_ENABLED:-"no"}"
 
 # disable if compile fails with messages to open a ticket for llvm
 # yes/no
