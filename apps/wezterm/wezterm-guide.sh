@@ -22,8 +22,8 @@ Leader Key: CTRL + b (Timeout: 2000ms)
   CTRL|SHIFT Arrow Left    Switch to next tab
 
 [ Pane Management ]
-  CTRL+b %          Split pane horizontally
-  CTRL+b "          Split pane vertically
+  CTRL|SHIFT s      Split pane horizontally
+  CTRL|SHIFT v      Split pane vertically
   CTRL|SHIFT w      Close current pane
   CTRL|SHIFT h      Focus pane LEFT
   CTRL|SHIFT j      Focus pane DOWN

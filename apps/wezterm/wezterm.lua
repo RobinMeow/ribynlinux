@@ -219,11 +219,13 @@ bind_key("CTRL|SHIFT", "l", act.ActivatePaneDirection("Right"))
 bind_key("CTRL|SHIFT", "K", act.EmitEvent("increase-light"))
 bind_key("CTRL|SHIFT", "J", act.EmitEvent("decrease-light"))
 
--- idk why i need to use shift+phys: https://wezterm.org/config/keys.html#physical-vs-mapped-key-assignments
--- SHIFT+5 = "
-bind_key("LEADER|SHIFT", "phys:5", act.SplitHorizontal({ domain = "CurrentPaneDomain" }))
--- SHIFT+' = "
-bind_key("LEADER|SHIFT", "phys:Quote", act.SplitVertical({ domain = "CurrentPaneDomain" }))
+-- https://wezterm.org/config/keys.html#physical-vs-mapped-key-assignments
+-- using phys maps to a physical key. meaning it works for qwerty and qwertz (on qwertz ctrl+shift would cause the minus key to make an underscore)
+-- NOTE: using the phys doesnt solve any qwerty/qwertz issues. e.g. qwertz requires pressing AltGr to press Pipe, so I will fail regardless.
+-- using s/v instead letters aligned with neovim :vs (vertical split) and :sp (split = default horizontal)
+-- without conflicting with hjkl which are used otherwise
+bind_key("CTRL|SHIFT", "s", act.SplitHorizontal({ domain = "CurrentPaneDomain" }))
+bind_key("CTRL|SHIFT", "v", act.SplitVertical({ domain = "CurrentPaneDomain" }))
 
 local function clamp(value, min, max)
   return math.max(min, math.min(max, value))
