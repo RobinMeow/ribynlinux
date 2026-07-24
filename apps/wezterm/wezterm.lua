@@ -227,6 +227,8 @@ bind_key("CTRL|SHIFT", "J", act.EmitEvent("decrease-light"))
 bind_key("CTRL|SHIFT", "s", act.SplitHorizontal({ domain = "CurrentPaneDomain" }))
 bind_key("CTRL|SHIFT", "v", act.SplitVertical({ domain = "CurrentPaneDomain" }))
 
+bind_key("CTRL|SHIFT", "w", act.CloseCurrentTab({ confirm = false }))
+
 local function clamp(value, min, max)
   return math.max(min, math.min(max, value))
 end
