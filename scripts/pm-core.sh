@@ -49,7 +49,8 @@ run_on_arch <<'EOF'
 		bluetui \
 		gource \
 		words \
-		detox
+		detox \
+		git-lfs
 EOF
 
 run_on_fedora <<'EOF'
@@ -91,7 +92,8 @@ run_on_fedora <<'EOF'
 		fd-find \
 		gource \
 		words \
-		detox
+		detox \
+		git-lfs
 
 	sudo dnf install -y --allowerasing ffmpeg
 EOF
