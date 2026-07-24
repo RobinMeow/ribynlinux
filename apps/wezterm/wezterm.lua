@@ -206,8 +206,9 @@ wezterm.on("reload-wezterm", function(_, _)
   wezterm.log_info(bg_mode .. " reloaded")
 end)
 
-bind_key("LEADER", "p", act.ActivateTabRelative(-1)) -- nav to prev tab
-bind_key("LEADER", "n", act.ActivateTabRelative(1)) -- nav to next tab
+-- mimic kitty switch tabs
+bind_key("CTRL|SHIFT", "LeftArrow", act.ActivateTabRelative(-1))
+bind_key("CTRL|SHIFT", "RightArrow", act.ActivateTabRelative(1))
 
 bind_key("LEADER", "x", act.CloseCurrentPane({ confirm = true }))
 bind_key("LEADER", "c", act.SpawnTab("CurrentPaneDomain"))
@@ -277,11 +278,6 @@ config.key_tables = {
   -- do not try again to use key_tables in combination with set_config_overrides.
   -- https://github.com/wezterm/wezterm/issues/5318 wont-fix since 2024
 }
-
--- leader + number to switch tabs
-for i = 1, 9 do
-  bind_key("LEADER", tostring(i), act.ActivateTab(i - 1))
-end
 
 -- show while leader key is active
 wezterm.on("update-right-status", function(window, _)
