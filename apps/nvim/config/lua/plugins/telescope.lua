@@ -68,7 +68,7 @@ return {
       vim.keymap.set("n", "<leader>sh", builtin.help_tags, { desc = "[S]earch [H]elp" })
       vim.keymap.set("n", "<leader>sk", builtin.keymaps, { desc = "[S]earch [K]eymaps (which_key i => C-/ n => ?)" })
       local function search_files()
-        builtin.find_files({ file_ignore_patterns = { "assets/" } })
+        builtin.find_files({ file_ignore_patterns = { "assets/", ".cs.uid" } })
       end
       vim.keymap.set("n", "<leader>sf", search_files, { desc = "[S]earch [F]iles" })
       vim.keymap.set("n", '<leader>s"', builtin.registers, { desc = '[S]earch ["] registers' })
