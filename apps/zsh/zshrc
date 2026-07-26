@@ -99,6 +99,10 @@ export DOTNET_ROOT_X64="$HOME/.dotnet"
 
 export PATH="$PATH:$HOME/.cargo/bin"
 
+# Append, to have manual install take preceedence.
+# also appendedin mason, to have the same behavior (which deviates from the default)
+export PATH="$PATH:$HOME/.local/share/nvim/mason/bin"
+
 if [[ -d "/home/linuxbrew/" ]]; then
 	eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv zsh)"
 fi

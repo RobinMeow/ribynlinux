@@ -69,6 +69,11 @@ require("lazy").setup({
             "github:mason-org/mason-registry",
             -- "github:Crashdummyy/mason-registry", -- dotnet required registries required if using crashdummys more frequantly updated version
           },
+
+          -- only neovims shell PATH, not mine. Default was prepend,
+          -- but I will use append behavior in my zshrc and want similar behavior
+          -- for troubleshooting when things go wrong
+          PATH = "append",
         },
       },
       "mason-org/mason-lspconfig.nvim",
