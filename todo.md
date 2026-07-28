@@ -23,6 +23,7 @@
 - calendar for birthdays (family sharable sync in Android?)
 - Raster-Selection for Kitty (not only left right, but also up down tab bar)
 - Ribyn-Distro installer
+- lest I sleep the sleep of death
 
 ## Fedora
 
