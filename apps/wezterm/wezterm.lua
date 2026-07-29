@@ -224,8 +224,8 @@ bind_key("CTRL|SHIFT", "J", act.EmitEvent("decrease-light"))
 -- NOTE: using the phys doesnt solve any qwerty/qwertz issues. e.g. qwertz requires pressing AltGr to press Pipe, so I will fail regardless.
 -- using s/v instead letters aligned with neovim :vs (vertical split) and :sp (split = default horizontal)
 -- without conflicting with hjkl which are used otherwise
-bind_key("CTRL|SHIFT", "s", act.SplitHorizontal({ domain = "CurrentPaneDomain" }))
-bind_key("CTRL|SHIFT", "v", act.SplitVertical({ domain = "CurrentPaneDomain" }))
+bind_key("CTRL|SHIFT", "F6", act.SplitHorizontal({ domain = "CurrentPaneDomain" }))
+bind_key("CTRL|SHIFT", "F7", act.SplitVertical({ domain = "CurrentPaneDomain" }))
 
 bind_key("CTRL|SHIFT", "w", act.CloseCurrentTab({ confirm = false }))
 
