@@ -216,8 +216,8 @@ bind_key("CTRL|SHIFT", "j", act.ActivatePaneDirection("Down"))
 bind_key("CTRL|SHIFT", "k", act.ActivatePaneDirection("Up"))
 bind_key("CTRL|SHIFT", "l", act.ActivatePaneDirection("Right"))
 
-bind_key("CTRL|SHIFT", "K", act.EmitEvent("increase-light"))
-bind_key("CTRL|SHIFT", "J", act.EmitEvent("decrease-light"))
+bind_key("CTRL|SHIFT", "UpArrow", act.EmitEvent("increase-light"))
+bind_key("CTRL|SHIFT", "DownArrow", act.EmitEvent("decrease-light"))
 
 -- https://wezterm.org/config/keys.html#physical-vs-mapped-key-assignments
 -- using phys maps to a physical key. meaning it works for qwerty and qwertz (on qwertz ctrl+shift would cause the minus key to make an underscore)
