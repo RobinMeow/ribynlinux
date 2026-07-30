@@ -35,6 +35,7 @@
 
 ## Neovim
 
+- increase git diffview left panel default width
 - strike trhough words when deprecated
 - vim._core.ui2 configure it to be me useable
 - custom emoji loader :) see spinners.json origin: https://github.com/zadirion/Unreal.nvim/blob/main/lua/spinners.json

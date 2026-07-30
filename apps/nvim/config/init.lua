@@ -345,6 +345,7 @@ require("lazy").setup({
         -- python = { "isort", "black" },
         sh = { "shfmt", stop_after_first = true },
         javascript = { "prettierd", "prettier", stop_after_first = true },
+        json = { "prettierd", "prettier", stop_after_first = true },
         typescript = { "prettierd", "prettier", stop_after_first = true },
         html = { "prettierd", "prettier", stop_after_first = true },
         htmlangular = { "prettierd", "prettier", stop_after_first = true },
