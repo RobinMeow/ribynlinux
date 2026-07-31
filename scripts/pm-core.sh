@@ -98,11 +98,6 @@ run_on_fedora <<'EOF'
 	sudo dnf install -y --allowerasing ffmpeg
 EOF
 
-"$RIBYN_ROOT/lib/ensure_installed_homebrew.sh"
-# NOTE: gemini-cli is available in arch but might as well have things consistent
-# using the binaries, cuz in fresh install with install.sh bre is not yet in PATH
-/home/linuxbrew/.linuxbrew/bin/brew install gemini-cli
-
 tldr --update
 
 RIBYN_ROOT_LOG_INFO=true success "Core packages installed"
