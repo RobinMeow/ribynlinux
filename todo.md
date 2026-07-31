@@ -11,6 +11,15 @@
 - Isaiah 35:6. "Then will the lame leap like a deer, and the mute tongue shout for joy. Water will gush forth in the wilderness and streams in the desert." (New International Version)
 - cpp tui https://github.com/ArthurSonzogni/FTXUI e.g. i can make quiz apps for what I have read in the bible
 
+## Spaceship Zsh prompt
+
+consider using spaceshipt instead of p10k
+```sh
+"$RIBYN_ROOT/lib/ensure_installed_homebrew.sh"
+WARN: brew is not available in PATH on first time install
+"/home/linuxbrew/.linuxbrew/bin/brew" install --no-ask spaceship
+```
+
 ## Godot
 
 - with godot an overlay grid which allows me to trigger mouse clicks
