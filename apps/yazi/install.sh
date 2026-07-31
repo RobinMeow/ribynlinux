@@ -16,13 +16,12 @@ EOF
 "$RIBYN_ROOT/lib/ensure_installed_homebrew.sh"
 
 # NOTE: optional dependencies, tho i got em all using dnf/pacman (excluding zoxide i dont use that)
-# brew install sevenzip jq poppler fd ripgrep fzf
-# brew install ffmpeg-full imagemagick-full
+# brew install --no-ask sevenzip jq poppler fd ripgrep fzf
+# brew install --no-ask ffmpeg-full imagemagick-full
 # brew link ffmpeg-full imagemagick-full -f --overwrite
 
-# using the binaries, cuz in fresh install with install.sh
-# bre is not yet in PATH
-/home/linuxbrew/.linuxbrew/bin/brew install yazi resvg
+# WARN: brew is not available in PATH on first time install
+"/home/linuxbrew/.linuxbrew/bin/brew" install yazi resvg
 
 # NOTE: image, audio, video, subtitle and many media files using ffmpeg and mediainfo metainfo
 dest_mediainfo="$HOME/.config/yazi/plugins/mediainfo.yazi"
