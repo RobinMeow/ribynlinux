@@ -33,6 +33,7 @@ WARN: brew is not available in PATH on first time install
 - Raster-Selection for Kitty (not only left right, but also up down tab bar)
 - Ribyn-Distro installer
 - lest I sleep the sleep of death
+- jesus parables
 
 ## Fedora
 
