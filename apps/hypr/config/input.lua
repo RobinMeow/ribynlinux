@@ -82,6 +82,10 @@ local function init(opts)
         natural_scroll = true,
       },
     },
+    cursor = {
+      -- remember mouse position per window
+      persistent_warps = true,
+    },
   })
 
   apply_layout(opts.layout or us)

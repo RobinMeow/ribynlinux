@@ -4,7 +4,7 @@
 
 ## Tasks
 
-- [ ] volume and brightness popups
+- [ ] brightness popups
 - [ ] keybind toggle for performance (disable animations and blur)
 - [ ] flameshot using bind or desktop file
 - [ ] cursor (follow cursor?) should not be centered in the middle of the focused window. yikes!
@@ -32,6 +32,7 @@
 - [x] swap capslock as altnernative to qwertz
 - [x] set device to prefer darkmode
 - [x] replace all color rgbs with hexstrings
+- [x] volume 
 
 ---
 
