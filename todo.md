@@ -1,5 +1,9 @@
 # TicketSystem
 
+- use rsync_dotfiles instead of cp -r everywhere (better verbosity, improved performance and copies only files when neccessary)
+- rmpc primary colors needs to be orange
+- make TTY more pretty by default, it is my new login session terminal as I have no more use for sddm
+- config.sh should defined env variables for syncing which each sync.sh reachs as needed (instead of having ribyn_sync doing it)
 - rename shell variable $RIBYN_ROOT to $RIBYN or $RIBYNLINUX
 - (practical bash scripting: what AI cant teach you)[https://www.youtube.com/watch?v=aqEIE6Jn0mU]
 - learn sed
@@ -50,6 +54,7 @@ WARN: brew is not available in PATH on first time install
 - vim._core.ui2 configure it to be me useable
 - custom emoji loader :) see spinners.json origin: https://github.com/zadirion/Unreal.nvim/blob/main/lua/spinners.json
 - text to neovim (voice: change inner word)
+- keymap for search config which lets me use telescope fuzzy serach for dirs in .config (not only neovim and hypr)
 - neovim tests against all my config
 - enable tildeop with operator
 - harpoon https://github.com/ThePrimeagen/harpoon/tree/harpoon2
