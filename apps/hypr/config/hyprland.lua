@@ -55,7 +55,9 @@ hl.config({
 
     -- https://wiki.hypr.land/Configuring/Basics/Variables/#blur
     blur = {
-      enabled = true,
+      -- WARN: disabled by default. it doesnt load correctly
+      -- its enabled including setting their values, in autostart
+      enabled = false,
       new_optimizations = true,
       -- use size 8, passes 1 for more performance or disable alltogehter
       size = 4,
