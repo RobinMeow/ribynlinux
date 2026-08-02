@@ -101,9 +101,14 @@ return {
       end, { desc = "[S]earch [/] in Open Files" })
 
       -- Shortcut for searching your Neovim configuration files
-      vim.keymap.set("n", "<leader>sn", function()
+      vim.keymap.set("n", "<leader>scn", function()
         builtin.find_files({ cwd = vim.fn.stdpath("config") })
-      end, { desc = "[S]earch [N]eovim files" })
+      end, { desc = "[S]earch [c]onfig neovim" })
+
+      -- Shortcut for searching hypr config files
+      vim.keymap.set("n", "<leader>sch", function()
+        builtin.find_files({ cwd = os.getenv("HOME") .. "/.config/hypr" })
+      end, { desc = "[S]earch [c]onfig [h]ypr" })
 
       vim.cmd("highlight TelescopeBorder guibg=none")
     end,

@@ -44,6 +44,15 @@ info "Syncing rmpc"
 info "Syncing zathura"
 "$RIBYN_ROOT/apps/zathura/sync.sh"
 
+info "Syncing hypr"
+"$RIBYN_ROOT/apps/hypr/sync.sh"
+
+info "Syncing rofi"
+"$RIBYN_ROOT/apps/rofi/sync.sh"
+
+# info "Syncing waybar"
+# "$RIBYN_ROOT/apps/waybar/sync.sh"
+
 full_install=false
 for arg in "$@"; do
 	if [[ "$arg" == "--full-install" ]]; then
@@ -70,17 +79,6 @@ for arg in "$@"; do
 	if [[ "$arg" == "--kde" ]]; then
 		info "Syncing kde"
 		"$RIBYN_ROOT/apps/kde/sync.sh"
-	fi
-
-	if [[ "$arg" == "--hypr" ]]; then
-		info "Syncing rofi"
-		"$RIBYN_ROOT/apps/rofi/sync.sh"
-
-		info "Syncing waybar"
-		"$RIBYN_ROOT/apps/waybar/sync.sh"
-
-		info "Syncing hypr"
-		"$RIBYN_ROOT/apps/hypr/sync.sh"
 	fi
 done
 

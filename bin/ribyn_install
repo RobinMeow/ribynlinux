@@ -5,6 +5,9 @@ source "$RIBYN_ROOT/lib/utils.sh"
 
 echo "Installing from source: $RIBYN_ROOT"
 
+info "Installing core"
+"$RIBYN_ROOT/scripts/pm-core.sh"
+
 info "Installing zsh"
 "$RIBYN_ROOT/apps/zsh/install.sh"
 
@@ -50,6 +53,15 @@ info "Installing zathura"
 info "Installing bluetui"
 "$RIBYN_ROOT/apps/bluetui/install.sh"
 
+info "Installing rofi"
+"$RIBYN_ROOT/apps/rofi/install.sh"
+
+# info "Installing waybar"
+# "$RIBYN_ROOT/apps/waybar/install.sh"
+
+info "Installing hypr"
+"$RIBYN_ROOT/apps/hypr/install.sh"
+
 full_install=false
 for arg in "$@"; do
 	if [[ "$arg" == "--full-install" ]]; then
@@ -58,11 +70,6 @@ for arg in "$@"; do
 done
 
 for arg in "$@"; do
-	if [[ "$arg" == "--pm" || $full_install ]]; then
-		info "Installing core"
-		"$RIBYN_ROOT/scripts/pm-core.sh"
-	fi
-
 	if [[ "$arg" == "--webdev" || $full_install ]]; then
 		info "Installing gadgets"
 		"$RIBYN_ROOT/scripts/pm-gadgets.sh"
@@ -76,17 +83,6 @@ for arg in "$@"; do
 	if [[ "$arg" == "--kde" ]]; then
 		info "Installing kde"
 		"$RIBYN_ROOT/apps/kde/install.sh"
-	fi
-
-	if [[ "$arg" == "--hypr" ]]; then
-		info "Installing rofi"
-		"$RIBYN_ROOT/apps/rofi/install.sh"
-
-		info "Installing waybar"
-		"$RIBYN_ROOT/apps/waybar/install.sh"
-
-		info "Installing hypr"
-		"$RIBYN_ROOT/apps/hypr/install.sh"
 	fi
 done
 

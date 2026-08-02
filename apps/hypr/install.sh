@@ -1,14 +1,28 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# NOTE: SUPER+Q to launch kitty
-# hyprctl dispatch exit to forcefully close all apps and hypr
-
 source "$RIBYN_ROOT/lib/utils.sh"
 source "$RIBYN_ROOT/lib/run_on_distro.sh"
 
-run_on_arch sudo pacman -S --needed --noconfirm hyprland hyprshutdown
+run_on_arch sudo pacman -S --needed --noconfirm \
+	hyprland \
+	hyprshutdown \
+	hyprpolkitagent \
+	xdg-desktop-portal-hyprland \
+	mako \
+	rofi \
+	wireplumber \
+	brightnessctl
+# hyprpolkitagent auth ui (type in password, when I need admin privl. via GUI apps)
+# xdg-desktop-portal-hyprland (asks for perm. when an app wants to do outside its own window, for security. e.g. screen sharing via discord)
+# mako (lightweight desktop notification daemon, for now)
+# (wireplumber) wpctl and brightnessctl are used for keybind for multimedia
+# keyboard buttons, like the fn keys on a laptop
 
 run_on_fedora error "Hyprland on fedora is not set up" exit 1
+run_on_fedora sudo dnf install -y \
+	rofi \
+	wireplumber \
+	brightnessctl
 
 "$RIBYN_ROOT/apps/hypr/sync.sh"
