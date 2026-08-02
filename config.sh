@@ -38,3 +38,6 @@ export RIBYN_GODOT_SYNC_ENABLED="${RIBYN_GODOT_SYNC_ENABLED:-"no"}"
 # disable if compile fails with messages to open a ticket for llvm
 # yes/no
 export RIBYN_GODOT_USE_LLVM="${RIBYN_GODOT_USE_LLVM:-"yes"}"
+
+# INFO: WOB (progress bar for wayland)
+export RIBYN_WOB_AUTO_UPDATE=${RIBYN_WOB_AUTO_UPDATE:-"yes"}

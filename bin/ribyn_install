@@ -53,6 +53,9 @@ info "Installing zathura"
 info "Installing bluetui"
 "$RIBYN_ROOT/apps/bluetui/install.sh"
 
+info "Installing wob"
+"$RIBYN_ROOT/apps/wob/install.sh"
+
 info "Installing rofi"
 "$RIBYN_ROOT/apps/rofi/install.sh"
 
