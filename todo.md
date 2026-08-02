@@ -2,7 +2,7 @@
 
 - automate build from sources and use a lock file system
 - move all git clones / build from sources into .local/share/ribyn
-- use rsync_dotfiles instead of cp -r everywhere (better verbosity, improved performance and copies only files when neccessary)
+- use ribyn_rsync instead of cp -r everywhere (better verbosity, improved performance and copies only files when neccessary)
 - rmpc primary colors needs to be orange
 - make TTY more pretty by default, it is my new login session terminal as I have no more use for sddm
 - config.sh should defined env variables for syncing which each sync.sh reachs as needed (instead of having ribyn_sync doing it)

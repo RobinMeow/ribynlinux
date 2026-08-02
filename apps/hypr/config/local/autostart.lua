@@ -6,10 +6,10 @@ m.enabled = false
 local function autostart()
   -- Daemons
   hl.exec_cmd("mpd") -- uses daemon by default otherwise --no-daemon or --systemd
-  hl.exec_cmd("hyprlauncher --daemon")
+  hl.exec_cmd("wob_volume listen")
 
   -- workspace 1
-  hl.exec_cmd("kitty", { workspace = 1 }) -- TODO: can I make this full screen w/o fuzz?
+  hl.exec_cmd("kitty", { workspace = 1 })
 
   -- workspace 2
   hl.exec_cmd('kitty sh -c "rmpc play && rmpc"', { workspace = 2 })

@@ -3,6 +3,10 @@ set -euo pipefail
 
 . "$RIBYN_ROOT/lib/utils.sh"
 . "$RIBYN_ROOT/config.sh"
+. "$RIBYN_ROOT/lib/run_on_distro.sh"
+
+run_on_arch sudo pacman -S --needed --noconfirm meson ninja
+run_on_fedora sudo dnf install -y meson ninja
 
 dest="$HOME/.local/share/ribyn"
 mkdir -p "$dest"

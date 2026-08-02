@@ -205,7 +205,7 @@ confirm() {
 # --perms, -p              preserve permissions
 # --times, -t              preserve modification times
 # --verbose, -v
-rsync_dotfiles() {
+ribyn_rsync() {
 	rsync \
 		--verbose \
 		--recursive \

@@ -34,7 +34,6 @@ function m.setup()
 
   -- TODO: probably remove, I do not see why I would ever use this
   -- hl.bind(main_mod .. " + P", hl.dsp.window.pseudo())
-  -- TODO: nice one, but I probably want to get rid of hjkl bindings to use them instead of arrows to switch windows
   hl.bind(main_mod .. " + V", hl.dsp.layout("togglesplit")) -- dwindle only
 
   -- Move focus with main_mod + vim keys
@@ -73,21 +72,9 @@ function m.setup()
 
   -- multimedia keys for volume and LCD brightness (usually on laptops for fn keys)
   -- NOTE: according to AI, locked is for allow in lock-screen and repeating for hold to spam
-  hl.bind(
-    "XF86AudioRaiseVolume",
-    hl.dsp.exec_cmd("wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"),
-    { locked = true, repeating = true }
-  )
-  hl.bind(
-    "XF86AudioLowerVolume",
-    hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"),
-    { locked = true, repeating = true }
-  )
-  hl.bind(
-    "XF86AudioMute",
-    hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"),
-    { locked = true, repeating = true }
-  )
+  hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("wob_volume up"), { locked = true, repeating = true })
+  hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("wob_volume down"), { locked = true, repeating = true })
+  hl.bind("XF86AudioMute", hl.dsp.exec_cmd("wob_volume mute"), { locked = true, repeating = true })
   hl.bind(
     "XF86AudioMicMute",
     hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"),

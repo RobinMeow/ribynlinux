@@ -64,8 +64,8 @@ export ZVM_KEYTIMEOUT="2" # 2s timeout e.g. for cs"'
 export EDITOR='nvim'
 
 export RIBYN_ROOT="$HOME/ribynlinux"
-export PATH="$PATH:$RIBYN_ROOT/bin"
 if [[ -d "$HOME/ribyns-state/bin" ]]; then
+	# TODO: this should also move to .local/bin
 	export PATH="$PATH:$HOME/ribyns-state/bin"
 fi
 
