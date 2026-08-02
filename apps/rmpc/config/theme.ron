@@ -12,10 +12,10 @@
     modal_backdrop: false,
     preview_label_style: (fg: "yellow"),
     preview_metadata_group_style: (fg: "yellow", modifiers: "Bold"),
-    highlighted_item_style: (fg: "blue", modifiers: "Bold"),
-    current_item_style: (fg: "black", bg: "blue", modifiers: "Bold"),
-    borders_style: (fg: "blue"),
-    highlight_border_style: (fg: "blue"),
+    highlighted_item_style: (fg: "#fd971f", modifiers: "Bold"),
+    current_item_style: (fg: "black", bg: "#fd971f", modifiers: "Bold"),
+    borders_style: (fg: "#fd971f"),
+    highlight_border_style: (fg: "#fd971f"),
     symbols: (
         song: "S",
         dir: "D",
@@ -36,7 +36,7 @@
         marker_current_style: None,
     ),
     level_styles: (
-        info: (fg: "blue", bg: "black"),
+        info: (fg: "#fd971f", bg: "black"),
         warn: (fg: "yellow", bg: "black"),
         error: (fg: "red", bg: "black"),
         debug: (fg: "light_green", bg: "black"),
@@ -45,18 +45,18 @@
     progress_bar: (
         symbols: ["█", "█", "█", " ", "█"],
         track_style: None,
-        elapsed_style: (fg: "blue"),
-        thumb_style: (fg: "blue"),
+        elapsed_style: (fg: "#fd971f"),
+        thumb_style: (fg: "#fd971f"),
         use_track_when_empty: true,
     ),
     scrollbar: (
         symbols: ["│", "█", "▲", "▼"],
         track_style: (),
         ends_style: (),
-        thumb_style: (fg: "blue"),
+        thumb_style: (fg: "#fd971f"),
     ),
     tab_bar: (
-        active_style: (fg: "black", bg: "blue", modifiers: "Bold"),
+        active_style: (fg: "black", bg: "#fd971f", modifiers: "Bold"),
         inactive_style: (),
     ),
     lyrics: (
@@ -184,8 +184,8 @@
             panes: [
                 (size: "1", pane: Pane(Property(content: [(kind: Text(""))]))),
                 (size: "100%", pane: Pane(Volume(kind: Slider(symbols: (filled: "─", thumb: "●", track: "─"))))),
-                (size: "3", pane: Pane(Property(content: [(kind: Property(Status(Volume)), style: (fg: "blue"))], align: Right))),
-                (size: "2", pane: Pane(Property(content: [(kind: Text("%"), style: (fg: "blue"))]))),
+                (size: "3", pane: Pane(Property(content: [(kind: Property(Status(Volume)), style: (fg: "#fd971f"))], align: Right))),
+                (size: "2", pane: Pane(Property(content: [(kind: Text("%"), style: (fg: "#fd971f"))]))),
             ]
         ),
         "elapsed_and_bitrate": Pane(Property(
@@ -218,30 +218,30 @@
                 ),
                 (
                     size: "100%",
-                    pane: Pane(Property(content: [(kind: Property(Status(InputBuffer())), style: (fg: "blue"), align: Left)]))
+                    pane: Pane(Property(content: [(kind: Property(Status(InputBuffer())), style: (fg: "#fd971f"), align: Left)]))
                 ),
                 (
                     size: "6",
                     pane: Pane(Property(content: [
-                        (kind: Text("["), style: (fg: "blue", modifiers: "Bold")),
+                        (kind: Text("["), style: (fg: "#fd971f", modifiers: "Bold")),
                         (kind: Property(Status(RepeatV2(
                             on_label: "z",
                             off_label: "z",
                             on_style: (fg: "yellow", modifiers: "Bold"),
-                            off_style: (fg: "blue", modifiers: "Dim"),
+                            off_style: (fg: "#fd971f", modifiers: "Dim"),
                         )))),
                         (kind: Property(Status(RandomV2(
                             on_label: "x",
                             off_label: "x",
                             on_style: (fg: "yellow", modifiers: "Bold"),
-                            off_style: (fg: "blue", modifiers: "Dim"),
+                            off_style: (fg: "#fd971f", modifiers: "Dim"),
                         )))),
                         (kind: Property(Status(ConsumeV2(
                             on_label: "c",
                             off_label: "c",
                             oneshot_label: "c",
                             on_style: (fg: "yellow", modifiers: "Bold"),
-                            off_style: (fg: "blue", modifiers: "Dim"),
+                            off_style: (fg: "#fd971f", modifiers: "Dim"),
                             oneshot_style: (fg: "red", modifiers: "Dim"),
                         )))),
                         (kind: Property(Status(SingleV2(
@@ -249,10 +249,10 @@
                             off_label: "v",
                             oneshot_label: "v",
                             on_style: (fg: "yellow", modifiers: "Bold"),
-                            off_style: (fg: "blue", modifiers: "Dim"),
+                            off_style: (fg: "#fd971f", modifiers: "Dim"),
                             oneshot_style: (fg: "red", modifiers: "Bold"),
                         )))),
-                        (kind: Text("]"), style: (fg: "blue", modifiers: "Bold")),
+                        (kind: Text("]"), style: (fg: "#fd971f", modifiers: "Bold")),
                         ],
                         align: Right
                     ))
@@ -262,7 +262,7 @@
         "input_mode": Pane(Property(
             content: [
                 (kind: Transform(Replace(content: (kind: Property(Status(InputMode()))), replacements: [
-                    (match: "Normal", replace: (kind: Text(" NORMAL "), style: (fg: "black", bg: "blue"))),
+                    (match: "Normal", replace: (kind: Text(" NORMAL "), style: (fg: "black", bg: "#fd971f"))),
                     (match: "Insert", replace: (kind: Text(" INSERT "), style: (fg: "black", bg: "green"))),
                 ])))
             ], align: Center
