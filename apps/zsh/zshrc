@@ -120,6 +120,11 @@ ribyn() {
 	if [[ "$cmd" == "root" ]]; then
 		shift
 		cd "$RIBYN_ROOT" || exit
+	elif [[ "$cmd" == "cd" ]]; then
+		shift
+		cd "$( (
+			fd --type d . ~/ribynlinux/
+		) | fzf)" || exit 1
 	elif [[ "$cmd" == "state" ]]; then
 		shift
 		cd "$HOME/ribyns-state" || exit
@@ -158,7 +163,7 @@ ribyn() {
 		return 1
 	fi
 }
-complete -W "root state run wezterm-guide keyboard-feh keyboard-chafa keyboard-chafa-all" ribyn
+complete -W "root cd state run wezterm-guide keyboard-feh keyboard-chafa keyboard-chafa-all" ribyn
 
 # Then use y instead of yazi to start, and press q to quit, you'll see
 # the CWD changed. Sometimes, you don't want to change, press Q to quit.
