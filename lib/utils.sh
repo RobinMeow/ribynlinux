@@ -199,3 +199,17 @@ confirm() {
 
 	[[ "${REPLY:-n}" =~ ^[Yy]$ ]]
 }
+
+# --recursive, -r          recurse into directories
+# --links, -l              copy symlinks as symlinks
+# --perms, -p              preserve permissions
+# --times, -t              preserve modification times
+# --verbose, -v
+rsync_dotfiles() {
+	rsync \
+		--verbose \
+		--recursive \
+		--links \
+		--perms \
+		--times "$@"
+}
