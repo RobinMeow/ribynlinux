@@ -198,6 +198,7 @@ enable auto starts it at start up. --now is like `start` to start it immediatly
 
 - uncomment the `#Color` in `/etc/pacman.conf` _(enabled colored outputs for pacman cmds and yay)_
 - add  `ILoveCandy` in `/etc/pacman.conf` in the `# Misc options` section _(Pacman animation as progressbar)_
+- set device to dark theme preffered `gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'`
 
 ### Laptop
 
