@@ -80,14 +80,6 @@ vim.keymap.set("n", "<leader>f4", ":set foldlevel=4<CR>", { desc = "foldlevel 4"
 vim.keymap.set("n", "<leader>f5", ":set foldlevel=5<CR>", { desc = "foldlevel 5" })
 vim.keymap.set("n", "<leader>f9", ":set foldlevel=99<CR>", { desc = "foldlevel 99" })
 
--- snacks terminal
-vim.keymap.set("n", "<leader>t", function()
-  require("snacks.terminal").toggle()
-end, { noremap = true, silent = true })
-vim.keymap.set("t", "<c-q>", function()
-  require("snacks.terminal").toggle()
-end, { noremap = true, silent = true })
-
 -- Diagnostic keymaps
 vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostic location list" })
 vim.keymap.set("n", "<leader>co", ":copen<CR>", { desc = "copen open quickfix list" })
@@ -108,3 +100,20 @@ vim.keymap.set("n", "<leader>u", function()
   vim.cmd.packadd("nvim.undotree")
   require("undotree").open()
 end, { desc = "(lazy)load and open undotree" })
+
+-- Maps <leader>ch (Convert to Hex) in normal mode
+vim.keymap.set("n", "<leader>ch", function()
+  local word = vim.fn.expand("<cword>") -- word under cursor
+  local number_base10 = tonumber(word) -- decimal number
+
+  if number_base10 then
+    -- "%02x" ensures it is lowercase and pads single digits with a 0 (e.g., 15 becomes '0f')
+    -- Use "%02X" if you prefer uppercase letters (e.g., '0F')
+    local number_base16 = string.format("%02x", number_base10) -- hex number
+
+    -- change inner word with the hex number
+    vim.cmd("normal! ciw" .. number_base16)
+  else
+    vim.notify("No valid decimal under cursor", vim.log.levels.WARN)
+  end
+end, { desc = "Convert decimal under cursor to hex" })

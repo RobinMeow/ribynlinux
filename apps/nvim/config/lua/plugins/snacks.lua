@@ -11,18 +11,6 @@ return {
     opts = function()
       require("snacks-notifier")
       return {
-        bigfile = { enabled = false },
-        terminal = {
-          win = {
-            position = "float",
-            border = "rounded",
-            zindex = 50,
-            -- row = vim.o.lines,
-            -- columns = vim.o.columns,
-            height = vim.o.lines, -- formerly 0.4
-            width = vim.o.columns,
-          },
-        },
         input = {
           enabled = true,
           win = {
@@ -30,6 +18,7 @@ return {
             row = 1, -- it was one row to faar down. perhaps bc of the border (-3 to show on top, and not beneath)
           },
         }, -- nice ui e.g. rename variable
+
         dashboard = {
           enabled = true,
           pane_gap = 2,
@@ -50,9 +39,7 @@ return {
             },
           },
         },
-        explorer = { enabled = false },
-        indent = { enabled = false },
-        picker = { enabled = false },
+
         notifier = {
           timeout = 5000,
           margin = {
@@ -60,6 +47,12 @@ return {
           },
           enabled = true,
         },
+
+        explorer = { enabled = false },
+        indent = { enabled = false },
+        picker = { enabled = false },
+        bigfile = { enabled = false },
+        terminal = { enabled = false },
         quickfile = { enabled = false },
         scope = { enabled = false },
         scroll = { enabled = false },
