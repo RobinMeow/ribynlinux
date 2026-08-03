@@ -33,14 +33,14 @@ function m.setup()
     if local_monitors.enabled == true then
       hl.notification.create({
         text = "Loaded local_monitors.lua",
-        timeout = 10000, -- 10s
+        timeout = 5000,
         color = colors.info,
       })
       local_monitors.setup()
     else
       hl.notification.create({
         text = "local_monitors.lua is disabled — using auto detection",
-        timeout = 10000, -- 10s
+        timeout = 5000,
         color = colors.info,
       })
       auto_detection()
@@ -48,7 +48,7 @@ function m.setup()
   else
     hl.notification.create({
       text = "No local_monitors.lua found — using auto detection",
-      timeout = 10000, -- 10s
+      timeout = 5000,
       color = colors.info,
     })
     auto_detection()

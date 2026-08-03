@@ -12,6 +12,7 @@ hl.env("XCURSOR_SIZE", "24")
 hl.env("HYPRCURSOR_SIZE", "24")
 
 require("permissions").setup()
+require("autostart").setup()
 
 ---- LOOK AND FEEL ----
 
@@ -55,9 +56,7 @@ hl.config({
 
     -- https://wiki.hypr.land/Configuring/Basics/Variables/#blur
     blur = {
-      -- WARN: disabled by default. it doesnt load correctly
-      -- its enabled including setting their values, in autostart
-      enabled = false,
+      enabled = true,
       new_optimizations = true,
       -- use size 8, passes 1 for more performance or disable alltogehter
       size = 4,
@@ -170,5 +169,3 @@ require("xwayland").setup()
 --   -- active inactive fullscreen
 --   opacity = "0.9 0.9",
 -- })
-
-require("autostart").setup()
