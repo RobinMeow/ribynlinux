@@ -6,6 +6,8 @@ source "$RIBYN_ROOT/lib/utils.sh"
 RIBYN_ROOT_LOG_INFO=true info "Installing core packages..."
 
 source "$RIBYN_ROOT/lib/run_on_distro.sh"
+#
+# INFO: just silencing nvim warnings with these: php composer jdk-openjdk julia
 
 run_on_arch <<'EOF'
 	sudo pacman -S --needed --noconfirm \
@@ -52,7 +54,8 @@ run_on_arch <<'EOF'
 		gource \
 		words \
 		detox \
-		git-lfs
+		git-lfs \
+		php composer jdk-openjdk julia
 EOF
 
 run_on_fedora <<'EOF'
@@ -97,7 +100,8 @@ run_on_fedora <<'EOF'
 		gource \
 		words \
 		detox \
-		git-lfs
+		git-lfs \
+    php composer java-devel julia
 
 	sudo dnf install -y --allowerasing ffmpeg
 EOF
