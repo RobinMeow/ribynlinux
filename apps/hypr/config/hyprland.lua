@@ -14,8 +14,6 @@ hl.env("HYPRCURSOR_SIZE", "24")
 require("permissions").setup()
 require("autostart").setup()
 
----- LOOK AND FEEL ----
-
 -- Refer to https://wiki.hypr.land/Configuring/Basics/Variables/
 hl.config({
   general = {
@@ -71,6 +69,17 @@ hl.config({
   animations = {
     enabled = true,
   },
+
+  -- https://wiki.hypr.land/Configuring/Layouts/Dwindle-Layout/
+  dwindle = {
+    -- if enabled, the split (side/top) will not change regardless of what happens to the container.
+    preserve_split = true,
+  },
+
+  misc = {
+    force_default_wallpaper = -1, -- 0 or 1 to disable the anime mascot wallpapers
+    disable_hyprland_logo = false, -- true disables random hyprland logo / anime girl background
+  },
 })
 
 -- Default curves and animations, https://wiki.hypr.land/Configuring/Advanced-and-Cool/Animations/
@@ -100,42 +109,6 @@ hl.animation({ leaf = "workspaces", enabled = true, speed = 1.94, bezier = "almo
 hl.animation({ leaf = "workspacesIn", enabled = true, speed = 1.21, bezier = "almostLinear", style = "fade" })
 hl.animation({ leaf = "workspacesOut", enabled = true, speed = 1.94, bezier = "almostLinear", style = "fade" })
 hl.animation({ leaf = "zoomFactor", enabled = true, speed = 7, bezier = "quick" })
-
--- TODO: some exmplae window rules
--- Ref https://wiki.hypr.land/Configuring/Basics/Workspace-Rules/
--- "Smart gaps" / "No gaps when only"
--- uncomment all if you wish to use that.
--- hl.workspace_rule({ workspace = "w[tv1]", gaps_out = 0, gaps_in = 0 })
--- hl.workspace_rule({ workspace = "f[1]",   gaps_out = 0, gaps_in = 0 })
--- hl.window_rule({
---     name  = "no-gaps-wtv1",
---     match = { float = false, workspace = "w[tv1]" },
---     border_size = 0,
---     rounding    = 0,
--- })
--- hl.window_rule({
---     name  = "no-gaps-f1",
---     match = { float = false, workspace = "f[1]" },
---     border_size = 0,
---     rounding    = 0,
--- })
-
--- https://wiki.hypr.land/Configuring/Layouts/Dwindle-Layout/
-hl.config({
-  dwindle = {
-    -- if enabled, the split (side/top) will not change regardless of what happens to the container.
-    preserve_split = true,
-  },
-})
-
-----  MISC  ----
-
-hl.config({
-  misc = {
-    force_default_wallpaper = -1, -- Set to 0 or 1 to disable the anime mascot wallpapers
-    disable_hyprland_logo = false, -- If true disables the random hyprland logo / anime girl background. :(
-  },
-})
 
 require("input").setup()
 

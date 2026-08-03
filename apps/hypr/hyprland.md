@@ -4,6 +4,7 @@
 
 ## Tasks
 
+- [ ] configure keyboard layouts at tty level and alphanumeric runns like `kb denodeadkeyscapswapesc` to switch em
 - [ ] brightness popups
 - [ ] keybind toggle for performance (disable animations and blur)
 - [ ] flameshot using bind or desktop file
