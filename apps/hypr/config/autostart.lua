@@ -2,9 +2,10 @@
 local m = {}
 
 local function default_autostart()
-  -- Daemons
+  -- daemons / jobs / etc.
   hl.exec_cmd("mpd") -- uses daemon by default otherwise --no-daemon or --systemd
   hl.exec_cmd("wob_volume listen")
+  hl.exec_cmd("hyprpaper")
   -- rofi does not use daemons
 
   -- apps

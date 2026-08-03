@@ -4,9 +4,10 @@
 
 ## Tasks
 
+- [ ] cp wallpapers onto home and use those as reference instead of using $RIBYN_ROOT in hyprpaper.conf
 - [ ] brightness popups
 - [ ] brightness in waybar
-- [ ] wallpaper or mpv engine?
+- [ ] mpvpaper engine (using mp4 and others for wallpapers)
 - [ ] keybind toggle for performance (disable animations and blur)
 - [ ] flameshot using bind or desktop file
 - [ ] show workspace number in toolbar or somewhere (would fix the issue with needing a plugin/workspace viewer)
@@ -25,6 +26,7 @@
 
 ---
 
+- [x] wallpaper hyprpaper
 - [x] disable mouse accel
 - [x] prevent chrome from going into presentation mode when fullscreening
 - [x] semi transparent / blurred background on all or just kitty windows
