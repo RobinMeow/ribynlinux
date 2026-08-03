@@ -77,7 +77,7 @@ hl.config({
   },
 
   misc = {
-    force_default_wallpaper = -1, -- 0 or 1 to disable the anime mascot wallpapers
+    force_default_wallpaper = 2, -- 0 or 1 to disable the anime mascot wallpapers
     disable_hyprland_logo = false, -- true disables random hyprland logo / anime girl background
   },
 })
