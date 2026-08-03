@@ -51,6 +51,8 @@ desktop notification thingies:
 swaync, hyprpanel, mako
 
 ```lua
+-- WARN: works when moving the mouse, but not for follow cursor
+
 -- Warp the mouse to the bottom-right corner whenever the active window changes
 hl.on("window.active", function(w)
     if w ~= nil then
