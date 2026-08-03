@@ -78,6 +78,8 @@ local function init(opts)
 
       sensitivity = 0, -- -1.0 - 1.0, 0 means no modification.
 
+      -- "flat" no acceleration, "adaptive" .. https://wayland.freedesktop.org/libinput/doc/latest/pointer-acceleration.html#pointer-acceleration
+      accel_profile = "flat",
       touchpad = {
         natural_scroll = true,
       },
