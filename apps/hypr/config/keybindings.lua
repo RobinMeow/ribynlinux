@@ -1,7 +1,7 @@
 local m = {}
 
 function m.setup()
-  local main_mod = "SUPER"
+  local main_mod = "SUPER" -- TODO: just write super never gonna change this
 
   -- Example binds https://wiki.hypr.land/Configuring/Basics/Binds/
   hl.bind(main_mod .. " + Q", hl.dsp.exec_cmd("kitty"))
@@ -54,6 +54,15 @@ function m.setup()
     hl.bind(main_mod .. " + " .. key, hl.dsp.focus({ workspace = i }))
     hl.bind(main_mod .. " + SHIFT + " .. key, hl.dsp.window.move({ workspace = i }))
   end
+
+  hl.bind(main_mod .. " + ALT + L", function()
+    -- Move the active workspace to the next monitor (relative +1)
+    hl.dispatch(hl.dsp.workspace.move({ monitor = "+1" }))
+  end)
+  hl.bind(main_mod .. " + ALT + H", function()
+    -- Move the active workspace to the prev monitor (relative +1)
+    hl.dispatch(hl.dsp.workspace.move({ monitor = "-1" }))
+  end)
 
   -- Example special workspace (scratchpad)
   hl.bind(main_mod .. " + S", hl.dsp.workspace.toggle_special("magic"))
