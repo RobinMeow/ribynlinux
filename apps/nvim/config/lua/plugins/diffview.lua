@@ -24,6 +24,10 @@ return {
         width = 35,
         win_opts = {},
       },
+      -- WARN: tricking diffview into thinking the binary executable is hg
+      -- to prevent checkhealth warning
+      -- hg(mercurial) is a different version control, which I do not use.
+      hg_cmd = { os.getenv("RIBYN_ROOT") .. "/apps/nvim/hg_cmd_dummy.sh" },
     },
   },
 }
