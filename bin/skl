@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+case "$1" in
+us)
+	sudo loadkeys us
+	echo "TTY Layout: us"
+	;;
+de)
+	sudo loadkeys de-latin1-nodeadkeys
+	echo "TTY Layout: DE no deadkeys"
+	;;
+deswap)
+	# Load base nodeadkeys first to reset any previous swaps
+	sudo loadkeys de-latin1-nodeadkeys
+
+	# Apply the swap overrides
+	cat <<'EOF' | sudo loadkeys -
+keycode 1 = Caps_Lock
+keycode 58 = Escape
+EOF
+	echo "TTY Layout: DE no deadkeys, caps/esc swapped"
+	;;
+*)
+	echo "Usage: skl {us|de|deswap}"
+	exit 1
+	;;
+esac
