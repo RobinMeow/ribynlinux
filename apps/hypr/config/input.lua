@@ -4,7 +4,6 @@
 -- WARN: apparently the options field applies to all layouts, making it useless becuase I need nodeadkeys
 -- only for qwertz and not for qwerty
 
-local main_mod = "SUPER"
 local current_layout = "" -- qwerty us by default, see setup()
 
 -- pre-defined layouts
@@ -68,7 +67,7 @@ end
 local function apply_next_layout()
   apply_layout(get_next_layout())
 end
-hl.bind(main_mod .. " + SHIFT + TAB", apply_next_layout)
+hl.bind("SUPER + SHIFT + TAB", apply_next_layout)
 
 local function init(opts)
   local opts = opts or {}

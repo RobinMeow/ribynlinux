@@ -1,83 +1,81 @@
 local m = {}
 
 function m.setup()
-  local main_mod = "SUPER" -- TODO: just write super never gonna change this
-
   -- Example binds https://wiki.hypr.land/Configuring/Basics/Binds/
-  hl.bind(main_mod .. " + Q", hl.dsp.exec_cmd("kitty"))
-  local closeWindowBind = hl.bind(main_mod .. " + C", hl.dsp.window.close())
+  hl.bind("SUPER + Q", hl.dsp.exec_cmd("kitty"))
+  local closeWindowBind = hl.bind("SUPER + C", hl.dsp.window.close())
   -- closeWindowBind:set_enabled(false)
   hl.bind(
-    main_mod .. " + M",
+    "SUPER + M",
     hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'")
   )
-  hl.bind(main_mod .. " + E", hl.dsp.exec_cmd("kitty -e yazi"))
+  hl.bind("SUPER + E", hl.dsp.exec_cmd("kitty -e yazi"))
 
   -- https://wiki.hypr.land/Configuring/Basics/Dispatchers/#fullscreenstate
   -- TODO: make a selector thing, like internal,client combinations
   -- tho idk which the others could be useful fore
   hl.bind(
-    main_mod .. " + F",
+    "SUPER + F",
     -- toggle fullscreen without toggleing the fullscreen of the inner app (streaming video)
     hl.dsp.window.fullscreen_state({ internal = 2, client = 0, mode = "fullscreen", action = "toggle" })
   )
   hl.bind(
-    main_mod .. " + SHIFT + F",
+    "SUPER + SHIFT + F",
     -- toggle fullscreen within the inner app (didnt work as planned,
     -- but I can toggle this on, and than use vimium to click fullscreen to get my desired effect)
     hl.dsp.window.fullscreen_state({ internal = 0, client = 2, mode = "fullscreen", action = "toggle" })
   )
 
   -- NOTE: alternatives are hyprlauncher (just-works), anyrun (for powerusers: as in, run anything), fuzzel (for speed)
-  hl.bind(main_mod .. " + R", hl.dsp.exec_cmd("rofi -show drun")) -- launch desktop files
-  hl.bind(main_mod .. " + W", hl.dsp.exec_cmd("rofi -show window")) -- window switching
+  hl.bind("SUPER + R", hl.dsp.exec_cmd("rofi -show drun")) -- launch desktop files
+  hl.bind("SUPER + W", hl.dsp.exec_cmd("rofi -show window")) -- window switching
 
   -- TODO: probably remove, I do not see why I would ever use this
-  -- hl.bind(main_mod .. " + P", hl.dsp.window.pseudo())
-  hl.bind(main_mod .. " + V", hl.dsp.layout("togglesplit")) -- dwindle only
+  -- hl.bind("SUPER + P", hl.dsp.window.pseudo())
+  hl.bind("SUPER + V", hl.dsp.layout("togglesplit")) -- dwindle only
 
-  -- Move focus with main_mod + vim keys
-  hl.bind(main_mod .. " + H", hl.dsp.focus({ direction = "left" }))
-  hl.bind(main_mod .. " + J", hl.dsp.focus({ direction = "down" }))
-  hl.bind(main_mod .. " + K", hl.dsp.focus({ direction = "up" }))
-  hl.bind(main_mod .. " + L", hl.dsp.focus({ direction = "right" }))
+  -- Move focus with SUPER + vim keys
+  hl.bind("SUPER + H", hl.dsp.focus({ direction = "left" }))
+  hl.bind("SUPER + J", hl.dsp.focus({ direction = "down" }))
+  hl.bind("SUPER + K", hl.dsp.focus({ direction = "up" }))
+  hl.bind("SUPER + L", hl.dsp.focus({ direction = "right" }))
 
-  hl.bind(main_mod .. " + SHIFT + H", hl.dsp.window.swap({ direction = "l" }))
-  hl.bind(main_mod .. " + SHIFT + J", hl.dsp.window.swap({ direction = "d" }))
-  hl.bind(main_mod .. " + SHIFT + K", hl.dsp.window.swap({ direction = "u" }))
-  hl.bind(main_mod .. " + SHIFT + L", hl.dsp.window.swap({ direction = "r" }))
+  hl.bind("SUPER + SHIFT + H", hl.dsp.window.swap({ direction = "l" }))
+  hl.bind("SUPER + SHIFT + J", hl.dsp.window.swap({ direction = "d" }))
+  hl.bind("SUPER + SHIFT + K", hl.dsp.window.swap({ direction = "u" }))
+  hl.bind("SUPER + SHIFT + L", hl.dsp.window.swap({ direction = "r" }))
 
-  -- Switch workspaces with main_mod + [0-9]
-  -- Move active window to a workspace with main_mod + SHIFT + [0-9]
+  -- Switch workspaces with SUPER + [0-9]
+  -- Move active window to a workspace with SUPER + SHIFT + [0-9]
   for i = 1, 10 do
     local key = i % 10 -- 10 maps to key 0 (which is after 9 on most keyboards)
-    hl.bind(main_mod .. " + " .. key, hl.dsp.focus({ workspace = i }))
-    hl.bind(main_mod .. " + SHIFT + " .. key, hl.dsp.window.move({ workspace = i }))
+    hl.bind("SUPER + " .. key, hl.dsp.focus({ workspace = i }))
+    hl.bind("SUPER + SHIFT + " .. key, hl.dsp.window.move({ workspace = i }))
   end
 
-  hl.bind(main_mod .. " + ALT + L", function()
+  hl.bind("SUPER + ALT + L", function()
     -- Move the active workspace to the next monitor (relative +1)
     hl.dispatch(hl.dsp.workspace.move({ monitor = "+1" }))
   end)
-  hl.bind(main_mod .. " + ALT + H", function()
+  hl.bind("SUPER + ALT + H", function()
     -- Move the active workspace to the prev monitor (relative +1)
     hl.dispatch(hl.dsp.workspace.move({ monitor = "-1" }))
   end)
 
   -- Example special workspace (scratchpad)
-  hl.bind(main_mod .. " + S", hl.dsp.workspace.toggle_special("magic"))
-  hl.bind(main_mod .. " + SHIFT + S", hl.dsp.window.move({ workspace = "special:magic" }))
+  hl.bind("SUPER + S", hl.dsp.workspace.toggle_special("magic"))
+  hl.bind("SUPER + SHIFT + S", hl.dsp.window.move({ workspace = "special:magic" }))
 
-  -- Scroll through existing workspaces with main_mod + scroll
-  hl.bind(main_mod .. " + mouse_down", hl.dsp.focus({ workspace = "e+1" }))
-  hl.bind(main_mod .. " + mouse_up", hl.dsp.focus({ workspace = "e-1" }))
+  -- Scroll through existing workspaces with SUPER + scroll
+  hl.bind("SUPER + mouse_down", hl.dsp.focus({ workspace = "e+1" }))
+  hl.bind("SUPER + mouse_up", hl.dsp.focus({ workspace = "e-1" }))
 
-  -- Move windows with main_mod + LMB and dragging
+  -- Move windows with SUPER + LMB and dragging
   local LMB = "mouse:272" -- left mouse button
-  hl.bind(main_mod .. " + " .. LMB, hl.dsp.window.drag(), { mouse = true })
-  -- resize windows with main_mod + RMB and dragging
+  hl.bind("SUPER + " .. LMB, hl.dsp.window.drag(), { mouse = true })
+  -- resize windows with SUPER + RMB and dragging
   local RMB = "mouse:273" -- right mouse button
-  hl.bind(main_mod .. " + " .. RMB, hl.dsp.window.resize(), { mouse = true })
+  hl.bind("SUPER + " .. RMB, hl.dsp.window.resize(), { mouse = true })
 
   -- multimedia keys for volume and LCD brightness (usually on laptops for fn keys)
   -- NOTE: according to AI, locked is for allow in lock-screen and repeating for hold to spam
