@@ -116,24 +116,20 @@ fh() {
 
 ribyn() {
 	local cmd="$1"
+	_depr() { echo -e "\e[31mDEPR: use $1 instead.\e[0m" >&2; return 1; }
 
 	if [[ "$cmd" == "root" ]]; then
 		shift
-		cd "$RIBYN_ROOT" || exit
+		_depr "rrt"
 	elif [[ "$cmd" == "cd" ]]; then
 		shift
-		cd "$( (
-			fd --type d . ~/ribynlinux/
-		) | fzf)" || exit 1
+		_depr "rcd"
 	elif [[ "$cmd" == "state" ]]; then
 		shift
 		cd "$HOME/ribyns-state" || exit
 	elif [[ "$cmd" == "run" ]]; then
 		shift
-		print -z "$( (
-				fd . "$RIBYN_ROOT" --extension=sh
-				fd . "$RIBYN_ROOT/bin"
-			) | fzf)"
+		_depr "rr"
 	elif [[ "$cmd" == "keyboard-feh" ]]; then
 		shift
   	selected_img="$( (
@@ -148,22 +144,63 @@ ribyn() {
 			chafa "$RIBYN_ROOT/keyboard/glove80/symbol-fkeys-layer.png"
 	elif [[ "$cmd" == "install" ]]; then
 		shift
-		"$RIBYN_ROOT/bin/ribyn_install"
+		_depr "rin"
 	elif [[ "$cmd" == "sync" ]]; then
 		shift
-		"$RIBYN_ROOT/bin/ribyn_sync"
+		_depr "rsy"
 	elif [[ "$cmd" == "wezterm-guide" ]]; then
 		shift
 		"$RIBYN_ROOT/apps/wezterm/wezterm-guide.sh"
 	else
-		echo "ribyn: unknown key '$1'"
+		echo "ribyn: unknown key '$1'" >&2
 		for k in "${!temp_dirs[@]}"; do
-			echo "  $k"
+			echo "  $k" >&2
 		done
 		return 1
 	fi
 }
-complete -W "root cd state run wezterm-guide keyboard-feh keyboard-chafa keyboard-chafa-all" ribyn
+complete -W "state wezterm-guide keyboard-feh keyboard-chafa keyboard-chafa-all" ribyn
+
+if command -v rcd >/dev/null 2>&1; then
+	echo "already defined: $(which rcd)"
+else
+	function rcd(){
+		cd "$( (
+			fd --type d . "$RIBYN_ROOT"
+		) | fzf)" || exit 1
+	}
+fi
+if command -v rr >/dev/null 2>&1; then
+	echo "already defined: $(which rr)"
+else
+	function rr(){
+		print -z "$( (
+				fd . "$RIBYN_ROOT" --extension=sh
+				fd . "$RIBYN_ROOT/bin"
+			) | fzf)"
+	}
+fi
+if command -v rsy >/dev/null 2>&1; then
+	echo "already defined: $(which rsy)"
+else
+	function rsy(){
+		"$RIBYN_ROOT/bin/ribyn_sync"
+	}
+fi
+if command -v rin >/dev/null 2>&1; then
+	echo "already defined: $(which rin)"
+else
+	function rin(){
+		"$RIBYN_ROOT/bin/ribyn_install"
+	}
+fi
+if command -v rrt >/dev/null 2>&1; then
+	echo "already defined: $(which rrt)"
+else
+	function rrt(){
+		cd "$RIBYN_ROOT" || exit
+	}
+fi
 
 # Then use y instead of yazi to start, and press q to quit, you'll see
 # the CWD changed. Sometimes, you don't want to change, press Q to quit.
