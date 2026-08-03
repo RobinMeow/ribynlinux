@@ -4,29 +4,31 @@
 
 ## Tasks
 
-- [ ] configure keyboard layouts at tty level and alphanumeric runns like `kb denodeadkeyscapswapesc` to switch em
 - [ ] brightness popups
+- [ ] brightness in waybar
+- [ ] wallpaper or mpv engine?
 - [ ] keybind toggle for performance (disable animations and blur)
 - [ ] flameshot using bind or desktop file
 - [ ] show workspace number in toolbar or somewhere (would fix the issue with needing a plugin/workspace viewer)
-- [ ] time of day
+- [ ] toggleable reserved space for waybar
+- [ ] time of day (waybar)
 - [ ] bluetooth open bluetui using a desktop file
 - [ ] volume control
-- [ ] disable mouse accel
-- [ ] semi transparent / blurred background on all or just kitty windows
-- [ ] prevent chrome from going into presentation mode when fullscreening
 - [ ] make launchables for SUPER + E (oneshot gemini, google search, etc..)
 - [ ] lock screen
-- [ ] check if keyboard is configurable the same way for TTY to not depend on hyprland
 - [ ] toggle margin/padding around windows and their border for space critical work
 - [ ] keyboards inputs can be configured using comma seperations ai was lying
 - [ ] set qwertz to be the default and only apply qwerty to glove80
-- [ ] try custom warp script
+- [ ] try custom warp script (tried it, but needs to target only window.active if keyboard driven)
 
 > has a built in [timer](https://wiki.hypr.land/Configuring/Advanced-and-Cool/Expanding-functionality/#timers)
 
 ---
 
+- [x] disable mouse accel
+- [x] prevent chrome from going into presentation mode when fullscreening
+- [x] semi transparent / blurred background on all or just kitty windows
+- [x] configure keyboard layouts at tty level and alphanumeric runns like `kb denodeadkeyscapswapesc` to switch em
 - [x] local keyboard setup
 - [x] allow a local lua file to define default workspaces
 - [x] nodeadkeys for qwertz
