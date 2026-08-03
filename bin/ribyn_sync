@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-source "$RIBYN_ROOT/lib/utils.sh"
+. "$RIBYN_ROOT/lib/utils.sh"
 
 echo "Syncing from source: $RIBYN_ROOT"
 
@@ -10,6 +10,9 @@ info "Syncing zsh"
 
 info "Syncing git"
 "$RIBYN_ROOT/apps/git/sync.sh"
+
+info "Syncing binaries"
+ribyn_rsync "$RIBYN_ROOT/bin/" "$HOME/.local/bin/"
 
 info "Syncing bat"
 "$RIBYN_ROOT/apps/bat/sync.sh"
