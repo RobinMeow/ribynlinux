@@ -1,5 +1,9 @@
--- Clear highlights on search when pressing <Esc> in normal mode :help hlsearch
-vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
+vim.keymap.set(
+  "n",
+  "<Esc>",
+  "<cmd>nohlsearch<CR>",
+  { desc = "Clear highlights on search when pressing <Esc> in normal mode :help hlsearch" }
+)
 vim.keymap.set("t", "<Esc><Esc>", "<c-\\><c-n>")
 
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move visual selectoin down" })
@@ -62,8 +66,8 @@ vim.keymap.set("n", "<C-Right>", "<cmd>vertical resize +2<cr>", { desc = "Increa
 local convert_line_endings_to_unix = ":e ++ff=dos<CR>:w<CR>:set ff=unix<CR>:w<CR>:e<CR>"
 vim.keymap.set("n", "<leader><leader>u", convert_line_endings_to_unix, { desc = "convert dos to uunix" })
 
-vim.keymap.set("n", "<leader>y", '"+y') -- yank motion into system clipboard
-vim.keymap.set("v", "<leader>y", '"+y') -- yank visual into system clipboard
+vim.keymap.set("n", "<leader>y", '"+y', { desc = "yank motion into system clipboard" })
+vim.keymap.set("v", "<leader>y", '"+y', { desc = "yank visual into system clipboard" })
 -- FIXME: doesnt behave like Y, which yanks till end of line. it yanks the whole line
 -- vim.keymap.set("n", "<leader>Y", '"+Y') -- yank till end of line into system clipboard
 vim.keymap.set("n", "<leader><leader>y", ":%y+<CR>") -- yank whole buffer into system clipboard
