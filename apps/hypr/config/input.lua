@@ -72,6 +72,7 @@ hl.bind("SUPER + SHIFT + TAB", apply_next_layout)
 local function init(opts)
   local opts = opts or {}
   hl.config({
+    -- https://wiki.hypr.land/Configuring/Basics/Variables/#input
     input = {
       follow_mouse = 1,
 
@@ -79,6 +80,20 @@ local function init(opts)
 
       -- "flat" no acceleration, "adaptive" .. https://wayland.freedesktop.org/libinput/doc/latest/pointer-acceleration.html#pointer-acceleration
       accel_profile = "flat",
+
+      -- https://wiki.hypr.land/Configuring/Basics/Variables/#touchdevice
+      -- touchdevice = {},
+
+      -- https://wiki.hypr.land/Configuring/Basics/Variables/#virtualkeyboard
+      -- virtualkeyboard = {},
+
+      -- https://wiki.hypr.land/Configuring/Basics/Variables/#tablet
+      -- tablet = {},
+
+      -- https://wiki.hypr.land/Configuring/Basics/Variables/#tablettool
+      -- tablettool = {},
+
+      -- https://wiki.hypr.land/Configuring/Basics/Variables/#touchpad
       touchpad = {
         natural_scroll = true,
       },
