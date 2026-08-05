@@ -28,3 +28,7 @@ https://github.com/microsoft/PowerToys
 
 Source: https://github.com/vimichael/make-windows-pretty
 https://www.youtube.com/watch?v=G0_wVLhI-Ds
+
+you can use powertoys for a keyboard manger.
+Makes it easier to swap caps esc.
+Microsoft keyboard layout creator for setting no dead keys.
