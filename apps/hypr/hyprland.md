@@ -4,9 +4,6 @@
 
 ## Tasks
 
-- [ ] brightness popups
-- [ ] brightness in waybar
-- [ ] mpvpaper engine (using mp4 and others for wallpapers)
 - [ ] keybind toggle for performance (disable animations and blur)
 - [ ] flameshot using bind or desktop file
 - [ ] show workspace number in toolbar or somewhere (would fix the issue with needing a plugin/workspace viewer)
@@ -20,6 +17,14 @@
 - [ ] keyboards inputs can be configured using comma seperations ai was lying
 - [ ] set qwertz to be the default and only apply qwerty to glove80
 - [ ] try custom warp script (tried it, but needs to target only window.active if keyboard driven)
+- [ ] check if hypr-dynamic-cursor can be useful
+- [ ] mpvpaper engine (using mp4 and others for wallpapers)
+- [ ] brightness popups
+- [ ] brightness in waybar
+- [ ] hyprglass. could be visually pleasing.
+- [ ] wayscriber = EpicPen. Fortunatly I no longer use the mouse, but maybe...
+- [ ] wl-freeze (freezes a process so it no longer consumes resources. Can work as pause for game)
+- [ ] hyprmoncfg seems to be able to have a gui to setup monitors, could be useful
 
 > has a built in [timer](https://wiki.hypr.land/Configuring/Advanced-and-Cool/Expanding-functionality/#timers)
 
