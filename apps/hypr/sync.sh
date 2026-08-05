@@ -20,3 +20,5 @@ ribyn_rsync \
 	--ignore-existing \
 	"$RIBYN_ROOT/apps/hypr/config/local/" \
 	"$HOME/.config/hypr/local/"
+
+ribyn_rsync "$RIBYN_ROOT/assets/images/wallpapers/hypr_chan.png" "$HOME/.config/hypr/"

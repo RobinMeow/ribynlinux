@@ -4,7 +4,6 @@
 
 ## Tasks
 
-- [ ] cp wallpapers onto home and use those as reference instead of using $RIBYN_ROOT in hyprpaper.conf
 - [ ] brightness popups
 - [ ] brightness in waybar
 - [ ] mpvpaper engine (using mp4 and others for wallpapers)
@@ -26,6 +25,7 @@
 
 ---
 
+- [x] cp wallpapers onto home and use those as reference instead of using $RIBYN_ROOT in hyprpaper.conf
 - [x] wallpaper hyprpaper
 - [x] disable mouse accel
 - [x] prevent chrome from going into presentation mode when fullscreening
