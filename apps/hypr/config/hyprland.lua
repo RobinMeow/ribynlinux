@@ -100,8 +100,8 @@ hl.config({
     -- font_family = "Sans", -- global default font including debug/dps/notifications (default: Sans)
     vrr = 0, -- adaptive sync 0 = off, 1 = on, 2 = fullscreen only, 3 = fullscreen with `video` or `game` content type (default: 0)
     layers_hog_keyboard_focus = true, -- ensures mouse movement doesnt drop focus on apps like rofi (default: true)
-    -- TODO: use this and call hyprctl reload in my sync script
-    disable_autoreload = false, -- use hyprctl reload instead (default: false)
+    -- NOTE: my sync.sh calls hyprctl reload. and I still manually invoke it (prevents duplicated notifications, which run on each copied file)
+    disable_autoreload = true, -- use hyprctl reload instead (default: false)
     focus_on_activate = false, -- whether or not to focus a window which requests focus on activate
     -- background_color = "#111", -- requires disable_hyperland_logo to be true
     on_focus_under_fullscreen = 2, -- another window requesting focus while in fullscreen/maximized. 0 - ignore focus request, 1 - requested window takes over, 2 - disable fullscreen/maximize (default: 2)
