@@ -22,5 +22,6 @@ ribyn_rsync \
 	"$HOME/.config/hypr/local/"
 
 ribyn_rsync "$RIBYN_ROOT/assets/images/wallpapers/hypr_chan.png" "$HOME/.config/hypr/"
+ribyn_rsync "$RIBYN_ROOT/apps/hypr/hyprbye.sh" "$HOME/.local/bin/hyprbye"
 
 hyprctl reload
