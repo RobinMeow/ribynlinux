@@ -122,3 +122,6 @@ vim.keymap.set("n", "<leader>ch", function()
     vim.notify("No valid decimal under cursor", vim.log.levels.WARN)
   end
 end, { desc = "Convert decimal under cursor to hex" })
+
+-- :delmarks! only deletes the marks from the current buffer
+vim.keymap.set("n", "<leader>md", ":delmarks a-z<CR>:delmarks A-Z<CR>:delmarks 0-9<CR>", { desc = "marks: delete all" })
