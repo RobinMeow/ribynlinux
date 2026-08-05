@@ -70,12 +70,19 @@ function m.setup()
   hl.bind("SUPER + mouse_down", hl.dsp.focus({ workspace = "e+1" }))
   hl.bind("SUPER + mouse_up", hl.dsp.focus({ workspace = "e-1" }))
 
+  -- NOTE: example for mouse keybind.
   -- Move windows with SUPER + LMB and dragging
-  local LMB = "mouse:272" -- left mouse button
-  hl.bind("SUPER + " .. LMB, hl.dsp.window.drag(), { mouse = true })
+  -- local LMB = "mouse:272" -- left mouse button
+  -- hl.bind("SUPER + " .. LMB, hl.dsp.window.drag(), { mouse = true })
   -- resize windows with SUPER + RMB and dragging
-  local RMB = "mouse:273" -- right mouse button
-  hl.bind("SUPER + " .. RMB, hl.dsp.window.resize(), { mouse = true })
+  -- local RMB = "mouse:273" -- right mouse button
+  -- hl.bind("SUPER + " .. RMB, hl.dsp.window.resize(), { mouse = true })
+
+  local step = 100
+  hl.bind("SUPER + SHIFT + right", hl.dsp.window.resize({ x = step, y = 0, relative = true }))
+  hl.bind("SUPER + SHIFT + left", hl.dsp.window.resize({ x = -step, y = 0, relative = true }))
+  hl.bind("SUPER + SHIFT + up", hl.dsp.window.resize({ x = 0, y = -step, relative = true }))
+  hl.bind("SUPER + SHIFT + down", hl.dsp.window.resize({ x = 0, y = step, relative = true }))
 
   -- multimedia keys for volume and LCD brightness (usually on laptops for fn keys)
   -- NOTE: according to AI, locked is for allow in lock-screen and repeating for hold to spam
