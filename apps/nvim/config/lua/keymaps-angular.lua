@@ -1,3 +1,4 @@
+-- TODO: load angular keymaps only for angular files
 local m = {}
 
 function m.open_angular_file(target_ext)
