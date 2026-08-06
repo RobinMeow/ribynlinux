@@ -6,7 +6,6 @@
 
 - [ ] floating window with keybinds SUPER + (SHIFT) + ?
 - [ ] add file logging
-- [ ] keybind toggle for performance (disable animations and blur)
 - [ ] flameshot using bind or desktop file
 - [ ] show workspace number in toolbar or somewhere (would fix the issue with needing a plugin/workspace viewer)
 - [ ] toggleable reserved space for waybar
@@ -32,6 +31,7 @@
 
 ---
 
+- [x] keybind toggle for performance (disable animations and blur)
 - [x] cp wallpapers onto home and use those as reference instead of using $RIBYN_ROOT in hyprpaper.conf
 - [x] wallpaper hyprpaper
 - [x] disable mouse accel
@@ -50,9 +50,8 @@
 ---
 
 - [x] disable login sddm `sudo systemctl disable sddm.service`
-- [ ] check why hyprland want `Hyprland` to be executed in docs but `start-hyprland` after running `Hyprland`
-> kde login by using `startplasma-wayland` (`x11 if needed`)
-> hypr login by using `Hyprland` or `start-hyprland`
+> kde login by using `startplasma-wayland` (`startplasma-x11` if needed)
+> hypr login by using `start-hyprland`
 
 ---
 
@@ -62,15 +61,6 @@ swww hyprpaper
 desktop notification thingies:
 swaync, hyprpanel, mako
 
-```lua
--- WARN: works when moving the mouse, but not for follow cursor
-
--- Warp the mouse to the bottom-right corner whenever the active window changes
-hl.on("window.active", function(w)
-    if w ~= nil then
-        -- Corner index 1 represents the bottom-right corner
-        hl.dispatch(hl.dsp.cursor.move_to_corner({ corner = 1 }))
-    end
-end)
-```
+> enable blur only for specific windows https://github.com/hyprwm/Hyprland/discussions/4169
+> for now I trust it only blurs windows which actually have transparent background
 
