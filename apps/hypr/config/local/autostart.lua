@@ -9,17 +9,17 @@ local function autostart()
   hl.exec_cmd("wob_volume listen")
 
   -- workspace 1
-  hl.exec_cmd("kitty", { workspace = 1 })
+  hl.exec_cmd("kitty", { workspace = "1" })
 
   -- workspace 2
-  hl.exec_cmd('kitty sh -c "rmpc play && rmpc"', { workspace = 2 })
-  hl.exec_cmd("discord", { workspace = 2 })
+  hl.exec_cmd('kitty sh -c "rmpc play && rmpc"', { workspace = "2" })
+  hl.exec_cmd("discord", { workspace = "2" })
 
   -- workspace 3
   -- running google-chrome-stable without args is the same as opening the default
   -- WARN: --profile-directory is not documented by google but its the only thing which works
   local workspace_3_front_monitor = {
-    workspace = 3,
+    workspace = "3",
     -- use the same value as in output in local_monitors
     -- monitor = "DP-1",
   }

@@ -4,6 +4,7 @@
  f
 ## Tasks
 
+- [ ] floating window with keybinds SUPER + (SHIFT) + ?
 - [ ] add file logging
 - [ ] keybind toggle for performance (disable animations and blur)
 - [ ] flameshot using bind or desktop file

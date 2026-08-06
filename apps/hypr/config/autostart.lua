@@ -9,7 +9,7 @@ local function default_autostart()
   -- rofi does not use daemons
 
   -- apps
-  hl.exec_cmd("kitty", { workspace = 1 })
+  hl.exec_cmd("kitty", { workspace = "1" })
 end
 
 function m.setup()

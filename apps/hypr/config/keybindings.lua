@@ -49,8 +49,8 @@ function m.setup()
   -- Move active window to a workspace with SUPER + SHIFT + [0-9]
   for i = 1, 10 do
     local key = i % 10 -- 10 maps to key 0 (which is after 9 on most keyboards)
-    hl.bind("SUPER + " .. key, hl.dsp.focus({ workspace = i }))
-    hl.bind("SUPER + SHIFT + " .. key, hl.dsp.window.move({ workspace = i }))
+    hl.bind("SUPER + " .. key, hl.dsp.focus({ workspace = tostring(i) }))
+    hl.bind("SUPER + SHIFT + " .. key, hl.dsp.window.move({ workspace = tostring(i) }))
   end
 
   hl.bind("SUPER + ALT + L", function()
@@ -66,9 +66,9 @@ function m.setup()
   hl.bind("SUPER + S", hl.dsp.workspace.toggle_special("magic"))
   hl.bind("SUPER + SHIFT + S", hl.dsp.window.move({ workspace = "special:magic" }))
 
-  -- Scroll through existing workspaces with SUPER + scroll
-  hl.bind("SUPER + mouse_down", hl.dsp.focus({ workspace = "e+1" }))
-  hl.bind("SUPER + mouse_up", hl.dsp.focus({ workspace = "e-1" }))
+  -- Cycle through existing workspaces
+  hl.bind("SUPER + TAB", hl.dsp.focus({ workspace = "e+1" }))
+  hl.bind("SUPER + SHIFT + TAB", hl.dsp.focus({ workspace = "e-1" }))
 
   -- NOTE: example for mouse keybind.
   -- Move windows with SUPER + LMB and dragging
