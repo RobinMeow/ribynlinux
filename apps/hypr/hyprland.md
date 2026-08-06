@@ -1,9 +1,10 @@
 # Hyprland
 
 [hyprland lua docs](https://alejandrominaya.github.io/hyprland-lua-docs/)
-
+ f
 ## Tasks
 
+- [ ] add file logging
 - [ ] keybind toggle for performance (disable animations and blur)
 - [ ] flameshot using bind or desktop file
 - [ ] show workspace number in toolbar or somewhere (would fix the issue with needing a plugin/workspace viewer)

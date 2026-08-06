@@ -47,6 +47,7 @@ hl.config({
   dwindle = {
     -- if enabled, the split (side/top) will not change regardless of what happens to the container.
     preserve_split = true,
+    force_split = 2, -- 0 = split follows mouse, 1 = always split to the left, new = left or top, 2 = always split to the right, new = right or bottom (default: 0)
   },
 
   -- https://wiki.hypr.land/Configuring/Basics/Variables/#misc
