@@ -31,6 +31,7 @@
 
 ---
 
+- [x] swappy/slurp/grim shouldn tneed to ask for permission
 - [x] swappy/slurp/grim print screen keybind
 - [x] keybind toggle for performance (disable animations and blur)
 - [x] cp wallpapers onto home and use those as reference instead of using $RIBYN_ROOT in hyprpaper.conf
