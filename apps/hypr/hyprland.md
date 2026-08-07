@@ -4,6 +4,8 @@
  f
 ## Tasks
 
+- [ ] file picker / download destination chooser is not yet in darkmode, and is disgusting to use (cant show hidden files)
+- [ ] desktop file for disk usage, or zshrc alias
 - [ ] floating window with keybinds SUPER + (SHIFT) + ?
 - [ ] add file logging
 - [ ] swappy/slurp/grim desktop files for fullscreen shots or non edit copy screenshots

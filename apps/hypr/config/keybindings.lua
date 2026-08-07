@@ -27,8 +27,8 @@ function m.setup()
   )
 
   -- NOTE: alternatives are hyprlauncher (just-works), anyrun (for powerusers: as in, run anything), fuzzel (for speed)
-  hl.bind("SUPER + R", hl.dsp.exec_cmd("rofi -show drun")) -- launch desktop files
-  hl.bind("SUPER + W", hl.dsp.exec_cmd("rofi -show window")) -- window switching
+  hl.bind("SUPER + R", hl.dsp.exec_cmd('rofi -show drun -show-icons -icon-theme "Adwaita"')) -- launch desktop files
+  hl.bind("SUPER + W", hl.dsp.exec_cmd('rofi -show window -show-icons -icon-theme "Adwaita"')) -- window switching
 
   -- TODO: probably remove, I do not see why I would ever use this
   -- hl.bind("SUPER + P", hl.dsp.window.pseudo())
