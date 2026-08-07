@@ -16,6 +16,11 @@ function m.setup()
   local ok, _local = pcall(require, "local.autostart")
 
   if ok and _local.enabled == true then
+    hl.on("hyprland.start", function()
+      -- set dark themes
+      hl.exec_cmd("gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita-dark'")
+      hl.exec_cmd("gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'")
+    end)
     _local.setup()
   else
     hl.on("hyprland.start", default_autostart)

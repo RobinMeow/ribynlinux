@@ -14,5 +14,6 @@ ribyn_rsync \
 	"$HOME/.config/gtk-4.0/"
 
 # Set GTK theme and color scheme via gsettings
+# https://wiki.archlinux.org/title/Dark_mode_switching
 gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita-dark'
 gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'

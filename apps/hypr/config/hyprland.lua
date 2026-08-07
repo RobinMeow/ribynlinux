@@ -5,6 +5,9 @@ require("monitors").setup()
 -- https://wiki.hypr.land/Configuring/Advanced-and-Cool/Environment-variables/
 hl.env("XCURSOR_SIZE", "24")
 hl.env("HYPRCURSOR_SIZE", "24")
+hl.env("GTK_THEME", "Adwaita:dark")
+hl.env("GTK2_RC_FILES", "/usr/share/themes/Adwaita-dark/gtk-2.0/gtkrc")
+hl.env("QT_STYLE_OVERRIDE", "Adwaita-Dark")
 
 require("permissions").setup()
 require("autostart").setup()
