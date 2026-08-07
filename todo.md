@@ -1,5 +1,6 @@
 # TicketSystem
 
+- add icons from omarchy to my desktop files https://github.com/basecamp/omarchy/blob/quattro/applications/icons/ChatGPT.png
 - automate build from sources and use a lock file system
 - rmpc configure for my use case wich is dir only
 - move all git clones / build from sources into .local/share/ribyn

@@ -59,6 +59,9 @@ info "Syncing hypr"
 info "Syncing rofi"
 "$RIBYN_ROOT/apps/rofi/sync.sh"
 
+info "Syncing desktop files"
+"$RIBYN_ROOT/applications/sync.sh"
+
 # info "Syncing waybar"
 # "$RIBYN_ROOT/apps/waybar/sync.sh"
 

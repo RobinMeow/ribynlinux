@@ -1,0 +1,8 @@
+[Desktop Entry]
+Version=1.0
+Name=ChatGPT
+Exec=google-chrome-stable --app=https://chatgpt.com/
+Terminal=false
+Type=Application
+Icon=chatgpt
+StartupNotify=true
