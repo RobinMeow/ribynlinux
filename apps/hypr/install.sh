@@ -13,12 +13,14 @@ run_on_arch sudo pacman -S --needed --noconfirm \
 	mako \
 	rofi \
 	wireplumber \
-	brightnessctl
+	brightnessctl \
+	grim slurp swappy
 # hyprpolkitagent auth ui (type in password, when I need admin privl. via GUI apps)
 # xdg-desktop-portal-hyprland (asks for perm. when an app wants to do outside its own window, for security. e.g. screen sharing via discord)
 # mako (lightweight desktop notification daemon, for now)
 # (wireplumber) wpctl and brightnessctl are used for keybind for multimedia
 # keyboard buttons, like the fn keys on a laptop
+# grim slurp swappy: screenshot tools that work good together
 
 run_on_fedora error "Hyprland on fedora is not set up" exit 1
 # requires
@@ -39,6 +41,7 @@ run_on_fedora error "Hyprland on fedora is not set up" exit 1
 # 	mako \
 # 	rofi \
 # 	wireplumber \
-# 	brightnessctl
+# 	brightnessctl \
+# 	grim slurp swappy
 
 "$RIBYN_ROOT/apps/hypr/sync.sh"

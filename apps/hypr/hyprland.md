@@ -6,7 +6,7 @@
 
 - [ ] floating window with keybinds SUPER + (SHIFT) + ?
 - [ ] add file logging
-- [ ] flameshot using bind or desktop file
+- [ ] swappy/slurp/grim desktop files for fullscreen shots or non edit copy screenshots
 - [ ] show workspace number in toolbar or somewhere (would fix the issue with needing a plugin/workspace viewer)
 - [ ] toggleable reserved space for waybar
 - [ ] time of day (waybar)
@@ -31,6 +31,7 @@
 
 ---
 
+- [x] swappy/slurp/grim print screen keybind
 - [x] keybind toggle for performance (disable animations and blur)
 - [x] cp wallpapers onto home and use those as reference instead of using $RIBYN_ROOT in hyprpaper.conf
 - [x] wallpaper hyprpaper
