@@ -8,6 +8,9 @@ echo "Syncing from source: $RIBYN_ROOT"
 info "Syncing gtk"
 "$RIBYN_ROOT/apps/gtk/sync.sh"
 
+info "Syncing qt6ct"
+"$RIBYN_ROOT/apps/qt6ct/sync.sh"
+
 info "Syncing zsh"
 "$RIBYN_ROOT/apps/zsh/sync.sh"
 

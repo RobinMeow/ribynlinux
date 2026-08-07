@@ -8,6 +8,9 @@ echo "Installing from source: $RIBYN_ROOT"
 info "Installing core"
 "$RIBYN_ROOT/scripts/pm-core.sh"
 
+info "Installing qt6ct"
+"$RIBYN_ROOT/apps/qt6ct/install.sh"
+
 info "Installing zsh"
 "$RIBYN_ROOT/apps/zsh/install.sh"
 

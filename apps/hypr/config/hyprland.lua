@@ -7,7 +7,9 @@ hl.env("XCURSOR_SIZE", "24")
 hl.env("HYPRCURSOR_SIZE", "24")
 hl.env("GTK_THEME", "Adwaita:dark")
 hl.env("GTK2_RC_FILES", "/usr/share/themes/Adwaita-dark/gtk-2.0/gtkrc")
-hl.env("QT_STYLE_OVERRIDE", "Adwaita-Dark")
+-- WARN: use override if qt6ct is not being picked up
+-- hl.env("QT_STYLE_OVERRIDE", "Adwaita-Dark")
+hl.env("QT_QPA_PLATFORMTHEME", "qt6ct")
 
 require("permissions").setup()
 require("autostart").setup()
