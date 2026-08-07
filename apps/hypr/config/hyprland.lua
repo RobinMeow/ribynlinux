@@ -1,20 +1,15 @@
--- https://wiki.hypr.land/Configuring/Start/
-
 hl.notification.create({ text = "Hyprland Version: " .. hl.version(), timeout = 5000 })
 
 require("monitors").setup()
 
----- ENVIRONMENT VARIABLES ----
 -- https://wiki.hypr.land/Configuring/Advanced-and-Cool/Environment-variables/
-
--- TODO: should I move this to my zshrc?
 hl.env("XCURSOR_SIZE", "24")
 hl.env("HYPRCURSOR_SIZE", "24")
 
 require("permissions").setup()
 require("autostart").setup()
 
--- Refer to https://wiki.hypr.land/Configuring/Basics/Variables/
+-- https://wiki.hypr.land/Configuring/Basics/Variables/
 hl.config({
   -- https://wiki.hypr.land/Configuring/Basics/Variables/#general
   general = {
@@ -117,17 +112,3 @@ hl.window_rule({
 })
 
 require("xwayland").setup()
--- Layer rules also return a handle.
--- local overlayLayerRule = hl.layer_rule({
---     name  = "no-anim-overlay",
---     match = { namespace = "^my-overlay$" },
---     no_anim = true,
--- })
--- overlayLayerRule:set_enabled(false)
-
--- setting opacity will do for the whole window (including text)
--- hl.window_rule({
---   match = { class = "google-chrome" },
---   -- active inactive fullscreen
---   opacity = "0.9 0.9",
--- })
