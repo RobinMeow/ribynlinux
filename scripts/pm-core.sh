@@ -42,7 +42,6 @@ run_on_arch <<'EOF'
 		btop \
 		translate-shell \
 		tokei \
-		flameshot \
 		ffmpeg \
 		7zip \
 		ripgrep \
@@ -90,7 +89,6 @@ run_on_fedora <<'EOF'
 		btop \
 		translate-shell \
 		tokei \
-		flameshot \
 		7zip \
 		ripgrep \
 		glow \
