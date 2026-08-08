@@ -5,8 +5,10 @@ set -euo pipefail
 
 # https://github.com/catppuccin/cursors (see picture here for available themes and variants)
 
-theme="latte"
-variant="peach"
+. "$RIBYN_ROOT/config.sh"
+
+theme="$RIBYN_CATPPUCCIN_CURSOR_THEME"
+variant="$RIBYN_CATPPUCCIN_CURSOR_VARIANT"
 
 if [[ ! -d "$HOME/.icons/catppuccin-$theme-$variant-cursors" ]]; then
 	. "$RIBYN_ROOT/lib/run_on_distro.sh"
@@ -18,7 +20,7 @@ if [[ ! -d "$HOME/.icons/catppuccin-$theme-$variant-cursors" ]]; then
 		curl unzip
 
 	(
-		mkdir "$HOME/.icons"
+		mkdir -p "$HOME/.icons"
 		cd "$HOME/.icons"
 		curl -LOsS "https://github.com/catppuccin/cursors/releases/download/v2.0.0/catppuccin-$theme-$variant-cursors.zip"
 		zipfile="catppuccin-$theme-$variant-cursors.zip"

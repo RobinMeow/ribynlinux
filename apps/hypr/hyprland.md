@@ -1,9 +1,10 @@
 # Hyprland
 
 [hyprland lua docs](https://alejandrominaya.github.io/hyprland-lua-docs/)
- f
+ 
 ## Tasks
 
+- [ ] rename performance mode to potato mode and add a script to be inoced which toggles bg for kitty
 - [ ] file picker / download destination chooser is not yet in darkmode, and is disgusting to use (cant show hidden files)
 - [ ] desktop file for disk usage, or zshrc alias
 - [ ] floating window with keybinds SUPER + (SHIFT) + ?
@@ -28,11 +29,6 @@
 - [ ] wayscriber = EpicPen. Fortunatly I no longer use the mouse, but maybe...
 - [ ] wl-freeze (freezes a process so it no longer consumes resources. Can work as pause for game)
 - [ ] hyprmoncfg seems to be able to have a gui to setup monitors, could be useful
-
-> has a built in [timer](https://wiki.hypr.land/Configuring/Advanced-and-Cool/Expanding-functionality/#timers)
-
----
-
 - [x] swappy/slurp/grim shouldn tneed to ask for permission
 - [x] swappy/slurp/grim print screen keybind
 - [x] keybind toggle for performance (disable animations and blur)
@@ -58,6 +54,8 @@
 > hypr login by using `start-hyprland`
 
 ---
+
+> has a built in [timer](https://wiki.hypr.land/Configuring/Advanced-and-Cool/Expanding-functionality/#timers)
 
 wallpaper engine:
 swww hyprpaper
