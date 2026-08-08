@@ -4,32 +4,44 @@
 
 ## Tasks
 
+- [ ] lock screen
 - [ ] floating window with keybinds SUPER + (SHIFT) + ?
-- [ ] add file logging
+- [ ] toggle margin/padding around windows and their border
+- [ ] keyboards inputs can be configured using comma seperations ai was lying
+- [ ] mpvpaper engine (using mp4 and others for wallpapers)
+- [ ] wayscriber = EpicPen. Fortunatly I no longer use the mouse, but maybe...
+- [ ] wl-freeze
+  (freezes a process so it no longer consumes resources. Can work as pause for game)
+- [ ] swappy/slurp/grim ~~desktop files~~ for fullscreen shots or non edit copy screenshots
+  dont want to use desktop files for this => maybe a hyprpicker? or hypr-independend cli solution?
+- [ ] brightness popups
+
+waybar:
+
 - [ ] show workspace number in toolbar or somewhere
   (would fix the issue with needing a plugin/workspace viewer)
 - [ ] toggleable reserved space for waybar
 - [ ] time of day (waybar)
-- [ ] bluetooth open bluetui using a desktop file
-- [ ] volume control
-- [ ] lock screen
-- [ ] toggle margin/padding around windows and their border for space critical work
-- [ ] keyboards inputs can be configured using comma seperations ai was lying
-- [ ] set qwertz to be the default and only apply qwerty to glove80
-- [ ] try custom warp script
-  (tried it, but needs to target only window.active if keyboard driven)
-- [ ] check if hypr-dynamic-cursor can be useful
-- [ ] mpvpaper engine (using mp4 and others for wallpapers)
-- [ ] brightness popups
 - [ ] brightness in waybar
-- [ ] hyprglass. could be visually pleasing.
-- [ ] wayscriber = EpicPen. Fortunatly I no longer use the mouse, but maybe...
-- [ ] wl-freeze
-  (freezes a process so it no longer consumes resources. Can work as pause for game)
-- [ ] hyprmoncfg seems to be able to have a gui to setup monitors, could be useful
-- [ ] a script to be inoced which toggles bg for kitty
-- [ ] swappy/slurp/grim ~~desktop files~~ for fullscreen shots or non edit copy screenshots
-  dont want to use desktop files for this
+- [ ] volume display
+
+not hyprland directly:
+
+- [ ] a script to be invoked which toggles bg for kitty
+- [ ] bluetooth open bluetui using a desktop file
+- [ ] make sure I can do volume control outside hypr as needed
+
+abandoned i think:
+
+- [ ] ~~set qwertz to be the default and only apply qwerty to glove80~~
+- [ ] ~~hyprglass~~ not sure if worth it. might requires gtk/qt or sth. could be visually pleasing.
+- [ ] ~~check if hypr-dynamic-cursor can be useful~~
+- [ ] ~~try custom warp script~~
+  (tried it, but needs to target only window.active if keyboard driven)
+
+completed:
+
+- [x] hyprmoncfg seems to be able to have a gui to setup monitors, could be useful
 - [x] make launchables for SUPER + E (oneshot gemini, google search, etc..)
 - [x] ~~desktop file for ~~disk usage, or zshrc alias
 - [x] rename performance mode to potato mode
