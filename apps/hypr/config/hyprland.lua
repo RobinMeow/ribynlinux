@@ -16,7 +16,6 @@ if not ok then
 end
 
 -- https://wiki.hypr.land/Configuring/Advanced-and-Cool/Environment-variables/
--- TODO: move to env
 hl.env("GTK_THEME", "Adwaita:dark")
 hl.env("GTK2_RC_FILES", "/usr/share/themes/Adwaita-dark/gtk-2.0/gtkrc")
 hl.env("QT_QPA_PLATFORMTHEME", "qt6ct")
@@ -81,7 +80,9 @@ hl.config({
   cursor = {
     inactive_timeout = 2000, -- hide cursor after 2s
     persistent_warps = true, -- remember mouse position per window
-    -- default_monitor = , -- TODO: perhaps this is what allow me to set my default workspace
+    -- WARN: I solved it myself already. and I think my solution is better, becuase of chrome/discord use cases.
+    -- see local/monitors.lua for examples, why default_monitor is probably not sufficient
+    -- default_monitor = , -- the name of a default monitor for the cursor to be set to on startup (see hyprctl monitors for names)
     hide_on_key_press = true, -- hide cursor on keyboard presses until mouse moves again
     zoom_disable_aa = true, -- when enabled, things will be pixelated instead of blurry when zoomed
   },

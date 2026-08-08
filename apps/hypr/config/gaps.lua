@@ -1,7 +1,5 @@
 local m = {}
 
--- TODO: I should probably read the config and only change what is needed,
--- and restore the settings in someway
 local function get_gaps()
   return os.getenv("RIBYN_HYPR_GAPS")
 end

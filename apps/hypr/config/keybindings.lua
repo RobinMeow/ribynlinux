@@ -30,8 +30,6 @@ function m.setup()
   hl.bind("SUPER + R", hl.dsp.exec_cmd('rofi -show drun -show-icons -icon-theme "Adwaita"')) -- launch desktop files
   hl.bind("SUPER + W", hl.dsp.exec_cmd('rofi -show window -show-icons -icon-theme "Adwaita"')) -- window switching
 
-  -- TODO: probably remove, I do not see why I would ever use this
-  -- hl.bind("SUPER + P", hl.dsp.window.pseudo())
   hl.bind("SUPER + V", hl.dsp.layout("togglesplit")) -- dwindle only
 
   -- Move focus with SUPER + vim keys

@@ -4,6 +4,9 @@
 
 ## Tasks
 
+- [ ] file_chooser needs some rules to be focused and floating probably
+- [ ] see if I can find better architecture to swap gaps/potate modes configs
+- [ ] move env to environments.lua
 - [ ] lock screen
 - [ ] floating window with keybinds SUPER + (SHIFT) + ?
 - [ ] toggle margin/padding around windows and their border
