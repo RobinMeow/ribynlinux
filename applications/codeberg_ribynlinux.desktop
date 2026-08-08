@@ -1,0 +1,8 @@
+[Desktop Entry]
+Version=1.0
+Name=Codeberg ribynlinux
+Exec=google-chrome-stable --app=https://codeberg.org/Ribyn/ribynlinux
+Terminal=false
+Type=Application
+Icon=codeberg
+StartupNotify=true
