@@ -20,6 +20,7 @@ function m.setup()
       -- set dark themes
       hl.exec_cmd("gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita-dark'")
       hl.exec_cmd("gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'")
+      hl.exec_cmd("/usr/local/libexec/xdg-desktop-portal-termfilechooser -r")
     end)
     _local.setup()
   else

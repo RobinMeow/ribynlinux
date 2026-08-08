@@ -74,6 +74,9 @@ info "Installing rofi"
 info "Installing hypr"
 "$RIBYN_ROOT/apps/hypr/install.sh"
 
+info "Syncing desktop files"
+"$RIBYN_ROOT/desktop-files/install.sh"
+
 full_install=false
 for arg in "$@"; do
 	if [[ "$arg" == "--full-install" ]]; then

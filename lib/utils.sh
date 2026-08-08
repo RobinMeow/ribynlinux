@@ -207,7 +207,6 @@ confirm() {
 # --verbose, -v
 ribyn_rsync() {
 	rsync \
-		--verbose \
 		--recursive \
 		--links \
 		--perms \
