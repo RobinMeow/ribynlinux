@@ -2,11 +2,13 @@
 set -euo pipefail
 
 # https://github.com/hunkyburrito/xdg-desktop-portal-termfilechooser
+# TODO: window rule to have it behave like a floating window? or at least it should take focus
 
 . "$RIBYN_ROOT/lib/utils.sh"
 . "$RIBYN_ROOT/lib/run_on_distro.sh"
 
-gitdest="$HOME/.config/ribyn/xdg-desktop-portal-filechooser"
+mkdir -p "$HOME/local/share/ribyn/"
+gitdest="$HOME/.local/share/ribyn/xdg-desktop-portal-filechooser"
 if [[ -d "$gitdest" ]]; then
 	info "xdg-desktop-portal-termfilechooser is already installed. Skipping build from source."
 else
@@ -35,6 +37,8 @@ else
 		ninja -C build
 		sudo ninja -C build install
 	)
+
+	sudo ln -s "/usr/local/share/xdg-desktop-portal/portals/termfilechooser.portal" "/usr/share/xdg-desktop-portal/portals/"
 
 	ribyn_rsync \
 		"$RIBYN_ROOT/apps/xdg-desktop-portal-termfilechooser/config/" \

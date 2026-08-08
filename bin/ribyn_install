@@ -14,9 +14,8 @@ info "Installing catppuccin cursors"
 info "Installing qt6ct"
 "$RIBYN_ROOT/apps/qt6ct/install.sh"
 
-# did not work. I decided it is too much effert to be worth it
-# info "Installing xdg-desktop-portal-termfilechooser"
-# "$RIBYN_ROOT/apps/xdg-desktop-portal-termfilechooser/build_from_source.sh"
+info "Installing xdg-desktop-portal-termfilechooser"
+"$RIBYN_ROOT/apps/xdg-desktop-portal-termfilechooser/build_from_source.sh"
 
 info "Installing zsh"
 "$RIBYN_ROOT/apps/zsh/install.sh"
