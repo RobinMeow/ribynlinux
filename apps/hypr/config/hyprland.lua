@@ -1,4 +1,8 @@
-hl.notification.create({ text = "Hyprland Version: " .. hl.version(), timeout = 5000 })
+hl.notification.create({
+  text = "Hyprland Version: " .. hl.version(),
+  timeout = 10000,
+  icon = "info",
+})
 
 require("monitors").setup()
 

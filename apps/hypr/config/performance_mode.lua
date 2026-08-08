@@ -21,7 +21,7 @@ function m.toggle()
     set_perf_mode("no")
     hl.notification.create({
       text = "DISABLED: animations, blur, shadow",
-      timeout = 5000,
+      timeout = 10000,
       icon = "info",
     })
   else
@@ -31,7 +31,7 @@ function m.toggle()
     set_perf_mode("yes")
     hl.notification.create({
       text = "ENABLED: animations, blur, shadow",
-      timeout = 5000,
+      timeout = 10000,
       icon = "info",
     })
   end

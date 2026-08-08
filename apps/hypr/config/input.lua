@@ -11,10 +11,6 @@ local us = "us"
 local de_nodeadkeys = "de_nodeadkeys"
 local de_nodeadkeys_swap_capslock_esc = "de_nodeadkeys_swap:capslock,esc"
 
-local function notify(text)
-  hl.notification.create({ text = text, timeout = 5000 })
-end
-
 local function apply_layout(layout_name)
   if layout_name == us then
     hl.config({
@@ -48,7 +44,7 @@ local function apply_layout(layout_name)
     })
   end
   current_layout = layout_name
-  notify("keyboard layout: " .. layout_name)
+  hl.notification.create({ text = "keyboard layout: " .. current_layout, timeout = 10000, icon = "info" })
 end
 
 local function get_next_layout()
