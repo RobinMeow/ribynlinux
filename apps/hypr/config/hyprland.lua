@@ -4,7 +4,16 @@ hl.notification.create({
   icon = "info",
 })
 
-require("monitors").setup()
+local function require_hyprmoncfg_if_it_exists()
+  -- workaround, becuase hyprmoncfg prevents creating the file
+  -- if it does not find exactly 'require("hyprmoncfg")' in
+  -- the root hyprland.lua file
+  require("hyprmoncfg")
+end
+local ok = pcall(require_hyprmoncfg_if_it_exists)
+if not ok then
+  require("monitors").setup()
+end
 
 -- https://wiki.hypr.land/Configuring/Advanced-and-Cool/Environment-variables/
 hl.env("GTK_THEME", "Adwaita:dark")

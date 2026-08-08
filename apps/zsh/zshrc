@@ -92,6 +92,10 @@ alias gourced="gource --no-vsync --fullscreen --auto-skip-seconds 1 --seconds-pe
 
 alias dict="cat /usr/share/dict/words | fzf"
 
+function hyprmoncfg(){
+	HYPRMONCFG_MONITORS_CONF="$HOME/.config/hypr/hyprmoncfg.lua" command hyprmoncfg "$@"
+}
+
 # prepend to take preceedence over windows/wsl passthrough paths
 export PATH="$HOME/.dotnet:$HOME/.dotnet/tools:$PATH"
 export DOTNET_ROOT="$HOME/.dotnet"
