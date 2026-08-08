@@ -1,5 +1,7 @@
 # TicketSystem
 
+- find something, which renders a grid on the screen flash-vimium-like to let me click on areas
+- ribyn_install doesnt call applications/sync.sh need to rethink, all install.sh scripts calling sync. I think now I want to seperate them
 - rename to run_on_distro to distro_strategies.sh and include pacin dnfin
 - config.sh is the single point of truth, all others shell scripts should not have fall back values
 - add icons from omarchy to my desktop files https://github.com/basecamp/omarchy/blob/quattro/applications/icons/ChatGPT.png
