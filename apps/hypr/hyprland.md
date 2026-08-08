@@ -4,19 +4,14 @@
 
 ## Tasks
 
-- [ ] file picker / download destination chooser is not yet in darkmode,
-  and is disgusting to use (cant show hidden files)
-- [ ] desktop file for disk usage, or zshrc alias
 - [ ] floating window with keybinds SUPER + (SHIFT) + ?
 - [ ] add file logging
-- [ ] swappy/slurp/grim desktop files for fullscreen shots or non edit copy screenshots
 - [ ] show workspace number in toolbar or somewhere
   (would fix the issue with needing a plugin/workspace viewer)
 - [ ] toggleable reserved space for waybar
 - [ ] time of day (waybar)
 - [ ] bluetooth open bluetui using a desktop file
 - [ ] volume control
-- [ ] make launchables for SUPER + E (oneshot gemini, google search, etc..)
 - [ ] lock screen
 - [ ] toggle margin/padding around windows and their border for space critical work
 - [ ] keyboards inputs can be configured using comma seperations ai was lying
@@ -33,12 +28,18 @@
   (freezes a process so it no longer consumes resources. Can work as pause for game)
 - [ ] hyprmoncfg seems to be able to have a gui to setup monitors, could be useful
 - [ ] a script to be inoced which toggles bg for kitty
+- [ ] swappy/slurp/grim ~~desktop files~~ for fullscreen shots or non edit copy screenshots
+  dont want to use desktop files for this
+- [x] make launchables for SUPER + E (oneshot gemini, google search, etc..)
+- [x] ~~desktop file for ~~disk usage, or zshrc alias
 - [x] rename performance mode to potato mode
 - [x] swappy/slurp/grim shouldn tneed to ask for permission
 - [x] swappy/slurp/grim print screen keybind
 - [x] keybind toggle for performance (disable animations and blur)
 - [x] cp wallpapers onto home and use those as reference instead of using
   $RIBYN_ROOT in hyprpaper.conf
+- [x] file picker / download destination chooser is not yet in darkmode,
+  and is disgusting to use (cant show hidden files)
 - [x] wallpaper hyprpaper
 - [x] disable mouse accel
 - [x] prevent chrome from going into presentation mode when fullscreening
