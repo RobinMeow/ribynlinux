@@ -14,11 +14,15 @@ run_on_fedora sudo dnf install -y \
 
 mkdir -p "$HOME/.local/share/ribyn/"
 dest="$HOME/.local/share/ribyn/hyprmoncfg"
-(
-	git clone --depth 1 "https://github.com/crmne/hyprmoncfg.git" "$dest"
-	cd "$dest"
-	go build -o bin/hyprmoncfg ./cmd/hyprmoncfg
-	go build -o bin/hyprmoncfgd ./cmd/hyprmoncfgd
-	install -Dm755 bin/hyprmoncfg ~/.local/bin/hyprmoncfg
-	install -Dm755 bin/hyprmoncfgd ~/.local/bin/hyprmoncfgd
-)
+if [[ -d "$dest" ]]; then
+	info "hyprmoncfg is already installed. Skipping."
+else
+	(
+		git clone --depth 1 "https://github.com/crmne/hyprmoncfg.git" "$dest"
+		cd "$dest"
+		go build -o bin/hyprmoncfg ./cmd/hyprmoncfg
+		go build -o bin/hyprmoncfgd ./cmd/hyprmoncfgd
+		install -Dm755 bin/hyprmoncfg ~/.local/bin/hyprmoncfg
+		install -Dm755 bin/hyprmoncfgd ~/.local/bin/hyprmoncfgd
+	)
+fi
