@@ -6,10 +6,9 @@
 
 - [ ] file_chooser needs some rules to be focused and floating probably
 - [ ] see if I can find better architecture to swap gaps/potate modes configs
-- [ ] move env to environments.lua
 - [ ] lock screen
 - [ ] floating window with keybinds SUPER + (SHIFT) + ?
-- [ ] toggle margin/padding around windows and their border
+- [ ] toggle border radius rounding on gaps.toggle
 - [ ] keyboards inputs can be configured using comma seperations ai was lying
 - [ ] mpvpaper engine (using mp4 and others for wallpapers)
 - [ ] wayscriber = EpicPen. Fortunatly I no longer use the mouse, but maybe...
@@ -44,6 +43,8 @@ abandoned i think:
 
 completed:
 
+- [x] toggle margin/padding around windows
+- [x] move env to environments.lua
 - [x] hyprmoncfg seems to be able to have a gui to setup monitors, could be useful
 - [x] make launchables for SUPER + E (oneshot gemini, google search, etc..)
 - [x] ~~desktop file for ~~disk usage, or zshrc alias

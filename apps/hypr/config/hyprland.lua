@@ -4,6 +4,8 @@ hl.notification.create({
   icon = "info",
 })
 
+require("environments").setup()
+
 local function require_hyprmoncfg_if_it_exists()
   -- workaround, becuase hyprmoncfg prevents creating the file
   -- if it does not find exactly 'require("hyprmoncfg")' in
@@ -14,19 +16,6 @@ local ok = pcall(require_hyprmoncfg_if_it_exists)
 if not ok then
   require("monitors").setup()
 end
-
--- https://wiki.hypr.land/Configuring/Advanced-and-Cool/Environment-variables/
-hl.env("GTK_THEME", "Adwaita:dark")
-hl.env("GTK2_RC_FILES", "/usr/share/themes/Adwaita-dark/gtk-2.0/gtkrc")
-hl.env("QT_QPA_PLATFORMTHEME", "qt6ct")
--- WARN: use override if qt6ct is not being picked up
--- hl.env("QT_STYLE_OVERRIDE", "Adwaita-Dark")
-
-hl.env("XCURSOR_SIZE", "32")
-hl.env("XCURSOR_THEME", "catppuccin-latte-mauve-cursors")
-
-hl.env("HYPRCURSOR_SIZE", "32")
-hl.env("HYPRCURSOR_THEME", "catppuccin-latte-mauve-cursors")
 
 require("permissions").setup()
 require("autostart").setup()
