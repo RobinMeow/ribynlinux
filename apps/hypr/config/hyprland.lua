@@ -112,7 +112,7 @@ require("decorations").setup()
 require("animations").setup()
 require("input").setup()
 require("keybindings").setup()
-require("performance_mode").setup()
+require("potato_mode").setup()
 
 ---- WINDOWS AND WORKSPACES ----
 -- https://wiki.hypr.land/Configuring/Basics/Window-Rules/

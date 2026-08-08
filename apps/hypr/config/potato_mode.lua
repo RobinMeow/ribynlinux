@@ -1,11 +1,11 @@
 local m = {}
 
 local function get_perf_mode()
-  return os.getenv("RIBYN_HYPR_PERFORMANCE_MODE")
+  return os.getenv("RIBYN_HYPR_POTATO_MODE")
 end
 
 local function set_perf_mode(yes_no)
-  hl.env("RIBYN_HYPR_PERFORMANCE_MODE", yes_no)
+  hl.env("RIBYN_HYPR_POTATO_MODE", yes_no)
 end
 
 function m.toggle()
@@ -19,6 +19,7 @@ function m.toggle()
     })
 
     set_perf_mode("no")
+
     hl.notification.create({
       text = "DISABLED: animations, blur, shadow",
       timeout = 10000,
@@ -29,6 +30,7 @@ function m.toggle()
     require("decorations").setup()
 
     set_perf_mode("yes")
+
     hl.notification.create({
       text = "ENABLED: animations, blur, shadow",
       timeout = 10000,
