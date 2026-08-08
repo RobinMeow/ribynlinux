@@ -106,6 +106,7 @@ function m.setup()
   hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("playerctl previous"), { locked = true })
 
   hl.bind("SUPER + P", require("potato_mode").toggle, { locked = true })
+  hl.bind("SUPER + G", require("gaps").toggle, { locked = true })
 
   hl.bind("Print", hl.dsp.exec_cmd('grim -g "$(slurp)" - | swappy -f -'))
 end

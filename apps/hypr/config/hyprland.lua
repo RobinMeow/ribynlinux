@@ -16,6 +16,7 @@ if not ok then
 end
 
 -- https://wiki.hypr.land/Configuring/Advanced-and-Cool/Environment-variables/
+-- TODO: move to env
 hl.env("GTK_THEME", "Adwaita:dark")
 hl.env("GTK2_RC_FILES", "/usr/share/themes/Adwaita-dark/gtk-2.0/gtkrc")
 hl.env("QT_QPA_PLATFORMTHEME", "qt6ct")
@@ -31,31 +32,11 @@ hl.env("HYPRCURSOR_THEME", "catppuccin-latte-mauve-cursors")
 require("permissions").setup()
 require("autostart").setup()
 
+require("general").setup()
+require("gaps").setup()
+
 -- https://wiki.hypr.land/Configuring/Basics/Variables/
 hl.config({
-  -- https://wiki.hypr.land/Configuring/Basics/Variables/#general
-  general = {
-    border_size = 2, -- size of the border around windows
-    gaps_in = 5, -- gaps between windows (default: 5)
-    gaps_out = 20, -- gaps between windows and montior edges (default: 20)
-
-    col = {
-      active_border = { -- active window border color
-        colors = { -- gradient
-          require("colors").secondary,
-          require("colors").primary,
-        },
-        angle = 45,
-      },
-      inactive_border = "#595959aa", -- inactive window border color
-    },
-
-    -- use with care: https://wiki.hypr.land/Configuring/Advanced-and-Cool/Tearing/
-    allow_tearing = false, -- used in gaming, for better latency
-
-    layout = "dwindle", -- "dwindle" "master" "scrolling" "monocle" (default: dwindle)
-  },
-
   -- decoration = , -- see decorations.lua
   -- animations = , -- animations.lua
   -- input = , -- see input.lua and local/input.lua
