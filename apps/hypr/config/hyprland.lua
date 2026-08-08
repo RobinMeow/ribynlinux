@@ -60,6 +60,7 @@ hl.config({
 
   -- https://wiki.hypr.land/Configuring/Basics/Variables/#misc
   misc = {
+    disable_splash_rendering = true, -- disable the qoute at the bottom of the background
     disable_hyprland_logo = true, -- disables the next line
     force_default_wallpaper = 2, -- -1 is random, 2 is hypr_chan (I don't like 0 and 1)
     -- font_family = "Sans", -- global default font including debug/dps/notifications (default: Sans)
