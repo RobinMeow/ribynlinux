@@ -26,6 +26,9 @@ info "Installing CommitMono"
 info "Installing git"
 "$RIBYN_ROOT/apps/git/install.sh"
 
+info "Installing brave"
+"$RIBYN_ROOT/apps/brave/install.sh"
+
 info "Installing bat"
 "$RIBYN_ROOT/apps/bat/install.sh"
 
