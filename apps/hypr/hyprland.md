@@ -4,13 +4,12 @@
 
 ## Tasks
 
-- [ ] mp4 video is now working on hyprland e.g. wl-freeze github page
-- [ ] lock screen
 - [ ] mpvpaper engine (using mp4 and others for wallpapers)
 - [ ] wayscriber = EpicPen. Fortunatly I no longer use the mouse, but maybe...
 - [ ] wl-freeze
   (freezes a process so it no longer consumes resources. Can work as pause for game)
 - [ ] brightness notifications (im too lazy to do wob again)
+- [ ] mp4 video is now working on hyprland in chrome e.g. wl-freeze github page
 
 waybar:
 
@@ -45,10 +44,11 @@ abandoned i think:
 - [ ] ~~check if hypr-dynamic-cursor can be useful~~
 - [ ] ~~try custom warp script~~
   (tried it, but needs to target only window.active if keyboard driven)
+- [ ] ~~file_chooser needs some rules to be focused and floating probably~~
 
 completed:
 
-- [ ] ~~file_chooser needs some rules to be focused and floating probably~~
+- [x] lock screen
 - [x] floating window with keybinds SUPER + (SHIFT) + ?
   (keybinds should go trough a custom fn)
 - [x] toggle border radius rounding on gaps.toggle

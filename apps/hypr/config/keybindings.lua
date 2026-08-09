@@ -114,22 +114,22 @@ function m.setup()
 
   local step = 100
   key.bind(
-    "SUPER + SHIFT + left",
+    "SUPER + left",
     hl.dsp.window.resize({ x = -step, y = 0, relative = true }),
     { desc = "relative resizing: left" }
   )
   key.bind(
-    "SUPER + SHIFT + down",
+    "SUPER + down",
     hl.dsp.window.resize({ x = 0, y = step, relative = true }),
     { desc = "relative resizing: down" }
   )
   key.bind(
-    "SUPER + SHIFT + up",
+    "SUPER + up",
     hl.dsp.window.resize({ x = 0, y = -step, relative = true }),
     { desc = "relative resizing: up" }
   )
   key.bind(
-    "SUPER + SHIFT + right",
+    "SUPER + right",
     hl.dsp.window.resize({ x = step, y = 0, relative = true }),
     { desc = "relative resizing: right" }
   )

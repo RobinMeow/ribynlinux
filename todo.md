@@ -1,5 +1,6 @@
 # TicketSystem
 
+- make a cli tool to replace the need for bookmarks
 - cargo breaks ci on first install, asking if install from rust or rustup
 - hypr wayland-protocol is missing on wob install
 - hypr sync should only call hyprctl reload if hypr is running (or ignore the error)
