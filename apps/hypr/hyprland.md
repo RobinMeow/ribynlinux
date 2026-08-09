@@ -13,6 +13,8 @@
 
 waybar:
 
+- [ ] current song `mpc status`
+- [ ] gpu/cpu/mem usage
 - [ ] show workspace number in toolbar or somewhere
   (would fix the issue with needing a plugin/workspace viewer)
 - [ ] toggleable reserved space for waybar

@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# changes wallpapers, like a slide/dia show
+
+WALLPAPER="$1"
+
+if [[ ! -f "$WALLPAPER" ]]; then
+	echo "Ошибка: Файл '$WALLPAPER' не найден."
+	echo "Использование: ./wallpaper.sh /путь/к/картинке.jpg"
+	exit 1
+fi
+
+swww img "$WALLPAPER" \
+	--transition-type fade \
+	--transition-duration 1.5 \
+	--transition-fps 60
+
+matugen image "$WALLPAPER" --source-color-index 0
+
+mkdir -p "$HOME/.cache/hyprlock"
+cp "$WALLPAPER" "$HOME/.cache/hyprlock/current_wallpaper.jpg"
