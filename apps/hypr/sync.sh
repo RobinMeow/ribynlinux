@@ -3,7 +3,7 @@ set -euo pipefail
 
 . "$RIBYN_ROOT/lib/utils.sh" # warn, ribyn_rsync
 
-# removing deprecated hyprland.conf file
+# warn about deprecated hyprland.conf file
 hypr_conf="$HOME/.config/hypr/hyprland.conf"
 if [[ -f "$hypr_conf" ]]; then
 	warn "Deprecated hyprland.conf file detected. Delete it to get rid of this warning."
@@ -22,6 +22,8 @@ ribyn_rsync \
 	"$HOME/.config/hypr/local/"
 
 ribyn_rsync "$RIBYN_ROOT/assets/images/wallpapers/hypr_chan.png" "$HOME/.config/hypr/"
+# for hyprlock
+ribyn_rsync "$RIBYN_ROOT/assets/images/eeyore.png" "$HOME/.config/hypr/"
 ribyn_rsync "$RIBYN_ROOT/apps/hypr/hyprbye.sh" "$HOME/.local/bin/hyprbye"
 
 hyprctl reload
