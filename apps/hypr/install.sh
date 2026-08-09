@@ -49,4 +49,5 @@ run_on_fedora error "Hyprland on fedora is not set up" exit 1
 # 	qt6ct
 
 "$RIBYN_ROOT/apps/hypr/build_hyprmoncfg_from_source.sh"
+"$RIBYN_ROOT/apps/hypr/build_hyprlock_from_source.sh"
 "$RIBYN_ROOT/apps/hypr/sync.sh"
