@@ -181,6 +181,8 @@ function m.setup()
   )
 
   key.bind("SUPER + PAUSE", hl.dsp.exec_cmd("wl-freeze -a"), { desc = "toggle wl-freeze the currently active window" })
+
+  key.bind("SUPER + O", hl.dsp.exec_cmd("hyprlock --grace 10"), { desc = "lock screen" })
 end
 
 return m
