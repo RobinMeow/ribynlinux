@@ -5,6 +5,8 @@ local help_entries = {}
 
 --- adds it to the generated markdown help file
 function m.add(keys, desc)
+  -- TODO: notification for dupl keys
+  -- meaning conflicting keymaps
   table.insert(help_entries, {
     keys = keys,
     desc = desc,
@@ -54,7 +56,7 @@ function m.setup()
       class = "^keybindings_help$",
     },
     float = true,
-    size = { "(monitor_w*0.4)", "(monitor_h*0.6)" },
+    size = { "(monitor_w*0.6)", "(monitor_h*0.8)" },
     center = true,
   })
 
