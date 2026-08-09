@@ -4,6 +4,7 @@
 
 ## Tasks
 
+- [ ] mp4 video is now working on hyprland e.g. wl-freeze github page
 - [ ] lock screen
 - [ ] mpvpaper engine (using mp4 and others for wallpapers)
 - [ ] wayscriber = EpicPen. Fortunatly I no longer use the mouse, but maybe...
