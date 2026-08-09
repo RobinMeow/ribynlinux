@@ -4,13 +4,9 @@
 
 ## Tasks
 
-- [ ] improve the gpu/cpu/mem lockscreen to not feeze up
 - [ ] mpvpaper engine (using mp4 and others for wallpapers)
 - [ ] wayscriber = EpicPen. Fortunatly I no longer use the mouse, but maybe...
-- [ ] wl-freeze
-  (freezes a process so it no longer consumes resources. Can work as pause for game)
 - [ ] brightness notifications (im too lazy to do wob again)
-- [ ] mp4 video is now working on hyprland in chrome e.g. wl-freeze github page
 
 waybar:
 
@@ -32,6 +28,8 @@ not hyprland directly:
 
 abandoned i think:
 
+- [ ] ~~mp4 video is now working on hyprland in chrome e.g. wl-freeze github page~~
+  swapping to brave (chromium based and works), and firefox also works
 - [ ] ~~keyboards inputs can be configured using comma seperations ai was lying~~
   my own solution is good enough and doesnt depend on this wierd a** syntax
   of using string for csv files
@@ -51,6 +49,9 @@ abandoned i think:
 
 completed:
 
+- [x] wl-freeze
+  (freezes a process so it no longer consumes resources. Can work as pause for game)
+- [x] improve the gpu/cpu/mem lockscreen to not feeze up
 - [x] lock screen
 - [x] floating window with keybinds SUPER + (SHIFT) + ?
   (keybinds should go trough a custom fn)
