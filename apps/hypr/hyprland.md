@@ -18,6 +18,7 @@ waybar:
 - [ ] toggleable reserved space for waybar
 - [ ] time of day (waybar)
 - [ ] brightness in waybar
+- [ ] battery life
 - [ ] volume display
 
 not hyprland directly:

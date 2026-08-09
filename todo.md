@@ -1,5 +1,8 @@
 # TicketSystem
 
+- cargo breaks ci on first install, asking if install from rust or rustup
+- hypr wayland-protocol is missing on wob install
+- hypr sync should only call hyprctl reload if hypr is running (or ignore the error)
 - find something, which renders a grid on the screen flash-vimium-like to let me click on areas
 - ribyn_install doesnt call applications/sync.sh need to rethink, all install.sh scripts calling sync. I think now I want to seperate them
 - rename to run_on_distro to distro_strategies.sh and include pacin dnfin
