@@ -54,7 +54,8 @@ run_on_arch <<'EOF'
 		words \
 		detox \
 		git-lfs \
-		php composer jdk-openjdk julia
+		php composer jdk-openjdk julia \
+		wev
 EOF
 
 run_on_fedora <<'EOF'
@@ -99,7 +100,8 @@ run_on_fedora <<'EOF'
 		words \
 		detox \
 		git-lfs \
-    php composer java-devel julia
+    php composer java-devel julia \
+		wev
 
 	sudo dnf install -y --allowerasing ffmpeg
 EOF

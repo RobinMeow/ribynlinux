@@ -7,7 +7,7 @@
 - [ ] file_chooser needs some rules to be focused and floating probably
 - [ ] see if I can find better architecture to swap gaps/potate modes configs
 - [ ] lock screen
-- [ ] floating window with keybinds SUPER + (SHIFT) + ?
+- [ ] floating window with keybinds SUPER + (SHIFT) + ? (keybinds should go trough a custom fn)
 - [ ] keyboards inputs can be configured using comma seperations ai was lying
 - [ ] mpvpaper engine (using mp4 and others for wallpapers)
 - [ ] wayscriber = EpicPen. Fortunatly I no longer use the mouse, but maybe...
