@@ -4,6 +4,7 @@
 
 ## Tasks
 
+- [ ] improve the gpu/cpu/mem lockscreen to not feeze up
 - [ ] mpvpaper engine (using mp4 and others for wallpapers)
 - [ ] wayscriber = EpicPen. Fortunatly I no longer use the mouse, but maybe...
 - [ ] wl-freeze
