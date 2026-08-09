@@ -179,6 +179,8 @@ function m.setup()
     hl.dsp.exec_cmd('grim -g "$(slurp)" - | swappy -f -'),
     { desc = "screenshot with rectangular selection" }
   )
+
+  key.bind("SUPER + PAUSE", hl.dsp.exec_cmd("wl-freeze -a"), { desc = "toggle wl-freeze the currently active window" })
 end
 
 return m
