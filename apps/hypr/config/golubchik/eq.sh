@@ -6,13 +6,14 @@ RAMFILE="/dev/shm/cava_output.txt"
 # check music (optional check. can use mpc instead)
 # just a condition for whether or not, it should show the
 # visualliser
-if [[ "$(playerctl status 2>/dev/null)" != "Playing" ]]; then
-	echo ""
-	exit 0
-fi
+# if [[ "$(playerctl status 2>/dev/null)" != "Playing" ]]; then
+# 	echo ""
+# 	exit 0
+# fi
 
 # read file
-line=$(cat "$RAMFILE" 2>/dev/null)
+# line=$(cat "$RAMFILE" 2>/dev/null)
+IFS= read -r line <"$RAMFILE"
 
 # check that the file is not empy
 if [[ -z "$line" ]]; then

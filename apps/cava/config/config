@@ -1,0 +1,11 @@
+[general]
+bars = 16
+
+[input]
+method = pipewire
+
+[output]
+method = raw
+raw_target = /dev/shm/cava_output
+data_format = ascii
+ascii_max_range = 16
