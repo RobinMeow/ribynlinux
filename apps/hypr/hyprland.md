@@ -4,17 +4,12 @@
 
 ## Tasks
 
-- [ ] file_chooser needs some rules to be focused and floating probably
-- [ ] see if I can find better architecture to swap gaps/potate modes configs
 - [ ] lock screen
-- [ ] keyboards inputs can be configured using comma seperations ai was lying
 - [ ] mpvpaper engine (using mp4 and others for wallpapers)
 - [ ] wayscriber = EpicPen. Fortunatly I no longer use the mouse, but maybe...
 - [ ] wl-freeze
   (freezes a process so it no longer consumes resources. Can work as pause for game)
-- [ ] swappy/slurp/grim ~~desktop files~~ for fullscreen shots or non edit copy screenshots
-  dont want to use desktop files for this => maybe a hyprpicker? or hypr-independend cli solution?
-- [ ] brightness popups
+- [ ] brightness notifications (im too lazy to do wob again)
 
 waybar:
 
@@ -33,15 +28,27 @@ not hyprland directly:
 
 abandoned i think:
 
+- [ ] ~~keyboards inputs can be configured using comma seperations ai was lying~~
+  my own solution is good enough and doesnt depend on this wierd a** syntax
+  of using string for csv files
+- [ ] ~~see if I can find better architecture to swap gaps/potate modes configs~~
+  it is partial updates by default with the exception of animations being
+  unloaded when disabled
+- [ ] swappy/slurp/grim ~~desktop files~~ for fullscreen shots or non edit copy
+  screenshots dont want to use desktop files for this => maybe a hyprpicker?
+  or hypr-independend cli solution?
 - [ ] ~~set qwertz to be the default and only apply qwerty to glove80~~
-- [ ] ~~hyprglass~~ not sure if worth it. might requires gtk/qt or sth. could be visually pleasing.
+- [ ] ~~hyprglass~~ not sure if worth it. might requires gtk/qt or sth.
+  could be visually pleasing.
 - [ ] ~~check if hypr-dynamic-cursor can be useful~~
 - [ ] ~~try custom warp script~~
   (tried it, but needs to target only window.active if keyboard driven)
 
 completed:
 
-- [x] floating window with keybinds SUPER + (SHIFT) + ? (keybinds should go trough a custom fn)
+- [ ] ~~file_chooser needs some rules to be focused and floating probably~~
+- [x] floating window with keybinds SUPER + (SHIFT) + ?
+  (keybinds should go trough a custom fn)
 - [x] toggle border radius rounding on gaps.toggle
 - [x] toggle margin/padding around windows
 - [x] move env to environments.lua
