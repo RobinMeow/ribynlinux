@@ -28,4 +28,9 @@ ribyn_rsync "$RIBYN_ROOT/assets/images/wallpapers/car-in-grass.jpg" "$HOME/.conf
 ribyn_rsync "$RIBYN_ROOT/assets/images/eeyore.png" "$HOME/.config/hypr/"
 ribyn_rsync "$RIBYN_ROOT/apps/hypr/hyprbye.sh" "$HOME/.local/bin/hyprbye"
 
-hyprctl reload
+hypr_running=${HYPRLAND_INSTANCE_SIGNATURE:-"not running"}
+if [[ $hypr_running == "not running" ]]; then
+	info "hyprland is not running. skipping reload config."
+else
+	hyprctl reload
+fi
