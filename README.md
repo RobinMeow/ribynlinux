@@ -12,13 +12,19 @@ git clone --depth 1 https://github.com/RobinMeow/ribynlinux.git "$RIBYN_ROOT"
 git clone --depth 1 https://codeberg.com/Ribyn/ribynlinux.git "$RIBYN_ROOT"
 "$RIBYN_ROOT/bin/ribyn_install"
 
-# one-liner
-export RIBYN_ROOT="$HOME/ribynlinux" && git clone --depth 1 https://github.com/RobinMeow/ribynlinux.git "$RIBYN_ROOT" && "$RIBYN_ROOT/bin/ribyn_install"
-
 # one-multi-liner
 export RIBYN_ROOT="$HOME/ribynlinux" \
   && git clone --depth 1 https://github.com/RobinMeow/ribynlinux.git "$RIBYN_ROOT" \
   && "$RIBYN_ROOT/bin/ribyn_install"
+```
+
+testing first time install in docker for arch:
+```sh
+# run this one first:
+sh -c "$(curl -fsSL https://codeberg.org/Ribyn/ribynlinux/raw/branch/master/bootstrap/yet-another-setup.sh)"
+
+# after login, run:
+export RIBYN_ROOT="$HOME/ribynlinux" && git clone --depth 1 https://github.com/RobinMeow/ribynlinux.git "$RIBYN_ROOT" && "$RIBYN_ROOT/bin/ribyn_install"
 ```
 
 > `RIBYN_ROOT` environment variable is required by almost every script

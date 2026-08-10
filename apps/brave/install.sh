@@ -4,6 +4,7 @@ set -euo pipefail
 . "$RIBYN_ROOT/lib/run_on_distro.sh"
 
 # arch
+run_on_arch "$RIBYN_ROOT/lib/ensure_installed_yay.sh"
 run_on_arch yay -Sy --needed --noconfirm \
 	brave-bin
 
