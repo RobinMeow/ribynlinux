@@ -62,8 +62,8 @@ info "Syncing hypr"
 info "Syncing rofi"
 "$RIBYN_ROOT/apps/rofi/sync.sh"
 
-# info "Syncing waybar"
-# "$RIBYN_ROOT/apps/waybar/sync.sh"
+info "Syncing waybar"
+"$RIBYN_ROOT/apps/waybar/sync.sh"
 
 full_install=false
 for arg in "$@"; do

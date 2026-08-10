@@ -68,8 +68,8 @@ info "Installing rofi"
 info "Installing wl-freeze"
 "$RIBYN_ROOT/apps/wl-freeze/install.sh"
 
-# info "Installing waybar"
-# "$RIBYN_ROOT/apps/waybar/install.sh"
+info "Installing waybar"
+"$RIBYN_ROOT/apps/waybar/install.sh"
 
 # TODO: move beneath hypr
 info "Installing wob"

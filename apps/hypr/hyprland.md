@@ -4,11 +4,6 @@
 
 ## Tasks
 
-- [ ] mpvpaper engine (using mp4 and others for wallpapers)
-- [ ] wayscriber = EpicPen. Fortunatly I no longer use the mouse, but maybe...
-- [ ] brightness notifications (im too lazy to do wob again)
-- [ ] brave is not picking up default dark theme
-
 waybar:
 
 - [ ] current song `mpc status`
@@ -24,8 +19,13 @@ waybar:
 not hyprland directly:
 
 - [ ] a script to be invoked which toggles bg for kitty
-- [ ] bluetooth open bluetui using a desktop file
-- [ ] make sure I can do volume control outside hypr as needed
+- [ ] make sure I can do volume control outside hypr as needed (cli?)
+
+deferred:
+
+- [ ] mpvpaper engine (using mp4 and others for wallpapers)
+- [ ] wayscriber = EpicPen. Fortunatly I no longer use the mouse, but maybe...
+- [ ] brightness notifications (im too lazy to do wob again)
 
 abandoned i think:
 
@@ -47,6 +47,7 @@ abandoned i think:
 - [ ] ~~try custom warp script~~
   (tried it, but needs to target only window.active if keyboard driven)
 - [ ] ~~file_chooser needs some rules to be focused and floating probably~~
+- [ ] ~~bluetooth open bluetui using a desktop file~~
 
 completed:
 
