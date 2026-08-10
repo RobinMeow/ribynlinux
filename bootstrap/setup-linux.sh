@@ -52,6 +52,7 @@ if [[ "$CREATE_ANS" =~ ^[Yy]$ ]]; then
 	fi
 	# NOTE: add if desired %wheel ALL=(ALL:ALL) ALL
 	# -G sudo,wheel (comma seperated to add a user to multiple groups)
+	echo "creating admin groups"
 	cat <<'EOF' >/etc/sudoers.d/admin-groups
 %sudo ALL=(ALL:ALL) ALL
 EOF
@@ -69,6 +70,11 @@ EOF
 	# NOTE: allow branch variable to be set if I use this in future
 	if [[ "${SKIP_INSTALL:-false}" == "true" ]]; then
 		echo "skipping git clone and install"
+		echo "you can now login in using: su --login $USERNAME"
+		echo "whats next:"
+		echo "git clone --depth 1 -b master https://codeberg.org/Ribyn/ribynlinux"
+		echo "cd ribynlinux"
+		echo "RIBYN_ROOT=/home/$USERNAME/ribynlinux ./bin/ribyn_install"
 	else
 		su - "$USERNAME" <<'EOF'
 git clone --depth 1 -b master https://codeberg.org/Ribyn/ribynlinux
@@ -76,7 +82,7 @@ export RIBYN_ROOT="$HOME/ribynlinux"
 "$RIBYN_ROOT/scripts/install.sh" --full-install
 EOF
 	fi
-	echo "you now now login in using: su --login $USERNAME"
+
 else
 	git clone --depth 1 -b master https://codeberg.org/Ribyn/ribynlinux
 	export RIBYN_ROOT="$HOME/ribynlinux"
