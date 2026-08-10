@@ -45,7 +45,7 @@ function m.setup()
     { desc = "open rofi - window switcher" }
   )
 
-  key.bind("SUPER + V", hl.dsp.layout("togglesplit"), { desc = "toggle split (dwindle only)" })
+  key.bind("SUPER + V", hl.dsp.layout("togglesplit"), { locked = true, desc = "toggle split (dwindle only)" })
 
   -- Move focus with SUPER + vim keys
   key.bind("SUPER + H", hl.dsp.focus({ direction = "left" }), { desc = "focus window: to the left" })
