@@ -7,6 +7,7 @@
 - [ ] mpvpaper engine (using mp4 and others for wallpapers)
 - [ ] wayscriber = EpicPen. Fortunatly I no longer use the mouse, but maybe...
 - [ ] brightness notifications (im too lazy to do wob again)
+- [ ] brave is not picking up default dark theme
 
 waybar:
 
