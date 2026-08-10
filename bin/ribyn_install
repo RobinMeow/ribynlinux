@@ -14,9 +14,6 @@ info "Installing catppuccin cursors"
 info "Installing qt6ct"
 "$RIBYN_ROOT/apps/qt6ct/install.sh"
 
-info "Installing xdg-desktop-portal-termfilechooser"
-"$RIBYN_ROOT/apps/xdg-desktop-portal-termfilechooser/build_from_source.sh"
-
 info "Installing zsh"
 "$RIBYN_ROOT/apps/zsh/install.sh"
 
@@ -79,6 +76,9 @@ info "Installing wl-freeze"
 
 info "Installing hypr"
 "$RIBYN_ROOT/apps/hypr/install.sh"
+
+info "Installing xdg-desktop-portal-termfilechooser"
+"$RIBYN_ROOT/apps/xdg-desktop-portal-termfilechooser/build_from_source.sh"
 
 info "Syncing desktop files"
 "$RIBYN_ROOT/desktop-files/install.sh"

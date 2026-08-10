@@ -38,6 +38,10 @@ else
 		sudo ninja -C build install
 	)
 
+	# NOTE: dir usually already exists, if xdg-desktop-portal and
+	# xdg-desktop-portal-hyprland are already installed
+	# ln: failed to create symbolic link '/usr/share/xdg-desktop-portal/portals/': No such file or directory
+	mkdir -p "/usr/share/xdg-desktop-portal/portals"
 	sudo ln -s "/usr/local/share/xdg-desktop-portal/portals/termfilechooser.portal" "/usr/share/xdg-desktop-portal/portals/"
 
 	ribyn_rsync \
