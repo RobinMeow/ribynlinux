@@ -35,3 +35,4 @@ deferred:
   threshhold was reached and is charging or just
   normally discharging)
 - [ ] move bible verse of the day to the waybar
+- [ ] show active region/timezone
