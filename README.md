@@ -25,6 +25,9 @@ sh -c "$(curl -fsSL https://codeberg.org/Ribyn/ribynlinux/raw/branch/master/boot
 
 # after login, run:
 export RIBYN_ROOT="$HOME/ribynlinux" && git clone --depth 1 https://github.com/RobinMeow/ribynlinux.git "$RIBYN_ROOT" && "$RIBYN_ROOT/bin/ribyn_install"
+# if testing in docker in wsl
+export RIBYN_ROOT="$HOME/ribynlinux" && export RIBYN_SKIP_DETECT_SLOP_USER="yes" && git clone --depth 1 https://github.com/RobinMeow/ribynlinux.git "$RIBYN_ROOT" && "$RIBYN_ROOT/bin/ribyn_install"
+
 ```
 
 > `RIBYN_ROOT` environment variable is required by almost every script

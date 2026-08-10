@@ -1,19 +1,19 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-source "$RIBYN_ROOT/lib/utils.sh"
-source "$RIBYN_ROOT/config.sh"
+. "$RIBYN_ROOT/lib/utils.sh"
+. "$RIBYN_ROOT/config.sh"
 
 # NOTE: i can still use wezterm from within wsl.
 # so might as well install as normally and for wsl copy additionially
 
 DEST_CONFIG_DIR="$HOME/.config/wezterm"
 DEST_HOME_DIR="$HOME"
-source "$RIBYN_ROOT/lib/detect_env.sh"
+. "$RIBYN_ROOT/lib/detect_env.sh"
 detect_env
 
-if [[ "$OS_TYPE" == "wsl" ]]; then
-	source "$RIBYN_ROOT/lib/detect_win_user.sh"
+if [[ "$OS_TYPE" == "wsl" && "$RIBYN_SKIP_DETECT_SLOP_USER" != "yes" ]]; then
+	. "$RIBYN_ROOT/lib/detect_win_user.sh"
 	detect_win_user
 
 	DEST_CONFIG_DIR="$WINDOWS_HOME/.config/wezterm"
