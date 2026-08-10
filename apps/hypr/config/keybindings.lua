@@ -134,6 +134,21 @@ function m.setup()
     { desc = "relative resizing: right" }
   )
 
+  key.bind("SUPER + P", require("potato_mode").toggle, { locked = true, desc = "toggle potato mode" })
+  key.bind("SUPER + G", require("gaps").toggle, { locked = true, desc = "toggle gaps (padding/margins)" })
+
+  key.bind(
+    "Print",
+    hl.dsp.exec_cmd('grim -g "$(slurp)" - | swappy -f -'),
+    { desc = "screenshot with rectangular selection" }
+  )
+
+  key.bind("SUPER + PAUSE", hl.dsp.exec_cmd("wl-freeze -a"), { desc = "toggle wl-freeze the currently active window" })
+
+  key.bind("SUPER + O", hl.dsp.exec_cmd("hyprlock --grace 10"), { desc = "lock screen" })
+
+  key.bind("SUPER + W", hl.dsp.exec_cmd("pkill --exact waybar || waybar"), { desc = "stop/start waybar" })
+
   -- multimedia keys for volume and LCD brightness (usually on laptops for fn keys)
   -- NOTE: according to AI, locked is for allow in lock-screen and repeating for hold to spam
   key.bind(
@@ -170,19 +185,6 @@ function m.setup()
   key.bind("XF86AudioPause", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true, desc = "media audio pause" })
   key.bind("XF86AudioNext", hl.dsp.exec_cmd("playerctl next"), { locked = true, desc = "media audio next" })
   key.bind("XF86AudioPrev", hl.dsp.exec_cmd("playerctl previous"), { locked = true, desc = "media audio prev" })
-
-  key.bind("SUPER + P", require("potato_mode").toggle, { locked = true, desc = "toggle potato mode" })
-  key.bind("SUPER + G", require("gaps").toggle, { locked = true, desc = "toggle gaps (padding/margins)" })
-
-  key.bind(
-    "Print",
-    hl.dsp.exec_cmd('grim -g "$(slurp)" - | swappy -f -'),
-    { desc = "screenshot with rectangular selection" }
-  )
-
-  key.bind("SUPER + PAUSE", hl.dsp.exec_cmd("wl-freeze -a"), { desc = "toggle wl-freeze the currently active window" })
-
-  key.bind("SUPER + O", hl.dsp.exec_cmd("hyprlock --grace 10"), { desc = "lock screen" })
 end
 
 return m
