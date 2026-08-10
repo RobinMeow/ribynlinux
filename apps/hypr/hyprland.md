@@ -8,16 +8,6 @@ waybar:
 
 - [ ] should kill itself on lockscreen. remember it was running,
   and start backup after lock screen
-- [ ] current song `mpc status`
-- [ ] gpu/cpu/mem usage
-- [ ] show workspace number in toolbar or somewhere
-  (would fix the issue with needing a plugin/workspace viewer)
-- [ ] toggleable reserved space for waybar
-- [ ] time of day (waybar)
-- [ ] brightness in waybar
-- [ ] battery life
-- [ ] volume display
-
 not hyprland directly:
 
 - [ ] a script to be invoked which toggles bg for kitty
