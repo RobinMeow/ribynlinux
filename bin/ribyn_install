@@ -62,9 +62,6 @@ info "Installing zathura"
 info "Installing bluetui"
 "$RIBYN_ROOT/apps/bluetui/install.sh"
 
-info "Installing wob"
-"$RIBYN_ROOT/apps/wob/install.sh"
-
 info "Installing rofi"
 "$RIBYN_ROOT/apps/rofi/install.sh"
 
@@ -73,6 +70,10 @@ info "Installing wl-freeze"
 
 # info "Installing waybar"
 # "$RIBYN_ROOT/apps/waybar/install.sh"
+
+# TODO: move beneath hypr
+info "Installing wob"
+"$RIBYN_ROOT/apps/wob/install.sh"
 
 info "Installing hypr"
 "$RIBYN_ROOT/apps/hypr/install.sh"

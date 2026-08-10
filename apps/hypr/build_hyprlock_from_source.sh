@@ -18,8 +18,10 @@ run_on_arch sudo pacman -S --needed --noconfirm \
 	pam \
 	pango \
 	sdbus-cpp \
-	wayland
-# WARN: not sure if wayland includes wayland-client and wayland-protocols
+	wayland \
+	extra/wayland-protocols
+# wayland provides wayland-client
+# extra/wayland-protocols provides wayland-protocols
 
 run_on_fedora sudo dnf install -y \
 	cmake \
@@ -35,8 +37,8 @@ run_on_fedora sudo dnf install -y \
 	pam \
 	pango \
 	sdbus-cpp \
-	wayland-devel
-# WARN: not sure if wayland-devel includes client and protocols
+	wayland-devel \
+	wayland-protocols-devel
 
 mkdir -p "$HOME/.local/share/ribyn/"
 dest="$HOME/.local/share/ribyn/hyprlock"
