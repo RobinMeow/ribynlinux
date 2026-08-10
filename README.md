@@ -8,8 +8,17 @@ My personalized environment for Arch Linux, Fedora, Neovim, WSL and many other t
 
 ```sh
 export RIBYN_ROOT="$HOME/ribynlinux"
-git clone ssh://git@codeberg.com:Ribyn/ribynlinux.git "$RIBYN_ROOT"
+git clone --depth 1 https://github.com/RobinMeow/ribynlinux.git "$RIBYN_ROOT"
+git clone --depth 1 https://codeberg.com/Ribyn/ribynlinux.git "$RIBYN_ROOT"
 "$RIBYN_ROOT/bin/ribyn_install"
+
+# one-liner
+export RIBYN_ROOT="$HOME/ribynlinux" && git clone --depth 1 https://github.com/RobinMeow/ribynlinux.git "$RIBYN_ROOT" && "$RIBYN_ROOT/bin/ribyn_install"
+
+# one-multi-liner
+export RIBYN_ROOT="$HOME/ribynlinux" \
+  && git clone --depth 1 https://github.com/RobinMeow/ribynlinux.git "$RIBYN_ROOT" \
+  && "$RIBYN_ROOT/bin/ribyn_install"
 ```
 
 > `RIBYN_ROOT` environment variable is required by almost every script
