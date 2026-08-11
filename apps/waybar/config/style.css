@@ -86,13 +86,12 @@ label:focus {
 }
 
 #cpu {
-  /* cpu icon needs more space to the right */
-  padding: 0px 15px 0px 10px;
   border-color: @mauve;
   color: @mauve;
 }
 
 #memory {
+  padding: 0px 15px 0px 10px;
   border-color: @maroon;
   color: @maroon;
 }
