@@ -2,7 +2,8 @@
 
 My personalized environment for Arch Linux, Fedora, Neovim, WSL and many other things.
 
-![gource](./gource.png)
+![gource](./gource-august.png)
+[gourced full history](./gourced.md)
 
 ## Arch
 
