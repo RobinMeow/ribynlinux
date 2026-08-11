@@ -27,6 +27,7 @@
     "pulseaudio",
     "cpu",
     "memory",
+    // TODO: not working on laptop
     "temperature", // GPU or CPU? I want both
     // "battery#bat2", // NOTE: comment in if I actually have a device with 2 batteries
     "tray"

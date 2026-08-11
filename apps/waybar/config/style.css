@@ -11,7 +11,7 @@
     Helvetica,
     Arial,
     sans-serif;
-  font-size: 26px;
+  font-size: 20px;
   color: #ffffff;
 }
 
@@ -46,7 +46,7 @@ window#waybar.hidden {
 #idle_inhibitor {
   padding: 0 10px;
   border-radius: 15px; /* hypr also using 15 rounding */
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(0, 0, 0, 0.1);
   border: 2px solid;
 }
 
