@@ -1,0 +1,36 @@
+# firefox
+
+## choosing firefox over chromium based browsers
+
+- they display no tofus (did not manage to fix in chrome)
+- syncing dotfiles is better supported [settings storage](https://wiki.archlinux.org/title/Firefox)
+  and [manually backup and restore firefox profile data](https://support.mozilla.org/en-US/kb/back-and-restore-information-firefox-profiles#w_restoring-a-profile-backup)
+- better privacy
+- had an issue where wl-freeze github page tried to show a mp4 video but
+  only audio worked (did not manage to fix this)
+- configuring autostart rules for dynamic window tiling managers
+  (chrome has the issue, that it runs an updater window instead, which then
+  launches the real window, which will skip the rule.
+  I worked around this, still annoying.)
+
+config: `about:config`
+
+in home:
+~/.mozilla/firefox
+
+[user.js](https://github.com/pyllyukko/user.js)
+
+make sure to install pipewire-pulse for compat, since firefox uses pulseaudio/alsa
+instead of wireplumber.
+
+## setting firefox as default browser
+
+TODO: shell script
+
+```sh
+xdg-settings get default-web-browser
+xdg-settings set default-web-browser firefox.desktop
+```
+
+in case it happens:
+[5.37 Notifications are not floating in tiling window managers or Wayland compositors](https://wiki.archlinux.org/title/Firefox)

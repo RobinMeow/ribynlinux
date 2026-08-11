@@ -29,6 +29,9 @@ info "Installing git"
 info "Installing brave"
 "$RIBYN_ROOT/apps/brave/install.sh"
 
+info "Installing firefox"
+"$RIBYN_ROOT/apps/firefox/install.sh"
+
 info "Installing bat"
 "$RIBYN_ROOT/apps/bat/install.sh"
 
