@@ -1,4 +1,3 @@
--- TODO: load angular keymaps only for angular files
 local m = {}
 
 function m.open_angular_file(target_ext)
@@ -32,6 +31,43 @@ function m.open_angular_file(target_ext)
   else
     vim.notify("File not found: " .. vim.fn.fnamemodify(target_file, ":t"), vim.log.levels.WARN)
   end
+end
+
+function m.setup()
+  vim.api.nvim_create_autocmd("LspAttach", {
+    group = vim.api.nvim_create_augroup("AngularBufferSwitcher", { clear = true }),
+    callback = function(args)
+      local client = vim.lsp.get_client_by_id(args.data.client_id)
+      if not client then
+        return
+      end
+      if client.name ~= "angularls" and client.name ~= "cssls" then
+        return
+      end
+
+      local bufnr = args.buf
+      local opts = {
+        buffer = bufnr, -- keymaps are only active for this buffer
+        silent = true,
+      }
+
+      vim.keymap.set("n", "<leader>at", function()
+        m.open_angular_file(".ts")
+      end, vim.tbl_extend("force", opts, { desc = "Angular: Go to .ts" }))
+      vim.keymap.set("n", "<leader>ah", function()
+        m.open_angular_file(".html")
+      end, vim.tbl_extend("force", opts, { desc = "Angular: Go to .html" }))
+      vim.keymap.set("n", "<leader>ac", function()
+        m.open_angular_file(".scss")
+      end, vim.tbl_extend("force", opts, { desc = "Angular: Go to .scss/.css" }))
+      vim.keymap.set("n", "<leader>as", function()
+        m.open_angular_file(".spec.ts")
+      end, vim.tbl_extend("force", opts, { desc = "Angular: Go to .spec.ts" }))
+
+      -- just for quick debugging, works.
+      -- vim.notify("Angular keymaps loaded for buffer via " .. client.name, vim.log.levels.INFO)
+    end,
+  })
 end
 
 return m
