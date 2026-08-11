@@ -18,25 +18,12 @@
 		"memory",
 		"temperature",
 		"backlight", // brightness
-		// "keyboard-state",
 		"battery",
 		"battery#bat2",
 		"clock",
 		"tray"
 	],
 	// Modules configuration
-	// "keyboard-state": {
-	// 	// NOTE: needs the user to be in the input group or sth like that
-	// 	// in exchange it can show if caps lock/numlock or toggeled on or not
-
-	// 	"numlock": true,
-	// 	"capslock": true,
-	// 	"format": "{name} {icon}",
-	// 	"format-icons": {
-	// 		"locked": "",
-	// 		"unlocked": ""
-	// 	}
-	// },
 	"idle_inhibitor": {
 		"format": "{icon}",
 		"format-icons": {
