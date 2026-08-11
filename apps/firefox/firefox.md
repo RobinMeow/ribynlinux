@@ -12,6 +12,8 @@
   (chrome has the issue, that it runs an updater window instead, which then
   launches the real window, which will skip the rule.
   I worked around this, still annoying.)
+- sth changed today, even tho it worked previously, now chrome thinks im recording.
+  So now I cant watch netflix anymore. works fine on firefox.
 
 config: `about:config`
 
