@@ -1,5 +1,5 @@
 /* TODO: swap to catppuccin colors or use my own from hypr */
-/* @import "catppuccin_mocha.css"; */
+@import "catppuccin_mocha.css";
 /* @import url("catppuccin_mocha.css"); */
 * {
   /* `otf-font-awesome` is required to be installed for icons */
@@ -12,14 +12,13 @@
     Arial,
     sans-serif;
   font-size: 26px;
+  color: #ffffff;
 }
 
 window#waybar {
-  background-color: rgba(43, 48, 59, 0.5);
-  border-bottom: 3px solid rgba(100, 114, 125, 0.5);
-  color: #ffffff;
-  transition-property: background-color;
-  transition-duration: 0.5s;
+  background-color: transparent;
+  /* transition-property: background-color; */
+  /* transition-duration: 0.5s; */
 }
 
 window#waybar.hidden {
@@ -43,37 +42,38 @@ window#waybar.hidden {
 #wireplumber,
 #tray,
 #mode,
+#language,
 #idle_inhibitor {
   padding: 0 10px;
-  color: #ffffff;
+  border-radius: 15px; /* hypr also using 15 rounding */
+  background-color: rgba(0, 0, 0, 0.4);
+  border: 2px solid;
 }
 
 #clock {
-  background-color: #64727d;
+  color: @rosewater;
+  border-color: @rosewater;
 }
 
 #battery {
-  background-color: #ffffff;
-  color: #000000;
+  color: @flamingo;
+  border-color: @flamingo;
 }
 
 #battery.charging,
 #battery.plugged {
-  color: #ffffff;
-  background-color: #26a65b;
+  color: @pink;
 }
 
 @keyframes blink {
   to {
-    background-color: #ffffff;
-    color: #000000;
+    color: @yellow;
   }
 }
 
 /* Using steps() instead of linear as a timing function to limit cpu usage */
 #battery.critical:not(.charging) {
-  background-color: #f53c3c;
-  color: #ffffff;
+  background-color: @red;
   animation-name: blink;
   animation-duration: 0.5s;
   animation-timing-function: steps(12);
@@ -86,43 +86,47 @@ label:focus {
 }
 
 #cpu {
-  background-color: #2ecc71;
-  color: #000000;
+  /* cpu icon needs more space to the right */
+  padding: 0px 15px 0px 10px;
+  border-color: @mauve;
+  color: @mauve;
 }
 
 #memory {
-  background-color: #9b59b6;
+  border-color: @maroon;
+  color: @maroon;
 }
 
 #disk {
-  background-color: #964b00;
+  border-color: @peach;
+  color: @peach;
 }
 
 #backlight {
-  background-color: #90b1b1;
+  border-color: @teal;
+  color: @teal;
 }
 
 #network {
-  background-color: #2980b9;
+  border-color: @sky;
+  color: @sky;
 }
 
 #network.disconnected {
-  background-color: #f53c3c;
+  background-color: @red;
 }
 
 #pulseaudio {
-  background-color: #f1c40f;
-  color: #000000;
+  border-color: @sapphire;
+  color: @sapphire;
 }
 
 #pulseaudio.muted {
   background-color: #90b1b1;
-  color: #2a5c45;
 }
 
 #wireplumber {
   background-color: #fff0f5;
-  color: #000000;
 }
 
 #wireplumber.muted {
@@ -130,7 +134,8 @@ label:focus {
 }
 
 #temperature {
-  background-color: #f0932b;
+  color: #f0932b;
+  border-color: #f0932b;
 }
 
 #temperature.critical {
@@ -156,15 +161,11 @@ label:focus {
 
 #idle_inhibitor.activated {
   background-color: #ecf0f1;
-  color: #2d3436;
 }
 
 #language {
-  background: #00b093;
-  color: #740864;
-  padding: 0 5px;
-  margin: 0 5px;
-  min-width: 16px;
+  color: @lavender;
+  border-color: @lavender;
 }
 
 #privacy {
@@ -173,7 +174,6 @@ label:focus {
 
 #privacy-item {
   padding: 0 5px;
-  color: white;
 }
 
 #privacy-item.screenshare {

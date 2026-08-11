@@ -7,9 +7,14 @@
   "position": "top", // (top|bottom|left|right)
   // "height": 30, // auto height, when not set
   // "width": 1280, // full width, when not set
+  "margin-top": 10,
+  "margin-left": 10,
+  "margin-right": 10,
+  "margin-bottom": 0, // hypr outer-gaps takes care of this
   "spacing": 8, // Gaps between modules
   // Choose the order of the modules
   "modules-left": [
+    "clock",
     // TODO: works but maybe I want my own. it doesnt differentiate between qwertz with caps lock swapped and not
     // its also very long, not abbreviated
     // or I can change the hypr config accordingly
@@ -26,7 +31,6 @@
     "backlight", // brightness
     "battery",
     // "battery#bat2", // NOTE: comment in if I actually have a device with 2 batteries
-    "clock",
     "tray"
   ],
   // Modules configuration
