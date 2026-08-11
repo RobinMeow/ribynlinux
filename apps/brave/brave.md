@@ -77,3 +77,15 @@ install extensions:
 on google search:
 
 - spracheinstellung: english
+
+## fonts
+
+in `chrome://settings/fonts`
+
+- **Standard font:** Noto Sans
+- **Serif font:** Noto Serif
+- **Sans-serif font:** Noto Sans
+- **Fixed-width font:** Noto Sans Mono
+- **Mathematical font:** Noto Sans Math
+
+> dont be confused by sans-serif. it means no-serif
