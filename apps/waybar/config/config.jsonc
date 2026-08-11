@@ -114,17 +114,17 @@
   },
   "network": {
     // "interface": "wlp2*", // (Optional) To force the use of this interface
-    // essid "FritzBox .."
+    // essid "FritzBox .." (SSID)
     // ipaddr 192.168.178.xxx
     // ifname wlp1s0
     // cidr 24
     // gwaddr 192.168.178.X (I think public IP?)
     "format-wifi": "   {signalStrength}% {essid}",
-    "format-ethernet": "{ipaddr}/{cidr} ",
+    "format-ethernet": "eth:{ifname}", //  if this works after reboot, maybe use hits icon
     "tooltip-format": "{ifname} via {gwaddr} ",
     "format-linked": "{ifname} (No IP) ",
     "format-disconnected": "Disconnected ⚠",
-    "format-alt": "{ifname}: {ipaddr}/{cidr}"
+    "format-alt": "{ipaddr}/{cidr}"
   },
   "pulseaudio": {
     "scroll-step": 5, // 5% per scroll event
