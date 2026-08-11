@@ -1,12 +1,13 @@
 // -*- mode: jsonc -*-
 // https://github.com/Alexays/Waybar/wiki/Configuration#minimal-config
 {
+	// container values
 	"output": ["DP-1"], // desc: from hyprl works. but without the desc: prefix
-	// "layer": "top", // Waybar at top layer
-	// "position": "bottom", // Waybar position (top|bottom|left|right)
-	// "height": 30, // Waybar height (to be removed for auto height)
-	// "width": 1280, // Waybar width
-	"spacing": 8, // Gaps between modules (4px)
+	// "layer": "top",
+	"position": "top", // (top|bottom|left|right)
+	// "height": 30, // auto height, when not set
+	// "width": 1280, // full width, when not set
+	"spacing": 8, // Gaps between modules
 	// Choose the order of the modules
 	"modules-left": [ ],
 	"modules-center": [ ],
@@ -16,10 +17,10 @@
 		"network",
 		"cpu",
 		"memory",
-		"temperature",
+		"temperature", // GPU or CPU? I want both
 		"backlight", // brightness
 		"battery",
-		"battery#bat2",
+		// "battery#bat2", // NOTE: comment in if I actually have a device with 2 batteries
 		"clock",
 		"tray"
 	],
