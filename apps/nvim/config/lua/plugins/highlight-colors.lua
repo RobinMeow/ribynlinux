@@ -31,8 +31,8 @@ return {
             aarrggbb = false, -- 0xAARRGGBB
             no_hash = false, -- hex without '#' at word boundaries
           },
-          rgb = { enable = false }, -- rgb()/rgba() functions
-          hsl = { enable = false }, -- hsl()/hsla() functions
+          rgb = { enable = true }, -- rgb()/rgba() functions
+          hsl = { enable = true }, -- hsl()/hsla() functions
           oklch = { enable = false }, -- oklch() function
           hwb = { enable = false }, -- hwb() function (CSS Color Level 4)
           lab = { enable = false }, -- lab() function (CIE Lab)
