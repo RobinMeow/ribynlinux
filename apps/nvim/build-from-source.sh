@@ -40,15 +40,22 @@ if [ -d "$REPO_DEST" ]; then
 else
 	source "$RIBYN_ROOT/lib/run_on_distro.sh"
 
-	run_on_arch <<'EOF'
-	info "Detected Arch Linux. Installing dependencies..."
-	sudo pacman -S --noconfirm --needed base-devel cmake unzip ninja curl
-EOF
+	run_on_arch info "Installing dependencies..."
+	run_on_arch sudo pacman -S --noconfirm --needed \
+		base-devel \
+		cmake \
+		unzip \
+		ninja \
+		curl
 
-	run_on_fedora <<'EOF'
-	info "Detected Fedora. Installing dependencies..."
-	sudo dnf -y install ninja-build cmake gcc make unzip gettext curl
-EOF
+	run_on_fedora sudo dnf -y install \
+		ninja-build \
+		cmake \
+		gcc \
+		make \
+		unzip \
+		gettext \
+		curl
 
 	info "Cloning Neovim repository..."
 	git clone --depth 1 --no-single-branch "https://github.com/neovim/neovim" "$REPO_DEST"
