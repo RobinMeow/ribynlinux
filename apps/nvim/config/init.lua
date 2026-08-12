@@ -199,7 +199,10 @@ require("lazy").setup({
         ["shellharden"] = {},
         ["angularls"] = {},
         ["cssls"] = {},
-        ["html"] = {},
+        ["html"] = {
+          -- NOTE: in testing. comment out again, if not good.
+          filetypes = { "html", "htmlangular" },
+        },
         ["pyright"] = {},
         ["rust_analyzer"] = {},
         -- ["roslyn_ls"] = {}, -- still making things slow i think with easy dotnet
@@ -422,6 +425,15 @@ require("lazy").setup({
       }
 
       treesitter.install(ensure_installed)
+
+      -- this is the recommended way of enabling parsers for filetypes:
+      -- https://github.com/nvim-treesitter/nvim-treesitter/blob/main/README.md?utm_source=chatgpt.com#highlighting
+      vim.api.nvim_create_autocmd("FileType", {
+        pattern = { "htmlangular" },
+        callback = function()
+          vim.treesitter.start()
+        end,
+      })
 
       vim.api.nvim_create_autocmd("FileType", {
         pattern = "cs",
