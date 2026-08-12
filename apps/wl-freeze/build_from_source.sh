@@ -29,6 +29,7 @@ else
 
 		# make wl-freeze available in the cli as wl-freeze
 		# if .local/bin is in your PATH
+		mkdir -p "$HOME/.local/bin/"
 		dest_bin="$HOME/.local/bin/wl-freeze"
 		if [[ -f "$dest_bin" ]]; then
 			info "wl-freeze: symlink for PATH already exist. skipping."
