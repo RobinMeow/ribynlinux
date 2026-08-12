@@ -72,3 +72,6 @@ set -euo pipefail
 	# WARN: do not mistake with hyprland cursor themes. xcursor and hyprcursor
 	# are both set in hyprland.lua to make sure hyprland knows about those env vars
 }
+
+export HOMEBREW_NO_AUTO_UPDATE=1
+export HOMEBREW_NO_ANALYTICS=1

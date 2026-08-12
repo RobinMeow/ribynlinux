@@ -205,6 +205,7 @@ if [[ -f "$zshlocal" ]]; then
 fi
 
 export HOMEBREW_NO_AUTO_UPDATE=1
+export HOMEBREW_NO_ANALYTICS=1
 
 _total_ms=$(printf "%.2f" $((($EPOCHREALTIME - _start_time) * 1000)))
 echo "${_total_ms}ms. $(date +%A,\ %Y-%m-%d\ %H:%M)"
