@@ -1,8 +1,11 @@
 #!/bin/bash
 set -euo pipefail
 
-source "$RIBYN_ROOT/config.sh"
-source "$RIBYN_ROOT/lib/utils.sh"
+# run if build fails. probably not all neccessary
+# rm -rf ~/.local/share/nvim && rm -rf ~/.local/state/nvim && rm -rf ~/.cache/nvim && rm ~/.local/share/ribyn/neovim/
+
+. "$RIBYN_ROOT/config.sh"
+. "$RIBYN_ROOT/lib/utils.sh"
 
 # default values are based on what guarantees a most stable system
 
