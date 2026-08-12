@@ -3,8 +3,8 @@ set -euo pipefail
 
 # https://github.com/crmne/hyprmoncfg/commits/main/
 
-source "$RIBYN_ROOT/lib/utils.sh"
-source "$RIBYN_ROOT/lib/run_on_distro.sh"
+. "$RIBYN_ROOT/lib/utils.sh"
+. "$RIBYN_ROOT/lib/run_on_distro.sh"
 
 run_on_arch sudo pacman -S --needed --noconfirm \
 	go

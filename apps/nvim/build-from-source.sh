@@ -6,10 +6,7 @@ source "$RIBYN_ROOT/lib/utils.sh"
 
 # default values are based on what guarantees a most stable system
 
-RIBYN_NVIM_GIT_REF="${RIBYN_NVIM_GIT_REF:-stable}"
 info "Using git ref: $RIBYN_NVIM_GIT_REF"
-
-RIBYN_NVIM_GIT_FETCH="${RIBYN_NVIM_GIT_FETCH:-no}"
 
 function build_nvim() {
 	info "Starting build process..."

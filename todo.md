@@ -1,7 +1,6 @@
 # TicketSystem
 
 - i am root (groot lockscreen or nvim dashboard)
-- set noto sans as default tty font
 - make a cli tool to replace the need for bookmarks
 - cargo breaks ci on first install, asking if install from rust or rustup
 - hypr wayland-protocol is missing on wob install
@@ -10,11 +9,8 @@
 - ribyn_install doesnt call applications/sync.sh need to rethink, all install.sh scripts calling sync. I think now I want to seperate them
 - rename to run_on_distro to distro_strategies.sh and include pacin dnfin
 - config.sh is the single point of truth, all others shell scripts should not have fall back values
-- add icons from omarchy to my desktop files https://github.com/basecamp/omarchy/blob/quattro/applications/icons/ChatGPT.png
-- support a wider character set (chinese/japanese characters are usually just boxes)
 - automate build from sources and use a lock file system
 - rmpc configure for my use case wich is dir only
-- move all git clones / build from sources into .local/share/ribyn
 - use ribyn_rsync instead of cp -r everywhere (better verbosity, improved performance and copies only files when neccessary)
 - rmpc primary colors needs to be orange
 - make TTY more pretty by default, it is my new login session terminal as I have no more use for sddm
