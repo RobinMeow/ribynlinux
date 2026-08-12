@@ -120,20 +120,9 @@ fh() {
 
 ribyn() {
 	local cmd="$1"
-	_depr() { echo -e "\e[31mDEPR: use $1 instead.\e[0m" >&2; return 1; }
-
-	if [[ "$cmd" == "root" ]]; then
-		shift
-		_depr "rrt"
-	elif [[ "$cmd" == "cd" ]]; then
-		shift
-		_depr "rcd"
-	elif [[ "$cmd" == "state" ]]; then
+	if [[ "$cmd" == "state" ]]; then
 		shift
 		cd "$HOME/ribyns-state" || exit
-	elif [[ "$cmd" == "run" ]]; then
-		shift
-		_depr "rr"
 	elif [[ "$cmd" == "keyboard-feh" ]]; then
 		shift
   	selected_img="$( (
@@ -146,12 +135,6 @@ ribyn() {
 		shift
 			chafa "$RIBYN_ROOT/keyboard/glove80/nav-layer.png"
 			chafa "$RIBYN_ROOT/keyboard/glove80/symbol-fkeys-layer.png"
-	elif [[ "$cmd" == "install" ]]; then
-		shift
-		_depr "rin"
-	elif [[ "$cmd" == "sync" ]]; then
-		shift
-		_depr "rsy"
 	elif [[ "$cmd" == "wezterm-guide" ]]; then
 		shift
 		"$RIBYN_ROOT/apps/wezterm/wezterm-guide.sh"

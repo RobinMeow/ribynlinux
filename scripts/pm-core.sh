@@ -6,8 +6,10 @@ source "$RIBYN_ROOT/lib/utils.sh"
 RIBYN_ROOT_LOG_INFO=true info "Installing core packages..."
 
 source "$RIBYN_ROOT/lib/run_on_distro.sh"
-#
-# INFO: just silencing nvim warnings with these: php composer jdk-openjdk julia
+
+# TODO: move nvim deps to nvim
+# TODO: move programming / software dev deps to a module
+# TODO: move cli tools to cli/install.sh
 
 run_on_arch sudo pacman -S --needed --noconfirm \
 	base-devel \
@@ -19,9 +21,7 @@ run_on_arch sudo pacman -S --needed --noconfirm \
 	eza \
 	vi \
 	vim \
-	go \
 	rsync \
-	tree-sitter-cli \
 	unzip \
 	xclip \
 	wl-clipboard \
@@ -30,7 +30,6 @@ run_on_arch sudo pacman -S --needed --noconfirm \
 	fastfetch \
 	bc \
 	ncdu \
-	cargo \
 	man-db \
 	man-pages \
 	tealdeer \
@@ -53,20 +52,24 @@ run_on_arch sudo pacman -S --needed --noconfirm \
 	words \
 	detox \
 	git-lfs \
-	php composer jdk-openjdk julia \
 	wev \
 	nodejs \
-	npm \
 	nvm \
 	docker \
 	docker-compose \
 	docker-buildx \
 	postgresql \
-	dotnet-runtime \
-	dotnet-sdk \
-	aspnet-runtime \
-	aspnet-targeting-pack \
 	jq
+
+# WARN: i remember targeting pack being a bug fix for dotnet
+# specifically for archlinux. but I ll wait until I run into it again.
+# It might not occur anymore, since I include latest verson install
+# in neovim by default now.
+#
+# dotnet-runtime \
+# dotnet-sdk \
+# aspnet-runtime \
+# aspnet-targeting-pack \
 
 run_on_fedora sudo dnf install -y \
 	@development-tools \
@@ -78,9 +81,7 @@ run_on_fedora sudo dnf install -y \
 	eza \
 	vi \
 	vim \
-	golang \
 	rsync \
-	tree-sitter-cli \
 	unzip \
 	xclip \
 	wl-clipboard \
@@ -89,7 +90,6 @@ run_on_fedora sudo dnf install -y \
 	fastfetch \
 	bc \
 	ncdu \
-	cargo \
 	man-db \
 	man-pages \
 	tealdeer \
@@ -109,10 +109,8 @@ run_on_fedora sudo dnf install -y \
 	words \
 	detox \
 	git-lfs \
-	php composer java-devel julia \
 	wev \
 	nodejs \
-	npm \
 	docker \
 	docker-compose \
 	postgresql \
