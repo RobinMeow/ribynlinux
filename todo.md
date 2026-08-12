@@ -1,5 +1,6 @@
 # TicketSystem
 
+- i am root (groot lockscreen or nvim dashboard)
 - set noto sans as default tty font
 - make a cli tool to replace the need for bookmarks
 - cargo breaks ci on first install, asking if install from rust or rustup

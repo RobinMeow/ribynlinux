@@ -212,3 +212,24 @@ ribyn_rsync() {
 		--perms \
 		--times "$@"
 }
+
+press_any_to_continue() {
+	# * **`read`**: The built-in command that waits for user keyboard input.
+	# * **`-n 1` (Bash) / `-k 1` (Zsh)**: Waits for exactly 1 character (no Enter required).
+	# * **`-s`**: Silent mode, prevents the pressed key from printing to the screen.
+	# * **`-r`**: Treats backslashes literally (raw mode).
+	local prompt="${1:-Press any key to continue...}"
+
+	# use printf so the terminal interprets the ANSI escape sequences
+	printf "${CATLAVENDER}%s${NC} " "$prompt"
+
+	# Check if running in Zsh or Bash to use the correct character-limit flag
+	if [[ ${ZSH_VERSION:-"not zsh"} == "not zsh" ]]; then
+		# assume bash
+		read -n 1 -s -r || true
+	else
+		read -s -r -k 1 || true
+	fi
+
+	echo # Move to a new line so the next terminal output doesn't mash into the prompt
+}
