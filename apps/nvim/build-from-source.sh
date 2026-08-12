@@ -19,7 +19,8 @@ function build_nvim() {
 	sudo make install
 }
 
-REPO_DEST="$HOME/neovim"
+mkdir -p "$HOME/.local/share/ribyn/"
+REPO_DEST="$HOME/.local/share/ribyn/neovim"
 if [ -d "$REPO_DEST" ]; then
 	cd "$REPO_DEST" || exit 1
 
