@@ -41,7 +41,7 @@ function build() {
 			if [[ $commit_hash_before_checkout != $(git rev-parse HEAD) ]]; then
 				build
 			else
-				verbose "Commit unchanged. No auto update needed."
+				info "Commit unchanged. No auto update needed."
 			fi
 		else
 			warn "Skipping wob auto update."

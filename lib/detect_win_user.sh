@@ -54,6 +54,6 @@ if [[ "${BASH_SOURCE[0]}" == "${0}" ]]; then
 	source "$RIBYN_ROOT/lib/detect_env.sh"
 	detect_env
 	detect_win_user
-	verbose "WINDOWS_USER=$WINDOWS_USER"
-	verbose "WINDOWS_HOME=$WINDOWS_HOME"
+	info "WINDOWS_USER=$WINDOWS_USER"
+	info "WINDOWS_HOME=$WINDOWS_HOME"
 fi

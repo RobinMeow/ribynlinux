@@ -1,15 +1,10 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-source "$RIBYN_ROOT/lib/utils.sh"
+. "$RIBYN_ROOT/lib/utils.sh"
+. "$RIBYN_ROOT/lib/run_on_distro.sh"
 
-RIBYN_ROOT_LOG_INFO=true info "Installing core packages..."
-
-source "$RIBYN_ROOT/lib/run_on_distro.sh"
-
-# TODO: move nvim deps to nvim
-# TODO: move programming / software dev deps to a module
-# TODO: move cli tools to cli/install.sh
+info "Installing core packages..."
 
 run_on_arch sudo pacman -S --needed --noconfirm \
 	base-devel \
@@ -121,4 +116,4 @@ run_on_fedora sudo dnf install -y --allowerasing \
 
 tldr --update
 
-RIBYN_ROOT_LOG_INFO=true success "Core packages installed"
+success "Core packages installed"

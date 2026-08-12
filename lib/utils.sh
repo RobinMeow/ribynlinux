@@ -24,11 +24,11 @@ CATLAVENDER="\033[38;5;183m" # #b4befe - Lavender
 NC="\033[0m"                 # No Color
 
 # Backward compatibility aliases (using Catppuccin colors now)
-RED="${CATRED}"
-YELLOW="${CATORANGE}"
-GREEN="${CATGREEN}"
-BLUE="${CATBLUE}"
-GRAY="${CATOVERLAY1}"
+# RED="${CATRED}"
+# YELLOW="${CATORANGE}"
+# GREEN="${CATGREEN}"
+# BLUE="${CATBLUE}"
+# GRAY="${CATOVERLAY1}"
 
 error() {
 	echo -e "${CATRED}[ERROR]${NC} $*"
@@ -43,15 +43,7 @@ success() {
 }
 
 info() {
-	if [[ "${RIBYN_ROOT_LOG_INFO:-true}" =~ ^(true|1|yes)$ ]]; then
-		echo -e "${CATBLUE}[INFO]${NC} $*"
-	fi
-}
-
-verbose() {
-	if [[ "${RIBYN_ROOT_LOG_VERBOSE:-true}" =~ ^(true|1|yes)$ ]]; then
-		echo -e "${CATSURFACE2}[VERBOSE]${NC} $*"
-	fi
+	echo -e "${CATBLUE}[INFO]${NC} $*"
 }
 
 # Color echo functions
@@ -141,8 +133,7 @@ Logging Functions:
   error <message>        - Print error message (red)
   warn <message>         - Print warning message (orange)
   success <message>      - Print success message (green)
-  info <message>         - Print info message (blue, if RIBYN_ROOT_LOG_INFO=true|1|yes)
-  verbose <message>      - Print verbose message (magenta, if RIBYN_ROOT_LOG_VERBOSE=true|1|yes)
+  info <message>         - Print info message (blue)
 
 Color Echo Functions:
   echo_surface0 <text>   - Echo with surface0 color
@@ -162,10 +153,6 @@ Color Echo Functions:
   echo_blue <text>       - Echo with blue color
   echo_magenta <text>    - Echo with magenta color
   echo_lavender <text>   - Echo with lavender color
-
-Environment Variables:
-  RIBYN_ROOT_LOG_INFO=true|1|yes         - Enable info() output
-  RIBYN_ROOT_LOG_VERBOSE=true|1|yes      - Enable verbose() output
 
 Examples:
   source utils.sh

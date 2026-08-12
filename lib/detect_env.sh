@@ -34,8 +34,8 @@ detect_env() {
 		fi
 	fi
 
-	verbose "OS_TYPE=$OS_TYPE"
-	verbose "WSL_VERSION=$WSL_VERSION"
+	info "OS_TYPE=$OS_TYPE"
+	info "WSL_VERSION=$WSL_VERSION"
 }
 
 # If script is executed directly (not sourced), run detection

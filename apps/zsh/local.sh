@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-# export RIBYN_ROOT_LOG_VERBOSE=false # defaults to true
-# export RIBYN_ROOT_LOG_INFO=false # defaults to true
 # export CODE_COMPANION_DEFAULT_ADAPTER="ollama"
 # export CODE_COMPANION_OLLAMA_MODEL="qwen2.5-coder:3b"
 

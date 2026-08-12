@@ -34,7 +34,7 @@ make all && sudo make install
 
 mkdir -p "$HOME/.config/hypr"
 if [[ -f "$HOME/.config/hypr/hyprland.conf" ]]; then
-	verbose "Not using exmaple hyperland.conf (.config/hypr/hyperland.conf already exists)"
+	info "Not using example hyperland.conf (.config/hypr/hyperland.conf already exists)"
 else
 	cp example/hyprland.conf ~/.config/hypr
 	info "Using example hyprland.conf"

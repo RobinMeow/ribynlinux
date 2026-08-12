@@ -21,9 +21,9 @@ if [ ! -d "$HOME/.oh-my-zsh" ]; then
 	#   KEEP_ZSHRC             - 'yes' means the installer will not replace an existing .zshrc (default: no)
 	#   OVERWRITE_CONFIRMATION - 'no' means the installer will not ask for confirmation to overwrite the existing .zshrc (default: yes)
 	CHSH=no RUNZSH=no KEEP_ZSHRC=yes OVERWRITE_CONFIRMATION=no sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
-	success "Oh My Zsh installed"
+	success "oh my zsh installed"
 else
-	verbose "skipped Oh My Zsh install (already installed)"
+	info "skipped oh my zsh install (already installed)"
 fi
 
 # Default ZSH_CUSTOM if not set
