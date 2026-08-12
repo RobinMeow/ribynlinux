@@ -18,7 +18,7 @@ if [[ -d "$dest" ]]; then
 	info "hyprmoncfg is already installed. Skipping."
 else
 	(
-		mkdir -p "$HOME/.local/bin"
+		mkdir -p "$HOME/.local/bin/"
 		git clone --depth 1 "https://github.com/crmne/hyprmoncfg.git" "$dest"
 		cd "$dest"
 		go build -o "bin/hyprmoncfg" "./cmd/hyprmoncfg"
