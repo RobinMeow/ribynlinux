@@ -70,6 +70,22 @@ return {
           }
         end,
       })
+
+      local function get_kanagawa_variant()
+        local hour = tonumber(os.date("%H"))
+        local min = tonumber(os.date("%M"))
+        local currentTime = hour + (min / 60)
+
+        -- 8:30 AM to 7:00 PM (19.0 in floatinf point precision)
+        if currentTime >= 8.5 and currentTime < 19 then
+          vim.notify("Colorscheme: Kanagawa-wave (Night)", vim.log.levels.INFO)
+          return "kanagawa-wave"
+        else
+          vim.notify("Colorscheme: Kanagawa-dragon (Day)", vim.log.levels.INFO)
+          return "kanagawa-dragon"
+        end
+      end
+      vim.cmd("colorscheme " .. get_kanagawa_variant())
     end,
   },
   { "EdenEast/nightfox.nvim", opts = {} },

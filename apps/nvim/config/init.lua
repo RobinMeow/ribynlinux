@@ -470,23 +470,6 @@ require("lazy").setup({
   },
 })
 
-local function get_kanagawa_variant()
-  local hour = tonumber(os.date("%H"))
-  local min = tonumber(os.date("%M"))
-  local currentTime = hour + (min / 60)
-
-  -- 8:30 AM to 8:00 PM (20.0 in decimal)
-  if currentTime >= 8.5 and currentTime < 19 then
-    Snacks.notifier.notify("Colorscheme: Kanagawa-wave (Day)", "info")
-    return "kanagawa-wave"
-  else
-    Snacks.notifier.notify("Colorscheme: Kanagawa-dragon (Day)", "info")
-    return "kanagawa-dragon"
-  end
-end
-
-vim.cmd("colorscheme " .. get_kanagawa_variant())
-
 -- show diagnostic beneath cursor while resting
 -- vim.api.nvim_create_autocmd("CursorHold", {
 -- 	callback = function()
