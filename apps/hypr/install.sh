@@ -15,6 +15,7 @@ run_on_arch sudo pacman -S --needed --noconfirm \
 	wireplumber \
 	brightnessctl \
 	grim slurp swappy \
+	hyprpicker \
 	qt6ct
 # hyprpolkitagent auth ui (type in password, when I need admin privl. via GUI apps)
 # xdg-desktop-portal-hyprland (asks for perm. when an app wants to do outside its own window, for security. e.g. screen sharing via discord)
@@ -24,6 +25,7 @@ run_on_arch sudo pacman -S --needed --noconfirm \
 # grim slurp swappy: screenshot tools that work good together
 # qt5ct qt6ct for dark themed qt apps. also required for live switching themes.
 # removed qt5ct. apparently I can only choose one of em
+# hyprpicker is just nice to have. install standalone cli tool. TODO: requires build from src on fedora
 
 run_on_fedora error "Hyprland on fedora is not set up" exit 1
 # requires
