@@ -60,6 +60,7 @@ WARN: brew is not available in PATH on first time install
 
 ## Neovim
 
+- remove tiny inline diagnostics. add squiggly lines instead
 - increase git diffview left panel default width
 - strike trhough words when deprecated
 - vim._core.ui2 configure it to be me useable
