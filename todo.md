@@ -60,6 +60,7 @@ WARN: brew is not available in PATH on first time install
 
 ## Neovim
 
+- consider swapping from snacks to nvim-notify looks better and i wanna get rid of snacks
 - increase git diffview left panel default width
 - strike trhough words when deprecated
 - vim._core.ui2 configure it to be me useable

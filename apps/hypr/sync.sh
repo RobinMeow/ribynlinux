@@ -32,5 +32,19 @@ hypr_running=${HYPRLAND_INSTANCE_SIGNATURE:-"not running"}
 if [[ $hypr_running == "not running" ]]; then
 	info "hyprland is not running. skipping reload config."
 else
+	info "try reloading hyprland config."
 	hyprctl reload
 fi
+
+# i-am-root
+mkdir -p "$HOME/.config/hypr/i-am-root/"
+
+# background
+ribyn_rsync \
+	"$RIBYN_ROOT/assets/images/groot-relaxing-in-grass.jpg" \
+	"$HOME/.config/hypr/i-am-root/"
+
+# profile image (appearance-wise)
+ribyn_rsync \
+	"$RIBYN_ROOT/assets/images/good-morning-groot.jpg" \
+	"$HOME/.config/hypr/i-am-root/"
