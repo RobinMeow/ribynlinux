@@ -145,7 +145,24 @@ function m.setup()
 
   key.bind("SUPER + PAUSE", hl.dsp.exec_cmd("wl-freeze -a"), { desc = "toggle wl-freeze the currently active window" })
 
-  key.bind("SUPER + O", hl.dsp.exec_cmd("hyprlock --grace 10"), { desc = "lock screen" })
+  key.bind("SUPER + O", function()
+    local handle = io.popen("pgrep --exact waybar")
+    local function exec_cmd(cmd)
+      hl.dispatch(hl.dsp.exec_cmd(cmd))
+    end
+    if handle then
+      local waybar_pid = handle:read("*a")
+      handle:close()
+      local waybar_was_running = waybar_pid ~= nil and waybar_pid ~= ""
+      if waybar_was_running then
+        exec_cmd("pkill --exact waybar; hyprlock --grace 10; waybar & disown")
+      else
+        exec_cmd("hyprlock --grace 10;")
+      end
+    else
+      exec_cmd("pkill --exact waybar; hyprlock --grace 10")
+    end
+  end, { desc = "lock screen" })
 
   key.bind("SUPER + W", hl.dsp.exec_cmd("pkill --exact waybar || waybar"), { desc = "stop/start waybar" })
 

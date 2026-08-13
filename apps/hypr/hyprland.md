@@ -4,10 +4,6 @@
 
 ## Tasks
 
-waybar:
-
-- [ ] should kill itself on lockscreen. remember it was running,
-  and start backup after lock screen
 not hyprland directly:
 
 - [ ] a script to be invoked which toggles bg for kitty
@@ -43,6 +39,8 @@ abandoned i think:
 
 completed:
 
+- [x] waybar should kill itself on lockscreen. remember it was running,
+  and start backup after lock screen
 - [x] wl-freeze
   (freezes a process so it no longer consumes resources. Can work as pause for game)
 - [x] improve the gpu/cpu/mem lockscreen to not feeze up
