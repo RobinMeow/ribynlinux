@@ -22,11 +22,15 @@ return {
       -- See `:help telescope` and `:help telescope.setup()`
       require("telescope").setup({
         -- `:help telescope.setup()`
-        -- defaults = {
-        --   mappings = {
-        --     i = { ['<c-enter>'] = 'to_fuzzy_refine' },
-        --   },
-        -- },
+        defaults = {
+          sorting_strategy = "ascending",
+          layout_config = {
+            prompt_position = "top",
+          },
+          -- mappings = {
+          --   i = { ['<c-enter>'] = 'to_fuzzy_refine' },
+          -- },
+        },
         pickers = {
           colorscheme = { enable_preview = true },
           diagnostics = {
@@ -40,9 +44,8 @@ return {
         },
       })
 
-      -- Enable Telescope extensions if they are installed
-      pcall(require("telescope").load_extension, "fzf")
-      pcall(require("telescope").load_extension, "ui-select")
+      require("telescope").load_extension("fzf")
+      require("telescope").load_extension("ui-select")
 
       -- See `:help telescope.builtin`
       local builtin = require("telescope.builtin")
