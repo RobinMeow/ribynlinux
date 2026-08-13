@@ -90,6 +90,15 @@ require("lazy").setup({
           end
           map("grn", vim.lsp.buf.rename, "[R]e[n]ame")
           map("gra", vim.lsp.buf.code_action, "[G]oto Code [A]ction", { "n", "x" })
+          map("grf", function()
+            vim.lsp.buf.code_action({
+              apply = true,
+              context = {
+                only = { "source.organizeImports" },
+                diagnostics = {},
+              },
+            })
+          end, "auto sort imports", { "n", "x" })
           map("grr", require("telescope.builtin").lsp_references, "[G]oto [R]eferences")
           map("gri", require("telescope.builtin").lsp_implementations, "[G]oto [I]mplementation")
           map("grd", require("telescope.builtin").lsp_definitions, "[G]oto [D]efinition") -- To jump back, press <C-t>
