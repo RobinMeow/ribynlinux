@@ -5,6 +5,12 @@ set -euo pipefail
 
 info "Installing from source: $RIBYN_ROOT"
 
+# WARN: uses brew. and brew resets sudo timestamp.
+# means we have to re-prompt our pw. I'd rather do it earlier
+# than later so I can afk after.
+info "Installing yazi"
+"$RIBYN_ROOT/apps/yazi/install.sh"
+
 info "Installing core"
 "$RIBYN_ROOT/scripts/pm-core.sh"
 
@@ -47,16 +53,11 @@ info "Installing wezterm"
 info "Installing nvim"
 "$RIBYN_ROOT/apps/nvim/install.sh"
 
-sudo --validate
-
 info "Installing vale"
 "$RIBYN_ROOT/apps/vale/install.sh"
 
 info "Installing tmux"
 "$RIBYN_ROOT/apps/tmux/install.sh"
-
-info "Installing yazi"
-"$RIBYN_ROOT/apps/yazi/install.sh"
 
 info "Installing mpd"
 "$RIBYN_ROOT/apps/mpd/install.sh"
@@ -72,8 +73,6 @@ info "Installing bluetui"
 
 info "Installing rofi"
 "$RIBYN_ROOT/apps/rofi/install.sh"
-
-sudo --validate
 
 info "Installing wl-freeze"
 "$RIBYN_ROOT/apps/wl-freeze/install.sh"
@@ -94,19 +93,8 @@ info "Installing xdg-desktop-portal-termfilechooser"
 info "Syncing desktop files"
 "$RIBYN_ROOT/desktop-files/install.sh"
 
-full_install=false
 for arg in "$@"; do
-	if [[ "$arg" == "--full-install" ]]; then
-		full_install=true
-	fi
-done
-
-for arg in "$@"; do
-	if [[ "$arg" == "--webdev" || $full_install ]]; then
-		info "Installing gadgets"
-		"$RIBYN_ROOT/scripts/pm-gadgets.sh"
-	fi
-
+	# TODO: move these out into config.sh
 	if [[ "$arg" == "--gadgets" ]]; then
 		info "Installing gadgets"
 		"$RIBYN_ROOT/scripts/pm-gadgets.sh"

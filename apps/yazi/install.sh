@@ -1,27 +1,47 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-source "$RIBYN_ROOT/lib/run_on_distro.sh"
+. "$RIBYN_ROOT/lib/run_on_distro.sh"
 
-run_on_arch <<'EOF'
+if on_arch; then
 	sudo pacman -S --needed --noconfirm \
-    chafa ffmpeg 7zip jq poppler fd ripgrep fzf imagemagick extra/mediainfo feh file mpv
-EOF
-
-run_on_fedora <<'EOF'
+		chafa \
+		ffmpeg \
+		7zip \
+		jq \
+		poppler \
+		fd \
+		ripgrep \
+		fzf \
+		imagemagick \
+		extra/mediainfo \
+		feh \
+		file \
+		mpv
+elif on_fedora; then
 	sudo dnf install -y \
-    chafa ffmpeg 7zip jq poppler fd-find ripgrep fzf ImageMagick mediainfo feh file mpv
-EOF
+		chafa \
+		ffmpeg \
+		7zip \
+		jq \
+		poppler \
+		fd-find \
+		ripgrep \
+		fzf \
+		ImageMagick \
+		mediainfo \
+		feh \
+		file \
+		mpv
+fi
 
-"$RIBYN_ROOT/lib/ensure_installed_homebrew.sh"
+# TODO: surely I can export PATH for this shell process in that scrip?
+# maybe need to source it instead of invoking it than.
+. "$RIBYN_ROOT/lib/ensure_installed_homebrew.sh"
 
-# NOTE: optional dependencies, tho i got em all using dnf/pacman (excluding zoxide i dont use that)
-# brew install --no-ask sevenzip jq poppler fd ripgrep fzf
-# brew install --no-ask ffmpeg-full imagemagick-full
-# brew link ffmpeg-full imagemagick-full -f --overwrite
-
-# WARN: brew is not available in PATH on first time install
-"/home/linuxbrew/.linuxbrew/bin/brew" install yazi resvg
+brew install --no-ask \
+	yazi \
+	resvg
 
 # NOTE: image, audio, video, subtitle and many media files using ffmpeg and mediainfo metainfo
 dest_mediainfo="$HOME/.config/yazi/plugins/mediainfo.yazi"
@@ -29,7 +49,7 @@ dest_mediainfo="$HOME/.config/yazi/plugins/mediainfo.yazi"
 if [[ ! -d $dest_mediainfo ]]; then
 	# install
 	mkdir -p "$dest_mediainfo"
-	git clone https://github.com/boydaihungst/mediainfo.yazi "$dest_mediainfo"
+	git clone "https://github.com/boydaihungst/mediainfo.yazi" "$dest_mediainfo"
 else
 	# update
 	git -C "$dest_mediainfo" pull

@@ -31,9 +31,9 @@
 
 consider using spaceshipt instead of p10k
 ```sh
-"$RIBYN_ROOT/lib/ensure_installed_homebrew.sh"
-WARN: brew is not available in PATH on first time install
-"/home/linuxbrew/.linuxbrew/bin/brew" install --no-ask spaceship
+. "$RIBYN_ROOT/lib/ensure_installed_homebrew.sh"
+brew install --no-ask \
+  spaceship
 ```
 
 ## Godot
