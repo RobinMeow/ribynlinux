@@ -98,5 +98,13 @@ set -euo pipefail
 	export RIBYN_SKIP_DETECT_SLOP_USER=${RIBYN_SKIP_DETECT_SLOP_USER:-"no"}
 }
 
+# KDE
+{
+	# whether or not to install the KDE desktop environment
+	# and sync default config (e.g. disabled kwallet)
+	export RIBYN_INSTALL_KDE_ENABLED=${RIBYN_INSTALL_KDE_ENABLED:-"no"}
+	export RIBYN_SYNC_KDE_ENABLED=${RIBYN_SYNC_KDE_ENABLED:-"no"}
+}
+
 export HOMEBREW_NO_AUTO_UPDATE=1
 export HOMEBREW_NO_ANALYTICS=1

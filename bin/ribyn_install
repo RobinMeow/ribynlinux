@@ -77,12 +77,14 @@ info "Installing wl-freeze"
 info "Installing waybar"
 "$RIBYN_ROOT/apps/waybar/install.sh"
 
-# TODO: move beneath hypr
+info "Installing hypr"
+"$RIBYN_ROOT/apps/hypr/install.sh"
+
 info "Installing wob"
 "$RIBYN_ROOT/apps/wob/install.sh"
 
-info "Installing hypr"
-"$RIBYN_ROOT/apps/hypr/install.sh"
+info "Installing kde"
+"$RIBYN_ROOT/apps/kde/install.sh"
 
 info "Installing xdg-desktop-portal-termfilechooser"
 "$RIBYN_ROOT/apps/xdg-desktop-portal-termfilechooser/build-from-source.sh"
@@ -95,11 +97,6 @@ for arg in "$@"; do
 	if [[ "$arg" == "--gadgets" ]]; then
 		info "Installing gadgets"
 		"$RIBYN_ROOT/scripts/pm-gadgets.sh"
-	fi
-
-	if [[ "$arg" == "--kde" ]]; then
-		info "Installing kde"
-		"$RIBYN_ROOT/apps/kde/install.sh"
 	fi
 done
 
