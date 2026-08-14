@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-source "$RIBYN_ROOT/lib/utils.sh"
+. "$RIBYN_ROOT/lib/utils.sh"
 
-echo "Installing from source: $RIBYN_ROOT"
+info "Installing from source: $RIBYN_ROOT"
 
 info "Installing core"
 "$RIBYN_ROOT/scripts/pm-core.sh"
@@ -47,6 +47,8 @@ info "Installing wezterm"
 info "Installing nvim"
 "$RIBYN_ROOT/apps/nvim/install.sh"
 
+sudo --validate
+
 info "Installing vale"
 "$RIBYN_ROOT/apps/vale/install.sh"
 
@@ -70,6 +72,8 @@ info "Installing bluetui"
 
 info "Installing rofi"
 "$RIBYN_ROOT/apps/rofi/install.sh"
+
+sudo --validate
 
 info "Installing wl-freeze"
 "$RIBYN_ROOT/apps/wl-freeze/install.sh"
