@@ -25,6 +25,12 @@ export RIBYN_ROOT="$HOME/ribynlinux" && \
   git clone --depth 1 https://github.com/RobinMeow/ribynlinux.git $RIBYN_ROOT \
   && "$RIBYN_ROOT/bin/ribyn_install"
 
+# skip hypr
+export RIBYN_ROOT="$HOME/ribynlinux" && \
+  export RIBYN_HYPR_INSTALL_ENABLED="no" && \
+  git clone --depth 1 https://github.com/RobinMeow/ribynlinux.git $RIBYN_ROOT \
+  && "$RIBYN_ROOT/bin/ribyn_install"
+
 # if testing in docker in wsl
 export RIBYN_ROOT="$HOME/ribynlinux" && \
   export RIBYN_SKIP_DETECT_SLOP_USER="yes" && \

@@ -21,8 +21,8 @@ else
 		scdoc
 
 	run_on_fedora sudo dnf install -y \
-		systemd-devel
-	git \
+		systemd-devel \
+		git \
 		xdg-desktop-portal \
 		inih \
 		ninja \

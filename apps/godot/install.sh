@@ -12,7 +12,7 @@ if [[ "$git_clone_exit" -eq 2 ]]; then
 	exit 0
 fi
 
-"$RIBYN_ROOT/apps/godot/build_from_source.sh"
+"$RIBYN_ROOT/apps/godot/build-from-source.sh"
 
 if [[ "$RIBYN_GODOT_SYNC_ENABLED" == "yes" ]]; then
 	info "[Godot] syncing editor preferences"

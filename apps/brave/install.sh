@@ -18,6 +18,7 @@ elif on_fedora; then
 		info "Brave repo already setup. skipping."
 	else
 		info "Adding Brave plugins and config-manager repo"
+		repofile="https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo"
 		sudo dnf config-manager addrepo --from-repofile="$repofile"
 	fi
 
