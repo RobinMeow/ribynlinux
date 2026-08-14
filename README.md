@@ -5,85 +5,16 @@ My personalized environment for Arch Linux, Fedora, Neovim, WSL and many other t
 ![gource](./gource-august.png)
 [gourced full history](./gourced.md)
 
-## Arch
+> checkout [installers and helpers](./installers.md) for first time clones / installs
 
-```sh
-export RIBYN_ROOT="$HOME/ribynlinux"
-git clone --depth 1 https://github.com/RobinMeow/ribynlinux.git "$RIBYN_ROOT"
-git clone --depth 1 https://codeberg.com/Ribyn/ribynlinux.git "$RIBYN_ROOT"
-"$RIBYN_ROOT/bin/ribyn_install"
 
-# one-multi-liner
-export RIBYN_ROOT="$HOME/ribynlinux" \
-  && git clone --depth 1 https://github.com/RobinMeow/ribynlinux.git "$RIBYN_ROOT" \
-  && "$RIBYN_ROOT/bin/ribyn_install"
-```
-
-testing first time install in docker for arch:
-```sh
-# FEDORA: 
-dnf update -y && dnf install -y sudo git bc vim \
-  sh -c "$(curl -fsSL https://raw.githubusercontent.com/RobinMeow/ribynlinux/master/bootstrap/yet-another-setup.sh)"
-
-# ARCH: run this one first:
-pacman -Syu --noconfirm; pacman -S --noconfirm sudo git bc vim; && \
-  sh -c "$(curl -fsSL https://raw.githubusercontent.com/RobinMeow/ribynlinux/master/bootstrap/yet-another-setup.sh)"
-
-# after login, run:
-export RIBYN_ROOT="$HOME/ribynlinux" && git clone --depth 1 https://github.com/RobinMeow/ribynlinux.git "$RIBYN_ROOT" && "$RIBYN_ROOT/bin/ribyn_install"
-# if testing in docker in wsl
-export RIBYN_ROOT="$HOME/ribynlinux" && export RIBYN_SKIP_DETECT_SLOP_USER="yes" && git clone --depth 1 https://github.com/RobinMeow/ribynlinux.git "$RIBYN_ROOT" && "$RIBYN_ROOT/bin/ribyn_install"
-
-```
-
-> `RIBYN_ROOT` environment variable is required by almost every script
-> this is mostly only relevant for the first install. The zshrc exports this variable
-
-> the ribyn_install script frequently changes, perhaps look into it to see which flags are supported
-
-### Migrate from ribyns-env to ribynlinux
-
-easiest way is to edit your .zshrc to export RIBYN_ROOT, source it and run ribyn_install
-
-## Terminal Emulator
-
-using `kitty` and optionally `wezterm` for wsl
-
-## Oh my zsh default keybind
-
-`CTRL+e` to accept ghost-like zsh-autosuggestions
-`CTRL+r` search past commands _(this is default outside of omz, and I dont use it anyways I have my own fh fn for this)_
-
-## WSL
-
-**Wezterm**
-Terminal Emulator is `wezterm`. 
-Kitty is supported, but performance is worse. 
-Drastically worse on fedora. 
-On arch it can be improved but, I dont think I have automated this, and forgot what exactly I did.
-
-The font needs to be installed on windows to be available for wezterm.
-You can download it here [website.org](https://wezterm.org) and drag and drop it into fonts.
-
-**Neovim**
-nvim path `%AppData%/local/nvim`
-but Telescope and maybe other features using the Linux ecosystem do not work.
-I had no need to make support for this yet, since I only use nvim within wsl.
-
-## Binaries
-
-the `./bin` directory is added to `$PATH`, so all of those
-scripts are available for ease of use.
-
-### MonkeyType 
+## MonkeyType 
 
 100% acc
 ![monkeytype](./monkey.png)
 
 <100% acc
 ![monkeytype](./monkey-fastest-with-errors.png)
-
----
 
 ```
 Sat Jun 20 11:21:42 PM CEST 2026
@@ -109,13 +40,3 @@ Sat Jun 20 11:21:42 PM CEST 2026
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 
-### FAQ / Troubleshooting
-
-if the installer throws pacman errors when installer, make sure to update your system upfront: `sudo pacman -Syu`
-then try again. none of the scripts update, but when installing new apps, it might fail, becuase it pulls their
-latest version which might depend on newer bins
-
-### Raw links
-
-`https://raw.githubusercontent.com/<usrname>/<repo>/<branch>/<path-to-file>`
-`https://codeberg.org/<username>/<repo>/raw/branch/<branchname>/<path-to-file>`
