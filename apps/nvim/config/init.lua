@@ -24,6 +24,7 @@ local rtp = vim.opt.rtp
 rtp:prepend(lazypath)
 
 require("lazy").setup({
+
   -- For additional information with loading, sourcing and examples see: `<space>sh` search for `lazy.nvim-plugin`
 
   { import = "plugins" }, -- imports lua files from lua/plugins/*
@@ -467,6 +468,11 @@ require("lazy").setup({
   ui = {
     icons = {}, -- if nerd_font is missing consider pasting some emojis in here from kickstart
     border = "rounded",
+  },
+
+  rocks = { -- healthcheck warnings
+    enabled = false, -- disable `luarocks` support completely with `opts.rocks.enabled = false`
+    hererocks = false, -- disable *hererocks* with `opts.rocks.hererocks = false`
   },
 })
 

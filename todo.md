@@ -1,7 +1,5 @@
 # TicketSystem
 
-- i am root (groot lockscreen or nvim dashboard)
-- make a cli tool to replace the need for bookmarks
 - cargo breaks ci on first install, asking if install from rust or rustup
 - hypr wayland-protocol is missing on wob install
 - hypr sync should only call hyprctl reload if hypr is running (or ignore the error)
@@ -21,6 +19,7 @@
   reachs as needed (instead of having ribyn_sync doing it)
 - Rename shell variable $RIBYN_ROOT to $RIBYN or $RIBYNLINUX $RIBYN_GIT $RIBYNLNX
 - make sure I can do volume control outside hypr as needed (cli?)
+- depends on firefox;make a cli tool to replace the need for bookmarks
 
 # Further Education
 
