@@ -72,4 +72,7 @@ info "Syncing waybar"
 info "Syncing kde"
 "$RIBYN_ROOT/apps/kde/sync.sh"
 
+# omitted. its in rin, feels more like an install then syncing dotfiles
+# info "Syncing desktop files"
+
 success "ribynlinux synced"

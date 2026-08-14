@@ -74,7 +74,7 @@ EOF
 		echo "whats next:"
 		echo "git clone --depth 1 -b master https://codeberg.org/Ribyn/ribynlinux"
 		echo "cd ribynlinux"
-		echo "RIBYN_ROOT=/home/$USERNAME/ribynlinux ./bin/ribyn_install"
+		echo "RIBYN_ROOT=/home/$USERNAME/ribynlinux ./bin/rinsy"
 	else
 		su - "$USERNAME" <<'EOF'
 git clone --depth 1 -b master https://codeberg.org/Ribyn/ribynlinux

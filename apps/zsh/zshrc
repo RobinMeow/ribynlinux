@@ -167,20 +167,6 @@ else
 			) | fzf)"
 	}
 fi
-if command -v rsy >/dev/null 2>&1; then
-	echo "already defined: $(which rsy)"
-else
-	function rsy(){
-		"$RIBYN_ROOT/bin/ribyn_sync"
-	}
-fi
-if command -v rin >/dev/null 2>&1; then
-	echo "already defined: $(which rin)"
-else
-	function rin(){
-		"$RIBYN_ROOT/bin/ribyn_install"
-	}
-fi
 if command -v rrt >/dev/null 2>&1; then
 	echo "already defined: $(which rrt)"
 else

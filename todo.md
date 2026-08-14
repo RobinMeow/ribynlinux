@@ -5,8 +5,6 @@
 - hypr sync should only call hyprctl reload if hypr is running (or ignore the error)
 - find something, which renders a grid on the screen flash-vimium-like
   to let me click on areas
-- ribyn_install doesnt call applications/sync.sh need to rethink, all install.sh
-  scripts calling sync. I think now I want to seperate them
 - rename to run_on_distro to distro_strategies.sh and include pacin dnfin
 - config.sh is the single point of truth, all others shell scripts should
   not have fall back values
@@ -16,7 +14,7 @@
   improved performance and copies only files when neccessary)
 - rmpc primary colors needs to be orange
 - config.sh should defined env variables for syncing which each sync.sh
-  reachs as needed (instead of having ribyn_sync doing it)
+  reachs as needed (instead of having rsy defining its own fallbacks)
 - Rename shell variable $RIBYN_ROOT to $RIBYN or $RIBYNLINUX $RIBYN_GIT $RIBYNLNX
 - make sure I can do volume control outside hypr as needed (cli?)
 - depends on firefox;make a cli tool to replace the need for bookmarks
