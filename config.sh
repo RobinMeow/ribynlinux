@@ -17,17 +17,6 @@ set -euo pipefail
 	export RIBYN_NVIM_GIT_FETCH=${RIBYN_NVIM_GIT_FETCH:-"no"}
 }
 
-# WEZTERM
-{
-	# yes/no (yes will clean everything. mostly relevant for the motions)
-	export RIBYN_WEZTERM_CLEAN_ON_SYNC=${RIBYN_WEZTERM_CLEAN_ON_SYNC:-"no"}
-
-	# set to "no" if you test in docker, which doesnt have /mnt/c/Users
-	# mounted causing detect_win_user to fail. so wezterm cant sync the config.
-	# when skipped, will normally sync to linux home
-	export RIBYN_SKIP_DETECT_SLOP_USER=${RIBYN_SKIP_DETECT_SLOP_USER:-"no"}
-}
-
 # GODOT
 {
 	# where to clone, compile and build the engine
@@ -71,6 +60,24 @@ set -euo pipefail
 	export XCURSOR_THEME=${XCURSOR_THEME:-"catppuccin-latte-mauve-cursors"}
 	# WARN: do not mistake with hyprland cursor themes. xcursor and hyprcursor
 	# are both set in hyprland.lua to make sure hyprland knows about those env vars
+}
+
+# KITTY
+{
+	# whether or not to use a dark gray solid background instead
+	# of a transparent background
+	export RIBYN_KITTY_USE_SOLID_BG=${RIBYN_KITTY_USE_SOLID_BG:-"no"}
+}
+
+# WEZTERM
+{
+	# yes/no (yes will clean everything. mostly relevant for the motions)
+	export RIBYN_WEZTERM_CLEAN_ON_SYNC=${RIBYN_WEZTERM_CLEAN_ON_SYNC:-"no"}
+
+	# set to "no" if you test in docker, which doesnt have /mnt/c/Users
+	# mounted causing detect_win_user to fail. so wezterm cant sync the config.
+	# when skipped, will normally sync to linux home
+	export RIBYN_SKIP_DETECT_SLOP_USER=${RIBYN_SKIP_DETECT_SLOP_USER:-"no"}
 }
 
 export HOMEBREW_NO_AUTO_UPDATE=1

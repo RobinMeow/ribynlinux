@@ -5,26 +5,28 @@
 - cargo breaks ci on first install, asking if install from rust or rustup
 - hypr wayland-protocol is missing on wob install
 - hypr sync should only call hyprctl reload if hypr is running (or ignore the error)
-- find something, which renders a grid on the screen flash-vimium-like to let me click on areas
-- ribyn_install doesnt call applications/sync.sh need to rethink, all install.sh scripts calling sync. I think now I want to seperate them
+- find something, which renders a grid on the screen flash-vimium-like
+  to let me click on areas
+- ribyn_install doesnt call applications/sync.sh need to rethink, all install.sh
+  scripts calling sync. I think now I want to seperate them
 - rename to run_on_distro to distro_strategies.sh and include pacin dnfin
-- config.sh is the single point of truth, all others shell scripts should not have fall back values
+- config.sh is the single point of truth, all others shell scripts should
+  not have fall back values
 - automate build from sources and use a lock file system
 - rmpc configure for my use case wich is dir only
-- use ribyn_rsync instead of cp -r everywhere (better verbosity, improved performance and copies only files when neccessary)
+- use ribyn_rsync instead of cp -r everywhere (better verbosity,
+  improved performance and copies only files when neccessary)
 - rmpc primary colors needs to be orange
-- make TTY more pretty by default, it is my new login session terminal as I have no more use for sddm
-- config.sh should defined env variables for syncing which each sync.sh reachs as needed (instead of having ribyn_sync doing it)
-- rename shell variable $RIBYN_ROOT to $RIBYN or $RIBYNLINUX
-- (practical bash scripting: what AI cant teach you)[https://www.youtube.com/watch?v=aqEIE6Jn0mU]
+- config.sh should defined env variables for syncing which each sync.sh
+  reachs as needed (instead of having ribyn_sync doing it)
+- Rename shell variable $RIBYN_ROOT to $RIBYN or $RIBYNLINUX $RIBYN_GIT $RIBYNLNX
+- make sure I can do volume control outside hypr as needed (cli?)
+
+# Further Education
+
+- [practical bash scripting: what AI cant teach you](https://www.youtube.com/watch?v=aqEIE6Jn0mU)
 - learn sed
-- not if legit: sudo localectl set-x11-keymap de pc105 nodeadkeys caps:swapescape
-- log all output instead of using verbose
-- rust tui for managing worktrees
-- rust tui instead of using ribyn complete in zshrc, doesnt scale well
-- rust tui, which allows me to run multiple severs as tabs
-- Isaiah 35:6. "Then will the lame leap like a deer, and the mute tongue shout for joy. Water will gush forth in the wilderness and streams in the desert." (New International Version)
-- cpp tui https://github.com/ArthurSonzogni/FTXUI e.g. i can make quiz apps for what I have read in the bible
+- continue on [learn cpp chapter 11](https://www.learncpp.com/cpp-tutorial/implicit-type-conversion/)
 
 ## Spaceship Zsh prompt
 
@@ -42,6 +44,8 @@ WARN: brew is not available in PATH on first time install
 
 ## app ideas
 
+- rust tui for managing worktrees
+- rust tui to manage config.sh
 - go tui app for pomodora using my own timer bin
 - music dl (TUI)
 - calendar for birthdays (family sharable sync in Android?)
@@ -49,6 +53,7 @@ WARN: brew is not available in PATH on first time install
 - Ribyn-Distro installer
 - lest I sleep the sleep of death
 - jesus parables
+- Isaiah 35:6. "Then will the lame leap like a deer, and the mute tongue shout for joy. Water will gush forth in the wilderness and streams in the desert." (New International Version)
 
 ## Fedora
 

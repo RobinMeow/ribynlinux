@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+. "$RIBYN_ROOT/config.sh"
+. "$RIBYN_ROOT/lib/utils.sh"
+. "$RIBYN_ROOT/lib/detect_env.sh"
+
 mkdir -p "$HOME/.config/kitty"
 cp -r "$RIBYN_ROOT/apps/kitty/config/"* "$HOME/.config/kitty/"
 
-. "$RIBYN_ROOT/lib/utils.sh"
-warn "Kitty: WSL specific config is disabled."
-
-. "$RIBYN_ROOT/lib/detect_env.sh"
 detect_env
 
 if [[ "$OS_TYPE" == "wsl" ]]; then
@@ -29,4 +29,8 @@ background_tint 0.99
 EOF
 
 	info "Kitty: WSL specific config has been appended."
+fi
+
+if [[ ${RIBYN_KITTY_USE_SOLID_BG:-"no"} == "yes" ]]; then
+	cat "$RIBYN_ROOT/apps/kitty/kitty-solid-bg.conf" >>"$HOME/.config/kitty/kitty.conf"
 fi

@@ -4,19 +4,19 @@
 
 ## Tasks
 
-not hyprland directly:
-
-- [ ] a script to be invoked which toggles bg for kitty
-- [ ] make sure I can do volume control outside hypr as needed (cli?)
+- [ ] use something else for desktop notifications
 
 deferred:
 
 - [ ] mpvpaper engine (using mp4 and others for wallpapers)
 - [ ] wayscriber = EpicPen. Fortunatly I no longer use the mouse, but maybe...
-- [ ] brightness notifications (im too lazy to do wob again)
 
 abandoned i think:
 
+- [ ] ~~only blur terminal, for performance~~
+  had a discord discussion with the result, that I dont need to bother with it.
+- [ ] ~~brightness notifications (im too lazy to do wob again)~~
+  got it covered with waybar
 - [ ] ~~mp4 video is now working on hyprland in chrome e.g. wl-freeze github page~~
   swapping to brave (chromium based and works), and firefox also works
 - [ ] ~~keyboards inputs can be configured using comma seperations ai was lying~~
@@ -87,11 +87,8 @@ completed:
 
 > has a built in [timer](https://wiki.hypr.land/Configuring/Advanced-and-Cool/Expanding-functionality/#timers)
 
-wallpaper engine:
-swww hyprpaper
-
 desktop notification thingies:
-swaync, hyprpanel, mako
+swaync, hyprpanel, mako, dunst
 
 > [enable blur only for specific windows](https://github.com/hyprwm/Hyprland/discussions/4169)
 > for now I take the performance hit
