@@ -2,18 +2,28 @@
 set -euo pipefail
 
 . "$RIBYN_ROOT/lib/run_on_distro.sh"
+. "$RIBYN_ROOT/lib/utils.sh"
 
-# arch
-run_on_arch "$RIBYN_ROOT/lib/ensure_installed_yay.sh"
-run_on_arch yay -Sy --needed --noconfirm \
-	brave-bin
+if on_arch; then
+	"$RIBYN_ROOT/lib/ensure_installed_yay.sh"
 
-# fedora
-run_on_fedora sudo dnf install -y \
-	dnf-plugins-core
+	yay -Sy --needed --noconfirm \
+		brave-bin
+elif on_fedora; then
 
-repofile="https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo"
-run_on_fedora sudo dnf config-manager addrepo --from-repofile="$repofile"
+	sudo dnf install -y \
+		dnf-plugins-core
 
-run_on_fedora sudo dnf install -y \
-	brave-browser
+	if [[ -f /etc/yum.repos.d/brave-browser.repo ]]; then
+		info "Brave repo already setup. skipping."
+	else
+		info "Adding Brave plugins and config-manager repo"
+		sudo dnf config-manager addrepo --from-repofile="$repofile"
+	fi
+
+	sudo dnf install -y \
+		brave-browser
+else
+	error "Distro not supported."
+	exit 1
+fi

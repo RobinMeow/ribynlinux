@@ -18,6 +18,7 @@ if [[ ! " ${SUPPORTED_DISTROS[*]} " =~ " ${DISTRO} " ]]; then
 	warn "Distro '$OSD_DISTRIBUTION' not supported for installing nvim"
 fi
 
+# returns 0/1 code (0 if it ran for arch)
 function run_on_arch() {
 	if [[ "$DISTRO" == "arch" ]]; then
 		if [[ $# -gt 0 ]]; then
@@ -50,6 +51,14 @@ function run_on_fedora() {
 		# consume and throw away (commands are meant for other distros)
 		cat >/dev/null
 	fi
+}
+
+function on_arch() {
+	[[ "$DISTRO" == "arch" ]]
+}
+
+function on_fedora() {
+	[[ "$DISTRO" == "fedora" ]]
 }
 
 # Usage

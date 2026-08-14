@@ -27,7 +27,8 @@ run_on_arch sudo pacman -S --needed --noconfirm \
 # removed qt5ct. apparently I can only choose one of em
 # hyprpicker is just nice to have. install standalone cli tool. TODO: requires build from src on fedora
 
-run_on_fedora error "Hyprland on fedora is not set up" exit 1
+run_on_fedora error "Hyprland on fedora is not set up" && exit 1
+
 # requires
 # WARN: outdated
 # run_on_fedora sudo dnf copr enable -y solopasha/hyprland
