@@ -73,6 +73,13 @@ set -euo pipefail
 	# are both set in hyprland.lua to make sure hyprland knows about those env vars
 }
 
+# HYPRLAND
+{
+	# install hyprland when running hypr/install.sh and all of its coupled apps:
+	# hyprlock, hyprpicker, hyprmoncfg
+	export RIBYN_HYPR_INSTALL_ENABLED=${RIBYN_HYPR_INSTALL_ENABLED:-"yes"}
+}
+
 # KITTY
 {
 	# whether or not to use a dark gray solid background instead

@@ -1,8 +1,14 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-source "$RIBYN_ROOT/lib/utils.sh"
-source "$RIBYN_ROOT/lib/run_on_distro.sh"
+. "$RIBYN_ROOT/lib/utils.sh"
+
+if [[ "$RIBYN_HYPR_INSTALL_ENABLED" == "no" ]]; then
+	info "hypr install disabled in config. skipping."
+	exit 0
+fi
+
+. "$RIBYN_ROOT/lib/run_on_distro.sh"
 
 run_on_arch sudo pacman -S --needed --noconfirm \
 	hyprland \
