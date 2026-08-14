@@ -3,6 +3,11 @@ set -euo pipefail
 
 . "$RIBYN_ROOT/lib/run_on_distro.sh"
 
+. "$RIBYN_ROOT/lib/ensure_installed_homebrew.sh"
+
+brew install --no-ask \
+	yazi \
+	resvg
 if on_arch; then
 	sudo pacman -S --needed --noconfirm \
 		chafa \
@@ -34,14 +39,6 @@ elif on_fedora; then
 		file \
 		mpv
 fi
-
-# TODO: surely I can export PATH for this shell process in that scrip?
-# maybe need to source it instead of invoking it than.
-. "$RIBYN_ROOT/lib/ensure_installed_homebrew.sh"
-
-brew install --no-ask \
-	yazi \
-	resvg
 
 # NOTE: image, audio, video, subtitle and many media files using ffmpeg and mediainfo metainfo
 dest_mediainfo="$HOME/.config/yazi/plugins/mediainfo.yazi"
