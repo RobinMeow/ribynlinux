@@ -14,8 +14,10 @@ if [[ ! -f "$first_time_install" ]]; then
 		waybar
 
 	run_on_fedora sudo dnf install -y \
-		font-awesome-fonts \
+		fontawesome-fonts \
 		waybar
+	# fontawesome4-fonts actually but it matches without the
+	# version which I think is preffered
 
 	# rebuild font cache
 	sudo fc-cache -fv
