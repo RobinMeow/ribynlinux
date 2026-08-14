@@ -13,7 +13,7 @@ info "Using git ref: $RIBYN_NVIM_GIT_REF"
 
 function build_nvim() {
 	info "Starting build process..."
-	make CMAKE_BUILD_TYPE=RelWithDebverbose
+	make CMAKE_BUILD_TYPE=$RIBYN_NVIM_BUILD_TYPE
 
 	info "Installing Neovim..."
 	sudo make install

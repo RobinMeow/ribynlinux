@@ -15,6 +15,17 @@ set -euo pipefail
 
 	# whether or not to fetch the latest commits before checking out the BUILD_REF
 	export RIBYN_NVIM_GIT_FETCH=${RIBYN_NVIM_GIT_FETCH:-"no"}
+
+	# neovim build: https://github.com/neovim/neovim/blob/master/BUILD.md
+	# sorted by slowest runtime to fastest, and fastest build time to slowest (runtime optimizations take longer)
+	# Debug: Full debug information; few optimizations. Use this for development to get meaningful output from debuggers like GDB or LLDB. This is the default if CMAKE_BUILD_TYPE is not specified.
+	# RelWithDebverbose: <release with debug verbose> didnt see a description in the github
+	# RelWithDebInfo: meaning "Release With Debug Info" Enables many optimizations and adds enough debug info so that when Neovim ever crashes, you can still get a backtrace.
+	# Release: Full compiler optimizations and no debug information. Expect the best performance from this build type. Often used by package maintainers.
+	export RIBYN_NVIM_BUILD_TYPE=${RIBYN_NVIM_BUILD_TYPE:-"Release"}
+
+	# not support by my build from source script. probably a small change
+	# `-Doptimize=ReleaseFast` (Zig). is this only for webassembly?
 }
 
 # GODOT
