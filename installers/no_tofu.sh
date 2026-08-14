@@ -15,7 +15,7 @@ if [[ ! -f "$first_time_install" ]]; then
 		noto-fonts-{cjk,emoji,extra}
 
 	run_on_fedora sudo dnf install -y \
-		noto-fonts-*
+		google-noto-fonts-*
 
 	# rebuild font cache
 	sudo fc-cache -fv
