@@ -1,11 +1,17 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-source "$RIBYN_ROOT/lib/run_on_distro.sh"
+. "$RIBYN_ROOT/lib/run_on_distro.sh"
+. "$RIBYN_ROOT/lib/utils.sh"
 
-run_on_arch sudo pacman -S --needed --noconfirm bluetui
+if on_arch; then
+	sudo pacman -S --needed --noconfirm \
+		bluetui
+elif on_fedora; then
+	sudo dnf install -y \
+		dbus-devel \
+		pkgconf-pkg-config
 
-run_on_fedora <<'EOF'
-	echo "bluetui on fedora is not yet implemented. requires cargo install or another way"
-	# cargo install bluetui
-EOF
+	warn "installing bluetui on fedora seems to crash on first try. just try again."
+	cargo install bluetui
+fi

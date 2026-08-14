@@ -11,5 +11,3 @@ elif on_fedora; then
 	sudo dnf install -y \
 		mpd
 fi
-
-"$RIBYN_ROOT/apps/mpd/sync.sh"

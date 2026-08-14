@@ -2,12 +2,12 @@
 set -euo pipefail
 
 . "$RIBYN_ROOT/lib/run_on_distro.sh"
-
 . "$RIBYN_ROOT/lib/ensure_installed_homebrew.sh"
 
 brew install --no-ask \
 	yazi \
 	resvg
+
 if on_arch; then
 	sudo pacman -S --needed --noconfirm \
 		chafa \
@@ -51,5 +51,3 @@ else
 	# update
 	git -C "$dest_mediainfo" pull
 fi
-
-"$RIBYN_ROOT/apps/yazi/sync.sh"

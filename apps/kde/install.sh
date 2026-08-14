@@ -9,5 +9,3 @@ run_on_arch sudo pacman -S --needed --noconfirm \
 
 run_on_fedora sudo dnf install -y \
 	flameshot
-
-"$RIBYN_ROOT/apps/kde/sync.sh"

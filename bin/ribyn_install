@@ -29,9 +29,6 @@ info "Installing zsh"
 info "Installing CommitMono"
 "$RIBYN_ROOT/installers/install-commit-mono.sh"
 
-info "Installing git"
-"$RIBYN_ROOT/apps/git/install.sh"
-
 info "Installing brave"
 "$RIBYN_ROOT/apps/brave/install.sh"
 

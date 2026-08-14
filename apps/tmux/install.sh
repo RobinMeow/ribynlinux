@@ -1,30 +1,29 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-source "$RIBYN_ROOT/lib/run_on_distro.sh"
+. "$RIBYN_ROOT/lib/run_on_distro.sh"
 
-run_on_arch sudo pacman -S --needed --noconfirm tmux
-run_on_fedora sudo dnf install -y tmux
+run_on_arch sudo pacman -S --needed --noconfirm \
+	tmux
 
-# TMUX Plugins
+run_on_fedora sudo dnf install -y \
+	tmux
+
 TMUX_PLUGIN_DIR="$HOME/.config/tmux/plugins"
 mkdir -p "$TMUX_PLUGIN_DIR"
 
-# ["<destination-dir>"]="<git url>"
-declare -A plugins=(
-	["catppuccin"]="https://github.com/catppuccin/tmux"
-	["tmux-cpu"]="https://github.com/tmux-plugins/tmux-cpu"
-	["tmux-battery"]="https://github.com/tmux-plugins/tmux-battery"
-	["tmux-yank"]="https://github.com/tmux-plugins/tmux-yank"
-)
+if [[ ! -d "$TMUX_PLUGIN_DIR/catppuccin" ]]; then
+	git clone --depth 1 "https://github.com/catppuccin/tmux" "$TMUX_PLUGIN_DIR/catppuccin"
+fi
 
-for plugin in "${!plugins[@]}"; do
-	url="${plugins[$plugin]}"
-	dest="$TMUX_PLUGIN_DIR/$plugin"
+if [[ ! -d "$TMUX_PLUGIN_DIR/tmux-cpu" ]]; then
+	git clone --depth 1 "https://github.com/tmux-plugins/tmux-cpu" "$TMUX_PLUGIN_DIR/tmux-cpu"
+fi
 
-	if [[ ! -d "$dest" ]]; then
-		git clone --depth 1 "$url" "$dest"
-	fi
-done
+if [[ ! -d "$TMUX_PLUGIN_DIR/tmux-battery" ]]; then
+	git clone --depth 1 "https://github.com/tmux-plugins/tmux-battery" "$TMUX_PLUGIN_DIR/tmux-battery"
+fi
 
-"$RIBYN_ROOT/apps/tmux/sync.sh"
+if [[ ! -d "$TMUX_PLUGIN_DIR/tmux-yank" ]]; then
+	git clone --depth 1 "https://github.com/tmux-plugins/tmux-yank" "$TMUX_PLUGIN_DIR/tmux-yank"
+fi

@@ -1,14 +1,20 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-source "$RIBYN_ROOT/lib/run_on_distro.sh"
+. "$RIBYN_ROOT/lib/run_on_distro.sh"
 
-run_on_arch sudo pacman -S --needed --noconfirm rmpc mpd extra/timidity++
+if on_arch; then
+	sudo pacman -S --needed --noconfirm \
+		rmpc \
+		mpd \
+		extra/timidity++
+elif on_fedora; then
+	sudo dnf install -y \
+		mpd \
+		timidity++ \
+		cargo
 
-run_on_fedora sudo dnf install -y mpd timidity++
-
-# https://rmpc.mierak.dev/installation/#using-cargo
-run_on_fedora sudo dnf install -y cargo
-run_on_fedora cargo install rmpc --locked
-
-"$RIBYN_ROOT/apps/rmpc/sync.sh"
+	# https://rmpc.mierak.dev/installation/#using-cargo
+	cargo install --locked \
+		rmpc
+fi

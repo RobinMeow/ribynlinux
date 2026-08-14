@@ -9,5 +9,3 @@ run_on_arch sudo pacman -S --needed --noconfirm \
 
 run_on_fedora sudo dnf install -y \
 	qt6ct
-
-"$RIBYN_ROOT/apps/qt6ct/sync.sh"

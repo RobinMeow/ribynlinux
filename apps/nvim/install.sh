@@ -76,4 +76,3 @@ run_on_fedora sudo dnf install -y \
 # 	php composer java-devel julia
 
 "$RIBYN_ROOT/apps/nvim/build-from-source.sh"
-"$RIBYN_ROOT/apps/nvim/sync.sh"

@@ -29,6 +29,9 @@ info "Syncing bat"
 info "Syncing btop"
 "$RIBYN_ROOT/apps/btop/sync.sh"
 
+info "Syncing godot"
+"$RIBYN_ROOT/apps/godot/sync.sh"
+
 info "Syncing kitty"
 "$RIBYN_ROOT/apps/kitty/sync.sh"
 
@@ -50,6 +53,7 @@ info "Syncing yazi"
 info "Syncing mpd"
 "$RIBYN_ROOT/apps/mpd/sync.sh"
 
+# TODO: move infos to each script
 info "Syncing rmpc"
 "$RIBYN_ROOT/apps/rmpc/sync.sh"
 
@@ -65,33 +69,7 @@ info "Syncing rofi"
 info "Syncing waybar"
 "$RIBYN_ROOT/apps/waybar/sync.sh"
 
-full_install=false
-for arg in "$@"; do
-	if [[ "$arg" == "--full-install" ]]; then
-		full_install=true
-	fi
-done
-
-for arg in "$@"; do
-	if [[ "$arg" == "--pm" || $full_install ]]; then
-		info "Syncing core"
-		"$RIBYN_ROOT/scripts/pm-core.sh"
-	fi
-
-	if [[ "$arg" == "--webdev" || $full_install ]]; then
-		info "Syncing gadgets"
-		"$RIBYN_ROOT/scripts/pm-gadgets.sh"
-	fi
-
-	if [[ "$arg" == "--gadgets" ]]; then
-		info "Syncing gadgets"
-		"$RIBYN_ROOT/scripts/pm-gadgets.sh"
-	fi
-
-	if [[ "$arg" == "--kde" ]]; then
-		info "Syncing kde"
-		"$RIBYN_ROOT/apps/kde/sync.sh"
-	fi
-done
+info "Syncing kde"
+"$RIBYN_ROOT/apps/kde/sync.sh"
 
 success "ribynlinux synced"

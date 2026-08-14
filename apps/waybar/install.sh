@@ -25,5 +25,3 @@ if [[ ! -f "$first_time_install" ]]; then
 else
 	info "[waybar] already installed. skipping."
 fi
-
-"$RIBYN_ROOT/apps/waybar/sync.sh"

@@ -1,10 +1,11 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-source "$RIBYN_ROOT/lib/utils.sh"
-source "$RIBYN_ROOT/lib/run_on_distro.sh"
+. "$RIBYN_ROOT/lib/utils.sh"
+. "$RIBYN_ROOT/lib/run_on_distro.sh"
 
-run_on_arch sudo pacman -S --needed --noconfirm kitty
-run_on_fedora sudo dnf install -y kitty
+run_on_arch sudo pacman -S --needed --noconfirm \
+	kitty
 
-"$RIBYN_ROOT/apps/kitty/sync.sh"
+run_on_fedora sudo dnf install -y \
+	kitty
