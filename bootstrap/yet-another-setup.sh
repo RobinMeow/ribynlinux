@@ -4,9 +4,9 @@ set -euo pipefail
 # invoke as root (arch only for now)
 # sh -c "$(curl -fsSL https://codeberg.org/Ribyn/ribynlinux/raw/branch/master/bootstrap/yet-another-setup.sh)"
 
-echo "installing deps"
-pacman -Syu --noconfirm
-pacman -S --noconfirm sudo git bc vim
+# echo "installing deps"
+# pacman -Syu --noconfirm
+# pacman -S --noconfirm sudo git bc vim
 # dnf install -y sudo git bc vim
 
 echo "adding groups"

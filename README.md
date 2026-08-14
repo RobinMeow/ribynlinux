@@ -21,8 +21,13 @@ export RIBYN_ROOT="$HOME/ribynlinux" \
 
 testing first time install in docker for arch:
 ```sh
-# run this one first:
-sh -c "$(curl -fsSL https://codeberg.org/Ribyn/ribynlinux/raw/branch/master/bootstrap/yet-another-setup.sh)"
+# FEDORA: 
+dnf update -y && dnf install -y sudo git bc vim \
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/RobinMeow/ribynlinux/master/bootstrap/yet-another-setup.sh)"
+
+# ARCH: run this one first:
+pacman -Syu --noconfirm; pacman -S --noconfirm sudo git bc vim; && \
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/RobinMeow/ribynlinux/master/bootstrap/yet-another-setup.sh)"
 
 # after login, run:
 export RIBYN_ROOT="$HOME/ribynlinux" && git clone --depth 1 https://github.com/RobinMeow/ribynlinux.git "$RIBYN_ROOT" && "$RIBYN_ROOT/bin/ribyn_install"
@@ -109,3 +114,8 @@ Sat Jun 20 11:21:42 PM CEST 2026
 if the installer throws pacman errors when installer, make sure to update your system upfront: `sudo pacman -Syu`
 then try again. none of the scripts update, but when installing new apps, it might fail, becuase it pulls their
 latest version which might depend on newer bins
+
+### Raw links
+
+`https://raw.githubusercontent.com/<usrname>/<repo>/<branch>/<path-to-file>`
+`https://codeberg.org/<username>/<repo>/raw/branch/<branchname>/<path-to-file>`
