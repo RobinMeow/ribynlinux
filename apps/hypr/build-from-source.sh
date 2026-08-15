@@ -13,34 +13,17 @@ exec > >(tee "$logfile") 2>&1
 # how to build hyprland on fedora
 # https://github.com/hyprwm/Hyprland/discussions/284
 
+. "$RIBYN_ROOT/config.sh"
 . "$RIBYN_ROOT/lib/utils.sh"
 . "$RIBYN_ROOT/lib/run_on_distro.sh"
 
 if on_arch; then
-	echo "ERROR: Use pacman on archlinux to install hyperland."
-	echo "use: pacman -S hyprland"
+	error "ERROR: Use pacman on archlinux to install hyperland. use pacman -S hyprland instead."
 	exit 1
 elif on_fedora; then
-	# im using cmake
-	# ninja-build \
 
-	# hyprutils (Base utilities)
-	# hyprwire (IPC wire protocol)
-	# hyprlang (Configuration language parser)
-	# hyprcursor (The cursor theme library)
-	# aquamarine (The rendering backend / abstraction library)
-	# Hyprland (The window manager itself)
-
-	# TODO: build hyprwire from source
-	# TODO: build hyprutils from source
 	# TODO: bulid [https://github.com/stephenberry/glaze](https://github.com/stephenberry/glaze) from source
-	# TODO: bulid aquamarine from source
-	# TODO: bulid hyprland-qtutils from source
-	# sudo dnf install \
-	# 	hyprwire-git \
-	# 	glaze \
-	# 	aquamarine \
-	# 	hyprland-qtutils-git
+	# TODO: bulid hyprland-qtutils from source hyprland-qtutils-git
 
 	# TODO: if I got some free time to throw away, move these deps into each build from source
 	# and only install what is needed
@@ -84,8 +67,6 @@ elif on_fedora; then
 		cpio \
 		tomlplusplus \
 		tomlplusplus-devel \
-		hyprlang \
-		hyprlang-devel \
 		hyprcursor \
 		hyprcursor-devel \
 		hyprwayland-scanner-devel \
@@ -211,7 +192,8 @@ elif on_fedora; then
 				libeis-devel \
 				lua-devel \
 				sdbus-cpp-devel \
-				readline-devel
+				readline-devel \
+				libcanberra-devel
 
 			git clone --recurse-submodules "https://github.com/hyprwm/Hyprland" "$dest"
 			cd "$dest"

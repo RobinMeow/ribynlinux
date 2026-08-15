@@ -78,6 +78,33 @@ set -euo pipefail
 	# install hyprland when running hypr/install.sh and all of its coupled apps:
 	# hyprlock, hyprpicker, hyprmoncfg
 	export RIBYN_HYPR_INSTALL_ENABLED=${RIBYN_HYPR_INSTALL_ENABLED:-"yes"}
+
+	# NOTE: the following env variables have no effect if INSTALL_ENABLED is set to "no"
+	# assign git commits and/or tags to build from source from for reach app
+	# git repos are in "$HOME/.local/share/ribyn/hypr/<appname>"
+
+	# * 2db328f (HEAD -> main, tag: v0.14.1, origin/main, origin/HEAD) VERSION: bump to 0.14.1 Vaxry (2 days ago)
+	export RIBYN_HYPR_HYPRUTILS_GIT_REF=${RIBYN_HYPR_HYPRUTILS_GIT_REF:-"v0.14.1"}
+
+	# * 62e62c1 (HEAD -> main, origin/main, origin/HEAD) nix: gcc 15 -> 16 Mihai Fufezan (4 days ago)
+	# * b863271 (tag: v0.4.6) version: bump to 0.4.6 Vaxry (4 months ago)
+	export RIBYN_HYPR_HYPRWAYLAND_SCANNER_GIT_REF=${RIBYN_HYPR_HYPRWAYLAND_SCANNER_GIT_REF:-"v0.4.6"}
+
+	# * f3d1804 (HEAD -> main, origin/main, origin/HEAD) nix: gcc 15 -> 16 Mihai Fufezan (4 days ago)
+	# * a79fb21 (tag: v0.14.0) version: bump to 0.14.0 Vaxry (3 weeks ago)
+	export RIBYN_HYPR_AQUAMARINE_GIT_REF=${RIBYN_HYPR_AQUAMARINE_GIT_REF:-"v0.14.0"}
+
+	# * 9508458 (HEAD -> main, origin/main, origin/HEAD) nix: gcc 15 -> 16 Mihai Fufezan (4 days ago)
+	# * 3a1c1b2 (tag: v0.6.8) version: bump to 0.6.8 Vaxry (7 months ago)
+	export RIBYN_HYPR_HYPRLANG_GIT_REF=${RIBYN_HYPR_HYPRLANG_GIT_REF:-"v0.6.8"}
+
+	# * 7c895c4 (HEAD -> main, origin/main, origin/HEAD) flake.lock: update Mihai Fufezan (4 days ago)
+	# * 482d4b7 (tag: v0.5.1) version: bump to 0.5.1 Vaxry (4 months ago)
+	export RIBYN_HYPR_HYPRGRAPHICS_GIT_REF=${RIBYN_HYPR_HYPRGRAPHICS_GIT_REF:-"v0.5.1"}
+
+	# * 6d43ce84 (HEAD -> main, origin/main, origin/HEAD) input/seat: check HID caps directly for focus enters (#15841) GitHub (3 days ago)
+	# * 36b2e0cf (tag: v0.56.0) version: bump to 0.56.0 Vaxry (4 weeks ago)
+	export RIBYN_HYPR_HYPRLAND_GIT_REF=${RIBYN_HYPR_HYPRLAND_GIT_REF:-"v0.56.0"}
 }
 
 # KITTY
