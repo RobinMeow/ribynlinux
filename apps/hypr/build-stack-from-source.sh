@@ -2,7 +2,7 @@
 set -euo pipefail
 
 mkdir -p "$HOME/.cache/ribyn/"
-logfile="$HOME/.cache/ribyn/build-all-from-source.log"
+logfile="$HOME/.cache/ribyn/build-stack-from-source.log"
 # Append to file and print to terminal simultaneously
 # use --append flag if you want to append, instead of override
 exec > >(tee "$logfile") 2>&1

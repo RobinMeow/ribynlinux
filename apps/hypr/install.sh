@@ -35,29 +35,22 @@ if on_arch; then
 # removed qt5ct. apparently I can only choose one of em
 # hyprpicker is just nice to have. install standalone cli tool.
 elif on_fedora; then
-	error "Hyprland on fedora is not set up"
-	exit 1
-	# requires
-	# WARN: outdated
-	# run_on_fedora sudo dnf copr enable -y solopasha/hyprland
-	# might not be outdated:
-	# https://copr.fedorainfracloud.org/coprs/nett00n/hyprland/
-	# officially recommended:
+	# NOTE: copr available
 	# https://copr.fedorainfracloud.org/coprs/lionheartp/Hyprland
+	"$RIBYN_ROOT/apps/hypr/build-stack-from-source.sh"
 
-	# TODO: set up build from suorce I think :)
-	# hyprshutdown
-	# xdg-desktop-portal-hyprland \
-	# run_on_fedora sudo dnf install -y \
-	# 	hyprland \
-	# 	hyprpaper \
-	# 	hyprpolkitagent \
-	# 	mako \
-	# 	rofi \
-	# 	wireplumber \
-	# 	brightnessctl \
-	# 	grim slurp swappy \
-	# 	qt6ct
+	# TODO: hyprpaper from source?
+	# TODO: hyprpolkitagent from source?
+
+	# mako is available in dnf
+	# mako \
+
+	run_on_fedora sudo dnf install -y \
+		rofi \
+		wireplumber \
+		brightnessctl \
+		grim slurp swappy \
+		qt6ct
 
 	"$RIBYN_ROOT/apps/hypr/build-hyprpicker-from-source.sh"
 fi

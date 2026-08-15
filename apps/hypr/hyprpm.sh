@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# TODO: i think this updates everytime I run the scripts.
+# i think this updates everytime I run the scripts.
 # will need some detection to avoid running this on every install run
 
 hyprpm update
