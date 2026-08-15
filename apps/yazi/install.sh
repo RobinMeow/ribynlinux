@@ -24,9 +24,12 @@ if on_arch; then
 		file \
 		mpv
 elif on_fedora; then
+	# erase ffmpeg-free if it is installed
+	sudo dnf install -y --allowerasing \
+		ffmpeg
+
 	sudo dnf install -y \
 		chafa \
-		ffmpeg \
 		7zip \
 		jq \
 		poppler \
