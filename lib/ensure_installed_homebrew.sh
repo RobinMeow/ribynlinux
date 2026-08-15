@@ -9,7 +9,7 @@ BREW_PREFIX="/home/linuxbrew/.linuxbrew"
 if [[ -d "$BREW_PREFIX" ]]; then
 	echo "skipping brew installed (already installed)"
 
-	if command -v brew >/dev/null 2>&1; then
+	if ! command -v brew >/dev/null 2>&1; then
 		# first time install / rerunning the script can happen here
 		eval "$("$BREW_PREFIX/bin/brew" shellenv)"
 	fi
