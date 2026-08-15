@@ -17,19 +17,19 @@ function m.setup()
   key.bind("SUPER + E", hl.dsp.exec_cmd("kitty -e yazi"), { desc = "open explorer yazi" })
 
   -- https://wiki.hypr.land/Configuring/Basics/Dispatchers/#fullscreenstate
-  -- TODO: make a selector thing, like internal,client combinations
-  -- tho idk which the others could be useful fore
+  -- internal is a reference to the state maintained by Hyprland.
+  -- client is a reference to the state that the application receives.
   key.bind(
     "SUPER + F",
     -- toggle fullscreen without toggleing the fullscreen of the inner app (streaming video)
-    hl.dsp.window.fullscreen_state({ internal = 2, client = 0, mode = "fullscreen", action = "toggle" }),
+    hl.dsp.window.fullscreen_state({ internal = 2, client = -1, mode = "fullscreen", action = "toggle" }),
     { desc = "toggle fullscreen" }
   )
   key.bind(
     "SUPER + SHIFT + F",
     -- toggle fullscreen within the inner app (didnt work as planned,
     -- but I can toggle this on, and than use vimium to click fullscreen to get my desired effect)
-    hl.dsp.window.fullscreen_state({ internal = 0, client = 2, mode = "fullscreen", action = "toggle" }),
+    hl.dsp.window.fullscreen_state({ internal = -1, client = 2, mode = "fullscreen", action = "toggle" }),
     { desc = "toggle fullscreen within inner app (e.g. in PWA)" }
   )
 
@@ -101,7 +101,6 @@ function m.setup()
   )
 
   key.bind("SUPER + TAB", hl.dsp.focus({ workspace = "e+1" }), { desc = "focus next workspace" })
-  -- TODO: conflicting with swicht keyboard layout
   key.bind("SUPER + SHIFT + TAB", hl.dsp.focus({ workspace = "e-1" }), { desc = "focus prev workspace" })
 
   -- NOTE: example for mouse keybind.

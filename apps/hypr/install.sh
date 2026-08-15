@@ -33,7 +33,7 @@ if on_arch; then
 # grim slurp swappy: screenshot tools that work good together
 # qt5ct qt6ct for dark themed qt apps. also required for live switching themes.
 # removed qt5ct. apparently I can only choose one of em
-# hyprpicker is just nice to have. install standalone cli tool. TODO: requires build from src on fedora
+# hyprpicker is just nice to have. install standalone cli tool.
 elif on_fedora; then
 	error "Hyprland on fedora is not set up"
 	exit 1
