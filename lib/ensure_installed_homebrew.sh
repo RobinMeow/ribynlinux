@@ -1,8 +1,13 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+. "$RIBYN_ROOT/lib/utils.sh"
+
 # https://docs.brew.sh/Installation
 BREW_PREFIX="/home/linuxbrew/.linuxbrew"
+
+warn "hypocrites request sudo permission just to remove it again after calling their bin, just so their own script can remain \"secure\"."
+sudo --validate
 
 if [[ -d "$BREW_PREFIX" ]]; then
 	echo "skipping brew installed (already installed)"
