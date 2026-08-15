@@ -2,7 +2,6 @@
 set -euo pipefail
 
 mkdir -p "$HOME/.cache/ribyn/hypr/"
-# TODO: log files for the others..
 logfile="$HOME/.cache/ribyn/hypr/hyprgraphics-build-from-source.log"
 # Append to file and print to terminal simultaneously
 # use --append flag if you want to append, instead of override
