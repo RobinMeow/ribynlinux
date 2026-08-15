@@ -13,7 +13,7 @@ export RIBYN_ROOT="$HOME/ribynlinux" \
   && "$RIBYN_ROOT/bin/rinsy"
 
 # FEDORA (in docker setting up a user named ribyn)
-dnf update -y && dnf install -y sudo git bc vim && \
+dnf update --refresh --assumeyes && dnf install --assumeyes sudo git bc vim && \
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/RobinMeow/ribynlinux/master/bootstrap/yet-another-setup.sh)"
 
 # ARCH (in docker setting up a user named ribyn)

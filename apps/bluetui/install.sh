@@ -8,6 +8,7 @@ if on_arch; then
 	sudo pacman -S --needed --noconfirm \
 		bluetui
 elif on_fedora; then
+	# TODO: build from source. its annoying that it is not reliable
 	sudo dnf install -y \
 		dbus-devel \
 		pkgconf-pkg-config
