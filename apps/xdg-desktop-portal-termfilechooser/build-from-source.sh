@@ -2,7 +2,6 @@
 set -euo pipefail
 
 # https://github.com/hunkyburrito/xdg-desktop-portal-termfilechooser
-# TODO: window rule to have it behave like a floating window? or at least it should take focus
 
 . "$RIBYN_ROOT/lib/utils.sh"
 . "$RIBYN_ROOT/lib/run_on_distro.sh"

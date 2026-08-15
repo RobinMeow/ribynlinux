@@ -1,9 +1,7 @@
-/* TODO: swap to catppuccin colors or use my own from hypr */
 @import "catppuccin_mocha.css";
-/* @import url("catppuccin_mocha.css"); */
+
 * {
   /* `otf-font-awesome` is required to be installed for icons */
-  /* TODO: consider installing fontawesome, try to avoid tho */
   font-family:
     Noto Sans,
     FontAwesome,
@@ -25,7 +23,7 @@ window#waybar.hidden {
   opacity: 0.2;
 }
 
-/* TODO: use wireplumber module */
+/* could use wireplumber module */
 #pulseaudio:hover {
   background-color: #a37800;
 }
