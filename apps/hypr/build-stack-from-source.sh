@@ -30,8 +30,11 @@ elif on_fedora; then
 
 	# NOTE: should have all deps. if something is missing
 	# maybe try randonly enabling all these :)
-	#
-	# sudo dnf install --assumeyes \
+
+	sudo dnf install --assumeyes \
+		wayland-protocols-devel \
+		xorg-x11-server-Xwayland \
+		wayland-devel
 	# 	ninja-build \
 	# 	cmake \
 	# 	meson \
@@ -54,14 +57,12 @@ elif on_fedora; then
 	# 	libXcursor-devel \
 	# 	pixman \
 	# 	pixman-devel \
-	# 	wayland-protocols-devel \
 	# 	cairo-devel \
 	# 	pango-devel \
 	# 	libxkbcommon \
 	# 	libxkbcommon-devel \
 	# 	xcb-util-wm \
 	# 	xcb-util-wm-devel \
-	# 	xorg-x11-server-Xwayland \
 	# 	libinput \
 	# 	libinput-devel \
 	# 	libliftoff \
@@ -73,7 +74,6 @@ elif on_fedora; then
 	# 	tomlplusplus-devel \
 	# 	hyprcursor \
 	# 	hyprcursor-devel \
-	# 	hyprwayland-scanner-devel \
 	# 	xcb-util-errors \
 	# 	xcb-util-errors-devel \
 	# 	hyprgraphics \
@@ -90,7 +90,6 @@ elif on_fedora; then
 	# 	hwdata-devel \
 	# 	libX11-devel \
 	# 	pixman-devel \
-	# 	wayland-devel \
 	# 	mesa-libgbm \
 	# 	mesa-libgbm-devel \
 	# 	libdrm \
