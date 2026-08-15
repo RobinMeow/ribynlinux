@@ -105,6 +105,8 @@ set -euo pipefail
 	# * 6d43ce84 (HEAD -> main, origin/main, origin/HEAD) input/seat: check HID caps directly for focus enters (#15841) GitHub (3 days ago)
 	# * 36b2e0cf (tag: v0.56.0) version: bump to 0.56.0 Vaxry (4 weeks ago)
 	export RIBYN_HYPR_HYPRLAND_GIT_REF=${RIBYN_HYPR_HYPRLAND_GIT_REF:-"v0.56.0"}
+
+	export RIBYN_HYPR_HYPRWIRE_GIT_REF=${RIBYN_HYPR_HYPRWIRE_GIT_REF:-"v0.3.1"} # 4 months ago
 }
 
 # KITTY

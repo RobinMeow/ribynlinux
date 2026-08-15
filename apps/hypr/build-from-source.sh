@@ -127,7 +127,7 @@ elif on_fedora; then
 		else
 			git clone "https://github.com/hyprwm/hyprwayland-scanner.git" "$dest"
 			cd "$dest"
-			git checkout $RIBYN_HYPR_HYPRLAND_SCANNER_GIT_REF
+			git checkout $RIBYN_HYPR_HYPRWAYLAND_SCANNER_GIT_REF
 			cmake -DCMAKE_INSTALL_PREFIX=/usr -B build
 			cmake --build build -j "$(nproc)"
 			sudo cmake --install build
