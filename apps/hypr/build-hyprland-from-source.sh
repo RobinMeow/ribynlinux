@@ -15,13 +15,25 @@ if on_arch; then
 	error "ERROR: Use pacman on archlinux to install hyperland. use pacman -S hyprland instead."
 	exit 1
 elif on_fedora; then
-	# sudo dnf install --assumeyes \
-	# 	ninja-build \
-	# 	cmake \
-	# 	meson \
-	# 	gcc \
+	sudo dnf install --assumeyes \
+		cmake \
+		gcc \
+		gcc-c++ \
+		glslang-devel \
+		hyprcursor-devel \
+		libinput-devel \
+		re2-devel \
+		muParser-devel \
+		mesa-libgbm-devel \
+		libdrm-devel \
+		libxcb-devel \
+		xcb-util-errors-devel \
+		xcb-util-wm-devel \
+		tomlplusplus-devel \
+		pugixml-devel \
+		libseat-devel
+
 	# 	libxcb \
-	# 	libxcb-devel \
 	# 	xcb-proto \
 	# 	xcb-util \
 	# 	xcb-util-devel \
@@ -44,49 +56,37 @@ elif on_fedora; then
 	# 	libxkbcommon \
 	# 	libxkbcommon-devel \
 	# 	xcb-util-wm \
-	# 	xcb-util-wm-devel \
 	# 	xorg-x11-server-Xwayland \
 	# 	libinput \
-	# 	libinput-devel \
 	# 	libliftoff \
 	# 	libliftoff-devel \
 	# 	libdisplay-info \
 	# 	libdisplay-info-devel \
 	# 	cpio \
 	# 	tomlplusplus \
-	# 	tomlplusplus-devel \
 	# 	hyprcursor \
-	# 	hyprcursor-devel \
 	# 	hyprwayland-scanner-devel \
 	# 	xcb-util-errors \
-	# 	xcb-util-errors-devel \
 	# 	hyprgraphics \
 	# 	hyprgraphics-devel \
 	# 	re2 \
-	# 	re2-devel \
 	# 	muParser \
-	# 	muParser-devel \
 	# 	gcc-c++ \
 	# 	xcb-util-devel \
 	# 	xcb-util-keysyms-devel \
 	# 	libxcb-devel \
-	# 	libseat-devel \
 	# 	hwdata-devel \
 	# 	libX11-devel \
 	# 	pixman-devel \
 	# 	wayland-devel \
 	# 	mesa-libgbm \
-	# 	mesa-libgbm-devel \
 	# 	libdrm \
-	# 	libdrm-devel \
 	# 	mesa-libEGL \
 	# 	mesa-libGL \
 	# 	mesa-libGL-devel \
 	# 	mesa-libEGL-devel \
 	# 	mesa-libGLES-devel \
 	# 	libglvnd-devel \
-	# 	glslang-devel \
-	# 	pugixml-devel \
 	# 	libjpeg-turbo-devel \
 	# 	libwebp-devel \
 
