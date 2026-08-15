@@ -114,6 +114,7 @@ elif on_fedora; then
 		else
 			git clone "https://github.com/hyprwm/hyprutils.git" "$dest"
 			cd "$dest"
+			git checkout $RIBYN_HYPR_HYPRUTILS_GIT_REF
 			cmake --no-warn-unused-cli -DCMAKE_BUILD_TYPE:STRING=Release -DCMAKE_INSTALL_PREFIX:PATH=/usr -S . -B ./build
 			cmake --build ./build --config Release --target all -j"$(nproc 2>/dev/null || getconf NPROCESSORS_CONF)"
 			sudo cmake --install build
@@ -126,6 +127,7 @@ elif on_fedora; then
 		else
 			git clone "https://github.com/hyprwm/hyprwayland-scanner.git" "$dest"
 			cd "$dest"
+			git checkout $RIBYN_HYPR_HYPRLAND_SCANNER_GIT_REF
 			cmake -DCMAKE_INSTALL_PREFIX=/usr -B build
 			cmake --build build -j "$(nproc)"
 			sudo cmake --install build
@@ -138,6 +140,7 @@ elif on_fedora; then
 		else
 			git clone --recurse-submodules "https://github.com/hyprwm/aquamarine" "$dest"
 			cd "$dest"
+			git checkout $RIBYN_HYPR_AQUAMARINE_GIT_REF
 			cmake --no-warn-unused-cli -DCMAKE_BUILD_TYPE:STRING=Release -DCMAKE_INSTALL_PREFIX:PATH=/usr -S . -B ./build
 			cmake --build ./build --config Release --target all -j"$(nproc 2>/dev/null || getconf _NPROCESSORS_CONF)"
 			sudo cmake --install build
@@ -151,6 +154,7 @@ elif on_fedora; then
 			info "hyprlang building from source"
 			git clone "https://github.com/hyprwm/hyprlang.git" "$dest"
 			cd "$dest"
+			git checkout $RIBYN_HYPR_HYPRLANG_GIT_REF
 			cmake --no-warn-unused-cli -DCMAKE_BUILD_TYPE:STRING=Release -DCMAKE_INSTALL_PREFIX:PATH=/usr -S . -B ./build
 			cmake --build ./build --config Release --target hyprlang -j"$(nproc 2>/dev/null || getconf _NPROCESSORS_CONF)"
 			sudo cmake --install ./build
@@ -163,6 +167,7 @@ elif on_fedora; then
 		else
 			git clone "https://github.com/hyprwm/hyprgraphics.git" "$dest"
 			cd "$dest"
+			git checkout $RIBYN_HYPR_HYPRGRAPHICS_GIT_REF
 			cmake --no-warn-unused-cli -DCMAKE_BUILD_TYPE:STRING=Release -DCMAKE_INSTALL_PREFIX:PATH=/usr -S . -B ./build
 			cmake --build ./build --config Release --target all -j"$(nproc 2>/dev/null || getconf NPROCESSORS_CONF)"
 			sudo cmake --install build
@@ -175,6 +180,7 @@ elif on_fedora; then
 		else
 			git clone "https://github.com/hyprwm/hyprwire.git" "$dest"
 			cd "$dest"
+			git checkout $RIBYN_HYPR_HYPRWIRE_GIT_REF
 			# WARN: they had no build installations on their readme
 			# so I just copied one above, most of em are same
 			cmake --no-warn-unused-cli -DCMAKE_BUILD_TYPE:STRING=Release -DCMAKE_INSTALL_PREFIX:PATH=/usr -S . -B ./build
@@ -197,6 +203,7 @@ elif on_fedora; then
 
 			git clone --recurse-submodules "https://github.com/hyprwm/Hyprland" "$dest"
 			cd "$dest"
+			git checkout $RIBYN_HYPR_HYPRLAND_GIT_REF
 			make release
 			sudo make install
 		fi
