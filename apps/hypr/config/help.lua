@@ -5,8 +5,6 @@ local help_entries = {}
 
 --- adds it to the generated markdown help file
 function m.add(keys, desc)
-  -- TODO: notification for dupl keys
-  -- meaning conflicting keymaps
   table.insert(help_entries, {
     keys = keys,
     desc = desc,

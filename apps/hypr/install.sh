@@ -39,9 +39,6 @@ elif on_fedora; then
 	# https://copr.fedorainfracloud.org/coprs/lionheartp/Hyprland
 	"$RIBYN_ROOT/apps/hypr/build-stack-from-source.sh"
 
-	# TODO: hyprpaper from source?
-	# TODO: hyprpolkitagent from source?
-
 	# mako is available in dnf
 	# mako \
 
