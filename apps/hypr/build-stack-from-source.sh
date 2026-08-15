@@ -27,6 +27,9 @@ elif on_fedora; then
 	#
 	# bulid [https://github.com/stephenberry/glaze](https://github.com/stephenberry/glaze) from source
 	# bulid hyprland-qtutils from source hyprland-qtutils-git
+	# qt6-qtwayland-devel
+	# qt6-qtbase-devel
+	# qt6-qtwayland-devel
 
 	# NOTE: should have all deps. if something is missing
 	# maybe try randonly enabling all these :)

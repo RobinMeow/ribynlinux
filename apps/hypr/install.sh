@@ -55,6 +55,7 @@ elif on_fedora; then
 	"$RIBYN_ROOT/apps/hypr/build-hyprpicker-from-source.sh"
 	"$RIBYN_ROOT/apps/hypr/build-hyprtoolkit-from-source.sh"
 	"$RIBYN_ROOT/apps/hypr/build-hyprshutdown-from-source.sh"
+	"$RIBYN_ROOT/apps/hypr/build-hyprpaper-from-source.sh"
 fi
 
 "$RIBYN_ROOT/apps/hypr/build-hyprmoncfg-from-source.sh"
