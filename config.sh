@@ -121,6 +121,11 @@ set -euo pipefail
 	export RIBYN_KITTY_USE_SOLID_BG=${RIBYN_KITTY_USE_SOLID_BG:-"no"}
 }
 
+# BLUETUI
+{
+	export RIBYN_HYPR_BLUETUI_GIT_REF=${RIBYN_HYPR_BLUETUI_GIT_REF:-"v0.8.1"}
+}
+
 # WEZTERM
 {
 	# yes/no (yes will clean everything. mostly relevant for the motions)
