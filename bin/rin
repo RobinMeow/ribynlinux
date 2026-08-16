@@ -10,16 +10,6 @@ exec > >(tee "$logfile") 2>&1
 . "$RIBYN_ROOT/lib/utils.sh"
 . "$RIBYN_ROOT/lib/run_on_distro.sh"
 
-if on_fedora; then
-	warn "gcc16 was released this month (2026 aug), and its optimazation are causing many failed non-deterministic builds for me. swapping for installation to gcc-15 and g++-15"
-	sudo dnf install --assumeyes \
-		gcc15 \
-		gcc15-c++
-
-	export CC='gcc-15'
-	export CXX='g++-15'
-fi
-
 info "Installing from source: $RIBYN_ROOT"
 
 # WARN: uses brew. and brew resets sudo timestamp.

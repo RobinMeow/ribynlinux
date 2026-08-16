@@ -30,4 +30,6 @@ else
 	exit 1
 fi
 
+"$RIBYN_ROOT/installers/cargo-binstall.sh"
+
 success "essential packages installed"

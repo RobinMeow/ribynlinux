@@ -28,6 +28,18 @@ set -euo pipefail
 	# `-Doptimize=ReleaseFast` (Zig). is this only for webassembly?
 }
 
+# RMPC
+{
+	# Fedora only. arch uses pacman
+	# possible values "install" and "binstall"
+	# will use `cargo install --locked rmpc`
+	# or `carg cinstall rmpc` respectively
+	# binstall is recommended to avoid segmentation errors
+	# or to reduce total disc size. use build from source for slow internet
+	# (unless your cpu is also slow, then it doesnt not matter)
+	export RIBYN_RMPC_INSTALL_METHOD=${RIBYN_NVIM_GIT_REF:-"binstall"}
+}
+
 # GODOT
 {
 	# where to clone, compile and build the engine
