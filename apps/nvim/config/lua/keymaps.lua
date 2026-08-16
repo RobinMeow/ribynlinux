@@ -89,6 +89,10 @@ vim.keymap.set("n", "<leader>f9", ":set foldlevel=99<CR>", { desc = "foldlevel 9
 vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostic location list" })
 vim.keymap.set("n", "<leader>co", ":copen<CR>", { desc = "copen open quickfix list" })
 
+-- tabs
+vim.keymap.set("n", "<leader>tc", ":tabclose<CR>", { desc = "close tab" })
+vim.keymap.set("n", "<leader>tn", ":tabnew<CR>", { desc = "open new tab" })
+
 -- Keybinds to make split navigation easier.
 -- See `:help wincmd` for a list of all window commands
 vim.keymap.set("n", "<C-h>", "<C-w><C-h>", { desc = "Move focus to the left window" })
