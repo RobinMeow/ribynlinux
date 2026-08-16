@@ -17,7 +17,10 @@ info "Installing from source: $RIBYN_ROOT"
 info "Installing yazi"
 "$RIBYN_ROOT/apps/yazi/install.sh"
 
-info "Installing core"
+info "Installing essential packages"
+"$RIBYN_ROOT/installers/pm-essential-packages.sh"
+
+info "Installing core packages"
 "$RIBYN_ROOT/scripts/pm-core.sh"
 
 info "Installing zsh"

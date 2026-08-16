@@ -7,16 +7,12 @@ set -euo pipefail
 info "Installing core packages..."
 
 run_on_arch sudo pacman -S --needed --noconfirm \
-	base-devel \
 	wireplumber \
 	gawk \
-	git \
-	curl \
 	zsh \
 	eza \
 	vi \
 	vim \
-	rsync \
 	unzip \
 	xclip \
 	wl-clipboard \
@@ -67,16 +63,12 @@ run_on_arch sudo pacman -S --needed --noconfirm \
 # aspnet-targeting-pack \
 
 run_on_fedora sudo dnf install -y \
-	@development-tools \
 	wireplumber \
-	git \
 	gawk \
-	curl \
 	zsh \
 	eza \
 	vi \
 	vim \
-	rsync \
 	unzip \
 	xclip \
 	wl-clipboard \
@@ -99,7 +91,6 @@ run_on_fedora sudo dnf install -y \
 	glow \
 	mpv \
 	chafa \
-	fd-find \
 	gource \
 	words \
 	detox \

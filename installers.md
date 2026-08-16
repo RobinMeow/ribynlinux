@@ -7,10 +7,6 @@ TBD
 ## for testing purposes
 
 ```sh
-# one-multi-liner
-export RIBYN_ROOT="$HOME/ribynlinux" \
-  && git clone --depth 1 https://github.com/RobinMeow/ribynlinux.git "$RIBYN_ROOT" \
-  && "$RIBYN_ROOT/bin/rinsy"
 
 # FEDORA (in docker setting up a user named ribyn)
 dnf update --refresh --assumeyes && dnf install --assumeyes sudo git bc vim && \
@@ -20,10 +16,17 @@ dnf update --refresh --assumeyes && dnf install --assumeyes sudo git bc vim && \
 pacman -Syu --noconfirm; pacman -S --noconfirm sudo git bc vim; && \
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/RobinMeow/ribynlinux/master/bootstrap/yet-another-setup.sh)"
 
-# after login, run:
-export RIBYN_ROOT="$HOME/ribynlinux" && \
-  git clone --depth 1 https://github.com/RobinMeow/ribynlinux.git $RIBYN_ROOT \
+# full install
+export RIBYN_ROOT="$HOME/ribynlinux" \
+  && git clone --depth 1 https://github.com/RobinMeow/ribynlinux.git "$RIBYN_ROOT" \
   && "$RIBYN_ROOT/bin/rinsy"
+
+# install minial (git, curl, rsync, clone the repo and install and sync zsh)
+export RIBYN_ROOT="$HOME/ribynlinux" \
+  && git clone --depth 1 https://github.com/RobinMeow/ribynlinux.git "$RIBYN_ROOT" \
+  && "$RIBYN_ROOT/installers/pm-essential-packages.sh" \
+  && "$RIBYN_ROOT/apps/zsh/install.sh" \
+  && "$RIBYN_ROOT/apps/zsh/sync.sh"
 
 # skip hypr
 export RIBYN_ROOT="$HOME/ribynlinux" && \
@@ -31,7 +34,7 @@ export RIBYN_ROOT="$HOME/ribynlinux" && \
   git clone --depth 1 https://github.com/RobinMeow/ribynlinux.git $RIBYN_ROOT \
   && "$RIBYN_ROOT/bin/rinsy"
 
-# if testing in docker in wsl
+# if testing in docker in wsl (full install)
 export RIBYN_ROOT="$HOME/ribynlinux" && \
   export RIBYN_SKIP_DETECT_SLOP_USER="yes" && \
   git clone --depth 1 https://github.com/RobinMeow/ribynlinux.git $RIBYN_ROOT \
