@@ -21,7 +21,7 @@ export RIBYN_ROOT="$HOME/ribynlinux" \
   && git clone --depth 1 https://github.com/RobinMeow/ribynlinux.git "$RIBYN_ROOT" \
   && "$RIBYN_ROOT/installers/pm-essential-packages.sh" \
   && "$RIBYN_ROOT/apps/zsh/install.sh" \
-  && "$RIBYN_ROOT/apps/zsh/sync.sh"
+  && "$RIBYN_ROOT/apps/zsh/sync.sh" \
   && exec zsh
 
 # full install

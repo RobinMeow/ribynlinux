@@ -10,14 +10,17 @@ if on_arch; then
 	error "use pacman -S hyprpicker instead."
 	exit 1
 elif on_fedora; then
-	run_on_fedora sudo dnf install -y \
+	# WARN: depends on hyprutils
+	# WARN: depends on wayland-scanner
+	sudo dnf install -y \
 		cmake \
+		gcc-c++ \
 		pkgconf-pkg-config \
-		pango \
-		cairo \
+		pango-devel \
+		cairo-devel \
+		libjpeg-turbo-devel \
 		wayland-devel \
 		wayland-protocols-devel \
-		hyprutils \
 		libxkbcommon-devel
 
 	mkdir -p "$HOME/.local/share/ribyn/"
