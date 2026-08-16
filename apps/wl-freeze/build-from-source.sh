@@ -6,17 +6,19 @@ set -euo pipefail
 . "$RIBYN_ROOT/lib/utils.sh"
 . "$RIBYN_ROOT/lib/run_on_distro.sh"
 
-run_on_arch sudo pacman -S --needed --noconfirm \
-	jq \
-	psmisc \
-	xdotool \
-	libnotify
-
-run_on_fedora sudo dnf install -y \
-	jq \
-	psmisc \
-	xdotool \
-	libnotify
+if on_arch; then
+	sudo pacman -S --needed --noconfirm \
+		jq \
+		psmisc \
+		xdotool \
+		libnotify
+elif on_fedora; then
+	sudo dnf install --assumeyes \
+		jq \
+		psmisc \
+		xdotool \
+		libnotify
+fi
 
 mkdir -p "$HOME/.local/share/ribyn/"
 dest="$HOME/.local/share/ribyn/wl-freeze"
