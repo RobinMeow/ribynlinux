@@ -27,7 +27,7 @@ elif on_fedora; then
 		cargo install --locked \
 			rmpc
 	else
-		cargo binstall \
+		cargo-binstall \
 			rmpc
 	fi
 fi

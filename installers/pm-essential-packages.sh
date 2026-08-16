@@ -16,7 +16,8 @@ if on_arch; then
 		curl \
 		rsync \
 		fzf \
-		fd
+		fd \
+		cargo
 elif on_fedora; then
 	sudo dnf install -y \
 		@development-tools \
@@ -24,12 +25,14 @@ elif on_fedora; then
 		curl \
 		rsync \
 		fzf \
-		fd-find
+		fd-find \
+		cargo
 else
 	error "distro not supported"
 	exit 1
 fi
 
-"$RIBYN_ROOT/installers/cargo-binstall.sh"
+"$RIBYN_ROOT/apps/cargo-bins/sync.sh"
+"$RIBYN_ROOT/apps/cargo-bins/install.sh"
 
 success "essential packages installed"

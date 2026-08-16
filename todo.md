@@ -1,5 +1,6 @@
 # TicketSystem
 
+- maybe rsy before rin (because things like cargo-binstall want to collect telemetry)
 - defer homebrew installs to the end, to improve unattended installs
 - move logs from .cache to .local/state
 - arch only i think; cargo breaks ci on first install, asking if install from rust or rustup

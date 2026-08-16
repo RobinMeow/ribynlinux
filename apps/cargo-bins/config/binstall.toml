@@ -1,0 +1,14 @@
+confirm = true
+track_installs = true
+continue_on_failure = false
+strategies = []
+ 
+[telemetry]
+enabled = false
+consent_asked = false
+
+# fukn bs. they asked even with consent_asked set to fasle
+# Automatic Disabling:
+# If telemetry.consent_asked is false, telemetry is disabled in
+# Settings::merge_args() regardless of the enabled setting.
+# This ensures telemetry is never active without explicit user consent.
