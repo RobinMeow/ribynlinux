@@ -1,6 +1,7 @@
 # TicketSystem
 
-- cargo breaks ci on first install, asking if install from rust or rustup
+- move logs from .cache to .local/state
+- arch only i think; cargo breaks ci on first install, asking if install from rust or rustup
 - hypr wayland-protocol is missing on wob install
 - hypr sync should only call hyprctl reload if hypr is running (or ignore the error)
 - find something, which renders a grid on the screen flash-vimium-like
@@ -41,9 +42,10 @@ brew install --no-ask \
 
 ## app ideas
 
-- rust tui for managing worktrees
-- rust tui to manage config.sh
-- go tui app for pomodora using my own timer bin
+- cli with promp questions for generating a config.sh file in ~/.config/ribyn/config.sh
+- tui for managing worktrees
+- tui to manage config.sh
+- tui app for pomodora using my own timer bin
 - music dl (TUI)
 - calendar for birthdays (family sharable sync in Android?)
 - Raster-Selection for Kitty (not only left right, but also up down tab bar)
