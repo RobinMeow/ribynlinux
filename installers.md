@@ -16,17 +16,18 @@ dnf update --refresh --assumeyes && dnf install --assumeyes sudo git bc vim && \
 pacman -Syu --noconfirm; pacman -S --noconfirm sudo git bc vim; && \
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/RobinMeow/ribynlinux/master/bootstrap/yet-another-setup.sh)"
 
-# full install
-export RIBYN_ROOT="$HOME/ribynlinux" \
-  && git clone --depth 1 https://github.com/RobinMeow/ribynlinux.git "$RIBYN_ROOT" \
-  && "$RIBYN_ROOT/bin/rinsy"
-
 # install minial (git, curl, rsync, clone the repo and install and sync zsh)
 export RIBYN_ROOT="$HOME/ribynlinux" \
   && git clone --depth 1 https://github.com/RobinMeow/ribynlinux.git "$RIBYN_ROOT" \
   && "$RIBYN_ROOT/installers/pm-essential-packages.sh" \
   && "$RIBYN_ROOT/apps/zsh/install.sh" \
   && "$RIBYN_ROOT/apps/zsh/sync.sh"
+  && exec zsh
+
+# full install
+export RIBYN_ROOT="$HOME/ribynlinux" \
+  && git clone --depth 1 https://github.com/RobinMeow/ribynlinux.git "$RIBYN_ROOT" \
+  && "$RIBYN_ROOT/bin/rinsy"
 
 # skip hypr
 export RIBYN_ROOT="$HOME/ribynlinux" && \

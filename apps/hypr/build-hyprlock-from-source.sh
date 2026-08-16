@@ -43,19 +43,21 @@ elif on_fedora; then
 
 	sudo dnf install -y \
 		cmake \
+		gcc-c++ \
 		libxkbcommon-devel \
+		libglvnd-devel \
 		mesa-libgbm-devel \
 		sdbus-cpp-devel \
-		pam-devel
-	# cairo \
-	# libdrm \
+		cairo-devel \
+		pango-devel \
+		libdrm-devel \
+		pam-devel \
+		wayland-devel \
+		wayland-protocols-devel
 	# mesa-libEGL \
 	# mesa-libGL \
 	# pam \
-	# pango \
 	# sdbus-cpp \
-	# wayland-devel \
-	# wayland-protocols-devel
 else
 	error "distro not supported"
 	exit 1
