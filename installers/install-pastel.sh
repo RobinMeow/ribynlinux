@@ -11,7 +11,11 @@ set -euo pipefail
 # 	exit 0
 # fi
 
-cargo-binstall pastel
+if on_arch; then
+	cargo-binstall pastel
+elif on_fedora; then
+	cargobin pastel
+fi
 
 # NOTE: removed in favor of binstall. to reenable add config.sh env var
 #

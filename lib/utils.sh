@@ -220,3 +220,7 @@ press_any_to_continue() {
 
 	echo # Move to a new line so the next terminal output doesn't mash into the prompt
 }
+
+cargobin() {
+	"$HOME/.cargo/bin/cargo-binstall" --disable-telemetry --no-confirm $1
+}
