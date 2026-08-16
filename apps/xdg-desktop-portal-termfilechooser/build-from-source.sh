@@ -23,7 +23,7 @@ else
 		systemd-devel \
 		git \
 		xdg-desktop-portal \
-		inih \
+		inih-devel \
 		ninja \
 		meson \
 		scdoc
