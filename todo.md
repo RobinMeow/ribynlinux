@@ -66,6 +66,7 @@ brew install --no-ask \
 
 ## Neovim
 
+- use go typescript compiler for my new CompileTsc
 - consider swapping from snacks to nvim-notify looks better and i wanna get rid of snacks
 - increase git diffview left panel default width
 - strike trhough words when deprecated
