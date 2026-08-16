@@ -113,6 +113,8 @@ elif on_fedora; then
 	# file has libmagick
 
 	"$RIBYN_ROOT/apps/hypr/build-hyprutils-from-source.sh"
+	# TODO: ensure they all can clean re-build
+	# TODO: log into .local/state
 	"$RIBYN_ROOT/apps/hypr/build-hyprwayland-scanner-from-source.sh"
 	"$RIBYN_ROOT/apps/hypr/build-aquamarine-from-source.sh"
 	"$RIBYN_ROOT/apps/hypr/build-hyprlang-from-source.sh"
