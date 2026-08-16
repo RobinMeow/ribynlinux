@@ -115,11 +115,10 @@ run_on_fedora sudo dnf install -y --allowerasing \
 	ffmpeg
 
 if ! tldr --update; then
-	# NOTE: this one breaks my CI when github is down
 	# Error: Could not update cache
 	# Caused by:
 	#     Could not download tldr pages from https://github.com/tldr-pages/tldr/releases/latest/download//tldr-pages.en_US.zip: Err(Io(Custom { kind: UnexpectedEof, error: "Peer disconnected" }))
-	warn "[pm-core] tldr --update failed; tldr pages might not be available or out of date." >&2
+	warn "[pm-core] tldr --update failed; tldr pages might not be available or out of date. Usually becuase github is currently down. Just run it later." >&2
 	press_any_to_continue
 fi
 
