@@ -8,7 +8,7 @@ set -euo pipefail
 . "$RIBYN_ROOT/lib/run_on_distro.sh"
 
 if on_arch; then
-	sudo dnf install -y \
+	sudo pacman -S --needed --noconfirm \
 		go
 elif on_fedora; then
 	sudo dnf install -y \

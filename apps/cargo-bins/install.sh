@@ -5,7 +5,8 @@ set -euo pipefail
 . "$RIBYN_ROOT/lib/run_on_distro.sh"
 
 if on_arch; then
-	sudo pacman -S cargo-binstall
+	sudo pacman -S --needed --noconfirm \
+		cargo-binstall
 elif on_fedora; then
 	if command -v cargo-binstall &>/dev/null || [ -x "/usr/bin/cargo-binstall" ]; then
 		info "cargo-binstall already installed. skipping."

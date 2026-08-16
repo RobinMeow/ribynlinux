@@ -42,7 +42,7 @@ elif on_fedora; then
 	# mako is available in dnf
 	# mako \
 
-	run_on_fedora sudo dnf install -y \
+	sudo dnf install -y \
 		rofi \
 		wireplumber \
 		brightnessctl \

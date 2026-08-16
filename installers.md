@@ -13,7 +13,7 @@ dnf update --refresh --assumeyes && dnf install --assumeyes sudo git bc vim && \
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/RobinMeow/ribynlinux/master/bootstrap/yet-another-setup.sh)"
 
 # ARCH (in docker setting up a user named ribyn)
-pacman -Syu --noconfirm; pacman -S --noconfirm sudo git bc vim; && \
+pacman -Syu --noconfirm && pacman -S --noconfirm sudo git bc vim && \
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/RobinMeow/ribynlinux/master/bootstrap/yet-another-setup.sh)"
 
 # install minial (git, curl, rsync, clone the repo and install and sync zsh)
