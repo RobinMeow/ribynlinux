@@ -1,4 +1,17 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+# https://docs.docker.com/reference/cli/docker/container/run
+# API 1.25+ Run an init inside the container that forwards signals and reaps processes
+# WARN: --init didnt seem to help so I removed it again
+# it hangs on exit, i think because I install so much within it
 sudo docker run -it --rm fedora:latest /bin/bash
+
+# Specify an init process
+# You can use the --init flag to indicate that an init process should be used as the PID 1
+# in the container. Specifying an init process ensures the usual responsibilities of an init system,
+# such as reaping zombie processes, are performed inside the created container.
+#
+# The default init process used is the first docker-init executable found in the system path
+# of the Docker daemon process. This docker-init binary, included in the default installation,
+# is backed by tini.
