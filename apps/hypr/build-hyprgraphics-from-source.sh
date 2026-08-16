@@ -26,7 +26,8 @@ elif on_fedora; then
 		libjpeg-turbo-devel \
 		libwebp-devel \
 		librsvg2-devel \
-		file-devel
+		file-devel \
+		libglvnd-devel
 	# file has libmagick
 	# file has libpng-devel
 

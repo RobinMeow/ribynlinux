@@ -20,6 +20,9 @@ info "Installing yazi"
 info "Installing core"
 "$RIBYN_ROOT/scripts/pm-core.sh"
 
+info "Installing zsh"
+"$RIBYN_ROOT/apps/zsh/install.sh"
+
 info "Installing no tofu"
 "$RIBYN_ROOT/installers/no_tofu.sh"
 
@@ -28,9 +31,6 @@ info "Installing catppuccin cursors"
 
 info "Installing qt6ct"
 "$RIBYN_ROOT/apps/qt6ct/install.sh"
-
-info "Installing zsh"
-"$RIBYN_ROOT/apps/zsh/install.sh"
 
 info "Installing CommitMono"
 "$RIBYN_ROOT/installers/install-commit-mono.sh"
