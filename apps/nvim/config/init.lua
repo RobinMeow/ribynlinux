@@ -24,7 +24,6 @@ local rtp = vim.opt.rtp
 rtp:prepend(lazypath)
 
 require("lazy").setup({
-
   -- For additional information with loading, sourcing and examples see: `<space>sh` search for `lazy.nvim-plugin`
 
   { import = "plugins" }, -- imports lua files from lua/plugins/*
@@ -189,17 +188,18 @@ require("lazy").setup({
         ["delve"] = {}, -- go debugger
         ["goimports"] = {}, -- go formatter, import manager
         -- ["gofumpt"] = {}, -- stricter (probably opioniated) go formatter
-        ["ts_ls"] = {
-          -- NOTE: was kinda nice, but I did notice the start up being slower and the benefits werent that great. so disabled for now again
-          -- on_attach = function(client, bufnr)
-          --   -- some clients support workspace diagnostics natively
-          --   if client:supports_method("workspace/diagnostic", bufnr) then
-          --     vim.lsp.buf.workspace_diagnostics({ client_id = client.id })
-          --   else
-          --     require("workspace-diagnostics").populate_workspace_diagnostics(client, bufnr)
-          --   end
-          -- end,
-        }, -- https://github.com/pmizio/typescript-tools.nvim can be considered when more speed is required
+        ["tsgo"] = {},
+        -- ["ts_ls"] = {
+        --   -- NOTE: was kinda nice, but I did notice the start up being slower and the benefits werent that great. so disabled for now again
+        --   -- on_attach = function(client, bufnr)
+        --   --   -- some clients support workspace diagnostics natively
+        --   --   if client:supports_method("workspace/diagnostic", bufnr) then
+        --   --     vim.lsp.buf.workspace_diagnostics({ client_id = client.id })
+        --   --   else
+        --   --     require("workspace-diagnostics").populate_workspace_diagnostics(client, bufnr)
+        --   --   end
+        --   -- end,
+        -- }, -- https://github.com/pmizio/typescript-tools.nvim can be considered when more speed is required
         ["clangd"] = {}, -- ls for cpp c++ cpluscplus
         ["clang-format"] = {}, -- formatter for cpp c++ cpluscplus
         ["codelldb"] = {}, -- DAP for c/c++/rust/zig	(its installed via dap.lua)
@@ -497,9 +497,17 @@ vim.g.loaded_perl_provider = 0
 vim.g.loaded_python3_provider = 0
 vim.g.loaded_ruby_provider = 0
 
-vim.api.nvim_create_user_command("CompileTsc", function()
+vim.api.nvim_create_user_command("CompileTscOld", function()
   vim.cmd("compiler tsc")
   vim.opt.makeprg = "npx tsc --noEmit"
+  vim.cmd("make")
+  vim.cmd("copen")
+end, { nargs = 0 })
+
+vim.api.nvim_create_user_command("CompileTsc", function()
+  vim.cmd("compiler tsc")
+  -- NOTE: already correct by default
+  -- vim.opt.makeprg = "tsc"
   vim.cmd("make")
   vim.cmd("copen")
 end, { nargs = 0 })
