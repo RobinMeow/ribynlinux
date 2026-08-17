@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+exec echo $((($(date +%s) - $(stat -c %W /)) / 86400)) days
