@@ -55,7 +55,7 @@ run_on_arch sudo pacman -S --needed --noconfirm \
 # WARN: i remember targeting pack being a bug fix for dotnet
 # specifically for archlinux. but I ll wait until I run into it again.
 # It might not occur anymore, since I include latest verson install
-# in neovim by default now.
+# shouldn't be needed anymore, just run the dotnet install script with --version "latest"
 #
 # dotnet-runtime \
 # dotnet-sdk \

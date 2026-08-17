@@ -27,16 +27,28 @@ if on_arch; then
 		go \
 		cargo \
 		wget \
-		npm \
-		neovim
+		npm
+
+	if [[ "$RIBYN_NVIM_BUILD_FROM_SOURCE" == "yes" ]]; then
+		"$RIBYN_ROOT/apps/nvim/build-from-source.sh"
+	else
+		sudo pacman -S --needed --noconfirm \
+			neovim
+	fi
 elif on_fedora; then
 	sudo dnf install --assumeyes \
 		tree-sitter-cli \
 		golang \
 		cargo \
 		wget2-wget \
-		npm \
-		neovim
+		npm
+
+	if [[ "$RIBYN_NVIM_BUILD_FROM_SOURCE" == "yes" ]]; then
+		"$RIBYN_ROOT/apps/nvim/build-from-source.sh"
+	else
+		sudo dnf install --assumeyes \
+			neovim
+	fi
 fi
 
 # INFO: if the checkhealth warnings bother you,
@@ -47,7 +59,3 @@ fi
 #
 # run_on_fedora sudo dnf install -y \
 # 	php composer java-devel julia
-
-# NOTE: no longer in use in favor of binary installs
-#
-# "$RIBYN_ROOT/apps/nvim/build-from-source.sh"

@@ -9,13 +9,23 @@ set -euo pipefail
 
 # NEOVIM
 {
+	# builds neovim from source instead of using the package manager to install
+	# the binaries. binaries are recoomended. Use build from source
+	# if you want to use Release build type, which aggressivly pushes for
+	# performance. Builds are not guaranteed to work, and often requires a re-run.
+	export RIBYN_NVIM_BUILD_FROM_SOURCE=${RIBYN_NVIM_BUILD_FROM_SOURCE:-"no"}
+
+	# requires BUILD_FROM_SOURCE to be set to "yes"
 	# anything you can call git checkout on.
 	# usually 'master' branch or 'stable' tag
 	export RIBYN_NVIM_GIT_REF=${RIBYN_NVIM_GIT_REF:-"stable"}
 
+	# requires BUILD_FROM_SOURCE to be set to "yes"
 	# whether or not to fetch the latest commits before checking out the BUILD_REF
+	# requires BUILD_FROM_SOURCE to be set to "yes"
 	export RIBYN_NVIM_GIT_FETCH=${RIBYN_NVIM_GIT_FETCH:-"no"}
 
+	# requires BUILD_FROM_SOURCE to be set to "yes"
 	# neovim build: https://github.com/neovim/neovim/blob/master/BUILD.md
 	# sorted by slowest runtime to fastest, and fastest build time to slowest (runtime optimizations take longer)
 	# Debug: Full debug information; few optimizations. Use this for development to get meaningful output from debuggers like GDB or LLDB. This is the default if CMAKE_BUILD_TYPE is not specified.
