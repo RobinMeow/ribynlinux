@@ -4,6 +4,7 @@
 
 ## Tasks
 
+- [ ] build from source for fedora: https://github.com/hyprwm/hyprland-guiutils
 - [ ] use something else for desktop notifications
 
 deferred:
