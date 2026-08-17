@@ -7,6 +7,10 @@ Here is the quick Linux command-line rundown for mounting a USB drive.
 ```bash
 lsblk
 
+# this one lets you see in the TRANS column if its a usb
+# so you dont have to guess which one the right one is based on size alone
+lsblk -o NAME,SIZE,MODEL,TRAN,MOUNTPOINTS
+
 ```
 
 Look at the sizes to identify your USB. The partition you want to mount will usually look something like `sdb1` or `sdc1`.
