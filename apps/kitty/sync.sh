@@ -15,17 +15,17 @@ if [[ "$OS_TYPE" == "wsl" ]]; then
 
 # WSL Specific Changes
 background_image $HOME/.config/kitty/background.png
-background_opacity 0
+background_opacity 1
 background_image_layout scaled
 # darken the bg
 background black
 background_tint 0.99
 
 # WARN: comment in to throttle rendering to save a bit of performance
-# font_size 11
-# repaint_delay 100
-# input_delay 5
-# sync_to_monitor no
+font_size 11
+repaint_delay 100
+input_delay 5
+sync_to_monitor no
 EOF
 
 	info "Kitty: WSL specific config has been appended."

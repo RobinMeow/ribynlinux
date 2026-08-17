@@ -62,6 +62,7 @@ which is bloated but works pretty reliably at least.
 1. find the wslg.exe and create shortcut
 2. change the target to
   `"C:\Program Files\WSL\wslg.exe" -d fedora --cd "~" -- kitty --start-as maximized`
+3. change default shell `chsh -s /bin/zsh` while logged in as your user
 
 optionally
 
@@ -73,6 +74,21 @@ optionally
 
 C:\Users\<user>\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\archlinux
 also contains a launcher
+
+for fedora distro install those:
+```sh
+# these two are definetly needed, fixed first two errors:
+sudo dnf install -y libwayland-egl libwayland-cursor
+
+# these (or one or more of them) fixed the segmentation error (taken from my hyprland deps)
+sudo dnf install --assumeyes \
+  wayland-protocols-devel \
+  xorg-x11-server-Xwayland \
+  wayland-devel
+
+# if doesnt work, run ai stuff:
+sudo dnf install libwayland-egl mesa-libEGL libglvnd-gles libwayland-egl-devel mesa-libEGL-devel libwayland-cursor libwayland-client libxkbcommon wayland-devel libX11-devel libXcursor-devel libXrandr-devel libXinerama-devel libXi-devel
+```
 
 ---
 
