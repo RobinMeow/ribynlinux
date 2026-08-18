@@ -130,3 +130,16 @@ sudo dnf install libwayland-egl mesa-libEGL libglvnd-gles libwayland-egl-devel m
 you can use powertoys for a keyboard manger.
 Makes it easier to swap caps esc.
 Microsoft keyboard layout creator for setting no dead keys.
+
+### Enable long file paths
+
+open regedit (Registry Editor)
+nav to `Computer\HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\FileSystem`
+change `LongPathsEnabled` to value `1` which enables it.
+if it doesnt exist:
+1. right click
+2. new
+3. DWORD 32 bit
+4. name `LongPathsEnabled`
+5. click click, modify set to `1`
+
