@@ -104,6 +104,7 @@ decided to wait at least until im no longer on nvidia. Even pre-configured "them
 
 - https://makefiletutorial.com
 - make sure simple kind of man is in my music playlist
+- [rclone to sync cloud as a mounted filesystem](https://github.com/rclone/rclone)
 
 # Walkolution
 
