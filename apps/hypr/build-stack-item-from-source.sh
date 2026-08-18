@@ -4,10 +4,10 @@ set -euo pipefail
 name=$1
 giturl=$2
 gitref=$3
-pkgname=$4
+pkgname=${4:-$1}
 
-mkdir -p "$HOME/.local/state/ribyn/hypr/"
-logfile="$HOME/.local/state/ribyn/hypr/$name-build-from-source.log"
+mkdir -p "$HOME/.local/state/ribyn/"
+logfile="$HOME/.local/state/ribyn/$name-build-from-source.log"
 # Append to file and print to terminal simultaneously
 # use --append flag if you want to append, instead of override
 exec > >(tee "$logfile") 2>&1
@@ -19,9 +19,9 @@ if pkg-config --exists "$pkgname"; then
 	exit 0
 fi
 
-mkdir -p "$HOME/.local/share/ribyn/hypr/"
+mkdir -p "$HOME/.local/share/ribyn/"
 (
-	dest="$HOME/.local/share/ribyn/hypr/$name"
+	dest="$HOME/.local/share/ribyn/$name"
 	if [[ -d "$dest" ]]; then
 		warn "$name repo detected. removing for clean for rebuild."
 		rm -rf "$dest"
@@ -32,7 +32,8 @@ mkdir -p "$HOME/.local/share/ribyn/hypr/"
 	git checkout "$gitref"
 	# TODO: use /usr/local as install path intead, to prevent conflict with pacman installs
 	cmake --no-warn-unused-cli -DCMAKE_BUILD_TYPE:STRING=Release -DCMAKE_INSTALL_PREFIX:PATH=/usr -S . -B ./build
-	# TODO: consider -1 core, to prevent segementation fails ?
+
+	# NOTE: consider -1 core, to prevent segementation fails ? if it happens again
 	cmake --build ./build --config Release --target all -j"$(nproc 2>/dev/null || getconf NPROCESSORS_CONF)"
 	sudo cmake --install build
 )

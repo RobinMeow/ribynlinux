@@ -120,6 +120,8 @@ set -euo pipefail
 	# * 3a1c1b2 (tag: v0.6.8) version: bump to 0.6.8 Vaxry (7 months ago)
 	export RIBYN_HYPR_HYPRLANG_GIT_REF=${RIBYN_HYPR_HYPRLANG_GIT_REF:-"v0.6.8"}
 
+	export RIBYN_HYPR_HYPRCURSOR_GIT_REF=${RIBYN_HYPR_HYPRCURSOR_GIT_REF:-"v0.1.13"}
+
 	# * 7c895c4 (HEAD -> main, origin/main, origin/HEAD) flake.lock: update Mihai Fufezan (4 days ago)
 	# * 482d4b7 (tag: v0.5.1) version: bump to 0.5.1 Vaxry (4 months ago)
 	export RIBYN_HYPR_HYPRGRAPHICS_GIT_REF=${RIBYN_HYPR_HYPRGRAPHICS_GIT_REF:-"v0.5.1"}
@@ -130,7 +132,10 @@ set -euo pipefail
 
 	export RIBYN_HYPR_HYPRWIRE_GIT_REF=${RIBYN_HYPR_HYPRWIRE_GIT_REF:-"v0.3.1"} # 4 months ago
 	export RIBYN_HYPR_HYPRLAND_GUIUTILS_GIT_REF=${RIBYN_HYPR_HYPRLAND_GUIUTILS_GIT_REF:-"v0.2.2"}
-	export RIBYN_HYPR_HYPRLAND_PROTOCOLS_GIT_REF=${RIBYN_HYPR_HYPRLAND_PROTOCOLS_GIT_REF:-"v0.7.0"}
+
+	# one commit after v0.7.0 they swapped to camke, so I can reuse my build script :)
+	export RIBYN_HYPR_HYPRLAND_PROTOCOLS_GIT_REF=${RIBYN_HYPR_HYPRLAND_PROTOCOLS_GIT_REF:-"3f3860b869014c00e8b9e0528c7b4ddc335c21ab"}
+	export RIBYN_HYPR_XDG_DESKTOP_PORTAL_HYPRLAND_GIT_REF=${RIBYN_HYPR_XDG_DESKTOP_PORTAL_HYPRLAND_GIT_REF:-"v1.4.1"}
 
 	# these are additional apps to hypr, based on hypr. but hypr does not depend on them itself
 	export RIBYN_HYPR_HYPRSHUTDOWN_GIT_REF=${RIBYN_HYPR_HYPRSHUTDOWN_GIT_REF:-"v0.1.1"}
