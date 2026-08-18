@@ -17,7 +17,8 @@ if on_arch; then
 		rsync \
 		fzf \
 		fd \
-		cargo
+		cargo \
+		pkconf
 elif on_fedora; then
 	sudo dnf install -y \
 		@development-tools \
@@ -26,7 +27,8 @@ elif on_fedora; then
 		rsync \
 		fzf \
 		fd-find \
-		cargo
+		cargo \
+		pkgconf-pkg-config
 else
 	error "distro not supported"
 	exit 1

@@ -38,88 +38,39 @@ elif on_fedora; then
 		wayland-protocols-devel \
 		xorg-x11-server-Xwayland \
 		wayland-devel
-	# 	ninja-build \
-	# 	cmake \
-	# 	meson \
-	# 	gcc \
-	# 	libxcb \
-	# 	libxcb-devel \
-	# 	xcb-proto \
-	# 	xcb-util \
-	# 	xcb-util-devel \
-	# 	xcb-util-keysyms \
-	# 	xcb-util-keysyms-devel \
-	# 	libXfixes \
-	# 	libX11 \
-	# 	libX11-devel \
-	# 	libXcomposite \
-	# 	libXcomposite-devel \
-	# 	libXrender \
-	# 	libXrender-devel \
-	# 	libXcursor \
-	# 	libXcursor-devel \
-	# 	pixman \
-	# 	pixman-devel \
-	# 	cairo-devel \
-	# 	pango-devel \
-	# 	libxkbcommon \
-	# 	libxkbcommon-devel \
-	# 	xcb-util-wm \
-	# 	xcb-util-wm-devel \
-	# 	libinput \
-	# 	libinput-devel \
-	# 	libliftoff \
-	# 	libliftoff-devel \
-	# 	libdisplay-info \
-	# 	libdisplay-info-devel \
-	# 	cpio \
-	# 	tomlplusplus \
-	# 	tomlplusplus-devel \
-	# 	hyprcursor \
-	# 	hyprcursor-devel \
-	# 	xcb-util-errors \
-	# 	xcb-util-errors-devel \
-	# 	hyprgraphics \
-	# 	hyprgraphics-devel \
-	# 	re2 \
-	# 	re2-devel \
-	# 	muParser \
-	# 	muParser-devel \
-	# 	gcc-c++ \
-	# 	xcb-util-devel \
-	# 	xcb-util-keysyms-devel \
-	# 	libxcb-devel \
-	# 	libseat-devel \
-	# 	hwdata-devel \
-	# 	libX11-devel \
-	# 	pixman-devel \
-	# 	mesa-libgbm \
-	# 	mesa-libgbm-devel \
-	# 	libdrm \
-	# 	libdrm-devel \
-	# 	mesa-libEGL \
-	# 	mesa-libGL \
-	# 	mesa-libGL-devel \
-	# 	mesa-libEGL-devel \
-	# 	mesa-libGLES-devel \
-	# 	libglvnd-devel \
-	# 	glslang-devel \
-	# 	pugixml-devel \
-	# 	libjpeg-turbo-devel \
-	# 	libwebp-devel \
-	# 	file-devel \
-	# 	librsvg2-devel
 
-	# file has libmagick
+	# build order because some of these depend on one another:
+	#  1. hyprland-protocols (According to Dergo from discord "it's a git submodule of most of the apps that require it. If you don't have it system-wide, cmake just uses the submodule. It's just a few xml files needed to build other stuff)
+	#  2. hyprwayland-scanner
+	#  3. hyprutils
+	#  4. hyprgraphics
+	#  5. hyprlang
+	#  6. hyprcursor
+	#  7. aquamarine
+	#  8. xdg-desktop-portal-hyprland
+	#  9. hyprwire
+	# 10. hyprtoolkit
+	# 11. hyprland
+	# 12. hyprland-guiutils (runtime-only dependency. formerly hyprland-qtutils)
 
-	"$RIBYN_ROOT/apps/hypr/build-hyprutils-from-source.sh"
 	# TODO: ensure they all can clean re-build
 	# TODO: log into .local/state
+	# TODO: build from source hyprland-protocols
+	"$RIBYN_ROOT/apps/hypr/build-stack-item-from-source.sh" \
+		"hyprland-protocols" \
+		"https://github.com/hyprwm/hyprland-protocols" \
+		$RIBYN_HYPR_HYPRLAND_PROTOCOLS_GIT_REF \
+		"hyprland-protocols"
+
 	"$RIBYN_ROOT/apps/hypr/build-hyprwayland-scanner-from-source.sh"
-	"$RIBYN_ROOT/apps/hypr/build-aquamarine-from-source.sh"
-	"$RIBYN_ROOT/apps/hypr/build-hyprlang-from-source.sh"
+	"$RIBYN_ROOT/apps/hypr/build-hyprutils-from-source.sh"
 	"$RIBYN_ROOT/apps/hypr/build-hyprgraphics-from-source.sh"
+	"$RIBYN_ROOT/apps/hypr/build-hyprlang-from-source.sh"
+	# TODO: build from source hyprcursor
+	"$RIBYN_ROOT/apps/hypr/build-aquamarine-from-source.sh"
+	# TODO: build from source xdg-desktop-portal-hyprland
 	"$RIBYN_ROOT/apps/hypr/build-hyprwire-from-source.sh"
+	"$RIBYN_ROOT/apps/hypr/build-hyprtoolkit-from-source.sh"
 	"$RIBYN_ROOT/apps/hypr/build-hyprland-from-source.sh"
 	"$RIBYN_ROOT/apps/hypr/build-hyprland-guiutils-from-source.sh"
 
