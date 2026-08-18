@@ -22,7 +22,7 @@ export RIBYN_ROOT="$HOME/ribynlinux" \
   && "$RIBYN_ROOT/installers/pm-essential-packages.sh" \
   && "$RIBYN_ROOT/apps/zsh/install.sh" \
   && "$RIBYN_ROOT/apps/zsh/sync.sh" \
-  && exec zsh
+  && zsh
 
 # full install
 export RIBYN_ROOT="$HOME/ribynlinux" \

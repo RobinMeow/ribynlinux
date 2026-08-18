@@ -121,6 +121,7 @@ elif on_fedora; then
 	"$RIBYN_ROOT/apps/hypr/build-hyprgraphics-from-source.sh"
 	"$RIBYN_ROOT/apps/hypr/build-hyprwire-from-source.sh"
 	"$RIBYN_ROOT/apps/hypr/build-hyprland-from-source.sh"
+	"$RIBYN_ROOT/apps/hypr/build-hyprland-guiutils-from-source.sh"
 
 	# NOTE: copr is also available. if you trust the person who maintains it
 	# lionheartp/Hyprland https://copr.fedorainfracloud.org/coprs/lionheartp/Hyprland

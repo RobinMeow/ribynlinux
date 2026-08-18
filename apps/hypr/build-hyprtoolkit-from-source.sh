@@ -15,11 +15,20 @@ if on_arch; then
 	error "ERROR: Use pacman on archlinux to install hyprtoolkit. use pacman -S hyprtoolkit instead."
 	exit 1
 elif on_fedora; then
+	# WARN: depends on:
+	# - hyprgraphics
+	# - aquamarine
+
 	sudo dnf install --assumeyes \
 		cmake \
 		gcc \
 		gcc-c++ \
-		iniparser-devel
+		iniparser-devel \
+		pango-devel \
+		mesa-libgbm-devel \
+		cairo-devel \
+		wayland-devel \
+		wayland-protocols-devel
 
 	mkdir -p "$HOME/.local/share/ribyn/hypr/"
 	(

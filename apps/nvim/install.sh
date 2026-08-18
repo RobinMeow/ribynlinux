@@ -7,6 +7,7 @@ set -euo pipefail
 #
 # It will include infos like "could not find npm to install typescript language server"
 
+. "$RIBYN_ROOT/config.sh"
 . "$RIBYN_ROOT/lib/run_on_distro.sh"
 . "$RIBYN_ROOT/lib/utils.sh"
 
