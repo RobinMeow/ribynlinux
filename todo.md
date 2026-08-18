@@ -66,6 +66,8 @@ brew install --no-ask \
 
 ## Neovim
 
+- review prs from github/gitlab in neovim [atlas.nvim](https://github.com/emrearmagan/atlas.nvim)
+  I have not yet compared this to other plugins. Just as an idea
 - use go typescript compiler for my new CompileTsc
 - consider swapping from snacks to nvim-notify looks better and i wanna get rid of snacks
 - increase git diffview left panel default width

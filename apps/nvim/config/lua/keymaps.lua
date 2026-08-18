@@ -131,3 +131,4 @@ end, { desc = "Convert decimal under cursor to hex" })
 vim.keymap.set("n", "<leader>md", ":delmarks a-z<CR>:delmarks A-Z<CR>:delmarks 0-9<CR>", { desc = "marks: delete all" })
 
 require("keymaps-angular").setup()
+require("adopure-keymaps").setup()
