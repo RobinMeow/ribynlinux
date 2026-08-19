@@ -507,7 +507,8 @@ end, { nargs = 0 })
 vim.api.nvim_create_user_command("CompileTsc", function()
   vim.cmd("compiler tsc")
   -- NOTE: already correct by default
-  -- vim.opt.makeprg = "tsc"
+  -- noEmit does not emit javascript output files
+  -- vim.opt.makeprg = "tsc --noEmit"
   vim.cmd("make")
   vim.cmd("copen")
 end, { nargs = 0 })
