@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+# TODO: try using the stack item build
 mkdir -p "$HOME/.cache/ribyn/hypr/"
 logfile="$HOME/.cache/ribyn/hypr/hyprpolkitagent-build-from-source.log"
 # Append to file and print to terminal simultaneously
