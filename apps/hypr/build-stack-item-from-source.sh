@@ -4,7 +4,6 @@ set -euo pipefail
 name=$1
 giturl=$2
 gitref=$3
-pkgname=${4:-$1}
 
 mkdir -p "$HOME/.local/state/ribyn/"
 logfile="$HOME/.local/state/ribyn/$name-build-from-source.log"
@@ -13,11 +12,6 @@ logfile="$HOME/.local/state/ribyn/$name-build-from-source.log"
 exec > >(tee "$logfile") 2>&1
 
 . "$RIBYN_ROOT/lib/utils.sh"
-
-if pkg-config --exists "$pkgname"; then
-	info "$name already installed. Skipping."
-	exit 0
-fi
 
 mkdir -p "$HOME/.local/share/ribyn/"
 (
@@ -30,7 +24,11 @@ mkdir -p "$HOME/.local/share/ribyn/"
 	git clone "$giturl" "$dest"
 	cd "$dest"
 	git checkout "$gitref"
-	# TODO: use /usr/local as install path intead, to prevent conflict with pacman installs
+	# WARN: installs into /usr
+	# so avoid using the package manager to install these
+	# can cause conflicts.
+	# will prevent juggling systemd/env vars
+	# to excpose the /usr/local paths etc..
 	cmake --no-warn-unused-cli -DCMAKE_BUILD_TYPE:STRING=Release -DCMAKE_INSTALL_PREFIX:PATH=/usr -S . -B ./build
 
 	# NOTE: consider -1 core, to prevent segementation fails ? if it happens again
