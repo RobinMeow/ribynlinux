@@ -23,6 +23,7 @@ elif on_fedora; then
 	sudo dnf install -y \
 		@development-tools \
 		git \
+		tar \
 		curl \
 		rsync \
 		fzf \
