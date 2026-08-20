@@ -167,9 +167,9 @@ function m.setup()
   key.bind("SUPER + W", hl.dsp.exec_cmd("pkill --exact waybar || waybar"), { desc = "stop/start waybar" })
 
   -- dunst
-  key.bind("SUPER + C", os.execute("dunstctl close"), { desc = "close notification" })
-  key.bind("SUPER + SHIFT + C", os.execute("dunstctl close-all"), { desc = "close all notifications" })
-  key.bind("SUPER + D", os.execute("dunstctl history-pop"), { desc = "display last notification again" })
+  key.bind("SUPER + C", hl.dsp.exec_cmd("dunstctl close"), { desc = "close notification" })
+  key.bind("SUPER + SHIFT + C", hl.dsp.exec_cmd("dunstctl close-all"), { desc = "close all notifications" })
+  key.bind("SUPER + D", hl.dsp.exec_cmd("dunstctl history-pop"), { desc = "display last notification again" })
 
   -- multimedia keys for volume and LCD brightness (usually on laptops for fn keys)
   -- NOTE: according to AI, locked is for allow in lock-screen and repeating for hold to spam
