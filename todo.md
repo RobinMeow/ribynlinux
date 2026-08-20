@@ -1,5 +1,6 @@
 # TicketSystem
 
+- configure dunst to have a timer and build tools based on it `notify-send "test"`
 - checkout [palemoon](https://github.com/RealityRipple/Pale-Moon)
 - password manager from the ebook 
 - maybe rsy before rin (because things like cargo-binstall want to collect telemetry)
