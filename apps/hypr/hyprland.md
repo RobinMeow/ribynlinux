@@ -86,6 +86,13 @@ completed:
 
 ---
 
+hyprland-session.target
+xdg-desktop-portal requires a graphical session target or it refuses to start.
+`systemctl --user edit --full --force hyprland-session.target`
+to create the config file
+
+---
+
 > has a built in [timer](https://wiki.hypr.land/Configuring/Advanced-and-Cool/Expanding-functionality/#timers)
 
 desktop notification thingies:

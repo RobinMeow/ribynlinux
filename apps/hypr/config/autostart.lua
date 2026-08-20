@@ -15,15 +15,31 @@ end
 function m.setup()
   local ok, _local = pcall(require, "local.autostart")
 
+  hl.on("hyprland.start", function()
+    -- run these always regardless of per-machine-local setup
+
+    -- set dark themes
+    hl.exec_cmd("gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita-dark'")
+    hl.exec_cmd("gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'")
+    hl.exec_cmd("/usr/local/libexec/xdg-desktop-portal-termfilechooser -r")
+
+    -- https://wiki.hypr.land/Useful-Utilities/Systemd-start/#hyprland-sessiontarget
+    hl.exec_cmd("systemctl --user start hyprland-session.target")
+  end)
+
+  hl.on("hyprland.shutdown", function()
+    -- https://wiki.hypr.land/Useful-Utilities/Systemd-start/#hyprland-sessiontarget
+    -- uses a blocking exec function and sleeps a bit to give things time to close
+    os.execute("systemctl --user stop hyprland-session.target && sleep 0.1")
+
+    -- you can kill troublesome apps which don't want to close:
+    -- os.execute("pkill wallpaperthing; systemctl --user stop hyprland-session.target && sleep 0.1")
+  end)
+
   if ok and _local.enabled == true then
-    hl.on("hyprland.start", function()
-      -- set dark themes
-      hl.exec_cmd("gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita-dark'")
-      hl.exec_cmd("gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'")
-      hl.exec_cmd("/usr/local/libexec/xdg-desktop-portal-termfilechooser -r")
-    end)
     _local.setup()
   else
+    -- a sensible default
     hl.on("hyprland.start", default_autostart)
   end
 end

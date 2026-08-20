@@ -26,6 +26,11 @@ ribyn_rsync "$RIBYN_ROOT/assets/images/wallpapers/car-in-grass.jpg" "$HOME/.conf
 
 ribyn_rsync "$RIBYN_ROOT/apps/hypr/hyprbye.sh" "$HOME/.local/bin/hyprbye"
 
+mkdir -p "$HOME/.config/systemd/user/"
+ribyn_rsync \
+	"$RIBYN_ROOT/apps/hypr/hyprland-session.target" \
+	"$HOME/.config/systemd/user/"
+
 # eeyore hyprlock
 mkdir -p "$HOME/.config/hypr/eeyore/"
 ribyn_rsync "$RIBYN_ROOT/assets/images/eeyore.png" "$HOME/.config/hypr/eeyore/eeyore.png"
