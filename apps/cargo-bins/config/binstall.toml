@@ -5,7 +5,7 @@ strategies = []
  
 [telemetry]
 enabled = false
-consent_asked = false
+consent_asked = true
 
 # fukn bs. they asked even with consent_asked set to fasle
 # Automatic Disabling:
