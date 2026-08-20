@@ -30,6 +30,10 @@ elif on_fedora; then
 		fd-find \
 		cargo \
 		pkgconf-pkg-config
+
+	# NOTE essential if you have intel gpu/onboard
+	# and want e.g. firefox to use gpu for video decoding
+	# libva-intel-media-driver \
 else
 	error "distro not supported"
 	exit 1
