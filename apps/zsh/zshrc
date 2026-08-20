@@ -1,9 +1,7 @@
+# zmodload zsh/zprof
 # vim: ft=zsh
 # shellcheck disable=SC2148
 # shellcheck shell=zsh
-
-zmodload zsh/datetime
-_start_time=$EPOCHREALTIME
 
 export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 HISTCONTROL=ignoredups
@@ -180,7 +178,5 @@ if [[ -f "$zshlocal" ]]; then
 	source "$zshlocal"
 fi
 
-_total_ms=$(printf "%.2f" $((($EPOCHREALTIME - _start_time) * 1000)))
-echo "${_total_ms}ms. $(date +%A,\ %Y-%m-%d\ %H:%M)"
 echo "And whatever you do, do it heartily, as to the Lord and not to men, Colossians 3, 23 (NKJV)"
-unset _start_time _total_ms
+# zprof
