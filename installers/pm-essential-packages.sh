@@ -18,7 +18,7 @@ if on_arch; then
 		fzf \
 		fd \
 		cargo \
-		pkconf
+		pkgconf
 elif on_fedora; then
 	sudo dnf install -y \
 		@development-tools \
