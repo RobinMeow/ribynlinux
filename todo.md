@@ -1,5 +1,6 @@
 # TicketSystem
 
+- password manager from the ebook 
 - maybe rsy before rin (because things like cargo-binstall want to collect telemetry)
 - defer homebrew installs to the end, to improve unattended installs
 - move logs from .cache to .local/state

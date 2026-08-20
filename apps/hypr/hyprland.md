@@ -4,7 +4,6 @@
 
 ## Tasks
 
-- [ ] build from source for fedora: https://github.com/hyprwm/hyprland-guiutils
 - [ ] use something else for desktop notifications
 
 deferred:
@@ -40,6 +39,7 @@ abandoned i think:
 
 completed:
 
+- [x] build from source for fedora: https://github.com/hyprwm/hyprland-guiutils
 - [x] waybar should kill itself on lockscreen. remember it was running,
   and start backup after lock screen
 - [x] wl-freeze
