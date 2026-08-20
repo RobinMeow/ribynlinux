@@ -32,3 +32,5 @@ quite big for being so minimal. But I guess one of the installs above installed 
 
 544 packages after just installing git.
 perhaps fedora just maintains more smaller packages
+
+1656 after running my whole installer :)
