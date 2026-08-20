@@ -10,6 +10,10 @@ ribyn_rsync \
 	"$HOME/.zshrc"
 
 ribyn_rsync \
+	"$RIBYN_ROOT/apps/zsh/starship.toml" \
+	"$HOME/.config/starship.toml"
+
+ribyn_rsync \
 	"$RIBYN_ROOT/apps/zsh/powerlevel10k/p10k.zsh" \
 	"$HOME/.config/ribyn/zsh/"
 

@@ -1,13 +1,6 @@
 # vim: ft=zsh
 # shellcheck disable=SC2148
 # shellcheck shell=zsh
-#
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-	source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
 
 zmodload zsh/datetime
 _start_time=$EPOCHREALTIME
@@ -17,14 +10,6 @@ HISTCONTROL=ignoredups
 
 # Path to your Oh My Zsh installation
 export ZSH="$HOME/.oh-my-zsh"
-
-p10kfile="$HOME/.config/ribyn/zsh/p10k.zsh"
-if [[ -f "$p10kfile" ]]; then
-	ZSH_THEME="powerlevel10k/powerlevel10k"
-else
-	echo "THE POWERLEVEL10K IS A LIE."
-	ZSH_THEME="avit"
-fi
 
 zstyle ':omz:update' mode reminder
 
@@ -185,20 +170,17 @@ function y() {
 	rm -f -- "$tmp"
 }
 
+export HOMEBREW_NO_AUTO_UPDATE=1
+export HOMEBREW_NO_ANALYTICS=1
+
+eval "$(starship init zsh)"
+
 zshlocal="$HOME/.config/ribyn/zsh/local.sh"
 if [[ -f "$zshlocal" ]]; then
 	source "$zshlocal"
 fi
 
-export HOMEBREW_NO_AUTO_UPDATE=1
-export HOMEBREW_NO_ANALYTICS=1
-
 _total_ms=$(printf "%.2f" $((($EPOCHREALTIME - _start_time) * 1000)))
 echo "${_total_ms}ms. $(date +%A,\ %Y-%m-%d\ %H:%M)"
 echo "And whatever you do, do it heartily, as to the Lord and not to men, Colossians 3, 23 (NKJV)"
 unset _start_time _total_ms
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-if [[ -f "$p10kfile"  ]]; then
-	source $p10kfile
-fi

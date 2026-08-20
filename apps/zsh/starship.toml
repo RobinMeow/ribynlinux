@@ -1,0 +1,46 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+# using the PURE preset and minimalized it even more
+# https://starship.rs/presets/pure-preset
+
+format = """
+$directory\
+$git_branch\
+$git_state\
+$git_status\
+$line_break\
+$character"""
+
+[directory]
+# catppucci magenta
+style = "#cba6f7"
+# disable chopping of parent dirs
+truncation_length = 0
+# git repos are shown alone, by default. turning off
+truncate_to_repo = false
+
+[character]
+success_symbol = "[❯](#a6e3a1)"
+error_symbol = "[❯](#f38ba8)"
+# Normal Mode
+vimcmd_symbol = "[N](#b4befe)"
+
+[git_branch]
+format = "[$branch]($style)"
+# catppuccin green
+style = "#a6e3a1"
+
+[git_status]
+format = "[[(*$conflicted$untracked$modified$staged$renamed$deleted)](218) ($ahead_behind$stashed)]($style)"
+style = "cyan"
+conflicted = "​"
+untracked = "​"
+modified = "​"
+staged = "​"
+renamed = "​"
+deleted = "​"
+stashed = "≡"
+
+[git_state]
+format = '\([$state( $progress_current/$progress_total)]($style)\) '
+style = "bright-black"

@@ -6,11 +6,16 @@ set -euo pipefail
 . "$RIBYN_ROOT/lib/run_on_distro.sh"
 
 if on_arch; then
-	run_on_arch sudo pacman -S --needed --noconfirm \
-		zsh
+	sudo pacman -S --needed --noconfirm \
+		zsh \
+		starship
 elif on_fedora; then
 	sudo dnf install --assumeyes \
 		zsh
+
+	# startship is slightly slower.
+	# but in total alot faster becuase it does not rely on instant promp
+	cargobin starship
 fi
 
 "$RIBYN_ROOT/apps/zsh/oh-my-zsh/install.sh"
