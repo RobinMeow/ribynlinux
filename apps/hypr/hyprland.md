@@ -95,8 +95,5 @@ to create the config file
 
 > has a built in [timer](https://wiki.hypr.land/Configuring/Advanced-and-Cool/Expanding-functionality/#timers)
 
-desktop notification thingies:
-swaync, hyprpanel, mako, dunst
-
 > [enable blur only for specific windows](https://github.com/hyprwm/Hyprland/discussions/4169)
 > for now I take the performance hit

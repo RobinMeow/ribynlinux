@@ -86,11 +86,14 @@ info "Installing wl-freeze"
 info "Installing waybar"
 "$RIBYN_ROOT/apps/waybar/install.sh"
 
-info "Installing hypr"
-"$RIBYN_ROOT/apps/hypr/install.sh"
+info "Installing dunst"
+"$RIBYN_ROOT/apps/dunst/install.sh"
 
 info "Installing wob"
 "$RIBYN_ROOT/apps/wob/install.sh"
+
+info "Installing hypr"
+"$RIBYN_ROOT/apps/hypr/install.sh"
 
 info "Installing kde"
 "$RIBYN_ROOT/apps/kde/install.sh"

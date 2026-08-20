@@ -3,14 +3,15 @@ local m = {}
 function m.setup()
   local key = require("key")
   -- Example binds https://wiki.hypr.land/Configuring/Basics/Binds/
-  key.bind("SUPER + Q", hl.dsp.exec_cmd("kitty"), { desc = "open kitty terminal" })
+  key.bind("SUPER + T", hl.dsp.exec_cmd("kitty"), { desc = "open kitty terminal" })
 
   ---@diagnostic disable-next-line: unused-local
-  local closeWindowBind = key.bind("SUPER + C", hl.dsp.window.close(), { desc = "close window" })
+  local closeWindowBind = key.bind("SUPER + Q", hl.dsp.window.close(), { desc = "close window" })
   -- closeWindowBind:set_enabled(false)
 
   key.bind(
-    "SUPER + M",
+    -- right homerow fingers + [b]ye
+    "SUPER + ALT + CTRL + SHIFT + S",
     hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"),
     { desc = "shutdown hyprland (cli cmd `hyprbye`)" }
   )
@@ -164,6 +165,11 @@ function m.setup()
   end, { desc = "lock screen" })
 
   key.bind("SUPER + W", hl.dsp.exec_cmd("pkill --exact waybar || waybar"), { desc = "stop/start waybar" })
+
+  -- dunst
+  key.bind("SUPER + C", os.execute("dunstctl close"), { desc = "close notification" })
+  key.bind("SUPER + SHIFT + C", os.execute("dunstctl close-all"), { desc = "close all notifications" })
+  key.bind("SUPER + D", os.execute("dunstctl history-pop"), { desc = "display last notification again" })
 
   -- multimedia keys for volume and LCD brightness (usually on laptops for fn keys)
   -- NOTE: according to AI, locked is for allow in lock-screen and repeating for hold to spam

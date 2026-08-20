@@ -66,6 +66,9 @@ info "Syncing rmpc"
 info "Syncing zathura"
 "$RIBYN_ROOT/apps/zathura/sync.sh"
 
+info "Syncing dunst"
+"$RIBYN_ROOT/apps/dunst/sync.sh"
+
 info "Syncing hypr"
 "$RIBYN_ROOT/apps/hypr/sync.sh"
 

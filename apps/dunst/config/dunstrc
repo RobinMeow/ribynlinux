@@ -1,0 +1,190 @@
+[global]
+  font = Noto Sans 14
+
+  frame_width = 2
+  # frame_color = "#bf00ff"
+  background = "#000000DD"
+  foreground = "#F9FAF9"
+	# 8 border radius - matching hyprland
+	corner_radius = 8
+	# [none/all/bottom-right/bottom-left/top-right/top-left/top/bottom/left/right], default: all
+	# corners = left,bottom
+	# space between notifications
+	gap_size = 15
+	origin = top-right
+	# offset from (right, top)
+	offset = (20, 20)
+
+	# disappear after 10s
+  timeout = 10
+	
+  # The height of a single line. If the height is smaller than the
+  # font height, it will get raised to the font height.
+  # This adds empty space above and under the text.
+	# TODO: probably 0 by default. if so remove this.
+  line_height = 0
+
+  # Draw a line of "separator_height" pixel height between two notifications.
+  # Set to 0 to disable.
+  separator_height = 1
+
+  # Padding between text and separator
+  padding = 8
+
+  # Horizontal padding
+  horizontal_padding = 10
+	
+  # Allow a small subset of html markup:
+  #   <b>bold</b> <i>italic</i> <s>strikethrough</s> <u>underline</u>
+  # For a complete reference see <http://developer.gnome.org/pango/stable/PangoMarkupFormat.html>
+  # not allowed markup gets strupped out.
+  markup = yes
+	
+  # Show how many messages are currently hidden (because of geometry).
+  indicate_hidden = yes
+
+  # text align "left", "center" and "right".
+  alignment = left
+
+  # Show age of message if message is older than show_age_threshold seconds.
+  # Set to -1 to disable.
+  show_age_threshold = 60
+
+  # Split notifications into multiple lines if they don't fit into geometry.
+  word_wrap = no
+
+  # Ignore newlines '\n' in notifications.
+  ignore_newline = no
+
+  # Shrink window if it's smaller than the width.
+	# Will be ignored if width is 0.
+  shrink = yes
+
+  # Don't remove messages, if the user is idle (no mouse or keyboard input)
+  # for longer than idle_threshold seconds.
+  # Set to 0 to disable.
+	# 1hour
+  idle_threshold = 3600
+
+  # Display notification on focused monitor
+  #   mouse: follow mouse pointer
+  #   keyboard: follow window with keyboard focus
+  #   none: don't follow anything
+  # If this option is set to mouse or keyboard, the monitor option will be ignored.
+  follow = mouse
+
+  # Should a notification popped up from history be sticky or timeout as if it would normally do
+  sticky_history = yes
+
+  # Maximum amount of notifications kept in history
+  history_length = 20
+
+  # Display indicators for URLs (U) and actions (A).
+  show_indicators = yes
+
+  # Define a color for the separator.
+  # possible values are:
+  #  * auto: dunst tries to find a color fitting to the background;
+  #  * foreground: use the same color as the foreground;
+  #  * frame: use the same color as the frame;
+  #  * anything else will be interpreted as a X color.
+  separator_color = "#263238"
+
+  # dmenu path
+	# TODO: I dont have this?
+  dmenu = /usr/bin/dmenu -p dunst:
+
+  # Browser for opening urls in context menu
+  browser = firefox
+
+  # Align icons left/right/off
+  icon_position = right
+
+  # Paths to default icons
+  icon_path = /usr/share/icons/Adwaita/16x16/status/:/usr/share/icons/Adwaita/16x16/devices/
+
+  # Limit icons size
+  max_icon_size=128
+
+  # Shortcuts are specified as [modifier+][modifier+]...key
+  # Available modifiers are "ctrl", "mod1" (the alt-key), "mod2",
+  # "mod3" and "mod4" (windows-key).
+  # Xev might be helpful to find names for keys.
+
+	# TODO: impl in hypr keybindings
+  # Close notification
+  # close = ctrl+mod4+n
+  # Close all notifications
+  # close_all = ctrl+mod4+space
+  # Redisplay last message(s)
+  # history = ctrl+mod4+h
+  # Context menu
+  # context = ctrl+mod4+c
+
+[urgency_low]
+	frame_color = "#333333"
+
+[urgency_normal]
+	frame_color = "#33ccff"
+
+[urgency_critical]
+	frame_color = "#D62929"
+
+# allow notifications to show above fullscreen apps
+[fullscreen]
+  fullscreen = show
+
+# TODO: bring kitty icon
+[kitty-icon]
+	appname = kitty
+	format = "<b>%s</b>\n<i>%b</i>"
+
+# Every section that isn't one of the above is interpreted as a rules to
+# override settings for certain messages.
+# Messages can be matched by "appname", "summary", "body", "icon", "category",
+# "msg_urgency" and you can override the "timeout", "urgency", "foreground",
+# "background", "new_icon" and "format".
+# Shell-like globbing will get expanded.
+#
+# SCRIPTING
+# You can specify a script that gets run when the rule matches by
+# setting the "script" option.
+# The script will be called as follows:
+#   script appname summary body icon urgency
+# where urgency can be "LOW", "NORMAL" or "CRITICAL".
+
+#[espeak]
+#  summary = "*"
+#  script = dunst_espeak.sh
+
+#[script-test]
+#  summary = "*script*"
+#  script = dunst_test.sh
+
+#[ignore]
+#  # This notification will not be displayed
+#  summary = "foobar"
+#  format = ""
+
+#[signed_on]
+#  appname = Pidgin
+#  summary = "*signed on*"
+#  urgency = low
+#
+#[Thunderburd]
+#  appname = thunderbird
+#  category = email.arrived
+#  urgency = normal
+#  background = "#2F899E"
+#  foreground = "#FFA247"
+#
+#[mute.sh]
+#   appname = mute
+#   category = mute.sound
+#   script = mute.sh
+#
+# [speech]
+# summary = "*"
+# script = dunst-notify-speech.sh
+
+# vim: ft=cfg

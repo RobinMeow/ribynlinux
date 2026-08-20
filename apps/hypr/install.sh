@@ -18,7 +18,6 @@ if on_arch; then
 		hyprpaper \
 		hyprpolkitagent \
 		xdg-desktop-portal-hyprland \
-		mako \
 		rofi \
 		wireplumber \
 		brightnessctl \
@@ -27,7 +26,6 @@ if on_arch; then
 		qt6ct
 # hyprpolkitagent auth ui (type in password, when I need admin privl. via GUI apps)
 # xdg-desktop-portal-hyprland (asks for perm. when an app wants to do outside its own window, for security. e.g. screen sharing via discord)
-# mako (lightweight desktop notification daemon, for now)
 # (wireplumber) wpctl and brightnessctl are used for keybind for multimedia
 # keyboard buttons, like the fn keys on a laptop
 # grim slurp swappy: screenshot tools that work good together
@@ -38,9 +36,6 @@ elif on_fedora; then
 	# NOTE: copr available
 	# https://copr.fedorainfracloud.org/coprs/lionheartp/Hyprland
 	"$RIBYN_ROOT/apps/hypr/build-stack-from-source.sh"
-
-	# mako is available in dnf
-	# mako \
 
 	sudo dnf install -y \
 		rofi \
