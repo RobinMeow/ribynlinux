@@ -1,178 +1,30 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# Catppuccin Mocha 8-bit Color Palette
-# https://github.com/catppuccin/catppuccin
-# These are approximations of the Catppuccin Mocha theme using 8-bit colors
-CATSURFACE0="\033[38;5;235m" # #313244 - Very dark gray (backgrounds)
-CATSURFACE1="\033[38;5;239m" # #45475a - Dark gray
-CATSURFACE2="\033[38;5;243m" # #585b70 - Medium dark gray
-CATOVERLAY0="\033[38;5;246m" # #6c7086 - Medium gray
-CATOVERLAY1="\033[38;5;248m" # #7f849c - Light gray
-CATOVERLAY2="\033[38;5;250m" # #9399b2 - Lighter gray
-CATTEXT="\033[38;5;231m"     # #cdd6f4 - Light text
-CATSUBTEXT1="\033[38;5;188m" # #bac2de - Subtext (lighter)
-CATSUBTEXT0="\033[38;5;246m" # #a6adc8 - Subtext (darker)
-CATRED="\033[38;5;203m"      # #f38ba8 - Red/Error
-CATORANGE="\033[38;5;215m"   # #fab387 - Orange/Warning
-CATYELLOW="\033[38;5;221m"   # #f9e2af - Yellow
-CATGREEN="\033[38;5;114m"    # #a6e3a1 - Green/Success
-CATCYAN="\033[38;5;115m"     # #94e2d5 - Cyan
-CATBLUE="\033[38;5;109m"     # #89b4fa - Blue/Info
-CATMAGENTA="\033[38;5;139m"  # #cba6f7 - Magenta/Verbose
-CATLAVENDER="\033[38;5;183m" # #b4befe - Lavender
-NC="\033[0m"                 # No Color
+. "$RIBYN_ROOT/lib/catppuccin-colors.sh"
 
-# Backward compatibility aliases (using Catppuccin colors now)
-# RED="${CATRED}"
-# YELLOW="${CATORANGE}"
-# GREEN="${CATGREEN}"
-# BLUE="${CATBLUE}"
-# GRAY="${CATOVERLAY1}"
+RED="${CATRED}"
+ORANGE="${CATORANGE}"
+GREEN="${CATGREEN}"
+BLUE="${CATBLUE}"
+PURPLE="${CATMAGENTA}"
+NC="\033[0m" # No Color
 
 error() {
-	echo -e "${CATRED}[ERROR]${NC} $*"
+	echo -e "${RED}[ERROR]${NC} $*"
 }
 
 warn() {
-	echo -e "${CATORANGE}[WARN]${NC} $*"
+	echo -e "${ORANGE}[WARN]${NC} $*"
 }
 
 success() {
-	echo -e "${CATGREEN}[SUCCESS]${NC} $*"
+	echo -e "${GREEN}[SUCCESS]${NC} $*"
 }
 
 info() {
-	echo -e "${CATBLUE}[INFO]${NC} $*"
+	echo -e "${BLUE}[INFO]${NC} $*"
 }
-
-# Color echo functions
-echo_surface0() {
-	echo -e "${CATSURFACE0}$*${NC}"
-}
-
-echo_surface1() {
-	echo -e "${CATSURFACE1}$*${NC}"
-}
-
-echo_surface2() {
-	echo -e "${CATSURFACE2}$*${NC}"
-}
-
-echo_overlay0() {
-	echo -e "${CATOVERLAY0}$*${NC}"
-}
-
-echo_overlay1() {
-	echo -e "${CATOVERLAY1}$*${NC}"
-}
-
-echo_overlay2() {
-	echo -e "${CATOVERLAY2}$*${NC}"
-}
-
-echo_text() {
-	echo -e "${CATTEXT}$*${NC}"
-}
-
-echo_subtext1() {
-	echo -e "${CATSUBTEXT1}$*${NC}"
-}
-
-echo_subtext0() {
-	echo -e "${CATSUBTEXT0}$*${NC}"
-}
-
-echo_red() {
-	echo -e "${CATRED}$*${NC}"
-}
-
-echo_orange() {
-	echo -e "${CATORANGE}$*${NC}"
-}
-
-echo_yellow() {
-	echo -e "${CATYELLOW}$*${NC}"
-}
-
-echo_green() {
-	echo -e "${CATGREEN}$*${NC}"
-}
-
-echo_cyan() {
-	echo -e "${CATCYAN}$*${NC}"
-}
-
-echo_blue() {
-	echo -e "${CATBLUE}$*${NC}"
-}
-
-echo_magenta() {
-	echo -e "${CATMAGENTA}$*${NC}"
-}
-
-echo_lavender() {
-	echo -e "${CATLAVENDER}$*${NC}"
-}
-
-# Usage/Help function
-usage() {
-	cat <<'EOF'
-utils.sh - Catppuccin Mocha color utilities for bash scripts
-
-Color Variables:
-  CATSURFACE0, CATSURFACE1, CATSURFACE2  - Background colors
-  CATOVERLAY0, CATOVERLAY1, CATOVERLAY2  - Overlay colors
-  CATTEXT, CATSUBTEXT0, CATSUBTEXT1      - Text colors
-  CATRED, CATORANGE, CATYELLOW           - Warm accent colors
-  CATGREEN, CATCYAN, CATBLUE             - Cool accent colors
-  CATMAGENTA, CATLAVENDER                - Purple accent colors
-  NC                                     - No Color (reset)
-
-Logging Functions:
-  error <message>        - Print error message (red)
-  warn <message>         - Print warning message (orange)
-  success <message>      - Print success message (green)
-  info <message>         - Print info message (blue)
-
-Color Echo Functions:
-  echo_surface0 <text>   - Echo with surface0 color
-  echo_surface1 <text>   - Echo with surface1 color
-  echo_surface2 <text>   - Echo with surface2 color
-  echo_overlay0 <text>   - Echo with overlay0 color
-  echo_overlay1 <text>   - Echo with overlay1 color
-  echo_overlay2 <text>   - Echo with overlay2 color
-  echo_text <text>       - Echo with text color
-  echo_subtext0 <text>   - Echo with subtext0 color
-  echo_subtext1 <text>   - Echo with subtext1 color
-  echo_red <text>        - Echo with red color
-  echo_orange <text>     - Echo with orange color
-  echo_yellow <text>     - Echo with yellow color
-  echo_green <text>      - Echo with green color
-  echo_cyan <text>       - Echo with cyan color
-  echo_blue <text>       - Echo with blue color
-  echo_magenta <text>    - Echo with magenta color
-  echo_lavender <text>   - Echo with lavender color
-
-Examples:
-  source utils.sh
-  info "Starting process"
-  error "Something went wrong"
-  echo_green "Success!"
-EOF
-}
-
-# Handle --help flag when script is executed directly
-if [[ "${BASH_SOURCE[0]}" == "${0}" ]]; then
-	case "${1:-}" in
-	--help | -h)
-		usage
-		;;
-	*)
-		usage
-		;;
-	esac
-fi
 
 confirm() {
 	# * **`read`**: The built-in Bash command that waits for user keyboard input.
@@ -180,19 +32,20 @@ confirm() {
 	# * **`-r`**: Treats backslashes literally (raw mode), preventing them from acting as escape characters.
 	local prompt="$1"
 	# use printf so the terminal interprets the ANSI escape sequences
-	printf "${CATLAVENDER}%s [y/N]${NC} " "$prompt"
+	printf "${PURPLE}%s [y/N]${NC} " "$prompt"
 	read -r || true
 	echo # Move to a new line
 
 	[[ "${REPLY:-n}" =~ ^[Yy]$ ]]
 }
 
-# --recursive, -r          recurse into directories
-# --links, -l              copy symlinks as symlinks
-# --perms, -p              preserve permissions
-# --times, -t              preserve modification times
-# --verbose, -v
+# TODO: use rsync -rlpt instead
 ribyn_rsync() {
+	# --recursive, -r          recurse into directories
+	# --links, -l              copy symlinks as symlinks
+	# --perms, -p              preserve permissions
+	# --times, -t              preserve modification times
+	# --verbose, -v
 	rsync \
 		--recursive \
 		--links \
@@ -208,7 +61,7 @@ press_any_to_continue() {
 	local prompt="${1:-Press any key to continue...}"
 
 	# use printf so the terminal interprets the ANSI escape sequences
-	printf "${CATLAVENDER}%s${NC} " "$prompt"
+	printf "${PURPLE}%s${NC} " "$prompt"
 
 	# Check if running in Zsh or Bash to use the correct character-limit flag
 	if [[ ${ZSH_VERSION:-"not zsh"} == "not zsh" ]]; then
