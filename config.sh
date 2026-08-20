@@ -50,6 +50,11 @@ set -euo pipefail
 	export RIBYN_RMPC_INSTALL_METHOD=${RIBYN_NVIM_GIT_REF:-"binstall"}
 }
 
+# SPACESHIP
+# {
+# 	export RIBYN_SPACESHIP_GIT_REF=${RIBYN_SPACESHIP_GIT_REF:-"v4.22.5"}
+# }
+
 # GODOT
 {
 	# where to clone, compile and build the engine

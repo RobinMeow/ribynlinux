@@ -48,9 +48,3 @@ for plugin in "${!plugins[@]}"; do
 		git clone --depth 1 "$url" "$dest"
 	fi
 done
-
-p10k_dest="${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k"
-if [[ ! -d "$p10k_dest" ]]; then
-	info "Cloning powerlevel10k from $url"
-	git clone --depth 1 "https://github.com/romkatv/powerlevel10k.git" "$p10k_dest"
-fi

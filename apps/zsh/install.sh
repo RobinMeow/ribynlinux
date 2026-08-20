@@ -1,11 +1,43 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+. "$RIBYN_ROOT/lib/utils.sh"
+. "$RIBYN_ROOT/config.sh"
 . "$RIBYN_ROOT/lib/run_on_distro.sh"
 
-run_on_arch sudo pacman -S --needed --noconfirm \
-	zsh
-run_on_fedora sudo dnf install -y \
-	zsh
+if on_arch; then
+	run_on_arch sudo pacman -S --needed --noconfirm \
+		zsh
+elif on_fedora; then
+	sudo dnf install --assumeyes \
+		zsh
+fi
 
 "$RIBYN_ROOT/apps/zsh/oh-my-zsh/install.sh"
+
+# Powerlevel10k
+p10k_dest="${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k"
+if [[ ! -d "$p10k_dest" ]]; then
+	info "Cloning powerlevel10k"
+	git clone --depth 1 "https://github.com/romkatv/powerlevel10k.git" "$p10k_dest"
+fi
+
+# Spaceship
+# WARN: spaceship is alot slower than p10k
+# mkdir -p "$HOME/.local/share/ribyn/"
+# spaceship_dest="$HOME/.local/share/ribyn/spaceship"
+# if [[ -d "$spaceship_dest" ]]; then
+# 	info "Spaceship already installed. skipping."
+# else
+# 	mkdir -p "$HOME/.config/ribyn/zsh/"
+# 	# cant use --depth when using tags.
+# 	# or at least its more work to get it to work
+# 	git clone \
+# 		"https://github.com/spaceship-prompt/spaceship-prompt.git" \
+# 		"$spaceship_dest"
+#
+# 	(
+# 		cd "$spaceship_dest"
+# 		git checkout --detach "$RIBYN_SPACESHIP_GIT_REF"
+# 	)
+# fi

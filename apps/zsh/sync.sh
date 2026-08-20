@@ -6,12 +6,12 @@ set -euo pipefail
 mkdir -p "$HOME/.config/ribyn/zsh"
 
 ribyn_rsync \
-	"$RIBYN_ROOT/apps/zsh/powerlevel10k/p10k.zsh" \
-	"$HOME/.config/ribyn/zsh/"
-
-ribyn_rsync \
 	"$RIBYN_ROOT/apps/zsh/zshrc" \
 	"$HOME/.zshrc"
+
+ribyn_rsync \
+	"$RIBYN_ROOT/apps/zsh/powerlevel10k/p10k.zsh" \
+	"$HOME/.config/ribyn/zsh/"
 
 localdest="$HOME/.config/ribyn/zsh/local.sh"
 

@@ -31,15 +31,6 @@
 - learn sed
 - continue on [learn cpp chapter 11](https://www.learncpp.com/cpp-tutorial/implicit-type-conversion/)
 
-## Spaceship Zsh prompt
-
-consider using spaceshipt instead of p10k
-```sh
-. "$RIBYN_ROOT/lib/ensure_installed_homebrew.sh"
-brew install --no-ask \
-  spaceship
-```
-
 ## Godot
 
 - with godot an overlay grid which allows me to trigger mouse clicks
