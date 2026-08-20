@@ -11,15 +11,14 @@ exec > >(tee "$logfile") 2>&1
 . "$RIBYN_ROOT/lib/run_on_distro.sh"
 
 info "Installing from source: $RIBYN_ROOT"
+info "Installing essential packages"
+"$RIBYN_ROOT/installers/pm-essential-packages.sh"
 
 # WARN: uses brew. and brew resets sudo timestamp.
 # means we have to re-prompt our pw. I'd rather do it earlier
 # than later so I can afk after.
 info "Installing yazi"
 "$RIBYN_ROOT/apps/yazi/install.sh"
-
-info "Installing essential packages"
-"$RIBYN_ROOT/installers/pm-essential-packages.sh"
 
 info "Installing core packages"
 "$RIBYN_ROOT/scripts/pm-core.sh"
