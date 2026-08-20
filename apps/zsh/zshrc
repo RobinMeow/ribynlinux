@@ -9,7 +9,7 @@ HISTCONTROL=ignoredups
 # Path to your Oh My Zsh installation
 export ZSH="$HOME/.oh-my-zsh"
 
-zstyle ':omz:update' mode reminder
+zstyle ':omz:update' mode disable
 
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
@@ -179,4 +179,5 @@ if [[ -f "$zshlocal" ]]; then
 fi
 
 echo "And whatever you do, do it heartily, as to the Lord and not to men, Colossians 3, 23 (NKJV)"
+
 # zprof
