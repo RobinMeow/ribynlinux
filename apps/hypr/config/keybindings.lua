@@ -11,7 +11,7 @@ function m.setup()
 
   key.bind(
     -- right homerow fingers + [b]ye
-    "SUPER + ALT + CTRL + SHIFT + S",
+    "SUPER + CTRL + B",
     hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"),
     { desc = "shutdown hyprland (cli cmd `hyprbye`)" }
   )
