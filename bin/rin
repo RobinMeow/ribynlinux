@@ -65,6 +65,9 @@ info "Installing vale"
 info "Installing tmux"
 "$RIBYN_ROOT/apps/tmux/install.sh"
 
+info "Installing wiremix"
+"$RIBYN_ROOT/apps/wiremix/install.sh"
+
 info "Installing mpd"
 "$RIBYN_ROOT/apps/mpd/install.sh"
 

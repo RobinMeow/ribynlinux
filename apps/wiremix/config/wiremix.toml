@@ -1,0 +1,40 @@
+keybindings = [
+ # Increase the volume of the selected item by 5% (default 0.01)
+ { key = { Char = "l" }, action = { SetRelativeVolume = 0.05 } },
+ { key = "Right", action = { SetRelativeVolume = 0.05 } },
+ # Decrease the volume of the selected item by 5% (default -0.01)
+ { key = { Char = "h" }, action = { SetRelativeVolume = -0.05 } },
+ { key = "Left", action = { SetRelativeVolume = -0.05 } },
+ # There are two actions which don't have default bindings:
+ # 1. "Nothing": Do nothing - can effectively delete a default keybinding
+ # 2. { SelectTab = N }: Open the Nth tab
+]
+
+[themes.default]
+# The selection indicator in a tab
+selector = { fg = "#bf00ff" }
+
+# The name of the selected tab in the tab menu
+tab_selected = { fg = "#ff00a0" }
+# The symbols surrounding the selected tab in the tab menu
+tab_marker = { fg = "#bf00ff" }
+volume_filled = { fg = "#fe8019" }
+meter_active = { fg = "#ff00a0" }
+meter_overload = { fg = "Red" }
+meter_center_active = { fg = "#ff00a0" }
+# The name of the currently-selected item in a dropdown
+dropdown_selected = { fg = "#bf00ff", add_modifier = "REVERSED" }
+
+[char_sets.default]
+# The selection indicator in a tab
+selector_top = "╭"
+selector_middle = "│"
+selector_bottom = "╰"
+
+# mpv is also a bit redundant with the default naming scheme - it suffixes
+# media.name with "- mpv". This override makes it show as "foo - mpv" instead
+# of "mpv: foo - mpv".
+[[names.overrides]]
+types = [ "stream" ]
+matches = [ { "node.name" = "mpv" } ]
+templates = [ "{node:media.name}" ]

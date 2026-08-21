@@ -56,6 +56,9 @@ info "Syncing tmux"
 info "Syncing yazi"
 "$RIBYN_ROOT/apps/yazi/sync.sh"
 
+info "Syncing wiremix"
+"$RIBYN_ROOT/apps/wiremix/sync.sh"
+
 info "Syncing mpd"
 "$RIBYN_ROOT/apps/mpd/sync.sh"
 
