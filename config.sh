@@ -6,6 +6,12 @@ set -euo pipefail
 #
 # if you want to override values locally (per machine) use your zshrc local
 # located in ~/.config/ribyn/zsh/local.sh
+#
+# WARN: when using branches for GIT_REV always include the remote prefix: origin/<branch>
+# it seems redundant, becuase its always origin/ for branches, but currently our script has not way of telling,
+# if the GIT_REV is a hash, tag or branch
+#
+# TODO: rename GIT_REF to GIT_REV
 
 # NEOVIM
 {

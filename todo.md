@@ -1,5 +1,7 @@
 # TicketSystem
 
+- allow "latest tag", "latest commit" etc. for config.sh
+- rename GIT_REF to GITREV git rev-parse "$gitref^{commit}"
 - move git aliases and function I use from ohmyzsh into my own. and merge my git config alongside
 - configure dunst to have a timer and build tools based on it `notify-send "test"`
 - checkout [palemoon](https://github.com/RealityRipple/Pale-Moon)

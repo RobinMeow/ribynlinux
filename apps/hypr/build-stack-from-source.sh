@@ -2,7 +2,7 @@
 set -euo pipefail
 
 mkdir -p "$HOME/.local/state/ribyn/"
-logfile="$HOME/.local/sate/ribyn/build-stack-from-source.log"
+logfile="$HOME/.local/state/ribyn/build-stack-from-source.log"
 # Append to file and print to terminal simultaneously
 # use --append flag if you want to append, instead of override
 exec > >(tee "$logfile") 2>&1
@@ -36,6 +36,19 @@ elif on_fedora; then
 	# 11. hyprland
 	# 12. hyprland-guiutils (runtime-only dependency. formerly hyprland-qtutils)
 
+	function hypr_build() {
+		# WARN: installs into /usr
+		# so avoid using the package manager to install these
+		# can cause conflicts.
+		# will prevent juggling systemd/env vars
+		# to excpose the /usr/local paths etc..
+		cmake --no-warn-unused-cli -DCMAKE_BUILD_TYPE:STRING=Release -DCMAKE_INSTALL_PREFIX:PATH=/usr -S . -B ./build
+
+		# NOTE: consider -1 core, to prevent segementation fails ? if it happens again
+		cmake --build ./build --config Release --target all -j"$(nproc 2>/dev/null || getconf NPROCESSORS_CONF)"
+		sudo cmake --install build
+	}
+
 	# base deps for almost all of them
 	sudo dnf install --assumeyes \
 		wayland-protocols-devel \
@@ -45,172 +58,196 @@ elif on_fedora; then
 		gcc \
 		gcc-c++
 
-	# TODO: delete these two scripts
-	# "$RIBYN_ROOT/apps/hypr/build-hyprwayland-scanner-from-source.sh"
-	# "$RIBYN_ROOT/apps/hypr/build-hyprutils-from-source.sh"
-	# "$RIBYN_ROOT/apps/hypr/build-hyprgraphics-from-source.sh"
-	# "$RIBYN_ROOT/apps/hypr/build-hyprlang-from-source.sh"
+	. "$RIBYN_ROOT/lib/source-manager.sh"
 
-	if pkg-config --exists "hyprland-protocols"; then
-		info "hyprland-protocols already installed. Skipping."
-	else
-		info "Building from source: hyprland-protocols"
-		"$RIBYN_ROOT/apps/hypr/build-stack-item-from-source.sh" \
-			"hyprland-protocols" \
-			"https://github.com/hyprwm/hyprland-protocols" \
-			$RIBYN_HYPR_HYPRLAND_PROTOCOLS_GIT_REF
+	# TODO: source_exists is not yet implement.
+	# requires source_manger to support updating to be relevant anyways
+
+	function install_dep() {
+		local name=$1
+		local giturl=$2
+		local gitrev=$3
+		check_source_state "$name" "$gitrev"
+		if [[ "$SOURCE_STATE" == "source n/a" ]]; then
+			info "[$SOURCE_NAME] initialising..."
+			init_source "$giturl"
+			info "[$SOURCE_NAME] installing..."
+			(cd "$SOURCE_DEST" && hypr_build)
+		elif [[ "$SOURCE_STATE" == "gitrev equals" ]]; then
+			if source_pkg_config_exists; then
+				info "$SOURCE_NAME already installed. Skipping."
+			else
+				# edge case. means its already cloned, but build probaly failed.
+				clean_source
+				info "[$SOURCE_NAME] installing..."
+				(cd "$SOURCE_DEST" && hypr_build)
+			fi
+		elif [[ "$SOURCE_STATE" == "gitrev differs" ]]; then
+			clean_source
+			update_source "$giturl"
+			info "[$SOURCE_NAME] updating..."
+			(cd "$SOURCE_DEST" && hypr_build)
+		fi
+	}
+
+	install_dep "hyprland-protocols" \
+		"https://github.com/hyprwm/hyprland-protocols" \
+		"$RIBYN_HYPR_HYPRLAND_PROTOCOLS_GIT_REF"
+
+	sudo dnf install --assumeyes \
+		pugixml-devel
+	install_dep "hyprwayland-scanner" \
+		"https://github.com/hyprwm/hyprwayland-scanner.git" \
+		"$RIBYN_HYPR_HYPRWAYLAND_SCANNER_GIT_REF"
+
+	sudo dnf install --assumeyes \
+		pixman-devel
+	install_dep "hyprutils" \
+		"https://github.com/hyprwm/hyprutils.git" \
+		"$RIBYN_HYPR_HYPRUTILS_GIT_REF"
+
+	sudo dnf install --assumeyes \
+		libglvnd-devel \
+		cairo-devel \
+		pango-devel \
+		libdrm-devel \
+		libjpeg-turbo-devel \
+		libwebp-devel \
+		librsvg2-devel \
+		file-devel
+	# file has libmagick
+	# file has libpng-devel
+	install_dep "hyprgraphics" \
+		"https://github.com/hyprwm/hyprgraphics.git" \
+		"$RIBYN_HYPR_HYPRGRAPHICS_GIT_REF"
+
+	install_dep "hyprlang" \
+		"https://github.com/hyprwm/hyprlang.git" \
+		"$RIBYN_HYPR_HYPRLANG_GIT_REF"
+
+	sudo dnf install --assumeyes \
+		libzip-devel \
+		tomlplusplus-devel
+	install_dep "hyprcursor" \
+		"https://github.com/hyprwm/hyprcursor" \
+		"$RIBYN_HYPR_HYPRCURSOR_GIT_REF"
+
+	sudo dnf install --assumeyes \
+		libinput-devel \
+		libseat-devel \
+		mesa-libgbm-devel \
+		systemd-devel \
+		libdisplay-info-devel \
+		hwdata-devel
+	# 	systemd-devel is fedoras version of libudev. see here https://github.com/dcuddeback/libudev-sys
+	install_dep "aquamarine" \
+		"https://github.com/hyprwm/aquamarine" \
+		"$RIBYN_HYPR_AQUAMARINE_GIT_REF"
+
+	# xdg-desktop-portal-hyprland
+	sudo dnf install --assumeyes \
+		qt6-qtbase-devel \
+		libuuid-devel \
+		pipewire-devel \
+		sdbus-cpp-devel
+	xdph_giturl="https://github.com/hyprwm/xdg-desktop-portal-hyprland"
+	check_source_state "xdg-desktop-portal-hyprland" "$RIBYN_HYPR_XDG_DESKTOP_PORTAL_HYPRLAND_GIT_REF"
+	if [[ "$SOURCE_STATE" == "source n/a" ]]; then
+		info "[$SOURCE_NAME] initialising..."
+		init_source "$xdph_giturl"
+		info "[$SOURCE_NAME] installing..."
+		(cd "$SOURCE_DEST" && hypr_build)
+	elif [[ "$SOURCE_STATE" == "gitrev equals" ]]; then
+		# WARN: cant reuse source_pkg_config_exists so we just do the process manually here
+		if [[ -x "/usr/libexec/xdg-desktop-portal-hyprland" ]]; then
+			info "$SOURCE_NAME already installed. Skipping."
+		else
+			# edge case. means its already cloned, but build probaly failed.
+			clean_source
+			info "[$SOURCE_NAME] installing..."
+			(cd "$SOURCE_DEST" && hypr_build)
+		fi
+	elif [[ "$SOURCE_STATE" == "gitrev differs" ]]; then
+		clean_source
+		update_source "$xdph_giturl"
+		info "[$SOURCE_NAME] updating..."
+		(cd "$SOURCE_DEST" && hypr_build)
 	fi
 
-	if pkg-config --exists "hyprwayland-scanner"; then
-		info "hyprwayland-scanner already installed. Skipping."
-	else
-		info "Building from source: hyprwayland-scanner"
-		sudo dnf install --assumeyes \
-			pugixml-devel
+	install_dep "hyprwire" \
+		"https://github.com/hyprwm/hyprwire.git" \
+		"$RIBYN_HYPR_HYPRWIRE_GIT_REF"
 
-		"$RIBYN_ROOT/apps/hypr/build-stack-item-from-source.sh" \
-			"hyprwayland-scanner" \
-			"https://github.com/hyprwm/hyprwayland-scanner.git" \
-			$RIBYN_HYPR_HYPRWAYLAND_SCANNER_GIT_REF
+	sudo dnf install --assumeyes \
+		iniparser-devel \
+		inotify-tools-devel
+	install_dep "hyprtoolkit" \
+		"https://github.com/hyprwm/hyprtoolkit.git" \
+		"$RIBYN_HYPR_HYPRTOOLKIT_GIT_REF"
+
+	hyprland_guiutils_giturl="https://github.com/hyprwm/hyprland-guiutils"
+	check_source_state "hyprland-guiutils" "$RIBYN_HYPR_HYPRLAND_GUIUTILS_GIT_REF"
+	if [[ "$SOURCE_STATE" == "source n/a" ]]; then
+		info "[$SOURCE_NAME] initialising..."
+		init_source "$hyprland_guiutils_giturl"
+		info "[$SOURCE_NAME] installing..."
+		(cd "$SOURCE_DEST" && hypr_build)
+	elif [[ "$SOURCE_STATE" == "gitrev equals" ]]; then
+		# WARN: cant reuse source_pkg_config_exists so we just do the process manually here
+		if command -v hyprland-dialog >/dev/null 2>&1 &&
+			command -v hyprland-donate-screen >/dev/null 2>&1 &&
+			command -v hyprland-run >/dev/null 2>&1 &&
+			command -v hyprland-update-screen >/dev/null 2>&1 &&
+			command -v hyprland-welcome >/dev/null 2>&1; then
+			info "$SOURCE_NAME already installed. Skipping."
+		else
+			# edge case. means its already cloned, but build probaly failed.
+			clean_source
+			info "[$SOURCE_NAME] installing..."
+			(cd "$SOURCE_DEST" && hypr_build)
+		fi
+	elif [[ "$SOURCE_STATE" == "gitrev differs" ]]; then
+		clean_source
+		update_source "$hyprland_guiutils_giturl"
+		info "[$SOURCE_NAME] updating..."
+		(cd "$SOURCE_DEST" && hypr_build)
 	fi
 
-	if pkg-config --exists "hyprutils"; then
-		info "hyprutils already installed. Skipping."
-	else
-		info "Building from source: hyprutils"
-		sudo dnf install --assumeyes \
-			pixman-devel
-
-		"$RIBYN_ROOT/apps/hypr/build-stack-item-from-source.sh" \
-			"hyprutils" \
-			"https://github.com/hyprwm/hyprutils.git" \
-			$RIBYN_HYPR_HYPRUTILS_GIT_REF
-	fi
-
-	if pkg-config --exists "hyprgraphics"; then
-		info "hyprgraphics already installed. Skipping."
-	else
-		info "Building from source: hyprgraphics"
-		sudo dnf install --assumeyes \
-			libglvnd-devel \
-			cairo-devel \
-			pango-devel \
-			libdrm-devel \
-			libjpeg-turbo-devel \
-			libwebp-devel \
-			librsvg2-devel \
-			file-devel
-		# file has libmagick
-		# file has libpng-devel
-
-		"$RIBYN_ROOT/apps/hypr/build-stack-item-from-source.sh" \
-			"hyprgraphics" \
-			"https://github.com/hyprwm/hyprgraphics.git" \
-			$RIBYN_HYPR_HYPRGRAPHICS_GIT_REF
-	fi
-
-	if pkg-config --exists "hyprlang"; then
-		info "hyprlang already installed. Skipping."
-	else
-		info "Building from source: hyprlang"
-		"$RIBYN_ROOT/apps/hypr/build-stack-item-from-source.sh" \
-			"hyprlang" \
-			"https://github.com/hyprwm/hyprlang.git" \
-			$RIBYN_HYPR_HYPRLANG_GIT_REF
-	fi
-
-	if pkg-config --exists "hyprcursor"; then
-		info "hyprcursor already installed. Skipping."
-	else
-		info "Building from source: hyprcursor"
-		sudo dnf install --assumeyes \
-			libzip-devel \
-			tomlplusplus-devel
-
-		"$RIBYN_ROOT/apps/hypr/build-stack-item-from-source.sh" \
-			"hyprcursor" \
-			"https://github.com/hyprwm/hyprcursor" \
-			$RIBYN_HYPR_HYPRCURSOR_GIT_REF
-	fi
-
-	if pkg-config --exists "aquamarine"; then
-		info "aquamarine already installed. Skipping."
-	else
-		info "Building from source: aquamarine"
-		sudo dnf install --assumeyes \
-			libinput-devel \
-			libseat-devel \
-			mesa-libgbm-devel \
-			systemd-devel \
-			libdisplay-info-devel \
-			hwdata-devel
-		# 	systemd-devel is fedoras version of libudev. see here https://github.com/dcuddeback/libudev-sys
-
-		"$RIBYN_ROOT/apps/hypr/build-stack-item-from-source.sh" \
-			"aquamarine" \
-			"https://github.com/hyprwm/aquamarine" \
-			$RIBYN_HYPR_AQUAMARINE_GIT_REF
-	fi
-
-	if [[ -x "/usr/libexec/xdg-desktop-portal-hyprland" ]]; then
-		info "xdg-desktop-portal-hyprland already installed. Skipping."
-	else
-		info "Building from source: xdg-desktop-portal-hyprland"
-		sudo dnf install --assumeyes \
-			qt6-qtbase-devel \
-			libuuid-devel \
-			pipewire-devel \
-			sdbus-cpp-devel
-
-		"$RIBYN_ROOT/apps/hypr/build-stack-item-from-source.sh" \
-			"xdg-desktop-portal-hyprland" \
-			"https://github.com/hyprwm/xdg-desktop-portal-hyprland" \
-			$RIBYN_HYPR_XDG_DESKTOP_PORTAL_HYPRLAND_GIT_REF
-	fi
-
-	if pkg-config --exists "hyprwire"; then
-		info "hyprwire already installed. Skipping."
-	else
-		info "Building from source: hyprwire"
-		"$RIBYN_ROOT/apps/hypr/build-stack-item-from-source.sh" \
-			"hyprwire" \
-			"https://github.com/hyprwm/hyprwire.git" \
-			$RIBYN_HYPR_HYPRWIRE_GIT_REF
-	fi
-
-	if pkg-config --exists "hyprtoolkit"; then
-		info "hyprtoolkit already installed. Skipping."
-	else
-		info "Building from source: hyprtoolkit"
-		sudo dnf install --assumeyes \
-			iniparser-devel \
-			inotify-tools-devel
-
-		"$RIBYN_ROOT/apps/hypr/build-stack-item-from-source.sh" \
-			"hyprtoolkit" \
-			"https://github.com/hyprwm/hyprtoolkit.git" \
-			$RIBYN_HYPR_HYPRTOOLKIT_GIT_REF
-	fi
-
-	if command -v hyprland-dialog >/dev/null 2>&1 &&
-		command -v hyprland-donate-screen >/dev/null 2>&1 &&
-		command -v hyprland-run >/dev/null 2>&1 &&
-		command -v hyprland-update-screen >/dev/null 2>&1 &&
-		command -v hyprland-welcome >/dev/null 2>&1; then
-		info "hyprland-guiutils already installed. Skipping."
-	else
-		info "Building from source: hyprland-guiutils"
-		"$RIBYN_ROOT/apps/hypr/build-stack-item-from-source.sh" \
-			"hyprland-guiutils" \
-			"https://github.com/hyprwm/hyprland-guiutils" \
-			$RIBYN_HYPR_HYPRLAND_GUIUTILS_GIT_REF
-	fi
-
-	if command -v hyprland >/dev/null 2>&1; then
-		info "Hyprland already installed. Skipping."
-	else
-		info "Building from source: hyprland"
-		"$RIBYN_ROOT/apps/hypr/build-hyprland-from-source.sh"
+	sudo dnf install --assumeyes \
+		glslang-devel \
+		re2-devel \
+		muParser-devel \
+		libXcursor-devel \
+		xcb-util-errors-devel \
+		xcb-util-wm-devel \
+		readline-devel \
+		lua-devel
+	function build_hyprland() {
+		make release
+		sudo make install
+	}
+	hyprland_giturl="https://github.com/hyprwm/Hyprland"
+	check_source_state "hyprland" "$RIBYN_HYPR_HYPRLAND_GIT_REF"
+	if [[ "$SOURCE_STATE" == "source n/a" ]]; then
+		info "[$SOURCE_NAME] initialising..."
+		init_source "$hyprland_giturl"
+		info "[$SOURCE_NAME] installing..."
+		(cd "$SOURCE_DEST" && build_hyprland)
+	elif [[ "$SOURCE_STATE" == "gitrev equals" ]]; then
+		# WARN: cant reuse source_pkg_config_exists so we just do the process manually here
+		if command -v hyprland >/dev/null 2>&1; then
+			info "$SOURCE_NAME already installed. Skipping."
+		else
+			# edge case. means its already cloned, but build probaly failed.
+			clean_source
+			info "[$SOURCE_NAME] installing..."
+			(cd "$SOURCE_DEST" && build_hyprland)
+		fi
+	elif [[ "$SOURCE_STATE" == "gitrev differs" ]]; then
+		clean_source
+		update_source "$hyprland_giturl"
+		info "[$SOURCE_NAME] updating..."
+		(cd "$SOURCE_DEST" && build_hyprland)
 	fi
 
 	# NOTE: copr is also available, but its bloated imho
@@ -218,19 +255,3 @@ elif on_fedora; then
 else
 	error "distro not supported"
 fi
-
-# NOTE: according to ai I thought I had to manually build those.
-# didnt need to do so in docker. Ima keep the idea around tho
-# also worked on my laptop with fedora44 everything iso
-#
-# bulid [https://github.com/stephenberry/glaze](https://github.com/stephenberry/glaze) from source
-# bulid hyprland-qtutils from source hyprland-qtutils-git
-# qt6-qtwayland-devel
-# qt6-qtbase-devel
-# qt6-qtwayland-devel
-#
-# these three exist in dnf, probably pointless to build 'em from source.
-# sudo dnf install --assumeyes \
-#   qt6-qtbase-devel \
-#   qt6-qttools-devel \
-#   qt6-qtwayland-devel
