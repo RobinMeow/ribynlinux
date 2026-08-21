@@ -6,51 +6,53 @@ set -euo pipefail
 
 info "Installing core packages..."
 
-run_on_arch sudo pacman -S --needed --noconfirm \
-	wireplumber \
-	gawk \
-	zsh \
-	eza \
-	vi \
-	vim \
-	unzip \
-	xclip \
-	wl-clipboard \
-	openssh \
-	navi \
-	fastfetch \
-	bc \
-	ncdu \
-	man-db \
-	man-pages \
-	tealdeer \
-	vlc \
-	vlc-plugins-all \
-	lnav \
-	tree \
-	btop \
-	translate-shell \
-	tokei \
-	ffmpeg \
-	7zip \
-	ripgrep \
-	glow \
-	mpv \
-	chafa \
-	fd \
-	bluetui \
-	gource \
-	words \
-	detox \
-	git-lfs \
-	wev \
-	nodejs \
-	nvm \
-	docker \
-	docker-compose \
-	docker-buildx \
-	postgresql \
-	jq
+if on_arch; then
+	sudo pacman -S --needed --noconfirm \
+		wireplumber \
+		gawk \
+		zsh \
+		eza \
+		vi \
+		vim \
+		unzip \
+		xclip \
+		wl-clipboard \
+		openssh \
+		navi \
+		fastfetch \
+		bc \
+		ncdu \
+		man-db \
+		man-pages \
+		tealdeer \
+		vlc \
+		vlc-plugins-all \
+		lnav \
+		tree \
+		btop \
+		translate-shell \
+		tokei \
+		ffmpeg \
+		7zip \
+		ripgrep \
+		glow \
+		mpv \
+		chafa \
+		fd \
+		bluetui \
+		gource \
+		words \
+		detox \
+		git-lfs \
+		wev \
+		nodejs \
+		nvm \
+		docker \
+		docker-compose \
+		docker-buildx \
+		postgresql \
+		jq \
+		openvpn
 
 # WARN: i remember targeting pack being a bug fix for dotnet
 # specifically for archlinux. but I ll wait until I run into it again.
@@ -62,48 +64,51 @@ run_on_arch sudo pacman -S --needed --noconfirm \
 # aspnet-runtime \
 # aspnet-targeting-pack \
 
-run_on_fedora sudo dnf install -y \
-	wireplumber \
-	gawk \
-	zsh \
-	eza \
-	vi \
-	vim \
-	unzip \
-	xclip \
-	wl-clipboard \
-	openssh \
-	navi \
-	fastfetch \
-	bc \
-	ncdu \
-	man-db \
-	man-pages \
-	tealdeer \
-	vlc \
-	lnav \
-	tree \
-	btop \
-	translate-shell \
-	tokei \
-	7zip \
-	ripgrep \
-	glow \
-	mpv \
-	chafa \
-	gource \
-	words \
-	detox \
-	git-lfs \
-	wev \
-	nodejs \
-	docker \
-	docker-compose \
-	postgresql \
-	jq
+elif on_fedora; then
+	sudo dnf install -y \
+		wireplumber \
+		gawk \
+		zsh \
+		eza \
+		vi \
+		vim \
+		unzip \
+		xclip \
+		wl-clipboard \
+		openssh \
+		navi \
+		fastfetch \
+		bc \
+		ncdu \
+		man-db \
+		man-pages \
+		tealdeer \
+		vlc \
+		lnav \
+		tree \
+		btop \
+		translate-shell \
+		tokei \
+		7zip \
+		ripgrep \
+		glow \
+		mpv \
+		chafa \
+		gource \
+		words \
+		detox \
+		git-lfs \
+		wev \
+		nodejs \
+		docker \
+		docker-compose \
+		postgresql \
+		jq \
+		openvpn
 
-run_on_fedora sudo dnf install -y --allowerasing \
-	ffmpeg
+	sudo dnf install -y --allowerasing \
+		ffmpeg
+fi
 
 if ! tldr --update; then
 	# Error: Could not update cache
