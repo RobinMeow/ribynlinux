@@ -2,13 +2,15 @@
 
 - configure dunst to have a timer and build tools based on it `notify-send "test"`
 - checkout [palemoon](https://github.com/RealityRipple/Pale-Moon)
-- password manager from the ebook 
+- password manager from the ebook
 - maybe rsy before rin (because things like cargo-binstall want to collect telemetry)
-- defer homebrew installs to the end, to improve unattended installs
+- defer homebrew installs to the end, to improve unattended installs.
+  or replace homebrew with from source builds.
+  tho I think that was difficult for brave
 - move logs from .cache to .local/state
-- arch only i think; cargo breaks ci on first install, asking if install from rust or rustup
+- arch only i think; cargo breaks ci on first install,
+  asking if install from rust or rustup
 - hypr wayland-protocol is missing on wob install
-- hypr sync should only call hyprctl reload if hypr is running (or ignore the error)
 - find something, which renders a grid on the screen flash-vimium-like
   to let me click on areas
 - rename to run_on_distro to distro_strategies.sh and include pacin dnfin
