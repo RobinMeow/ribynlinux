@@ -9,7 +9,7 @@ HISTCONTROL=ignoredups
 # Path to your Oh My Zsh installation
 export ZSH="$HOME/.oh-my-zsh"
 
-zstyle ':omz:update' mode disable
+zstyle ':omz:update' mode disabled
 zstyle ':omz:plugins:nvm' lazy yes
 
 plugins=(
