@@ -1,0 +1,25 @@
+# prepend to take preceedence over windows/wsl passthrough paths
+export PATH="$HOME/.dotnet:$HOME/.dotnet/tools:$PATH"
+export DOTNET_ROOT="$HOME/.dotnet"
+export DOTNET_ROOT_X64="$HOME/.dotnet"
+
+export PATH="$PATH:$HOME/.cargo/bin"
+
+# Append, to have manual install take preceedence.
+# also appendedin mason, to have the same behavior (which deviates from the default)
+export PATH="$PATH:$HOME/.local/share/nvim/mason/bin"
+
+export HOMEBREW_NO_AUTO_UPDATE=1
+export HOMEBREW_NO_ANALYTICS=1
+
+export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
+
+export MANPATH="/usr/local/man:$MANPATH"
+
+export EDITOR='nvim'
+
+export RIBYN_ROOT="$HOME/ribynlinux"
+# TODO: the repo should call sync. in fact ribynlinux should do it for me
+export PATH="$PATH:$HOME/ribyns-state/bin"
+
+# vim: ft=bash

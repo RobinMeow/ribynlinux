@@ -1,5 +1,6 @@
 # TicketSystem
 
+- move git aliases and function I use from ohmyzsh into my own. and merge my git config alongside
 - configure dunst to have a timer and build tools based on it `notify-send "test"`
 - checkout [palemoon](https://github.com/RealityRipple/Pale-Moon)
 - password manager from the ebook
@@ -92,6 +93,8 @@
 decided to wait at least until im no longer on nvidia. Even pre-configured "themes" have an install scripts which will auto download open-nvidia-dkms driver or sth, and i dont wanna mess with my working system, nor maintain 4 versions of hyprland to have the same desktop env on my lenovo (amd), macbook (intel?) and pc (nvidia). and only my bluetooth keyboard in qwerty
 
 ## random notes
+
+- let Robin know about mise (nvm improvement)
 
 [30 vim commands must-know: refresher for features which exist](https://www.youtube.com/watch?v=RSlrxE21l_k)
 

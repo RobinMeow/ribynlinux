@@ -1,13 +1,12 @@
 # zmodload zsh/zprof
-# vim: ft=zsh
 # shellcheck disable=SC2148
 # shellcheck shell=zsh
 
-export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
-HISTCONTROL=ignoredups
-
 # Path to your Oh My Zsh installation
 export ZSH="$HOME/.oh-my-zsh"
+export ZVM_KEYTIMEOUT="2" # 2s timeout e.g. for cs"'
+
+setopt HIST_IGNORE_ALL_DUPS
 
 zstyle ':omz:update' mode disabled
 zstyle ':omz:plugins:nvm' lazy yes
@@ -17,161 +16,27 @@ plugins=(
 	zsh-vi-mode
 	zsh-autosuggestions
 	zsh-syntax-highlighting
-	nvm 
-	# adds around 120ms. on pc-white from 85ms -> 200+ms avrg.
+	nvm
 )
 
 # load zsh-completions not as a standard plugin but manually
 # this prevents compinit from being called twice and significantly improves startup time
-fpath+=${ZSH_CUSTOM:-${ZSH:-$HOME/.oh-my-zsh}/custom}/plugins/zsh-completions/src
+fpath+=${ZSH_CUSTOM:-$ZSH/custom}/plugins/zsh-completions/src
 autoload -U compinit
 
-source $ZSH/oh-my-zsh.sh
-
-export ZVM_KEYTIMEOUT="2" # 2s timeout e.g. for cs"'
-# export ZVM_SYSTEM_CLIPBOARD_ENABLED=true NOTE: dont think i like this. should look for something else which copies the prompt for me
-
-# User configuration
-
-# export MANPATH="/usr/local/man:$MANPATH"
-
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
-export EDITOR='nvim'
-
-export RIBYN_ROOT="$HOME/ribynlinux"
-if [[ -d "$HOME/ribyns-state/bin" ]]; then
-	# TODO: this should also move to .local/bin
-	export PATH="$PATH:$HOME/ribyns-state/bin"
-fi
-
-# treeview of all git tracked files (ripgrep respects .gitignore)
-alias lstree='eza -1T'
-
-alias gpl='git pull'
-alias gpll='git pull && git log -1 --pretty=format:"%C(auto)%h%d%Creset %s %C(green)%cn%Creset %C(cyan)(%cr)%Creset"'
-
-# override the defaults from the omz git plugin:
-alias gpf='git push --force-with-lease' # exlude flag: --force-if-includes
-alias gl='git log -7 --graph --pretty=format:"%C(auto)%h%d%Creset %s %C(green)%cn%Creset %C(cyan)(%cr)%Creset"'
-alias gss='git status --short --untracked-files=all'
-alias gce='git commit --allow-empty-message --no-edit --verbose'
-alias gaacanepf='git add --all && git commit --amend --no-edit --verbose && git push --force-with-lease'
-
-# shadow ls to use eza instead
-alias ls='eza'
-# lsdefault :)
-alias lsd='eza -1 --group-directories-first --git-ignore'
-
-alias mpdd='mpd --no-daemon &'
-alias gourced="gource --no-vsync --fullscreen --auto-skip-seconds 1 --seconds-per-day 1"
-
-alias dict="cat /usr/share/dict/words | fzf"
-
-function hyprmoncfg(){
-	HYPRMONCFG_MONITORS_CONF="$HOME/.config/hypr/hyprmoncfg.lua" command hyprmoncfg "$@"
-}
-
-# prepend to take preceedence over windows/wsl passthrough paths
-export PATH="$HOME/.dotnet:$HOME/.dotnet/tools:$PATH"
-export DOTNET_ROOT="$HOME/.dotnet"
-export DOTNET_ROOT_X64="$HOME/.dotnet"
-
-export PATH="$PATH:$HOME/.cargo/bin"
-
-# Append, to have manual install take preceedence.
-# also appendedin mason, to have the same behavior (which deviates from the default)
-export PATH="$PATH:$HOME/.local/share/nvim/mason/bin"
+. "$ZSH/oh-my-zsh.sh"
 
 if [[ -d "/home/linuxbrew/" ]]; then
 	eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv zsh)"
 fi
 
-# find history (fzf a history cmd and select it for prompt editing and fire it off)
-fh() {
-	local choice
-	choice=$(cut -d';' -f2 "$HISTFILE" | sort -u | uniq | grep '..........' | fzf)
-	print -z "$choice"
-}
-
-ribyn() {
-	local cmd="$1"
-	if [[ "$cmd" == "state" ]]; then
-		shift
-		cd "$HOME/ribyns-state" || exit
-	elif [[ "$cmd" == "keyboard-feh" ]]; then
-		shift
-  	selected_img="$( (
-				fd . "$RIBYN_ROOT/keyboard/glove80" --extension=png
-			) | fzf)"
-			if [[ -f "$selected_img" ]]; then
-				feh "$selected_img"
-			fi
-	elif [[ "$cmd" == "keyboard-chafa-all" ]]; then
-		shift
-			chafa "$RIBYN_ROOT/keyboard/glove80/nav-layer.png"
-			chafa "$RIBYN_ROOT/keyboard/glove80/symbol-fkeys-layer.png"
-	elif [[ "$cmd" == "wezterm-guide" ]]; then
-		shift
-		"$RIBYN_ROOT/apps/wezterm/wezterm-guide.sh"
-	else
-		echo "ribyn: unknown key '$1'" >&2
-		for k in "${!temp_dirs[@]}"; do
-			echo "  $k" >&2
-		done
-		return 1
-	fi
-}
-complete -W "state wezterm-guide keyboard-feh keyboard-chafa keyboard-chafa-all" ribyn
-
-if command -v rcd >/dev/null 2>&1; then
-	echo "already defined: $(which rcd)"
-else
-	function rcd(){
-		cd "$( (
-			fd --type d . "$RIBYN_ROOT"
-		) | fzf)" || exit 1
-	}
-fi
-if command -v rr >/dev/null 2>&1; then
-	echo "already defined: $(which rr)"
-else
-	function rr(){
-		print -z "$( (
-				fd . "$RIBYN_ROOT" --extension=sh
-				fd . "$RIBYN_ROOT/bin"
-			) | fzf)"
-	}
-fi
-if command -v rrt >/dev/null 2>&1; then
-	echo "already defined: $(which rrt)"
-else
-	function rrt(){
-		cd "$RIBYN_ROOT" || exit
-	}
-fi
-
-# Then use y instead of yazi to start, and press q to quit, you'll see
-# the CWD changed. Sometimes, you don't want to change, press Q to quit.
-function y() {
-	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
-	command yazi "$@" --cwd-file="$tmp"
-	IFS= read -r -d '' cwd <"$tmp"
-	[ "$cwd" != "$PWD" ] && [ -d "$cwd" ] && builtin cd -- "$cwd"
-	rm -f -- "$tmp"
-}
-
-export HOMEBREW_NO_AUTO_UPDATE=1
-export HOMEBREW_NO_ANALYTICS=1
-
 eval "$(starship init zsh)"
 
-zshlocal="$HOME/.config/ribyn/zsh/local.sh"
-if [[ -f "$zshlocal" ]]; then
-	source "$zshlocal"
-fi
+. "$HOME/.config/ribyn/zsh/aliases"
+. "$HOME/.config/ribyn/zsh/functions"
+. "$zshlocal"
 
 echo "And whatever you do, do it heartily, as to the Lord and not to men, Colossians 3, 23 (NKJV)"
 
 # zprof
+# vim: ft=zsh

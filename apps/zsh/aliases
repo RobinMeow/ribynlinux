@@ -1,0 +1,24 @@
+# treeview of all git tracked files (ripgrep respects .gitignore)
+alias lstree='eza -1T'
+
+alias gpl='git pull'
+alias gpll='git pull && git log -1 --pretty=format:"%C(auto)%h%d%Creset %s %C(green)%cn%Creset %C(cyan)(%cr)%Creset"'
+
+# override the defaults from the omz git plugin:
+alias gpf='git push --force-with-lease' # exlude flag: --force-if-includes
+alias gl='git log -7 --graph --pretty=format:"%C(auto)%h%d%Creset %s %C(green)%cn%Creset %C(cyan)(%cr)%Creset"'
+alias gss='git status --short --untracked-files=all'
+alias gce='git commit --allow-empty-message --no-edit --verbose'
+alias gaacanepf='git add --all && git commit --amend --no-edit --verbose && git push --force-with-lease'
+
+# shadow ls to use eza instead
+alias ls='eza'
+# lsdefault :)
+alias lsd='eza -1 --group-directories-first --git-ignore'
+
+alias mpdd='mpd --no-daemon &'
+alias gourced="gource --no-vsync --fullscreen --auto-skip-seconds 1 --seconds-per-day 1"
+
+alias dict="cat /usr/share/dict/words | fzf"
+
+# vim: ft=bash

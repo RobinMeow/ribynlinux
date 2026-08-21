@@ -5,15 +5,23 @@ set -euo pipefail
 
 mkdir -p "$HOME/.config/ribyn/zsh"
 
-ribyn_rsync \
+rsync -rlpt \
 	"$RIBYN_ROOT/apps/zsh/zshrc" \
 	"$HOME/.zshrc"
 
-ribyn_rsync \
+rsync -rlpt \
+	"$RIBYN_ROOT/apps/zsh/zshenv" \
+	"$HOME/.zshenv"
+
+rsync -rlpt \
+	"$RIBYN_ROOT/apps/zsh/"{aliases,functions} \
+	"$HOME/.config/ribyn/zsh/"
+
+rsync -rlpt \
 	"$RIBYN_ROOT/apps/zsh/starship.toml" \
 	"$HOME/.config/starship.toml"
 
-ribyn_rsync \
+rsync -rlpt \
 	"$RIBYN_ROOT/apps/zsh/powerlevel10k/p10k.zsh" \
 	"$HOME/.config/ribyn/zsh/"
 
@@ -25,5 +33,7 @@ if [[ -f "$HOME/.zshrc-local.sh" ]]; then
 fi
 
 if [[ ! -f "$localdest" ]]; then
-	cp "$RIBYN_ROOT/apps/zsh/local.sh" "$localdest"
+	rsync -rlpt \
+		"$RIBYN_ROOT/apps/zsh/local.sh" \
+		"$localdest"
 fi
