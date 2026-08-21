@@ -8,6 +8,7 @@ set -euo pipefail
 # so might as well install as normally and for wsl copy additionially
 
 DEST_CONFIG_DIR="$HOME/.config/wezterm"
+WEZTERM_LUA_ORIGIN="$RIBYN_ROOT/apps/wezterm/wezterm.lua"
 DEST_HOME_DIR="$HOME"
 . "$RIBYN_ROOT/lib/detect_env.sh"
 detect_env
@@ -18,9 +19,12 @@ if [[ "$OS_TYPE" == "wsl" && "$RIBYN_SKIP_DETECT_SLOP_USER" != "yes" ]]; then
 
 	DEST_CONFIG_DIR="$WINDOWS_HOME/.config/wezterm"
 	DEST_HOME_DIR="$WINDOWS_HOME"
+	WEZTERM_LUA_ORIGIN="$RIBYN_ROOT/apps/wezterm/wezterm-wsl.lua"
 fi
 
-cp "$RIBYN_ROOT/apps/wezterm/wezterm.lua" "$DEST_HOME_DIR/.wezterm.lua"
+rsync -rlpt \
+	"$WEZTERM_LUA_ORIGIN" \
+	"$DEST_HOME_DIR/.wezterm.lua"
 
 source "$RIBYN_ROOT/config.sh"
 if [[ "$RIBYN_WEZTERM_CLEAN_ON_SYNC" == "yes" ]]; then
