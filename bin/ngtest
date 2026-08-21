@@ -4,7 +4,7 @@ set -euo pipefail
 # Configuration
 CACHE_DIR="${XDG_CACHE_HOME:-$HOME/.cache}/ribyn"
 HISTORY_FILE="$CACHE_DIR/ng_test_fzf_history"
-BROWSER="chromiumheadless"
+BROWSER=""
 WATCH_MODE=true
 
 show_help() {
@@ -88,10 +88,16 @@ echo "▶ Running Angular specs"
 echo "  Files: ${BASENAMES}"
 echo "--------------------------------------"
 
-exec npx ng test \
-	--browsers "$BROWSER" \
-	--watch "$WATCH_MODE" \
-	$INCLUDE_FLAGS
+if [ -n "$BROWSER" ]; then
+	exec npx ng test \
+		--browsers "$BROWSER" \
+		--watch "$WATCH_MODE" \
+		$INCLUDE_FLAGS
+else
+	exec npx ng test \
+		--watch "$WATCH_MODE" \
+		$INCLUDE_FLAGS
+fi
 
 # INFO: the pipe indirection prevents the pipefail from triggering causing the process to become unresponsive
 # $INCLUDE_FLAGS </dev/null
