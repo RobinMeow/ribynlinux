@@ -31,7 +31,7 @@ style = "#FFD6A5"
 
 # https://starship.rs/config/#git-status
 [git_status]
-format = "[[(*$conflicted$untracked$modified$staged$renamed$deleted)](#E98984) ($ahead_behind$stashed)]($style)"
+format = "[[(*$conflicted$untracked$modified[$staged](#a6e3a1)$renamed$deleted)](#E98984) ($ahead_behind$stashed)]($style)"
 style = "#FFAC00"
 # using the default icons, but adding the counts
 ahead = ' ⇡${count}'
