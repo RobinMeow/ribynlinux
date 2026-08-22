@@ -9,7 +9,8 @@ if [[ "$RIBYN_HYPR_INSTALL_ENABLED" == "no" ]]; then
 	exit 0
 fi
 
-. "$RIBYN_ROOT/lib/run_on_distro.sh"
+source "$RIBYN_ROOT/lib/run_on_distro.sh"
+source "$RIBYN_ROOT/apps/hypr/install-hypr-from-source.sh"
 
 if on_arch; then
 	sudo pacman -S --needed --noconfirm \
@@ -50,8 +51,6 @@ if on_arch; then
 	pacin_hyprlock
 elif on_fedora; then
 	"$RIBYN_ROOT/apps/hypr/build-stack-from-source.sh"
-
-	source "$RIBYN_ROOT/apps/hypr/install-hypr-from-source.sh"
 
 	# hyprpolkitagent
 	# CMake Warning (dev) at /usr/lib64/cmake/Qt6Core/Qt6CoreMacros.cmake:3565 (message):
