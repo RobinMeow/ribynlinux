@@ -12,7 +12,7 @@ $line_break\
 $character"""
 
 [directory]
-#1440p catppucci magenta
+# catppucci magenta
 style = "#cba6f7"
 # disable chopping of parent dirs
 truncation_length = 0
@@ -31,8 +31,19 @@ style = "#FFD6A5"
 
 # https://starship.rs/config/#git-status
 [git_status]
-format = "[[(*$conflicted$untracked$modified$staged$renamed$deleted)](218) ($ahead_behind$stashed)]($style)"
+format = "[[(*$conflicted$untracked$modified$staged$renamed$deleted)](#E98984) ($ahead_behind$stashed)]($style)"
 style = "#FFAC00"
+# using the default icons, but adding the counts
+ahead = '⇡${count}'
+diverged = '⇕⇡${ahead_count}⇣${behind_count}'
+behind = '⇣${count}'
+conflicted = '=${count}'
+untracked = '?${count}'
+stashed = '\$${count}'
+modified = '!${count}'
+staged = '+${count}'
+renamed = '»${count}'
+deleted = '✘${count}'
 # this is an invisible character ​
 # use like this, to "disable" a character
 # stashed = "​"
