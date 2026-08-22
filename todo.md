@@ -1,5 +1,6 @@
 # TicketSystem
 
+- buy small nvme about 250/500 GB for windows. has to fit my mainboard
 - allow "latest tag", "latest commit" etc. for config.sh
 - rename GIT_REF to GITREV git rev-parse "$gitref^{commit}"
 - move git aliases and function I use from ohmyzsh into my own. and merge my git config alongside
