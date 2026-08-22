@@ -95,6 +95,9 @@ info "Installing waybar"
 info "Installing dunst"
 "$RIBYN_ROOT/apps/dunst/install.sh"
 
+info "Installing mpvpaper"
+"$RIBYN_ROOT/apps/mpvpaper/install.sh"
+
 info "Installing wob"
 "$RIBYN_ROOT/apps/wob/install.sh"
 
