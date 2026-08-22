@@ -23,6 +23,7 @@ if on_arch; then
 		brightnessctl \
 		grim slurp swappy \
 		hyprpicker \
+		hyprlock \
 		qt6ct
 # hyprpolkitagent auth ui (type in password, when I need admin privl. via GUI apps)
 # xdg-desktop-portal-hyprland (asks for perm. when an app wants to do outside its own window, for security. e.g. screen sharing via discord)
@@ -44,10 +45,17 @@ elif on_fedora; then
 		grim slurp swappy \
 		qt6ct
 
-	"$RIBYN_ROOT/apps/hypr/build-hyprpicker-from-source.sh"
-	"$RIBYN_ROOT/apps/hypr/build-hyprshutdown-from-source.sh"
+	install_dep "hyprshutdown" \
+		"https://github.com/hyprwm/hyprshutdown.git" \
+		"$RIBYN_HYPR_HYPRSHUTDOWN_GIT_REF"
+	# "$RIBYN_ROOT/apps/hypr/build-hyprshutdown-from-source.sh"
+
+	success "hyprshut down installed using the source manager"
+	exit 0
 	"$RIBYN_ROOT/apps/hypr/build-hyprpaper-from-source.sh"
+	"$RIBYN_ROOT/apps/hypr/build-hyprpicker-from-source.sh"
+	"$RIBYN_ROOT/apps/hypr/build-hyprlock-from-source.sh"
 fi
 
+# hyprmoncfg only offers yay for arch
 "$RIBYN_ROOT/apps/hypr/build-hyprmoncfg-from-source.sh"
-"$RIBYN_ROOT/apps/hypr/build-hyprlock-from-source.sh"
