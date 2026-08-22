@@ -144,6 +144,11 @@ function m.setup()
   )
 
   key.bind("SUPER + PAUSE", hl.dsp.exec_cmd("wl-freeze -a"), { desc = "toggle wl-freeze the currently active window" })
+  key.bind(
+    "SUPER + B",
+    hl.dsp.exec_cmd("wl-freeze --name mpvpaper"),
+    { desc = "toggle wl-freeze on mpvpaper (background video)" }
+  )
 
   key.bind("SUPER + O", function()
     local handle = io.popen("pgrep --exact waybar")

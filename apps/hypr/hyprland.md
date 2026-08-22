@@ -6,7 +6,6 @@
 
 deferred:
 
-- [ ] mpvpaper engine (using mp4 and others for wallpapers)
 - [ ] wayscriber = EpicPen. Fortunatly I no longer use the mouse, but maybe...
 
 abandoned i think:
@@ -37,6 +36,7 @@ abandoned i think:
 
 completed:
 
+- [x] mpvpaper engine (using mp4 and others for wallpapers)
 - [x] use something else for desktop notifications
 - [x] build from source for fedora: https://github.com/hyprwm/hyprland-guiutils
 - [x] waybar should kill itself on lockscreen. remember it was running,
