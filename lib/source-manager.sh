@@ -11,8 +11,8 @@ SOURCE="$HOME/.local/share/ribyn"
 # TODO: allow "latest tag", "latest commit" etc. for config.sh
 
 function check_source_state() {
-	export SOURCE_NAME=$1
-	export SOURCE_GITREV=$2
+	export SOURCE_NAME=${1:?1st arg SOURCE_NAME is required}
+	export SOURCE_GITREV=${2:?2nd arg SOURCE_GITREV is required}
 	export SOURCE_DEST="$SOURCE/$SOURCE_NAME"
 
 	if [[ -d "$SOURCE_DEST" ]]; then

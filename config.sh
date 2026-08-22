@@ -158,6 +158,11 @@ set -euo pipefail
 	export RIBYN_HYPR_HYPRMONCFG_GIT_REF=${RIBYN_HYPR_HYPRMONCFG_GIT_REF:-"v1.13.0"}
 }
 
+# MPVPAPER
+{
+	export RIBYN_MPVPAPER_GITREV=${RIBYN_MPVPAPER_GITREV:-"origin/master"}
+}
+
 # KITTY
 {
 	# whether or not to use a dark gray solid background instead
