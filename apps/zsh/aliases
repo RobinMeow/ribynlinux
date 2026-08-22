@@ -21,4 +21,7 @@ alias gourced="gource --no-vsync --fullscreen --auto-skip-seconds 1 --seconds-pe
 
 alias dict="cat /usr/share/dict/words | fzf"
 
+alias pacin="sudo pacman -S"
+alias pacinnnc="sudo pacman -S --needed --no-confirm"
+
 # vim: ft=bash
