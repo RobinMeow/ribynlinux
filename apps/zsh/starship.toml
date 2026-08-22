@@ -42,8 +42,11 @@ untracked = ' ?${count}'
 stashed = ' \$${count}'
 modified = ' !${count}'
 staged = ' +${count}'
-renamed = ' »${count}'
-deleted = ' ✘${count}'
+renamed = '​'
+deleted = '​'
+# removed, because they dont tell me whether or not staged or unstaged
+# renamed = ' »${count}'
+# deleted = ' ✘${count}'
 # this is an invisible character ​
 # use like this, to "disable" a character
 # stashed = "​"
