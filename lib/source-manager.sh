@@ -15,10 +15,10 @@ function check_source_state() {
 	export SOURCE_GITREV=$2
 	export SOURCE_DEST="$SOURCE/$SOURCE_NAME"
 
-	# quick and dirty, fetch everything, so we dont have to bother with origin/checks
-	git -C "$SOURCE_DEST" fetch --all --tags --prune --jobs=10
-
 	if [[ -d "$SOURCE_DEST" ]]; then
+		# quick and dirty, fetch everything, so we dont have to bother with origin/checks
+		git -C "$SOURCE_DEST" fetch --all --tags --prune --jobs=10
+
 		requested_commit=$(git -C "$SOURCE_DEST" rev-parse "$SOURCE_GITREV^{commit}")
 		HEAD=$(git -C "$SOURCE_DEST" rev-parse "HEAD^{commit}")
 		if [[ "$requested_commit" == "$HEAD" ]]; then
