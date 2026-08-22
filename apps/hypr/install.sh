@@ -18,10 +18,8 @@ if on_arch; then
 		hyprpaper \
 		hyprpolkitagent \
 		xdg-desktop-portal-hyprland \
-		rofi \
 		wireplumber \
 		brightnessctl \
-		grim slurp swappy \
 		hyprpicker \
 		hyprlock \
 		qt6ct
@@ -78,10 +76,8 @@ elif on_fedora; then
 		'[[ -x "/usr/libexec/hyprpolkitagent" ]]'
 
 	sudo dnf install --assumeyes \
-		rofi \
 		wireplumber \
 		brightnessctl \
-		grim slurp swappy \
 		qt6ct
 
 	# SC2016 $SOURCE_NAME does not expand here on purpose

@@ -83,6 +83,9 @@ info "Installing bluetui"
 info "Installing rofi"
 "$RIBYN_ROOT/apps/rofi/install.sh"
 
+info "Installing screenshot tools"
+"$RIBYN_ROOT/apps/wayland/install-screenshot-tools.sh"
+
 info "Installing wl-freeze"
 "$RIBYN_ROOT/apps/wl-freeze/install.sh"
 
