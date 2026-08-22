@@ -12,7 +12,7 @@ $line_break\
 $character"""
 
 [directory]
-# catppucci magenta
+#1440p catppucci magenta
 style = "#cba6f7"
 # disable chopping of parent dirs
 truncation_length = 0
@@ -27,19 +27,15 @@ vimcmd_symbol = "[N](#b4befe)"
 
 [git_branch]
 format = "[$branch]($style)"
-# catppuccin green
-style = "#a6e3a1"
+style = "#FFD6A5"
 
+# https://starship.rs/config/#git-status
 [git_status]
 format = "[[(*$conflicted$untracked$modified$staged$renamed$deleted)](218) ($ahead_behind$stashed)]($style)"
-style = "cyan"
-conflicted = "​"
-untracked = "​"
-modified = "​"
-staged = "​"
-renamed = "​"
-deleted = "​"
-stashed = "≡"
+style = "#FFAC00"
+# this is an invisible character ​
+# use like this, to "disable" a character
+# stashed = "​"
 
 [git_state]
 format = '\([$state( $progress_current/$progress_total)]($style)\) '

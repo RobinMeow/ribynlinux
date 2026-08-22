@@ -6,6 +6,7 @@
 
 deferred:
 
+- [ ] allow hyprpicker for screencopy
 - [ ] wayscriber = EpicPen. Fortunatly I no longer use the mouse, but maybe...
 
 abandoned i think:

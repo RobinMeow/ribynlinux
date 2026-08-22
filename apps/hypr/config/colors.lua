@@ -1,5 +1,8 @@
 local m = {}
 
+-- they have nice pastel colors
+-- https://creativebooster.net/blogs/colors/pastel-color-palettes
+
 ---@diagnostic disable: unused-local
 local electric_purple = "#bf00ff"
 local vibrant_rose = "#ff00a0"
@@ -9,9 +12,17 @@ local hypr_default_blue = "#33ccffee"
 local hypr_default_cyan_green = "#00ff99ee"
 
 -- fallen knight (hyprpicked)
--- #C67E86
--- #9F6178
-local flower_rose = "#E98984"
+-- "#C67E86"
+-- "#9F6178"
+-- few more picks on the rose colored flower
+-- "#D27775"
+-- "#F6B0BC"
+-- "#F6A4B3" (active)
+-- "#D47387"
+-- "#B1555C"
+-- "#B75760"
+-- "#E98984"
+local flower_rose = "#F6A4B3"
 local cherry_blossom = "#9C3337"
 local earth = "#865220"
 local sunrise = "#CB7E28"
