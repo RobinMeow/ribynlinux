@@ -100,7 +100,3 @@ function update_source() {
 		git submodule update --init --recursive
 	)
 }
-
-function source_pkg_config_exists() {
-	pkg-config --exists "$SOURCE_NAME"
-}

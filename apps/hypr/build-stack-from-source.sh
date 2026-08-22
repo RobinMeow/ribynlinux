@@ -36,19 +36,6 @@ elif on_fedora; then
 	# 11. hyprland
 	# 12. hyprland-guiutils (runtime-only dependency. formerly hyprland-qtutils)
 
-	function hypr_build() {
-		# WARN: installs into /usr
-		# so avoid using the package manager to install these
-		# can cause conflicts.
-		# will prevent juggling systemd/env vars
-		# to excpose the /usr/local paths etc..
-		cmake --no-warn-unused-cli -DCMAKE_BUILD_TYPE:STRING=Release -DCMAKE_INSTALL_PREFIX:PATH=/usr -S . -B ./build
-
-		# NOTE: consider -1 core, to prevent segementation fails ? if it happens again
-		cmake --build ./build --config Release --target all -j"$(nproc 2>/dev/null || getconf NPROCESSORS_CONF)"
-		sudo cmake --install build
-	}
-
 	# base deps for almost all of them
 	sudo dnf install --assumeyes \
 		wayland-protocols-devel \
@@ -58,53 +45,31 @@ elif on_fedora; then
 		gcc \
 		gcc-c++
 
-	. "$RIBYN_ROOT/lib/source-manager.sh"
+	source "$RIBYN_ROOT/lib/source-manager.sh"
+	source "$RIBYN_ROOT/apps/hypr/install-hypr-from-source.sh"
 
-	# TODO: source_exists is not yet implement.
-	# requires source_manger to support updating to be relevant anyways
+	# SC2016 $SOURCE_NAME does not expand here on purpose
+	# shellcheck disable=SC2016
+	pkg_config_exists='pkg-config --exists $SOURCE_NAME'
 
-	function install_dep() {
-		local name=$1
-		local giturl=$2
-		local gitrev=$3
-		check_source_state "$name" "$gitrev"
-		if [[ "$SOURCE_STATE" == "source n/a" ]]; then
-			info "[$SOURCE_NAME] initialising..."
-			init_source "$giturl"
-			info "[$SOURCE_NAME] installing..."
-			(cd "$SOURCE_DEST" && hypr_build)
-		elif [[ "$SOURCE_STATE" == "gitrev equals" ]]; then
-			if source_pkg_config_exists; then
-				info "$SOURCE_NAME already installed. Skipping."
-			else
-				# edge case. means its already cloned, but build probaly failed.
-				clean_source
-				info "[$SOURCE_NAME] installing..."
-				(cd "$SOURCE_DEST" && hypr_build)
-			fi
-		elif [[ "$SOURCE_STATE" == "gitrev differs" ]]; then
-			clean_source
-			update_source "$giturl"
-			info "[$SOURCE_NAME] updating..."
-			(cd "$SOURCE_DEST" && hypr_build)
-		fi
-	}
-
-	install_dep "hyprland-protocols" \
+	hypr_install "hyprland-protocols" \
 		"https://github.com/hyprwm/hyprland-protocols" \
-		"$RIBYN_HYPR_HYPRLAND_PROTOCOLS_GIT_REF"
+		"$RIBYN_HYPR_HYPRLAND_PROTOCOLS_GIT_REF" \
+		"$pkg_config_exists"
 
 	sudo dnf install --assumeyes \
 		pugixml-devel
-	install_dep "hyprwayland-scanner" \
+	hypr_install "hyprwayland-scanner" \
 		"https://github.com/hyprwm/hyprwayland-scanner.git" \
-		"$RIBYN_HYPR_HYPRWAYLAND_SCANNER_GIT_REF"
+		"$RIBYN_HYPR_HYPRWAYLAND_SCANNER_GIT_REF" \
+		"$pkg_config_exists"
 
 	sudo dnf install --assumeyes \
 		pixman-devel
-	install_dep "hyprutils" \
+	hypr_install "hyprutils" \
 		"https://github.com/hyprwm/hyprutils.git" \
-		"$RIBYN_HYPR_HYPRUTILS_GIT_REF"
+		"$RIBYN_HYPR_HYPRUTILS_GIT_REF" \
+		"$pkg_config_exists"
 
 	sudo dnf install --assumeyes \
 		libglvnd-devel \
@@ -117,20 +82,23 @@ elif on_fedora; then
 		file-devel
 	# file has libmagick
 	# file has libpng-devel
-	install_dep "hyprgraphics" \
+	hypr_install "hyprgraphics" \
 		"https://github.com/hyprwm/hyprgraphics.git" \
-		"$RIBYN_HYPR_HYPRGRAPHICS_GIT_REF"
+		"$RIBYN_HYPR_HYPRGRAPHICS_GIT_REF" \
+		"$pkg_config_exists"
 
-	install_dep "hyprlang" \
+	hypr_install "hyprlang" \
 		"https://github.com/hyprwm/hyprlang.git" \
-		"$RIBYN_HYPR_HYPRLANG_GIT_REF"
+		"$RIBYN_HYPR_HYPRLANG_GIT_REF" \
+		"$pkg_config_exists"
 
 	sudo dnf install --assumeyes \
 		libzip-devel \
 		tomlplusplus-devel
-	install_dep "hyprcursor" \
+	hypr_install "hyprcursor" \
 		"https://github.com/hyprwm/hyprcursor" \
-		"$RIBYN_HYPR_HYPRCURSOR_GIT_REF"
+		"$RIBYN_HYPR_HYPRCURSOR_GIT_REF" \
+		"$pkg_config_exists"
 
 	sudo dnf install --assumeyes \
 		libinput-devel \
@@ -140,9 +108,10 @@ elif on_fedora; then
 		libdisplay-info-devel \
 		hwdata-devel
 	# 	systemd-devel is fedoras version of libudev. see here https://github.com/dcuddeback/libudev-sys
-	install_dep "aquamarine" \
+	hypr_install "aquamarine" \
 		"https://github.com/hyprwm/aquamarine" \
-		"$RIBYN_HYPR_AQUAMARINE_GIT_REF"
+		"$RIBYN_HYPR_AQUAMARINE_GIT_REF" \
+		"$pkg_config_exists"
 
 	# xdg-desktop-portal-hyprland
 	sudo dnf install --assumeyes \
@@ -150,68 +119,35 @@ elif on_fedora; then
 		libuuid-devel \
 		pipewire-devel \
 		sdbus-cpp-devel
-	xdph_giturl="https://github.com/hyprwm/xdg-desktop-portal-hyprland"
-	check_source_state "xdg-desktop-portal-hyprland" "$RIBYN_HYPR_XDG_DESKTOP_PORTAL_HYPRLAND_GIT_REF"
-	if [[ "$SOURCE_STATE" == "source n/a" ]]; then
-		info "[$SOURCE_NAME] initialising..."
-		init_source "$xdph_giturl"
-		info "[$SOURCE_NAME] installing..."
-		(cd "$SOURCE_DEST" && hypr_build)
-	elif [[ "$SOURCE_STATE" == "gitrev equals" ]]; then
-		# WARN: cant reuse source_pkg_config_exists so we just do the process manually here
-		if [[ -x "/usr/libexec/xdg-desktop-portal-hyprland" ]]; then
-			info "$SOURCE_NAME already installed. Skipping."
-		else
-			# edge case. means its already cloned, but build probaly failed.
-			clean_source
-			info "[$SOURCE_NAME] installing..."
-			(cd "$SOURCE_DEST" && hypr_build)
-		fi
-	elif [[ "$SOURCE_STATE" == "gitrev differs" ]]; then
-		clean_source
-		update_source "$xdph_giturl"
-		info "[$SOURCE_NAME] updating..."
-		(cd "$SOURCE_DEST" && hypr_build)
-	fi
+	hypr_install "xdg-desktop-portal-hyprland" \
+		"https://github.com/hyprwm/xdg-desktop-portal-hyprland" \
+		"$RIBYN_HYPR_XDG_DESKTOP_PORTAL_HYPRLAND_GIT_REF" \
+		'[[ -x "/usr/libexec/xdg-desktop-portal-hyprland" ]]'
 
-	install_dep "hyprwire" \
+	# SC2016 $SOURCE_NAME does not expand here on purpose
+	# shellcheck disable=SC2016
+	hypr_install "hyprwire" \
 		"https://github.com/hyprwm/hyprwire.git" \
-		"$RIBYN_HYPR_HYPRWIRE_GIT_REF"
+		"$RIBYN_HYPR_HYPRWIRE_GIT_REF" \
+		"$pkg_config_exists"
 
 	sudo dnf install --assumeyes \
 		iniparser-devel \
 		inotify-tools-devel
-	install_dep "hyprtoolkit" \
+	hypr_install "hyprtoolkit" \
 		"https://github.com/hyprwm/hyprtoolkit.git" \
-		"$RIBYN_HYPR_HYPRTOOLKIT_GIT_REF"
+		"$RIBYN_HYPR_HYPRTOOLKIT_GIT_REF" \
+		"$pkg_config_exists"
 
-	hyprland_guiutils_giturl="https://github.com/hyprwm/hyprland-guiutils"
-	check_source_state "hyprland-guiutils" "$RIBYN_HYPR_HYPRLAND_GUIUTILS_GIT_REF"
-	if [[ "$SOURCE_STATE" == "source n/a" ]]; then
-		info "[$SOURCE_NAME] initialising..."
-		init_source "$hyprland_guiutils_giturl"
-		info "[$SOURCE_NAME] installing..."
-		(cd "$SOURCE_DEST" && hypr_build)
-	elif [[ "$SOURCE_STATE" == "gitrev equals" ]]; then
-		# WARN: cant reuse source_pkg_config_exists so we just do the process manually here
-		if command -v hyprland-dialog >/dev/null 2>&1 &&
-			command -v hyprland-donate-screen >/dev/null 2>&1 &&
-			command -v hyprland-run >/dev/null 2>&1 &&
-			command -v hyprland-update-screen >/dev/null 2>&1 &&
-			command -v hyprland-welcome >/dev/null 2>&1; then
-			info "$SOURCE_NAME already installed. Skipping."
-		else
-			# edge case. means its already cloned, but build probaly failed.
-			clean_source
-			info "[$SOURCE_NAME] installing..."
-			(cd "$SOURCE_DEST" && hypr_build)
-		fi
-	elif [[ "$SOURCE_STATE" == "gitrev differs" ]]; then
-		clean_source
-		update_source "$hyprland_guiutils_giturl"
-		info "[$SOURCE_NAME] updating..."
-		(cd "$SOURCE_DEST" && hypr_build)
-	fi
+	is_hyprland_guiutils_installed='command -v hyprland-dialog >/dev/null 2>&1'
+	is_hyprland_guiutils_installed="${is_hyprland_guiutils_installed} && command -v hyprland-donate-screen >/dev/null 2>&1"
+	is_hyprland_guiutils_installed="${is_hyprland_guiutils_installed} && command -v hyprland-run >/dev/null 2>&1"
+	is_hyprland_guiutils_installed="${is_hyprland_guiutils_installed} && command -v hyprland-update-screen >/dev/null 2>&1"
+	is_hyprland_guiutils_installed="${is_hyprland_guiutils_installed} && command -v hyprland-welcome >/dev/null 2>&1"
+	hypr_install "hyprland-guiutils" \
+		"https://github.com/hyprwm/hyprland-guiutils" \
+		"$RIBYN_HYPR_HYPRLAND_GUIUTILS_GIT_REF" \
+		"$is_hyprland_guiutils_installed"
 
 	sudo dnf install --assumeyes \
 		glslang-devel \
@@ -223,36 +159,16 @@ elif on_fedora; then
 		readline-devel \
 		lua-devel \
 		libeis-devel
-	function build_hyprland() {
+
+	function build_and_install_hyprland() {
 		make release
 		sudo make install
 	}
-	hyprland_giturl="https://github.com/hyprwm/Hyprland"
-	check_source_state "hyprland" "$RIBYN_HYPR_HYPRLAND_GIT_REF"
-	if [[ "$SOURCE_STATE" == "source n/a" ]]; then
-		info "[$SOURCE_NAME] initialising..."
-		init_source "$hyprland_giturl"
-		info "[$SOURCE_NAME] installing..."
-		(cd "$SOURCE_DEST" && build_hyprland)
-	elif [[ "$SOURCE_STATE" == "gitrev equals" ]]; then
-		# WARN: cant reuse source_pkg_config_exists so we just do the process manually here
-		if command -v hyprland >/dev/null 2>&1; then
-			info "$SOURCE_NAME already installed. Skipping."
-		else
-			# edge case. means its already cloned, but build probaly failed.
-			clean_source
-			info "[$SOURCE_NAME] installing..."
-			(cd "$SOURCE_DEST" && build_hyprland)
-		fi
-	elif [[ "$SOURCE_STATE" == "gitrev differs" ]]; then
-		clean_source
-		update_source "$hyprland_giturl"
-		info "[$SOURCE_NAME] updating..."
-		(cd "$SOURCE_DEST" && build_hyprland)
-	fi
-
-	# NOTE: copr is also available, but its bloated imho
-	# lionheartp/Hyprland https://copr.fedorainfracloud.org/coprs/lionheartp/Hyprland
+	hypr_install "hyprland" \
+		"https://github.com/hyprwm/Hyprland" \
+		"$RIBYN_HYPR_HYPRLAND_GIT_REF" \
+		'command -v hyprland >/dev/null 2>&1' \
+		build_and_install_hyprland
 else
 	error "distro not supported"
 fi

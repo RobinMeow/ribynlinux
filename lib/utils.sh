@@ -77,3 +77,8 @@ press_any_to_continue() {
 cargobin() {
 	"$HOME/.cargo/bin/cargo-binstall" --disable-telemetry --no-confirm $1
 }
+
+exit_with_distro_not_supported_msg() {
+	error "Distro is not supported."
+	exit 1
+}
