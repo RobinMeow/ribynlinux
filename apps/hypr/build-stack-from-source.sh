@@ -221,7 +221,8 @@ elif on_fedora; then
 		xcb-util-errors-devel \
 		xcb-util-wm-devel \
 		readline-devel \
-		lua-devel
+		lua-devel \
+		libeis-devel
 	function build_hyprland() {
 		make release
 		sudo make install
