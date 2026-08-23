@@ -151,7 +151,7 @@ enable it on boot up `systemctl enable sddm.service`
 if you reboot now it will start sddm and have selected wayland be default
 Quick settings > Breeze Dark (Dark mode essentially)
 install a browser:
-`yay google-chrome`
+`yay --needed --noconfirm google-chrome`
 run it with `google-chrome-stable`
 `vim ~/.config/kwalletrc` and add
 ```

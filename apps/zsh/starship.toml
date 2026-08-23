@@ -59,7 +59,7 @@ style = "#CB7E28"
 # disable if I notice delays. seems pretty fast to me tho
 [git_metrics]
 disabled = false
-format = '([+$added]($added_style))([-$deleted]($deleted_style) )'
+format = ' ([+$added]($added_style))([-$deleted]($deleted_style) )'
 added_style = '#a6e3a1'
 deleted_style = '#f38ba8'
 
