@@ -21,7 +21,9 @@ ribyn_rsync \
 	"$RIBYN_ROOT/apps/hypr/config/local/" \
 	"$HOME/.config/hypr/local/"
 
-ribyn_rsync "$RIBYN_ROOT/assets/images/wallpapers/hypr_chan.png" "$HOME/.config/hypr/"
+ribyn_rsync \
+	"$RIBYN_ROOT/assets/images/wallpapers/fallen-knight-blossom-field-3840x2160.png" \
+	"$HOME/.config/hypr/"
 ribyn_rsync "$RIBYN_ROOT/assets/images/wallpapers/car-in-grass.jpg" "$HOME/.config/hypr/"
 
 ribyn_rsync "$RIBYN_ROOT/apps/hypr/hyprbye.sh" "$HOME/.local/bin/hyprbye"
