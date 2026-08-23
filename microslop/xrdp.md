@@ -4,6 +4,7 @@
 sudo dnf install xrdp
 sudo dnf install xorgxrdp
 sudo dnf install plasma-workspace-x11 (on ubuntu plasma-session-x11)
+sudo dnf install i3 (also based on x11)
 sudo systemctl enable --now xrdp
 ```
 
