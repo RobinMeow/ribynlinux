@@ -24,4 +24,9 @@ alias dict="cat /usr/share/dict/words | fzf"
 alias pacin="sudo pacman -S"
 alias pacinnnc="sudo pacman -S --needed --no-confirm"
 
+# I often mistype this
+# and then it opens ghost script
+# use \gs to use ghost script
+alias gs="gss"
+
 # vim: ft=bash
