@@ -4,10 +4,11 @@
 
 ## Tasks
 
+-no current tasks-
+
 deferred:
 
-- [ ] allow hyprpicker for screencopy
-- [ ] wayscriber = EpicPen. Fortunatly I no longer use the mouse, but maybe...
+-no deferred tasks-
 
 abandoned i think:
 
@@ -37,6 +38,8 @@ abandoned i think:
 
 completed:
 
+- [x] allow hyprpicker for screencopy
+- [x] wayscriber = EpicPen. Fortunatly I no longer use the mouse, but maybe...
 - [x] mpvpaper engine (using mp4 and others for wallpapers)
 - [x] use something else for desktop notifications
 - [x] build from source for fedora: https://github.com/hyprwm/hyprland-guiutils

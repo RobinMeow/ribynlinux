@@ -57,8 +57,9 @@ hl.config({
   },
 
   opengl = {
-    -- WARN: leave off I will not notice any flickering. Otherwise remove the option.
-    -- Then it will enable itself on nvidia cards.
+    -- WARN: I have no issues even with nvidia card. leaving it off.
+    -- Probably the flickering issue I used to have (on KDE)
+    -- gpu drivers fixed it
     nvidia_anti_flicker = false,
   },
 

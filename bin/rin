@@ -92,6 +92,9 @@ info "Installing wl-freeze"
 info "Installing waybar"
 "$RIBYN_ROOT/apps/waybar/install.sh"
 
+info "Installing wayscriber"
+"$RIBYN_ROOT/apps/wayscriber/install.sh"
+
 info "Installing dunst"
 "$RIBYN_ROOT/apps/dunst/install.sh"
 

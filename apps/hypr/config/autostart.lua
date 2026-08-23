@@ -5,6 +5,7 @@ local function default_autostart()
   -- daemons / jobs / etc.
   hl.exec_cmd("mpd") -- uses daemon by default otherwise --no-daemon or --systemd
   hl.exec_cmd("wob_volume listen")
+  hl.exec_cmd("hyprpaper")
   -- rofi does not use daemons
 
   -- apps
@@ -24,7 +25,8 @@ function m.setup()
 
     -- https://wiki.hypr.land/Useful-Utilities/Systemd-start/#hyprland-sessiontarget
     hl.exec_cmd("systemctl --user start hyprland-session.target")
-    hl.exec_cmd("hyprpaper")
+    -- now using mpvpaper, so each machine has to decide on their own
+    -- hl.exec_cmd("hyprpaper")
     hl.exec_cmd("dunst")
   end)
 

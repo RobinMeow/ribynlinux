@@ -150,11 +150,12 @@ function m.setup()
     { desc = "toggle wl-freeze on mpvpaper (background video)" }
   )
 
+  local function exec_cmd(cmd)
+    hl.dispatch(hl.dsp.exec_cmd(cmd))
+  end
+
   key.bind("SUPER + O", function()
     local handle = io.popen("pgrep --exact waybar")
-    local function exec_cmd(cmd)
-      hl.dispatch(hl.dsp.exec_cmd(cmd))
-    end
     if handle then
       local waybar_pid = handle:read("*a")
       handle:close()
@@ -170,6 +171,25 @@ function m.setup()
   end, { desc = "lock screen" })
 
   key.bind("SUPER + W", hl.dsp.exec_cmd("pkill --exact waybar || waybar"), { desc = "stop/start waybar" })
+
+  -- WARN: hyprland has no disptcher for focusing layers
+  -- so I have to move the mouse before I can use keybinds
+  -- using toggle fucntionality instead to work around it
+  key.bind("SUPER + CTRL + S", function()
+    local handle = io.popen("pgrep --exact wayscriber")
+    if handle then
+      local wayscriber_pid = handle:read("*a")
+      handle:close()
+      local wayscriber_is_running = wayscriber_pid ~= nil and wayscriber_pid ~= ""
+      if wayscriber_is_running then
+        exec_cmd("pkill --exact wayscriber")
+      else
+        exec_cmd("wayscriber --active")
+      end
+    else
+      hl.notification.create({ text = "Failed to pgrep?", timeout = 5000 })
+    end
+  end, { desc = "start wayscriber" })
 
   -- dunst
   key.bind("SUPER + C", hl.dsp.exec_cmd("dunstctl close"), { desc = "close notification" })
