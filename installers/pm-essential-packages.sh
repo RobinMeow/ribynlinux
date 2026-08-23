@@ -6,6 +6,8 @@ set -euo pipefail
 
 # essential packages are required by many shell scripts
 # (like git or rsync) which do not install them themselves
+# unfortunately run_on_distro depends on awk as a transient dependency
+# but awk is a nice programm, so its fine.
 
 info "Installing essential packages..."
 
@@ -18,7 +20,8 @@ if on_arch; then
 		fzf \
 		fd \
 		cargo \
-		pkgconf
+		pkgconf \
+		awk
 elif on_fedora; then
 	sudo dnf install -y \
 		@development-tools \
@@ -29,7 +32,8 @@ elif on_fedora; then
 		fzf \
 		fd-find \
 		cargo \
-		pkgconf-pkg-config
+		pkgconf-pkg-config \
+		awk
 
 	# NOTE essential if you have intel gpu/onboard
 	# and want e.g. firefox to use gpu for video decoding
