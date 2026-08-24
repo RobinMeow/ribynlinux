@@ -22,3 +22,17 @@ and use `inet 172.x.x.x` as ip to log in via RDP
 
 [xrdp archwiki](https://wiki.archlinux.org/title/Xrdp)
 enough said.
+
+WARN: not tested, ended up not needing it
+```sh
+# use aliases (these work, but only for my interactive shells)
+# alias wl-copy='xclip -selection clipboard'
+# alias wl-paste='xclip -selection clipboard -o'
+
+# wrapper for wl-copy
+sudo tee /usr/local/bin/wl-copy > /dev/null << 'EOF'
+#!/bin/bash
+exec xclip -selection clipboard "$@"
+EOF
+chomd +x /usr/local/bin/wl-copy
+```
