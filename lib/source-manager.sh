@@ -104,3 +104,44 @@ function update_source() {
 		git submodule update --init --recursive
 	)
 }
+
+# calling code has to declare two functions, called
+# <sourcename>_installed
+# <sourcename>_build_and_install
+# pass in the url as arg
+function source_git() {
+	SOURCE_STATE=${SOURCE_STATE:?call check_source_state before run}
+
+	giturl=${1:?git url is required}
+	is_installed="${SOURCE_NAME}_installed"
+	build_and_install="${SOURCE_NAME}_build_and_install"
+
+	if ! declare -F "$build_and_install" >/dev/null; then
+		echo "Error: Function '$build_and_install' does not exist." >&2
+		exit 1
+	fi
+	if ! declare -F "$is_installed" >/dev/null; then
+		echo "Error: Function '$is_installed' does not exist." >&2
+		exit 1
+	fi
+
+	if [[ "$SOURCE_STATE" == "source n/a" ]]; then
+		init_source "$giturl"
+		info "[$SOURCE_NAME] installing..."
+		(cd "$SOURCE_DEST" && "$build_and_install")
+	elif [[ "$SOURCE_STATE" == "gitrev equals" ]]; then
+		if $is_installed; then
+			info "$SOURCE_NAME already installed. Skipping."
+		else
+			# edge case. means its already cloned, but build probably failed
+			clean_source
+			info "[$SOURCE_NAME] installing..."
+			(cd "$SOURCE_DEST" && "$build_and_install")
+		fi
+	elif [[ "$SOURCE_STATE" == "gitrev differs" ]]; then
+		clean_source
+		update_source "$giturl"
+		info "[$SOURCE_NAME] updating..."
+		(cd "$SOURCE_DEST" && "$build_and_install")
+	fi
+}
