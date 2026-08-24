@@ -1,51 +1,8 @@
 #!/bin/bash
 set -euo pipefail
 
-# these config values are my personal perference and can
-# deviate from the default values used within the scripts
-#
-# if you want to override values locally (per machine) use your zshrc local
-# located in ~/.config/ribyn/zsh/local.sh
-#
-# WARN: when using branches for GIT_REV always include the remote prefix: origin/<branch>
-# it seems redundant, becuase its always origin/ for branches, but currently our script has not way of telling,
-# if the GIT_REV is a hash, tag or branch
-# specifying a branch, also enabled auto updating. Otherwise choose a commit or tag.
-# a tag can be updated by the maintainers, and can cause a unpredictable update.
-# (and commits can be lost, if the maintainers decide to get rid of it)
-
 # TODO: rename GIT_REF to GIT_REV
-
-# NEOVIM
-{
-	# builds neovim from source instead of using the package manager to install
-	# the binaries. binaries are recoomended. Use build from source
-	# if you want to use Release build type, which aggressivly pushes for
-	# performance. Builds are not guaranteed to work, and often requires a re-run.
-	export RIBYN_NVIM_BUILD_FROM_SOURCE=${RIBYN_NVIM_BUILD_FROM_SOURCE:-"no"}
-
-	# requires BUILD_FROM_SOURCE to be set to "yes"
-	# anything you can call git checkout on.
-	# usually 'master' branch or 'stable' tag
-	export RIBYN_NVIM_GIT_REF=${RIBYN_NVIM_GIT_REF:-"stable"}
-
-	# requires BUILD_FROM_SOURCE to be set to "yes"
-	# whether or not to fetch the latest commits before checking out the BUILD_REF
-	# requires BUILD_FROM_SOURCE to be set to "yes"
-	export RIBYN_NVIM_GIT_FETCH=${RIBYN_NVIM_GIT_FETCH:-"no"}
-
-	# requires BUILD_FROM_SOURCE to be set to "yes"
-	# neovim build: https://github.com/neovim/neovim/blob/master/BUILD.md
-	# sorted by slowest runtime to fastest, and fastest build time to slowest (runtime optimizations take longer)
-	# Debug: Full debug information; few optimizations. Use this for development to get meaningful output from debuggers like GDB or LLDB. This is the default if CMAKE_BUILD_TYPE is not specified.
-	# RelWithDebverbose: <release with debug verbose> didnt see a description in the github
-	# RelWithDebInfo: meaning "Release With Debug Info" Enables many optimizations and adds enough debug info so that when Neovim ever crashes, you can still get a backtrace.
-	# Release: Full compiler optimizations and no debug information. Expect the best performance from this build type. Often used by package maintainers.
-	export RIBYN_NVIM_BUILD_TYPE=${RIBYN_NVIM_BUILD_TYPE:-"Release"}
-
-	# not support by my build from source script. probably a small change
-	# `-Doptimize=ReleaseFast` (Zig). is this only for webassembly?
-}
+# TODO: move config values to their respective file
 
 # RMPC
 {

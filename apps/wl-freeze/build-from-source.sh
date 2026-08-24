@@ -22,9 +22,7 @@ fi
 
 source "$RIBYN_ROOT/lib/source-manager.sh"
 export RIBYN_WL_FREEZE_GITREV=${RIBYN_WL_FREEZE_GITREV:-"v2.1.0"}
-check_source_state "wl-freeze" "$RIBYN_WL_FREEZE_GITREV"
 
-# TODO: move the info messages into the source-manager
 function build_and_install() {
 	# make wl-freeze available in the cli as wl-freeze
 	# if .local/bin is in your PATH
@@ -45,8 +43,8 @@ function build_and_install() {
 }
 
 giturl="https://github.com/Zerodya/wl-freeze"
+check_source_state "wl-freeze" "$RIBYN_WL_FREEZE_GITREV"
 if [[ "$SOURCE_STATE" == "source n/a" ]]; then
-	info "[$SOURCE_NAME] initialising..."
 	init_source "$giturl"
 	info "[$SOURCE_NAME] installing..."
 	(cd "$SOURCE_DEST" && build_and_install)

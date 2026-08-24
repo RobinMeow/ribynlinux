@@ -7,6 +7,19 @@ My personalized environment for Arch Linux, Fedora, Neovim, WSL and many other t
 
 > checkout [installers and helpers](./installers.md) for first time clones / installs
 
+## Git Revisions
+
+if you want to override values locally (per machine) use your zshrc local
+located in ~/.config/ribyn/zsh/local.sh
+
+when using branches for GIT_REV always include the remote prefix: `origin/<branch>`
+it seems redundant, becuase its always origin/ for branches, but currently our script
+has not way of telling,
+if the GIT_REV is a hash, tag or branch
+specifying a branch, also enabled auto updating. Otherwise choose a commit or tag.
+a tag can be updated by the maintainers, and can cause a unpredictable update.
+(and commits can be lost, if the maintainers decide to get rid of it)
+
 ## Syncing config files with rsync
 
 ```sh

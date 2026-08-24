@@ -7,9 +7,9 @@ set -euo pipefail
 #
 # It will include infos like "could not find npm to install typescript language server"
 
-. "$RIBYN_ROOT/config.sh"
-. "$RIBYN_ROOT/lib/run_on_distro.sh"
-. "$RIBYN_ROOT/lib/utils.sh"
+source "$RIBYN_ROOT/config.sh"
+source "$RIBYN_ROOT/lib/run_on_distro.sh"
+source "$RIBYN_ROOT/lib/utils.sh"
 
 # treesitter depends on (since 0.12 nvim depends on it itself now)
 # - tree-sitter-cli
