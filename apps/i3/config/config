@@ -107,3 +107,5 @@ bar {
     font pango:Noto Sans 14
     status_command i3status
 }
+
+bindsym $mod+f fullscreen toggle
