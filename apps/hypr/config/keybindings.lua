@@ -172,6 +172,20 @@ function m.setup()
 
   key.bind("SUPER + W", hl.dsp.exec_cmd("pkill --exact waybar || waybar"), { desc = "stop/start waybar" })
 
+  local step = 0.05
+
+  key.bind("SUPER + SHIFT + up", function()
+    local brightness = hl.get_config("decoration.blur.brightness")
+    local new_brightness = math.min(1.0, brightness + step)
+    hl.config({ decoration = { blur = { brightness = new_brightness } } })
+  end, { repeating = true, desc = "Increase Brightness" })
+
+  key.bind("SUPER + SHIFT + down", function()
+    local brightness = hl.get_config("decoration.blur.brightness")
+    local new_brightness = math.max(0.0, brightness - step)
+    hl.config({ decoration = { blur = { brightness = new_brightness } } })
+  end, { repeating = true, desc = "Decrease Brightness" })
+
   -- WARN: hyprland has no disptcher for focusing layers
   -- so I have to move the mouse before I can use keybinds
   -- using toggle fucntionality instead to work around it
