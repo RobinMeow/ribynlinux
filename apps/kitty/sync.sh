@@ -3,35 +3,34 @@ set -euo pipefail
 
 . "$RIBYN_ROOT/config.sh"
 . "$RIBYN_ROOT/lib/utils.sh"
-. "$RIBYN_ROOT/lib/detect_env.sh"
 
 mkdir -p "$HOME/.config/kitty"
 cp -r "$RIBYN_ROOT/apps/kitty/config/"* "$HOME/.config/kitty/"
 rsync -lrpt "$RIBYN_ROOT/assets/images/wallpapers/fallen-knight-blossom-field-3840x2160.png" "$HOME/.config/kitty/background.png"
 
-detect_env
-
-if [[ "$OS_TYPE" == "wsl" ]]; then
-	cat >>"$HOME/.config/kitty/kitty.conf" <<EOF
-
-# WSL Specific Changes
-font_size 16
-background_image $HOME/.config/kitty/background.png
-background_opacity 1
-background_image_layout scaled
-# darken the bg
-background black
-background_tint 0.99
-
-# WARN: comment in to throttle rendering to save a bit of performance
-repaint_delay 100
-input_delay 5
-sync_to_monitor no
-EOF
-
-	info "Kitty: WSL specific config has been appended."
-fi
-
 if [[ ${RIBYN_KITTY_USE_SOLID_BG:-"no"} == "yes" ]]; then
-	cat "$RIBYN_ROOT/apps/kitty/kitty-solid-bg.conf" >>"$HOME/.config/kitty/kitty.conf"
+	cp "$RIBYN_ROOT/apps/kitty/kitty-solid-bg.conf" "$HOME/.config/kitty/kitty.conf"
 fi
+
+# . "$RIBYN_ROOT/lib/detect_env.sh"
+# detect_env
+# if [[ "$OS_TYPE" == "wsl" ]]; then
+# 	cat >>"$HOME/.config/kitty/kitty.conf" <<EOF
+#
+# # WSL Specific Changes
+# font_size 16
+# background_image $HOME/.config/kitty/background.png
+# background_opacity 1
+# background_image_layout scaled
+# # darken the bg
+# background black
+# background_tint 0.99
+#
+# # WARN: comment in to throttle rendering to save a bit of performance
+# repaint_delay 100
+# input_delay 5
+# sync_to_monitor no
+# EOF
+#
+# 	info "Kitty: WSL specific config has been appended."
+# fi
