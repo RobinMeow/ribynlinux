@@ -32,7 +32,7 @@ style = "#FFD6A5"
 
 # https://starship.rs/config/#git-status
 [git_status]
-format = "[[(*$conflicted$untracked$modified[$staged](#a6e3a1)$renamed$deleted)](#E98984) ($ahead_behind$stashed)]($style)"
+format = "[[(*$conflicted$untracked$modified[$staged](#a6e3a1)[$renamed](#cba6f7)$deleted)](#E98984) ($ahead_behind$stashed)]($style)"
 style = "#FFAC00"
 # using the default icons, but adding the counts
 ahead = ' ⇡${count}'
@@ -43,11 +43,8 @@ untracked = ' ?${count}'
 stashed = ' \$${count}'
 modified = ' !${count}'
 staged = ' +${count}'
-renamed = '​'
-deleted = '​'
-# removed, because they dont tell me whether or not staged or unstaged
-# renamed = ' »${count}'
-# deleted = ' ✘${count}'
+renamed = ' »${count}'
+deleted = ' ✘${count}'
 # this is an invisible character ​
 # use like this, to "disable" a character
 # stashed = "​"
