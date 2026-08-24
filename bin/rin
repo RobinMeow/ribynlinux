@@ -104,6 +104,9 @@ info "Installing mpvpaper"
 info "Installing wob"
 "$RIBYN_ROOT/apps/wob/install.sh"
 
+info "Installing i3"
+"$RIBYN_ROOT/apps/i3/install.sh"
+
 info "Installing hypr"
 "$RIBYN_ROOT/apps/hypr/install.sh"
 

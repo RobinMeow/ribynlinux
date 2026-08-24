@@ -163,6 +163,11 @@ set -euo pipefail
 	export RIBYN_MPVPAPER_GITREV=${RIBYN_MPVPAPER_GITREV:-"origin/master"}
 }
 
+# i3
+{
+	export RIBYN_I3_ENABLED=${RIBYN_I3_ENABLED:-"no"}
+}
+
 # KITTY
 {
 	# whether or not to use a dark gray solid background instead
