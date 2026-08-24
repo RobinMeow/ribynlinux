@@ -7,6 +7,7 @@ set -euo pipefail
 
 mkdir -p "$HOME/.config/kitty"
 cp -r "$RIBYN_ROOT/apps/kitty/config/"* "$HOME/.config/kitty/"
+rsync -lrpt "$RIBYN_ROOT/assets/images/wallpapers/fallen-knight-blossom-field-3840x2160.png" "$HOME/.config/kitty/background.png"
 
 detect_env
 
