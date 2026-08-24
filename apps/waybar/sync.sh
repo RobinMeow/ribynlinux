@@ -4,6 +4,6 @@ set -euo pipefail
 . "$RIBYN_ROOT/lib/utils.sh"
 
 mkdir -p "$HOME/.config/waybar"
-ribyn_rsync \
+rsync -rlpt \
 	"$RIBYN_ROOT/apps/waybar/config/" \
 	"$HOME/.config/waybar/"

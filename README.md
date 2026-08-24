@@ -7,6 +7,16 @@ My personalized environment for Arch Linux, Fedora, Neovim, WSL and many other t
 
 > checkout [installers and helpers](./installers.md) for first time clones / installs
 
+## Syncing config files with rsync
+
+```sh
+# --recursive, -r          recurse into directories
+# --links, -l              copy symlinks as symlinks
+# --perms, -p              preserve permissions
+# --times, -t              preserve modification times
+# --verbose, -v
+```
+
 ## Setup remotes
 
 when cloning from gh

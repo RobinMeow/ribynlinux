@@ -10,32 +10,32 @@ if [[ -f "$hypr_conf" ]]; then
 fi
 
 mkdir -p "$HOME/.config/hypr"
-ribyn_rsync \
+rsync -rlpt \
 	--exclude="local/" \
 	"$RIBYN_ROOT/apps/hypr/config/" \
 	"$HOME/.config/hypr/"
 
 mkdir -p "$HOME/.config/hypr/local"
-ribyn_rsync \
+rsync -rlpt \
 	--ignore-existing \
 	"$RIBYN_ROOT/apps/hypr/config/local/" \
 	"$HOME/.config/hypr/local/"
 
-ribyn_rsync \
+rsync -rlpt \
 	"$RIBYN_ROOT/assets/images/wallpapers/fallen-knight-blossom-field-3840x2160.png" \
 	"$HOME/.config/hypr/"
-ribyn_rsync "$RIBYN_ROOT/assets/images/wallpapers/car-in-grass.jpg" "$HOME/.config/hypr/"
+rsync -rlpt "$RIBYN_ROOT/assets/images/wallpapers/car-in-grass.jpg" "$HOME/.config/hypr/"
 
-ribyn_rsync "$RIBYN_ROOT/apps/hypr/hyprbye.sh" "$HOME/.local/bin/hyprbye"
+rsync -rlpt "$RIBYN_ROOT/apps/hypr/hyprbye.sh" "$HOME/.local/bin/hyprbye"
 
 mkdir -p "$HOME/.config/systemd/user/"
-ribyn_rsync \
+rsync -rlpt \
 	"$RIBYN_ROOT/apps/hypr/hyprland-session.target" \
 	"$HOME/.config/systemd/user/"
 
 # eeyore hyprlock
 mkdir -p "$HOME/.config/hypr/eeyore/"
-ribyn_rsync "$RIBYN_ROOT/assets/images/eeyore.png" "$HOME/.config/hypr/eeyore/eeyore.png"
+rsync -rlpt "$RIBYN_ROOT/assets/images/eeyore.png" "$HOME/.config/hypr/eeyore/eeyore.png"
 # didnt like 'em
 # ribyn_rsync "$RIBYN_ROOT/assets/images/eeyore-duck-balloon.jpg" "$HOME/.config/hypr/eeyore/"
 # ribyn_rsync "$RIBYN_ROOT/assets/images/eeyore-pink-ribbon.jpg" "$HOME/.config/hypr/eeyore/"
@@ -53,11 +53,11 @@ fi
 mkdir -p "$HOME/.config/hypr/i-am-root/"
 
 # background
-ribyn_rsync \
+rsync -rlpt \
 	"$RIBYN_ROOT/assets/images/groot-relaxing-in-grass.jpg" \
 	"$HOME/.config/hypr/i-am-root/"
 
 # profile image (appearance-wise)
-ribyn_rsync \
+rsync -rlpt \
 	"$RIBYN_ROOT/assets/images/good-morning-groot.jpg" \
 	"$HOME/.config/hypr/i-am-root/"

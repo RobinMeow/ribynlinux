@@ -5,6 +5,6 @@ set -euo pipefail
 
 . "$RIBYN_ROOT/lib/utils.sh"
 
-ribyn_rsync \
+rsync -rlpt \
 	"$RIBYN_ROOT/apps/xdg-desktop-portal-termfilechooser/config/" \
 	"$HOME/.config/xdg-desktop-portal-termfilechooser/"

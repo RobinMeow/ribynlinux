@@ -11,10 +11,10 @@ fi
 
 # kde config files are usually directly in .config
 mkdir -p "$HOME/.config"
-ribyn_rsync \
+rsync -rlpt \
 	"$RIBYN_ROOT/apps/kde/kwalletrc" \
 	"$HOME/.config/kwalletrc"
 
-ribyn_rsync \
+rsync -rlpt \
 	"$RIBYN_ROOT/apps/kde/kscreenlockerrc" \
 	"$HOME/.config/kscreenlockerrc"

@@ -4,12 +4,12 @@ set -euo pipefail
 . "$RIBYN_ROOT/lib/utils.sh" # ribyn_rsync
 
 mkdir -p "$HOME/.config/gtk-3.0/"
-ribyn_rsync \
+rsync -rlpt \
 	"$RIBYN_ROOT/apps/gtk/config/" \
 	"$HOME/.config/gtk-3.0/"
 
 mkdir -p "$HOME/.config/gtk-4.0/"
-ribyn_rsync \
+rsync -rlpt \
 	"$RIBYN_ROOT/apps/gtk/config/" \
 	"$HOME/.config/gtk-4.0/"
 

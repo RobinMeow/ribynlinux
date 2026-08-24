@@ -7,12 +7,12 @@ set -euo pipefail
 # https://icon-icons.com/search/icons/netflix
 
 # desktop files
-ribyn_rsync \
+rsync -rlpt \
 	"$RIBYN_ROOT/desktop-files/applications/" \
 	"$HOME/.local/share/applications/"
 
 # their icons
 mkdir -p "$HOME/.icons"
-ribyn_rsync \
+rsync -rlpt \
 	"$RIBYN_ROOT/desktop-files/icons/" \
 	"$HOME/.icons"

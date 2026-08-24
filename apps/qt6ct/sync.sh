@@ -4,6 +4,6 @@ set -euo pipefail
 . "$RIBYN_ROOT/lib/utils.sh"
 
 mkdir -p "$HOME/.config/qt6ct/"
-ribyn_rsync \
+rsync -rlpt \
 	"$RIBYN_ROOT/apps/qt6ct/config/" \
 	"$HOME/.config/qt6ct/"

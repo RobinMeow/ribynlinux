@@ -39,20 +39,6 @@ confirm() {
 	[[ "${REPLY:-n}" =~ ^[Yy]$ ]]
 }
 
-# TODO: use rsync -rlpt instead
-ribyn_rsync() {
-	# --recursive, -r          recurse into directories
-	# --links, -l              copy symlinks as symlinks
-	# --perms, -p              preserve permissions
-	# --times, -t              preserve modification times
-	# --verbose, -v
-	rsync \
-		--recursive \
-		--links \
-		--perms \
-		--times "$@"
-}
-
 press_any_to_continue() {
 	# * **`read`**: The built-in command that waits for user keyboard input.
 	# * **`-n 1` (Bash) / `-k 1` (Zsh)**: Waits for exactly 1 character (no Enter required).

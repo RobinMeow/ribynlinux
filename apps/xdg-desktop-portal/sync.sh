@@ -5,6 +5,6 @@ set -euo pipefail
 
 mkdir -p "$HOME/.config/xdg-desktop-portal"
 
-ribyn_rsync \
+rsync -rlpt \
 	"$RIBYN_ROOT/apps/xdg-desktop-portal/config/" \
 	"$HOME/.config/xdg-desktop-portal/"

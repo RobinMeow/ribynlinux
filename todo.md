@@ -26,7 +26,6 @@
   not have fall back values
 - automate build from sources and use a lock file system
 - rmpc configure for my use case wich is dir only
-- use ribyn_rsync instead of cp -r everywhere (better verbosity,
   improved performance and copies only files when neccessary)
 - rmpc primary colors needs to be orange
 - config.sh should defined env variables for syncing which each sync.sh
