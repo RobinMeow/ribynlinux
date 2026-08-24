@@ -14,6 +14,7 @@ if [[ "$OS_TYPE" == "wsl" ]]; then
 	cat >>"$HOME/.config/kitty/kitty.conf" <<EOF
 
 # WSL Specific Changes
+font_size 16
 background_image $HOME/.config/kitty/background.png
 background_opacity 1
 background_image_layout scaled
@@ -22,7 +23,6 @@ background black
 background_tint 0.99
 
 # WARN: comment in to throttle rendering to save a bit of performance
-font_size 11
 repaint_delay 100
 input_delay 5
 sync_to_monitor no
