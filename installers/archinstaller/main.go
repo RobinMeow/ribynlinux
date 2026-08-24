@@ -1,6 +1,7 @@
 package main
 
-// TODO: https://go.dev/tour/moretypes/6
+// NOTE: continue where I left off:
+// https://go.dev/tour/moretypes/6
 
 import (
 	"fmt"
