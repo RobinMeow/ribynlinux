@@ -188,7 +188,8 @@ require("lazy").setup({
         ["delve"] = {}, -- go debugger
         ["goimports"] = {}, -- go formatter, import manager
         -- ["gofumpt"] = {}, -- stricter (probably opioniated) go formatter
-        ["tsgo"] = {},
+        ["tsc"] = {},
+        -- ["tsgo"] = {},
         -- ["ts_ls"] = {
         --   -- NOTE: was kinda nice, but I did notice the start up being slower and the benefits werent that great. so disabled for now again
         --   -- on_attach = function(client, bufnr)
@@ -497,13 +498,13 @@ vim.g.loaded_perl_provider = 0
 vim.g.loaded_python3_provider = 0
 vim.g.loaded_ruby_provider = 0
 
-vim.api.nvim_create_user_command("CompileTscOld", function()
-  vim.cmd("compiler tsc")
-  vim.opt.makeprg = "npx tsc --noEmit"
-  vim.cmd("make")
-  vim.cmd("copen")
-end, { nargs = 0 })
-
+-- vim.api.nvim_create_user_command("CompileTscOld", function()
+--   vim.cmd("compiler tsc")
+--   vim.opt.makeprg = "npx tsc --noEmit"
+--   vim.cmd("make")
+--   vim.cmd("copen")
+-- end, { nargs = 0 })
+--
 vim.api.nvim_create_user_command("CompileTsc", function()
   vim.cmd("compiler tsc")
   -- NOTE: already correct by default
