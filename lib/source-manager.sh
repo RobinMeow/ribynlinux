@@ -8,8 +8,6 @@ SOURCE="$HOME/.local/share/ribyn"
 # I think it would still work when not. but would be more clean
 # also expects the name to match the pkg-config value if used.
 
-# TODO: allow "latest tag", "latest commit" etc. for config.sh
-
 function check_source_state() {
 	export SOURCE_NAME=${1:?1st arg SOURCE_NAME is required}
 	export SOURCE_GITREV=${2:?2nd arg SOURCE_GITREV is required}
@@ -18,6 +16,11 @@ function check_source_state() {
 	if [[ -d "$SOURCE_DEST" ]]; then
 		# quick and dirty, fetch everything, so we dont have to bother with origin/checks
 		git -C "$SOURCE_DEST" fetch --all --tags --prune --jobs=10
+
+		if [[ "$SOURCE_GITREV" == "latest-tag" ]]; then
+			SOURCE_GITREV=$(git -C "$SOURCE_DEST" tag --sort=v:refname | tail -n 1)
+			info "latest tag is: $SOURCE_GITREV"
+		fi
 
 		requested_commit=$(git -C "$SOURCE_DEST" rev-parse "$SOURCE_GITREV^{commit}")
 		HEAD=$(git -C "$SOURCE_DEST" rev-parse "HEAD^{commit}")

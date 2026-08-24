@@ -10,7 +10,10 @@ set -euo pipefail
 # WARN: when using branches for GIT_REV always include the remote prefix: origin/<branch>
 # it seems redundant, becuase its always origin/ for branches, but currently our script has not way of telling,
 # if the GIT_REV is a hash, tag or branch
-#
+# specifying a branch, also enabled auto updating. Otherwise choose a commit or tag.
+# a tag can be updated by the maintainers, and can cause a unpredictable update.
+# (and commits can be lost, if the maintainers decide to get rid of it)
+
 # TODO: rename GIT_REF to GIT_REV
 
 # NEOVIM
@@ -110,6 +113,7 @@ set -euo pipefail
 {
 	# install hyprland when running hypr/install.sh and all of its coupled apps:
 	# hyprlock, hyprpicker, hyprmoncfg
+	# TODO:remove install short name
 	export RIBYN_HYPR_INSTALL_ENABLED=${RIBYN_HYPR_INSTALL_ENABLED:-"yes"}
 
 	# NOTE: the following env variables have no effect if INSTALL_ENABLED is set to "no"
