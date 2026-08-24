@@ -7,6 +7,16 @@ My personalized environment for Arch Linux, Fedora, Neovim, WSL and many other t
 
 > checkout [installers and helpers](./installers.md) for first time clones / installs
 
+## Setup remotes
+
+when cloning from gh
+
+```sh
+cd "$RIBYN_ROOT"
+git remote rename origin gh
+git remote add cb ssh://git@codeberg.org/Ribyn/ribynlinux.git
+git config remotes.all "gh cb"
+```
 
 ## MonkeyType 
 
