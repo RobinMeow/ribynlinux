@@ -30,25 +30,6 @@ require("lazy").setup({
 
   -- LSP Plugins
   {
-    ft = { "cs", "csproj", "sln", "slnx" },
-    "GustavEikaas/easy-dotnet.nvim",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "nvim-telescope/telescope.nvim",
-    },
-    config = function()
-      -- requirements: dotnet tool install -g EasyDotnet
-      require("easy-dotnet").setup({
-        lsp = {
-          auto_refresh_codelens = false,
-          suggest_updates = false, -- Periodically suggest roslyn-language-server updates
-        },
-        razor = { enabled = false },
-        picker = "telescope",
-      })
-    end,
-  },
-  {
     -- `lazydev` configures Lua LSP for your Neovim config, runtime and plugins
     -- used for completion, annotations and signatures of Neovim apis
     "folke/lazydev.nvim",
@@ -514,6 +495,12 @@ vim.api.nvim_create_user_command("CompileTsc", function()
   -- NOTE: already correct by default
   -- noEmit does not emit javascript output files
   -- vim.opt.makeprg = "tsc --noEmit"
+  vim.cmd("make")
+  vim.cmd("copen")
+end, { nargs = 0 })
+
+vim.api.nvim_create_user_command("CompileDotnet", function()
+  vim.cmd("compiler dotnet")
   vim.cmd("make")
   vim.cmd("copen")
 end, { nargs = 0 })
