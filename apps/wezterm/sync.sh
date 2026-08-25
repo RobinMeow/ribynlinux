@@ -13,13 +13,21 @@ DEST_HOME_DIR="$HOME"
 . "$RIBYN_ROOT/lib/detect_env.sh"
 detect_env
 
+mkdir -p "$DEST_CONFIG_DIR"
+
+# copying the background image to both dirs, since I cant bother
+cp "$RIBYN_ROOT/assets/images/wallpapers/fallen-knight-blossom-field-3840x2160.png" "$DEST_CONFIG_DIR/background.png"
+
 if [[ "$OS_TYPE" == "wsl" && "$RIBYN_SKIP_DETECT_SLOP_USER" != "yes" ]]; then
 	. "$RIBYN_ROOT/lib/detect_win_user.sh"
 	detect_win_user
 
 	DEST_CONFIG_DIR="$WINDOWS_HOME/.config/wezterm"
 	DEST_HOME_DIR="$WINDOWS_HOME"
-	WEZTERM_LUA_ORIGIN="$RIBYN_ROOT/apps/wezterm/wezterm-wsl.lua"
+	# NOTE: now using wsl as default. because I dont use wezterm outside wsl
+	WEZTERM_LUA_ORIGIN="$RIBYN_ROOT/apps/wezterm/wezterm.lua"
+	mkdir -p "$DEST_CONFIG_DIR"
+	cp "$RIBYN_ROOT/assets/images/wallpapers/fallen-knight-blossom-field-3840x2160.png" "$DEST_CONFIG_DIR/background.png"
 fi
 
 rsync -rlpt \
@@ -38,7 +46,6 @@ if [[ -d "$RIBYN_ROOT/assets/images/wallpapers" ]]; then
 fi
 
 # copy .config/wezterm content (excluding my-workspaces.lua)
-mkdir -p "$DEST_CONFIG_DIR"
 for file in "$RIBYN_ROOT/apps/wezterm/config/"*; do
 	if [[ "$(basename "$file")" != "my-workspaces.lua" ]]; then
 		cp -r "$file" "$DEST_CONFIG_DIR/"

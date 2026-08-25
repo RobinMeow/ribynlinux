@@ -8,21 +8,13 @@ config.color_scheme = "Catppuccin Mocha" -- https://wezterm.org/colorschemes/c/i
 config.font = wezterm.font("CommitMono Nerd Font")
 config.font_size = 16
 
--- partial update the current config. should be the default if you ask me
-local function update(new_overrides, window)
-  local overrides = window:get_config_overrides() or {}
-  for k, v in pairs(new_overrides) do
-    overrides[k] = v
-  end
-  window:set_config_overrides(overrides)
-end
-
-local fk_microsoft = false
+-- using 4 padding instead of 0 because of teams
+-- screen sharing red border covering text otherwise
 config.window_padding = {
-  left = 0,
-  right = 0,
-  top = 0,
-  bottom = 0,
+  left = 4,
+  right = 4,
+  top = 4,
+  bottom = 4,
 }
 
 config.tab_bar_at_bottom = true
@@ -30,10 +22,6 @@ config.use_fancy_tab_bar = false
 
 -- Windows/Wsl/Linux
 -- ensure wezterm starts in wsl and cwd is correctly carried over to new panes/tabs
---
--- WARN: tried to use wezterm on windows for normal windows commands
--- but I want the performance now. So I'm using wezterm again.
-
 local running_on_windows = package.config:sub(1, 1) == "\\"
 if running_on_windows then
   -- https://wezterm.org/config/lua/config/default_domain.html
@@ -45,103 +33,15 @@ if running_on_windows then
   end
 
   config.wsl_domains = wsl_domains
-  config.default_domain = "WSL:archlinux"
+  config.default_domain = "WSL:fedorai3"
 end
 
 -- background
-local bg_mode = "wallpapers" -- "wallpapers" | "motions"
-local transparent_bg = false
-local current_wallpaper_idx = 1
-local sep = package.config:sub(1, 1)
-local function load_backgrounds()
-  local dir = wezterm.config_dir .. sep .. ".config" .. sep .. "wezterm" .. sep .. bg_mode
-  return wezterm.glob(dir .. sep .. "*")
-end
-local wallpapers = load_backgrounds()
-
-local initial_brightness_val = 0.025
-local current_light_step = math.floor(math.sqrt(initial_brightness_val) * 100)
-local function get_scaled_value(step)
-  -- Quadratic scaling: (step/100)^2
-  return (step / 100) ^ 2
-end
-local current_brightness = get_scaled_value(current_light_step)
-
-local current_opacity = 0.9
-
--- inital background
-config.window_background_opacity = 1 -- kill transparent
+config.window_background_opacity = 1 -- kill transparent (can probably remove this)
 config.colors = { background = "black" }
-config.window_background_image = wezterm.config_dir
-  .. sep
-  .. ".config"
-  .. sep
-  .. "wezterm"
-  .. sep
-  .. bg_mode -- wallpapers
-  .. sep
-  .. "hypr_chan.png"
-config.window_background_image_hsb = { brightness = current_brightness }
-
-local function apply_background(window, path)
-  wezterm.log_info("apply background " .. bg_mode .. ": " .. path)
-  update({
-    window_background_opacity = 1, -- kill transparent
-    colors = { background = "black" },
-    window_background_image = path,
-    window_background_image_hsb = { brightness = current_brightness },
-  }, window)
-end
-
-local toggle_transparent_bg = function(window, _)
-  transparent_bg = not transparent_bg
-
-  if transparent_bg then
-    update({
-      window_background_opacity = current_opacity,
-      window_background_image = "",
-      colors = { background = "black" },
-      window_background_image_hsb = { brightness = 1 }, -- kill brightness setting for backgorund image, tho it shouldnt matter
-    }, window)
-  else
-    apply_background(window, wallpapers[current_wallpaper_idx])
-  end
-end
-
-local function ensure_bg_is_not_transparent(window)
-  if transparent_bg then
-    toggle_transparent_bg(window)
-  end
-end
-
-wezterm.on("toggle-transparent", toggle_transparent_bg)
-wezterm.on("iterate-wallpaper", function(window, _)
-  current_wallpaper_idx = current_wallpaper_idx + 1
-  if current_wallpaper_idx > #wallpapers then
-    current_wallpaper_idx = 1
-  end
-
-  ensure_bg_is_not_transparent(window)
-  apply_background(window, wallpapers[current_wallpaper_idx])
-end)
-
-wezterm.on("cycle-bg-mode", function(window, _)
-  bg_mode = (bg_mode == "wallpapers") and "motions" or "wallpapers"
-  wallpapers = load_backgrounds()
-  current_wallpaper_idx = math.random(#wallpapers)
-  ensure_bg_is_not_transparent(window)
-  apply_background(window, wallpapers[current_wallpaper_idx])
-  wezterm.log_info("Switched to mode: " .. bg_mode)
-end)
-
-local function load_random_wallpaper(window, _)
-  math.randomseed(os.time())
-  current_wallpaper_idx = math.random(1, #wallpapers)
-
-  ensure_bg_is_not_transparent(window)
-  apply_background(window, wallpapers[current_wallpaper_idx])
-end
-wezterm.on("random-wallpaper", load_random_wallpaper)
+local sep = package.config:sub(1, 1)
+config.window_background_image = wezterm.config_dir .. sep .. ".config" .. sep .. "wezterm" .. sep .. "background.png"
+config.window_background_image_hsb = { brightness = 0.025 }
 
 config.window_decorations = "INTEGRATED_BUTTONS" -- remove the window title-bar which includes minmizing, fullscreening, and closing
 
@@ -166,18 +66,6 @@ local function bind_key(mods, key, action)
   table.insert(config.keys, { mods = mods, key = key, action = action })
 end
 
--- background keymaps
-bind_key("LEADER", "t", act.EmitEvent("toggle-transparent"))
-bind_key("LEADER", "i", act.EmitEvent("iterate-wallpaper"))
-bind_key("LEADER", "r", act.EmitEvent("random-wallpaper"))
-bind_key("LEADER", "v", act.EmitEvent("cycle-bg-mode"))
-bind_key("LEADER", "z", act.EmitEvent("reload-wezterm"))
-wezterm.on("reload-wezterm", function(_, _)
-  wallpapers = load_backgrounds()
-  wezterm.log_info(bg_mode .. " reloaded")
-end)
-
--- mimic kitty switch tabs
 bind_key("CTRL|SHIFT", "LeftArrow", act.ActivateTabRelative(-1))
 bind_key("CTRL|SHIFT", "RightArrow", act.ActivateTabRelative(1))
 
@@ -187,45 +75,14 @@ bind_key("CTRL|SHIFT", "j", act.ActivatePaneDirection("Down"))
 bind_key("CTRL|SHIFT", "k", act.ActivatePaneDirection("Up"))
 bind_key("CTRL|SHIFT", "l", act.ActivatePaneDirection("Right"))
 
-bind_key("CTRL|SHIFT", "UpArrow", act.EmitEvent("increase-light"))
-bind_key("CTRL|SHIFT", "DownArrow", act.EmitEvent("decrease-light"))
-
 -- https://wezterm.org/config/keys.html#physical-vs-mapped-key-assignments
 -- using phys maps to a physical key. meaning it works for qwerty and qwertz (on qwertz ctrl+shift would cause the minus key to make an underscore)
 -- NOTE: using the phys doesnt solve any qwerty/qwertz issues. e.g. qwertz requires pressing AltGr to press Pipe, so I will fail regardless.
+-- TODO: use enter for vsplit and backspace for hsplit
 bind_key("CTRL|SHIFT", "F6", act.SplitHorizontal({ domain = "CurrentPaneDomain" }))
 bind_key("CTRL|SHIFT", "F7", act.SplitVertical({ domain = "CurrentPaneDomain" }))
 
 bind_key("CTRL|SHIFT", "w", act.CloseCurrentTab({ confirm = false }))
-
-local function clamp(value, min, max)
-  return math.max(min, math.min(max, value))
-end
-
-local function change_light(delta_step, window)
-  if transparent_bg then
-    -- Opacity usually feels better linear, but we'll stick to steps for consistency
-    current_opacity = clamp(current_opacity + (delta_step * -0.01), 0, 1)
-    update({ window_background_opacity = current_opacity }, window)
-  else
-    -- Logic: Change the step, then calculate the square for the actual HSB
-    current_light_step = clamp(current_light_step + delta_step, 0, 100)
-    current_brightness = get_scaled_value(current_light_step)
-
-    update({
-      window_background_image_hsb = { brightness = current_brightness },
-    }, window)
-
-    wezterm.log_info("Step: " .. current_light_step .. " -> Brightness: " .. current_brightness)
-  end
-end
-
-wezterm.on("increase-light", function(window, _)
-  change_light(1, window) -- Increase by 1 step
-end)
-wezterm.on("decrease-light", function(window, _)
-  change_light(-1, window) -- Decrease by 1 step
-end)
 
 -- resizing
 -- Each arrow triggers resize mode when pressed after prefix
@@ -245,40 +102,5 @@ config.key_tables = {
   -- do not try again to use key_tables in combination with set_config_overrides.
   -- https://github.com/wezterm/wezterm/issues/5318 wont-fix since 2024
 }
-
--- show while leader key is active
-wezterm.on("update-right-status", function(window, _)
-  ---@diagnostic disable-next-line: undefined-global
-  local leader_active = window:leader_is_active() and (" " .. utf8.char(0x1F9D9, 0x200D, 0x2642)) or ""
-  local active_key_table = window:active_key_table()
-
-  local status = ""
-  if active_key_table == "resize_pane" then
-    status = "RESIZING - esc to exit "
-  end
-
-  window:set_right_status(wezterm.format({
-    { Text = status },
-    { Background = { Color = "#b7bdf8" } }, -- some purple similar to catppuccin
-    -- https://www.utf8icons.com/character/129497/mage ( and or is conditional assignment in lua. like leader_is_active ? mage : "")
-    { Text = leader_active },
-  }))
-end)
-
-local toggle_padding = function(window, _)
-  fk_microsoft = not fk_microsoft
-
-  if fk_microsoft then
-    update({
-      window_padding = { left = 4, right = 0, top = 5, bottom = 5 },
-    }, window)
-  else
-    update({ window_padding = { left = 0, right = 0, top = 0, bottom = 0 } }, window)
-  end
-end
-
-wezterm.on("toggle-padding", toggle_padding)
-
-bind_key("LEADER", "m", act.EmitEvent("toggle-padding"))
 
 return config
