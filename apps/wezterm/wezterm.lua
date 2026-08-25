@@ -78,9 +78,9 @@ bind_key("CTRL|SHIFT", "l", act.ActivatePaneDirection("Right"))
 -- https://wezterm.org/config/keys.html#physical-vs-mapped-key-assignments
 -- using phys maps to a physical key. meaning it works for qwerty and qwertz (on qwertz ctrl+shift would cause the minus key to make an underscore)
 -- NOTE: using the phys doesnt solve any qwerty/qwertz issues. e.g. qwertz requires pressing AltGr to press Pipe, so I will fail regardless.
--- TODO: use enter for vsplit and backspace for hsplit
-bind_key("CTRL|SHIFT", "F6", act.SplitHorizontal({ domain = "CurrentPaneDomain" }))
-bind_key("CTRL|SHIFT", "F7", act.SplitVertical({ domain = "CurrentPaneDomain" }))
+-- They dont work. I tried inversing them, but the behavior stays as Enter = horizontal and Backspace vert
+bind_key("CTRL|SHIFT", "Backspace", act.SplitVertical({ domain = "CurrentPaneDomain" }))
+bind_key("CTRL|SHIFT", "Enter", act.SplitHorizontal({ domain = "CurrentPaneDomain" }))
 
 bind_key("CTRL|SHIFT", "w", act.CloseCurrentTab({ confirm = false }))
 
