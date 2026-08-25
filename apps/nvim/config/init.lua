@@ -29,21 +29,25 @@ require("lazy").setup({
   { import = "plugins" }, -- imports lua files from lua/plugins/*
 
   -- LSP Plugins
-  -- {
-  --   ft = { "cs", "csproj", "sln", "slnx" },
-  --   "GustavEikaas/easy-dotnet.nvim",
-  --   dependencies = {
-  --     "nvim-lua/plenary.nvim",
-  --     "nvim-telescope/telescope.nvim",
-  --   },
-  --   config = function()
-  --     require("easy-dotnet").setup({
-  --       lsp = {
-  --         auto_refresh_codelens = false,
-  --       },
-  --     })
-  --   end,
-  -- },
+  {
+    ft = { "cs", "csproj", "sln", "slnx" },
+    "GustavEikaas/easy-dotnet.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-telescope/telescope.nvim",
+    },
+    config = function()
+      -- requirements: dotnet tool install -g EasyDotnet
+      require("easy-dotnet").setup({
+        lsp = {
+          auto_refresh_codelens = false,
+          suggest_updates = false, -- Periodically suggest roslyn-language-server updates
+        },
+        razor = { enabled = false },
+        picker = "telescope",
+      })
+    end,
+  },
   {
     -- `lazydev` configures Lua LSP for your Neovim config, runtime and plugins
     -- used for completion, annotations and signatures of Neovim apis
@@ -216,7 +220,7 @@ require("lazy").setup({
         },
         ["pyright"] = {},
         ["rust_analyzer"] = {},
-        ["roslyn_ls"] = {},
+        -- ["roslyn_ls"] = {},
         -- Special Lua Config, as recommended by neovim help docs
         ["lua_ls"] = {
           on_init = function(client)
@@ -293,11 +297,11 @@ require("lazy").setup({
         vim.lsp.enable(name)
       end
 
-      vim.lsp.config("roslyn_ls", {
-        -- TODO: test performance in larger project. it was fast in small one.
-        -- otherwise get easy-dotnet back? or go into its repo to copy they vscode conf
-      })
-      vim.lsp.enable("roslyn_ls")
+      -- vim.lsp.config("roslyn_ls", {
+      --   -- TODO: test performance in larger project. it was fast in small one.
+      --   -- otherwise get easy-dotnet back? or go into its repo to copy they vscode conf
+      -- })
+      -- vim.lsp.enable("roslyn_ls")
 
       -- NOTE: requires rosyln-language-server to be in path. dotnet tool install -g roslyn-language-server --prerelease
       -- WARN: do not enable manually when using easy-dotnet
