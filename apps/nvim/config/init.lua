@@ -216,7 +216,7 @@ require("lazy").setup({
         },
         ["pyright"] = {},
         ["rust_analyzer"] = {},
-        -- ["roslyn_ls"] = {}, -- still making things slow i think with easy dotnet
+        ["roslyn_ls"] = {},
         -- Special Lua Config, as recommended by neovim help docs
         ["lua_ls"] = {
           on_init = function(client)
