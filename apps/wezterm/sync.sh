@@ -10,7 +10,7 @@ set -euo pipefail
 DEST_CONFIG_DIR="$HOME/.config/wezterm"
 WEZTERM_LUA_ORIGIN="$RIBYN_ROOT/apps/wezterm/wezterm.lua"
 DEST_HOME_DIR="$HOME"
-. "$RIBYN_ROOT/lib/detect_env.sh"
+source "$RIBYN_ROOT/lib/detect_env.sh"
 detect_env
 
 mkdir -p "$DEST_CONFIG_DIR"
