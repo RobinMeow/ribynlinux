@@ -6,18 +6,20 @@ CACHE_DIR="${XDG_CACHE_HOME:-$HOME/.cache}/ribyn"
 HISTORY_FILE="$CACHE_DIR/ng_test_fzf_history"
 BROWSER=""
 WATCH_MODE=true
+COVERAGE=false
 
 show_help() {
 	echo "Usage: $(basename "$0") [QUERY] [OPTIONS]"
 	echo ""
 	echo "Options:"
-	echo "  -h, --help      Show this help message"
-	echo "  --karma         Use ChromeHeadless (default: chromiumheadless)"
-	echo "  --browsers      Specify a custom browser engine"
-	echo "  --no-watch      Disable watch mode"
+	echo "  -h, --help         Show this help message"
+	echo "  -c, --coverage     Enable code coverage generation"
+	echo "  --karma            Use ChromeHeadless (default: chromiumheadless)"
+	echo "  --browsers         Specify a custom browser engine"
+	echo "  --no-watch         Disable watch mode"
 	echo ""
 	echo "Arguments:"
-	echo "  QUERY           Initial filter string for fzf"
+	echo "  QUERY              Initial filter string for fzf"
 	exit 0
 }
 
@@ -25,6 +27,10 @@ while [[ $# -gt 0 ]]; do
 	case $1 in
 	-h | --help)
 		show_help
+		;;
+	-c | --coverage)
+		COVERAGE=true
+		shift
 		;;
 	--browsers)
 		BROWSER="${2:-chromiumheadless}"
@@ -82,22 +88,25 @@ INCLUDE_FLAGS=$(echo "$FZF_OUT" | sed 's|^|--include |' | tr '\n' ' ')
 # BASENAMES=$(echo "$FZF_OUT" | sed 's|.*/||; s|\..*||' | paste -sd ", " -)
 BASENAMES=$(echo "$FZF_OUT" | sed 's|.*/||; s|\..*||' | paste -sd, - | sed 's/,/, /g')
 
+# --- Build Execution Command ---
+CMD=(npx ng test --watch="$WATCH_MODE")
+
+if [ "$COVERAGE" = true ]; then
+	CMD+=(--coverage)
+fi
+
+if [ -n "$BROWSER" ]; then
+	CMD+=(--browsers="$BROWSER")
+fi
+
+# Add spec inclusions
+CMD+=($INCLUDE_FLAGS)
+
 # --- Execution ---
 clear
 echo "▶ Running Angular specs"
 echo "  Files: ${BASENAMES}"
+echo "  Coverage: ${COVERAGE}"
 echo "--------------------------------------"
 
-if [ -n "$BROWSER" ]; then
-	exec npx ng test \
-		--browsers "$BROWSER" \
-		--watch "$WATCH_MODE" \
-		$INCLUDE_FLAGS
-else
-	exec npx ng test \
-		--watch "$WATCH_MODE" \
-		$INCLUDE_FLAGS
-fi
-
-# INFO: the pipe indirection prevents the pipefail from triggering causing the process to become unresponsive
-# $INCLUDE_FLAGS </dev/null
+exec "${CMD[@]}"
