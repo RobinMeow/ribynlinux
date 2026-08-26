@@ -57,7 +57,7 @@ elseif env_bg == "fallen-knight" then
 end
 
 bind_key(
-  "CTRL|SHIFT",
+  "ALT|SHIFT",
   "f",
   wezterm.action_callback(function(window, pane)
     if env_bg ~= "transparent-darkened" then
