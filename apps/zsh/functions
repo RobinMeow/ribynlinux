@@ -67,4 +67,15 @@ ribyn() {
 }
 complete -W "state wezterm-guide keyboard-feh keyboard-chafa keyboard-chafa-all" ribyn
 
+function rin() {
+	"$RIBYN_ROOT/apps/install.sh"
+}
+function rsy() {
+	"$RIBYN_ROOT/apps/sync.sh"
+}
+function rinsy() {
+	"$RIBYN_ROOT/apps/install.sh"
+	"$RIBYN_ROOT/apps/sync.sh"
+}
+
 # vim: ft=zsh

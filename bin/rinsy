@@ -1,5 +1,0 @@
-#!/usr/bin/env bash
-set -euo pipefail
-
-"$RIBYN_ROOT/bin/rin"
-"$RIBYN_ROOT/bin/rsy"

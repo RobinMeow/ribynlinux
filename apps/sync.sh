@@ -26,11 +26,10 @@ info "Syncing zsh"
 info "Syncing git"
 "$RIBYN_ROOT/apps/git/sync.sh"
 
-info "Syncing binaries"
-rsync -rlpt "$RIBYN_ROOT/bin/" "$HOME/.local/bin/"
-
 info "Syncing bat"
 "$RIBYN_ROOT/apps/bat/sync.sh"
+
+"$RIBYN_ROOT/apps/bin/sync.sh"
 
 info "Syncing btop"
 "$RIBYN_ROOT/apps/btop/sync.sh"

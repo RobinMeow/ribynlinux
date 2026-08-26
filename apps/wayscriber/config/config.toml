@@ -23,7 +23,7 @@
 # when it is behind. Keep this value when editing the file.
 config_revision = 3
 
-# TODO: im too lazy to go through all the keybinds,
+# NOTE: im too lazy to go through all the keybinds,
 # keeping the defaults explicitly to modify them when I need them
 [keybindings]
 # Customize keyboard shortcuts for all actions

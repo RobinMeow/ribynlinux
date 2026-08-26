@@ -19,7 +19,5 @@ export MANPATH="/usr/local/man:$MANPATH"
 export EDITOR='nvim'
 
 export RIBYN_ROOT="$HOME/ribynlinux"
-# TODO: the repo should call sync. in fact ribynlinux should do it for me
-export PATH="$PATH:$HOME/ribyns-state/bin"
 
 # vim: ft=bash
