@@ -3,8 +3,7 @@ set -euo pipefail
 
 source "$RIBYN_ROOT/core/utils.sh"
 source "$RIBYN_ROOT/core/run_on_distro.sh"
-
-info "Installing gadget packages..."
+info "Installing gadgets"
 
 run_on_arch sudo pacman -S --needed --noconfirm \
 	cmatrix \

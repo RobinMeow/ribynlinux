@@ -12,7 +12,7 @@ source "$RIBYN_ROOT/core/run_on_distro.sh"
 # unfortunately run_on_distro depends on awk as a transient dependency
 # but awk is a nice programm, so its fine.
 
-info "Installing essentials..."
+info "installing essential packages"
 
 if on_arch; then
 	sudo pacman -S --needed --noconfirm \

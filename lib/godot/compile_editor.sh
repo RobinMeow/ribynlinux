@@ -13,7 +13,7 @@ if ! dotnet --list-sdks | grep -q "$RIBYN_GODOT_DOTNET_VERSION"; then
 	warn "[Godot] Required .NET SDK version $RIBYN_GODOT_DOTNET_VERSION is not installed." >&2
 
 	if confirm "Wish to install .NET SDK version $RIBYN_GODOT_DOTNET_VERSION"; then
-		"$RIBYN_ROOT/installers/install-dotnet-sdk.sh" --version "$RIBYN_GODOT_DOTNET_VERSION"
+		"$RIBYN_ROOT/lib/install-dotnet-sdk.sh" --version "$RIBYN_GODOT_DOTNET_VERSION"
 		exit 1
 	else
 		warn "[Godot] skipping"

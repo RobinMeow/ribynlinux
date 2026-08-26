@@ -11,7 +11,7 @@ source "$RIBYN_ROOT/core/utils.sh"
 source "$RIBYN_ROOT/core/run_on_distro.sh"
 
 info "Installing from source: $RIBYN_ROOT"
-"$RIBYN_ROOT/installers/install-essentials.sh"
+"$RIBYN_ROOT/lib/install-essentials-packages.sh"
 
 # WARN: uses brew. and brew resets sudo timestamp.
 # means we have to re-prompt our pw. I'd rather do it earlier
@@ -20,19 +20,19 @@ info "Installing yazi"
 "$RIBYN_ROOT/lib/yazi/install.sh"
 
 info "Installing core packages"
-"$RIBYN_ROOT/scripts/install-core-packages.sh"
+"$RIBYN_ROOT/lib/install-core-packages.sh"
 
 info "Installing zsh"
 "$RIBYN_ROOT/lib/zsh/install.sh"
 
-"$RIBYN_ROOT/installers/install-no-tofu.sh"
-"$RIBYN_ROOT/installers/install-catppuccin-cursors.sh"
+"$RIBYN_ROOT/lib/install-no-tofu.sh"
+"$RIBYN_ROOT/lib/install-catppuccin-cursors.sh"
 
 info "Installing qt6ct"
 "$RIBYN_ROOT/lib/qt6ct/install.sh"
 
 info "Installing CommitMono"
-"$RIBYN_ROOT/installers/install-commit-mono.sh"
+"$RIBYN_ROOT/lib/install-commit-mono.sh"
 
 info "Installing brave"
 "$RIBYN_ROOT/lib/brave/install.sh"
@@ -115,8 +115,7 @@ info "Installing xdg-desktop-portal-termfilechooser"
 for arg in "$@"; do
 	# TODO: move these out into config.sh
 	if [[ "$arg" == "--gadgets" ]]; then
-		info "Installing gadgets"
-		"$RIBYN_ROOT/scripts/pm-gadgets.sh"
+		"$RIBYN_ROOT/lib/install-gadget-packages.sh"
 	fi
 done
 

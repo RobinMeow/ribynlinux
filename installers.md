@@ -19,7 +19,7 @@ pacman -Syu --noconfirm && pacman -S --noconfirm sudo git bc vim && \
 # install minial (git, curl, rsync, clone the repo and install and sync zsh)
 export RIBYN_ROOT="$HOME/ribynlinux" \
   && git clone --depth 1 https://github.com/RobinMeow/ribynlinux.git "$RIBYN_ROOT" \
-  && "$RIBYN_ROOT/installers/install-essentials.sh" \
+  && "$RIBYN_ROOT/lib/install-essentials-packages.sh" \
   && "$RIBYN_ROOT/lib/zsh/install.sh" \
   && "$RIBYN_ROOT/lib/zsh/sync.sh" \
   && zsh
