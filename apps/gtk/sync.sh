@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-. "$RIBYN_ROOT/lib/utils.sh" # ribyn_rsync
+. "$RIBYN_ROOT/lib/utils.sh"
 
 mkdir -p "$HOME/.config/gtk-3.0/"
 rsync -rlpt \

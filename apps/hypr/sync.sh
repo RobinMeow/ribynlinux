@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-. "$RIBYN_ROOT/lib/utils.sh" # warn, ribyn_rsync
+. "$RIBYN_ROOT/lib/utils.sh"
 
 # warn about deprecated hyprland.conf file
 hypr_conf="$HOME/.config/hypr/hyprland.conf"
@@ -37,9 +37,9 @@ rsync -rlpt \
 mkdir -p "$HOME/.config/hypr/eeyore/"
 rsync -rlpt "$RIBYN_ROOT/assets/images/eeyore.png" "$HOME/.config/hypr/eeyore/eeyore.png"
 # didnt like 'em
-# ribyn_rsync "$RIBYN_ROOT/assets/images/eeyore-duck-balloon.jpg" "$HOME/.config/hypr/eeyore/"
-# ribyn_rsync "$RIBYN_ROOT/assets/images/eeyore-pink-ribbon.jpg" "$HOME/.config/hypr/eeyore/"
-# ribyn_rsync "$RIBYN_ROOT/assets/images/cherry-blossom-blue-sky-frog-eye-view.jpg" "$HOME/.config/hypr/eeyore/"
+# rsync -rlpt "$RIBYN_ROOT/assets/images/eeyore-duck-balloon.jpg" "$HOME/.config/hypr/eeyore/"
+# rsync -rlpt "$RIBYN_ROOT/assets/images/eeyore-pink-ribbon.jpg" "$HOME/.config/hypr/eeyore/"
+# rsync -rlpt "$RIBYN_ROOT/assets/images/cherry-blossom-blue-sky-frog-eye-view.jpg" "$HOME/.config/hypr/eeyore/"
 
 hypr_running=${HYPRLAND_INSTANCE_SIGNATURE:-"not running"}
 if [[ $hypr_running == "not running" ]]; then

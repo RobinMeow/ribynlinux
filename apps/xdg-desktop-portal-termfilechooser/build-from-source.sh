@@ -44,7 +44,7 @@ else
 	mkdir -p "/usr/share/xdg-desktop-portal/portals"
 	sudo ln -s "/usr/local/share/xdg-desktop-portal/portals/termfilechooser.portal" "/usr/share/xdg-desktop-portal/portals/"
 
-	ribyn_rsync \
+	rsync -rlpt \
 		"$RIBYN_ROOT/apps/xdg-desktop-portal-termfilechooser/config/" \
 		"$HOME/.config/xdg-desktop-portal-termfilechooser/"
 fi

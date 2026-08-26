@@ -8,7 +8,7 @@ mkdir -p "$HOME/.config/vale"
 if [[ -f "$HOME/.config/vale/vale.ini" ]]; then
 	hash_before_sync=$(cksum -a sha256 --untagged "$HOME/.config/vale/vale.ini")
 
-	ribyn_rsync \
+	rsync -rlpt \
 		"$RIBYN_ROOT/apps/vale/config/vale.ini" \
 		"$HOME/.config/vale/vale.ini"
 
@@ -16,7 +16,7 @@ if [[ -f "$HOME/.config/vale/vale.ini" ]]; then
 		vale --config "$HOME/.config/vale/vale.ini" sync
 	fi
 else
-	ribyn_rsync \
+	rsync -rlpt \
 		"$RIBYN_ROOT/apps/vale/config/vale.ini" \
 		"$HOME/.config/vale/vale.ini"
 
