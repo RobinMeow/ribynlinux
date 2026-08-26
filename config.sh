@@ -69,8 +69,7 @@ set -euo pipefail
 {
 	# install hyprland when running hypr/install.sh and all of its coupled apps:
 	# hyprlock, hyprpicker, hyprmoncfg
-	# TODO:remove install short name
-	export RIBYN_HYPR_INSTALL_ENABLED=${RIBYN_HYPR_INSTALL_ENABLED:-"yes"}
+	export RIBYN_HYPR_ENABLED=${RIBYN_HYPR_ENABLED:-"yes"}
 
 	# NOTE: the following env variables have no effect if INSTALL_ENABLED is set to "no"
 	# assign git commits and/or tags to build from source from for reach app

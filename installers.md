@@ -31,7 +31,7 @@ export RIBYN_ROOT="$HOME/ribynlinux" \
 
 # skip hypr
 export RIBYN_ROOT="$HOME/ribynlinux" && \
-  export RIBYN_HYPR_INSTALL_ENABLED="no" && \
+  export RIBYN_HYPR_ENABLED="no" && \
   git clone --depth 1 https://github.com/RobinMeow/ribynlinux.git $RIBYN_ROOT \
   && "$RIBYN_ROOT/bin/rinsy"
 

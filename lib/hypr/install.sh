@@ -3,12 +3,13 @@ set -euo pipefail
 
 source "$RIBYN_ROOT/core/utils.sh"
 source "$RIBYN_ROOT/config.sh"
-info "installing hypr"
 
-if [[ "$RIBYN_HYPR_INSTALL_ENABLED" == "no" ]]; then
-	info "hypr install disabled in config. skipping."
+if [[ "$RIBYN_HYPR_ENABLED" == "no" ]]; then
+	info "hypr disabled. skipping."
 	exit 0
 fi
+
+info "installing hypr"
 
 source "$RIBYN_ROOT/core/run_on_distro.sh"
 source "$RIBYN_ROOT/lib/hypr/install-hypr-from-source.sh"
