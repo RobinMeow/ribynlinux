@@ -54,21 +54,21 @@ elif on_fedora; then
 
 	hypr_install "hyprland-protocols" \
 		"https://github.com/hyprwm/hyprland-protocols" \
-		"$RIBYN_HYPR_HYPRLAND_PROTOCOLS_GIT_REF" \
+		"$RIBYN_HYPR_HYPRLAND_PROTOCOLS_GITREV" \
 		"$pkg_config_exists"
 
 	sudo dnf install --assumeyes \
 		pugixml-devel
 	hypr_install "hyprwayland-scanner" \
 		"https://github.com/hyprwm/hyprwayland-scanner.git" \
-		"$RIBYN_HYPR_HYPRWAYLAND_SCANNER_GIT_REF" \
+		"$RIBYN_HYPR_HYPRWAYLAND_SCANNER_GITREV" \
 		"$pkg_config_exists"
 
 	sudo dnf install --assumeyes \
 		pixman-devel
 	hypr_install "hyprutils" \
 		"https://github.com/hyprwm/hyprutils.git" \
-		"$RIBYN_HYPR_HYPRUTILS_GIT_REF" \
+		"$RIBYN_HYPR_HYPRUTILS_GITREV" \
 		"$pkg_config_exists"
 
 	sudo dnf install --assumeyes \
@@ -84,12 +84,12 @@ elif on_fedora; then
 	# file has libpng-devel
 	hypr_install "hyprgraphics" \
 		"https://github.com/hyprwm/hyprgraphics.git" \
-		"$RIBYN_HYPR_HYPRGRAPHICS_GIT_REF" \
+		"$RIBYN_HYPR_HYPRGRAPHICS_GITREV" \
 		"$pkg_config_exists"
 
 	hypr_install "hyprlang" \
 		"https://github.com/hyprwm/hyprlang.git" \
-		"$RIBYN_HYPR_HYPRLANG_GIT_REF" \
+		"$RIBYN_HYPR_HYPRLANG_GITREV" \
 		"$pkg_config_exists"
 
 	sudo dnf install --assumeyes \
@@ -97,7 +97,7 @@ elif on_fedora; then
 		tomlplusplus-devel
 	hypr_install "hyprcursor" \
 		"https://github.com/hyprwm/hyprcursor" \
-		"$RIBYN_HYPR_HYPRCURSOR_GIT_REF" \
+		"$RIBYN_HYPR_HYPRCURSOR_GITREV" \
 		"$pkg_config_exists"
 
 	sudo dnf install --assumeyes \
@@ -110,7 +110,7 @@ elif on_fedora; then
 	# 	systemd-devel is fedoras version of libudev. see here https://github.com/dcuddeback/libudev-sys
 	hypr_install "aquamarine" \
 		"https://github.com/hyprwm/aquamarine" \
-		"$RIBYN_HYPR_AQUAMARINE_GIT_REF" \
+		"$RIBYN_HYPR_AQUAMARINE_GITREV" \
 		"$pkg_config_exists"
 
 	# xdg-desktop-portal-hyprland
@@ -121,14 +121,14 @@ elif on_fedora; then
 		sdbus-cpp-devel
 	hypr_install "xdg-desktop-portal-hyprland" \
 		"https://github.com/hyprwm/xdg-desktop-portal-hyprland" \
-		"$RIBYN_HYPR_XDG_DESKTOP_PORTAL_HYPRLAND_GIT_REF" \
+		"$RIBYN_HYPR_XDG_DESKTOP_PORTAL_HYPRLAND_GITREV" \
 		'[[ -x "/usr/libexec/xdg-desktop-portal-hyprland" ]]'
 
 	# SC2016 $SOURCE_NAME does not expand here on purpose
 	# shellcheck disable=SC2016
 	hypr_install "hyprwire" \
 		"https://github.com/hyprwm/hyprwire.git" \
-		"$RIBYN_HYPR_HYPRWIRE_GIT_REF" \
+		"$RIBYN_HYPR_HYPRWIRE_GITREV" \
 		"$pkg_config_exists"
 
 	sudo dnf install --assumeyes \
@@ -136,7 +136,7 @@ elif on_fedora; then
 		inotify-tools-devel
 	hypr_install "hyprtoolkit" \
 		"https://github.com/hyprwm/hyprtoolkit.git" \
-		"$RIBYN_HYPR_HYPRTOOLKIT_GIT_REF" \
+		"$RIBYN_HYPR_HYPRTOOLKIT_GITREV" \
 		"$pkg_config_exists"
 
 	is_hyprland_guiutils_installed='command -v hyprland-dialog >/dev/null 2>&1'
@@ -146,7 +146,7 @@ elif on_fedora; then
 	is_hyprland_guiutils_installed="${is_hyprland_guiutils_installed} && command -v hyprland-welcome >/dev/null 2>&1"
 	hypr_install "hyprland-guiutils" \
 		"https://github.com/hyprwm/hyprland-guiutils" \
-		"$RIBYN_HYPR_HYPRLAND_GUIUTILS_GIT_REF" \
+		"$RIBYN_HYPR_HYPRLAND_GUIUTILS_GITREV" \
 		"$is_hyprland_guiutils_installed"
 
 	sudo dnf install --assumeyes \
@@ -166,7 +166,7 @@ elif on_fedora; then
 	}
 	hypr_install "hyprland" \
 		"https://github.com/hyprwm/Hyprland" \
-		"$RIBYN_HYPR_HYPRLAND_GIT_REF" \
+		"$RIBYN_HYPR_HYPRLAND_GITREV" \
 		'command -v hyprland >/dev/null 2>&1' \
 		build_and_install_hyprland
 else

@@ -44,6 +44,6 @@ fi
 #
 # 	(
 # 		cd "$spaceship_dest"
-# 		git checkout --detach "$RIBYN_SPACESHIP_GIT_REF"
+# 		git checkout --detach "$RIBYN_SPACESHIP_GITREV"
 # 	)
 # fi

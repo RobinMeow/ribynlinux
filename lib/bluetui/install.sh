@@ -41,7 +41,7 @@ elif on_fedora; then
 	# 	else
 	# 		git clone "https://github.com/pythops/bluetui.git" "$dest"
 	# 		cd "$dest"
-	# 		git checkout $RIBYN_HYPR_BLUETUI_GIT_REF
+	# 		git checkout $RIBYN_HYPR_BLUETUI_GITREV
 	# 		cargo build --release
 	# 	fi
 	# )

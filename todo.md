@@ -4,7 +4,7 @@
 - rin/rsy is getting tedious.
   maybe publish/subscribe pattern to make this more auto-maintained
 - allow "latest tag", "latest commit" etc. for config.sh
-- rename GIT_REF to GITREV git rev-parse "$gitref^{commit}"
+- rename GITREV to GITREV git rev-parse "$gitref^{commit}"
 - move git aliases and function I use from ohmyzsh into my own.
   and merge my git config alongside
 - use yay for hyprmoncfg instead of build from source

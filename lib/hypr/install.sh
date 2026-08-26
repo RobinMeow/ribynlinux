@@ -72,7 +72,7 @@ elif on_fedora; then
 		polkit-qt6-1-devel
 	hypr_install "hyprpolkitagent" \
 		"https://github.com/hyprwm/hyprpolkitagent.git" \
-		"$RIBYN_HYPR_HYPRPOLKITAGENT_GIT_REF" \
+		"$RIBYN_HYPR_HYPRPOLKITAGENT_GITREV" \
 		'[[ -x "/usr/libexec/hyprpolkitagent" ]]'
 
 	sudo dnf install --assumeyes \
@@ -85,12 +85,12 @@ elif on_fedora; then
 	source_bin_exists='command -v $SOURCE_NAME >/dev/null 2>&1'
 	hypr_install "hyprshutdown" \
 		"https://github.com/hyprwm/hyprshutdown.git" \
-		"$RIBYN_HYPR_HYPRSHUTDOWN_GIT_REF" \
+		"$RIBYN_HYPR_HYPRSHUTDOWN_GITREV" \
 		"$source_bin_exists"
 
 	hypr_install "hyprpaper" \
 		"https://github.com/hyprwm/hyprpaper.git" \
-		"$RIBYN_HYPR_HYPRPAPER_GIT_REF" \
+		"$RIBYN_HYPR_HYPRPAPER_GITREV" \
 		"$source_bin_exists"
 
 	sudo dnf install --assumeyes \
@@ -100,7 +100,7 @@ elif on_fedora; then
 	# even tho it builds and installs without. prolly runtime dep.
 	hypr_install "hyprlock" \
 		"https://github.com/hyprwm/hyprlock.git" \
-		"$RIBYN_HYPR_HYPRLOCK_GIT_REF" \
+		"$RIBYN_HYPR_HYPRLOCK_GITREV" \
 		"$source_bin_exists"
 
 	sudo dnf install --assumeyes \
@@ -110,7 +110,7 @@ elif on_fedora; then
 	# even tho it builds and installs without. prolly runtime dep.
 	hypr_install "hyprpicker" \
 		"https://github.com/hyprwm/hyprpicker" \
-		"$RIBYN_HYPR_HYPRPICKER_GIT_REF" \
+		"$RIBYN_HYPR_HYPRPICKER_GITREV" \
 		"$source_bin_exists"
 else
 	exit_with_distro_not_supported_msg
@@ -135,6 +135,6 @@ function build_hyprmoncfg() {
 
 hypr_install "hyprmoncfg" \
 	"https://github.com/crmne/hyprmoncfg.git" \
-	"$RIBYN_HYPR_HYPRMONCFG_GIT_REF" \
+	"$RIBYN_HYPR_HYPRMONCFG_GITREV" \
 	'command -v hyprmoncfg >/dev/null 2>&1 && command -v hyprmoncfgd >/dev/null 2>&1' \
 	build_hyprmoncfg

@@ -10,7 +10,7 @@ export RIBYN_NVIM_BUILD_FROM_SOURCE=${RIBYN_NVIM_BUILD_FROM_SOURCE:-"no"}
 # requires RIBYN_NVIM_BUILD_FROM_SOURCE to be set to "yes"
 # 'master' for latest development state
 # 'stable' for latest stable release
-export RIBYN_NVIM_GITREV=${RIBYN_NVIM_GIT_REF:-"stable"}
+export RIBYN_NVIM_GITREV=${RIBYN_NVIM_GITREV:-"stable"}
 
 # requires RIBYN_NVIM_BUILD_FROM_SOURCE to be set to "yes"
 # neovim build: https://github.com/neovim/neovim/blob/master/BUILD.md
