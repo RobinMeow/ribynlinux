@@ -1,14 +1,20 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-. "$RIBYN_ROOT/config.sh"
-. "$RIBYN_ROOT/lib/utils.sh"
+source "$RIBYN_ROOT/config.sh"
+source "$RIBYN_ROOT/lib/utils.sh"
 
 mkdir -p "$HOME/.config/kitty"
-cp -r "$RIBYN_ROOT/apps/kitty/config/"* "$HOME/.config/kitty/"
-rsync -lrpt "$RIBYN_ROOT/assets/images/wallpapers/fallen-knight-blossom-field-3840x2160.png" "$HOME/.config/kitty/background.png"
 
-if [[ ${RIBYN_KITTY_USE_SOLID_BG:-"no"} == "yes" ]]; then
+cp "$RIBYN_ROOT/apps/kitty/config/current-theme.conf" "$HOME/.config/kitty/"
+
+rsync -lrpt \
+	"$RIBYN_ROOT/assets/images/wallpapers/fallen-knight-blossom-field-3840x2160.png" \
+	"$HOME/.config/kitty/background.png"
+
+if [[ ${RIBYN_KITTY_USE_SOLID_BG:-"no"} == "no" ]]; then
+	cp "$RIBYN_ROOT/apps/kitty/config/kitty.conf" "$HOME/.config/kitty/"
+else
 	cp "$RIBYN_ROOT/apps/kitty/kitty-solid-bg.conf" "$HOME/.config/kitty/kitty.conf"
 fi
 
