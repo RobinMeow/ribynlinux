@@ -18,12 +18,6 @@
 	# disappear after 10s
   timeout = 10
 	
-  # The height of a single line. If the height is smaller than the
-  # font height, it will get raised to the font height.
-  # This adds empty space above and under the text.
-	# TODO: probably 0 by default. if so remove this.
-  line_height = 0
-
   # Draw a line of "separator_height" pixel height between two notifications.
   # Set to 0 to disable.
   separator_height = 1
@@ -91,8 +85,7 @@
   separator_color = "#263238"
 
   # dmenu path
-	# TODO: I dont have this?
-  dmenu = /usr/bin/dmenu -p dunst:
+  dmenu = /usr/bin/rofi -dmenu -p dunst:
 
   # Browser for opening urls in context menu
   browser = firefox
@@ -111,7 +104,7 @@
   # "mod3" and "mod4" (windows-key).
   # Xev might be helpful to find names for keys.
 
-	# TODO: impl in hypr keybindings
+	# NOTE: got keybinds in hyprland
   # Close notification
   # close = ctrl+mod4+n
   # Close all notifications
@@ -133,11 +126,6 @@
 # allow notifications to show above fullscreen apps
 [fullscreen]
   fullscreen = show
-
-# TODO: bring kitty icon
-[kitty-icon]
-	appname = kitty
-	format = "<b>%s</b>\n<i>%b</i>"
 
 # Every section that isn't one of the above is interpreted as a rules to
 # override settings for certain messages.
