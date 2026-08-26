@@ -11,8 +11,7 @@ source "$RIBYN_ROOT/core/utils.sh"
 source "$RIBYN_ROOT/core/run_on_distro.sh"
 
 info "Installing from source: $RIBYN_ROOT"
-info "Installing essential packages"
-"$RIBYN_ROOT/installers/pm-essential-packages.sh"
+"$RIBYN_ROOT/installers/install-essentials.sh"
 
 # WARN: uses brew. and brew resets sudo timestamp.
 # means we have to re-prompt our pw. I'd rather do it earlier
@@ -26,11 +25,8 @@ info "Installing core packages"
 info "Installing zsh"
 "$RIBYN_ROOT/lib/zsh/install.sh"
 
-info "Installing no tofu"
-"$RIBYN_ROOT/installers/no_tofu.sh"
-
-info "Installing catppuccin cursors"
-"$RIBYN_ROOT/installers/install_catppuccin_cursors.sh"
+"$RIBYN_ROOT/installers/install-no-tofu.sh"
+"$RIBYN_ROOT/installers/install-catppuccin-cursors.sh"
 
 info "Installing qt6ct"
 "$RIBYN_ROOT/lib/qt6ct/install.sh"

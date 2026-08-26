@@ -4,12 +4,15 @@ set -euo pipefail
 source "$RIBYN_ROOT/core/utils.sh"
 source "$RIBYN_ROOT/core/run_on_distro.sh"
 
+# TODO:os-detect depends on awk, nothing else. should not be
+# an essential
+#
 # essential packages are required by many shell scripts
 # (like git or rsync) which do not install them themselves
 # unfortunately run_on_distro depends on awk as a transient dependency
 # but awk is a nice programm, so its fine.
 
-info "Installing essential packages..."
+info "Installing essentials..."
 
 if on_arch; then
 	sudo pacman -S --needed --noconfirm \

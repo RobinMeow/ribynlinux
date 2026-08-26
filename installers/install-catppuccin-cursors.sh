@@ -2,6 +2,7 @@
 set -euo pipefail
 
 source "$RIBYN_ROOT/core/utils.sh"
+info "Installing catppuccin cursors"
 
 # https://github.com/catppuccin/cursors (see picture here for available themes and variants)
 

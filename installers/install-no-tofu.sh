@@ -2,11 +2,14 @@
 set -euo pipefail
 
 source "$RIBYN_ROOT/core/utils.sh"
+info "Installing no tofu"
+
 source "$RIBYN_ROOT/core/run_on_distro.sh"
 
-mkdir -p "$HOME/.local/share/ribyn/no_tofu"
+mkdir -p "$HOME/.local/share/ribyn/no-tofu"
 
-first_time_install="$HOME/.local/share/ribyn/no_tofu/first_time_install"
+# TODO: find a better check for whether or not noto sans is installed
+first_time_install="$HOME/.local/share/ribyn/no-tofu/first-time-install"
 if [[ ! -f "$first_time_install" ]]; then
 	touch "$first_time_install"
 
