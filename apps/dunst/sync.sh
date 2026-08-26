@@ -2,6 +2,7 @@
 set -euo pipefail
 
 source "$RIBYN_ROOT/lib/utils.sh"
+info "Syncing dunst"
 
 mkdir -p "$HOME/.config/dunst/"
 rsync -rlpt \

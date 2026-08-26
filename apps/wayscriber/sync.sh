@@ -2,6 +2,7 @@
 set -euo pipefail
 
 source "$RIBYN_ROOT/lib/utils.sh"
+info "Syncing wayscriber"
 
 mkdir -p "$HOME/.config/wayscriber/"
 rsync -rlpt \

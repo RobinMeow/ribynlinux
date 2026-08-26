@@ -3,6 +3,8 @@ set -euo pipefail
 
 source "$RIBYN_ROOT/lib/utils.sh"
 
+info "Syncing gtk"
+
 mkdir -p "$HOME/.config/gtk-3.0/"
 rsync -rlpt \
 	"$RIBYN_ROOT/apps/gtk/config/" \

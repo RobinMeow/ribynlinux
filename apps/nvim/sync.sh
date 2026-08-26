@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+source "$RIBYN_ROOT/lib/utils.sh"
+info "Syncing nvim"
+
 CLEAN=false
 for arg in "$@"; do
 	if [[ "$arg" == "--clean" ]]; then

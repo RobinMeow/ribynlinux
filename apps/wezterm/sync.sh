@@ -2,6 +2,8 @@
 set -euo pipefail
 
 source "$RIBYN_ROOT/lib/utils.sh"
+info "Syncing wezterm"
+
 RIBYN_WEZTERM_ENABLED=${RIBYN_WEZTERM_ENABLED:-"no"}
 
 if [[ "$RIBYN_WEZTERM_ENABLED" == "no" ]]; then

@@ -2,7 +2,6 @@
 set -euo pipefail
 
 source "$RIBYN_ROOT/lib/utils.sh"
-
 info "Syncing binaries"
 
 rsync -rlpt \

@@ -3,6 +3,7 @@ set -euo pipefail
 
 source "$RIBYN_ROOT/config.sh"
 source "$RIBYN_ROOT/lib/utils.sh"
+info "Syncing kitty"
 
 mkdir -p "$HOME/.config/kitty"
 

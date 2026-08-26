@@ -3,6 +3,7 @@ set -euo pipefail
 
 source "$RIBYN_ROOT/config.sh"
 source "$RIBYN_ROOT/lib/utils.sh"
+info "Syncing kde"
 
 if [[ "$RIBYN_SYNC_KDE_ENABLED" == "no" ]]; then
 	info "KDE sync disabled. skipping."

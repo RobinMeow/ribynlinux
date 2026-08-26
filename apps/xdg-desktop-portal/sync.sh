@@ -3,6 +3,8 @@ set -euo pipefail
 
 source "$RIBYN_ROOT/lib/utils.sh"
 
+info "Syncing xdg-desktop-portal"
+
 mkdir -p "$HOME/.config/xdg-desktop-portal"
 
 rsync -rlpt \

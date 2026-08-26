@@ -3,6 +3,7 @@ set -euo pipefail
 
 source "$RIBYN_ROOT/config.sh"
 source "$RIBYN_ROOT/lib/utils.sh"
+info "Syncing i3"
 
 if [[ "$RIBYN_I3_ENABLED" == "no" ]]; then
 	info "i3 disabled. skipping."

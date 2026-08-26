@@ -2,6 +2,7 @@
 set -euo pipefail
 
 source "$RIBYN_ROOT/lib/utils.sh"
+info "Syncing wiremix"
 
 mkdir -p "$HOME/.config/wiremix/"
 rsync -rlpt \

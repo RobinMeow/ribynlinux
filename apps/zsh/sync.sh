@@ -3,6 +3,8 @@ set -euo pipefail
 
 source "$RIBYN_ROOT/lib/utils.sh"
 
+info "Syncing zsh"
+
 mkdir -p "$HOME/.config/ribyn/zsh"
 
 rsync -rlpt \

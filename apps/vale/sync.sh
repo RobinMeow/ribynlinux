@@ -2,6 +2,7 @@
 set -euo pipefail
 
 source "$RIBYN_ROOT/lib/utils.sh"
+info "Syncing vale"
 
 mkdir -p "$HOME/.config/vale"
 

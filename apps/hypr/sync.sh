@@ -2,6 +2,7 @@
 set -euo pipefail
 
 source "$RIBYN_ROOT/lib/utils.sh"
+info "Syncing hypr"
 
 # warn about deprecated hyprland.conf file
 hypr_conf="$HOME/.config/hypr/hyprland.conf"
