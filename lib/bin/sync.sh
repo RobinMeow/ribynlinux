@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+source "$RIBYN_ROOT/core/utils.sh"
+info "Syncing binaries"
+
+rsync -rlpt \
+	"$RIBYN_ROOT/lib/bin/executables/"* \
+	"$HOME/.local/bin/"
+
+if [[ -d "$HOME/ribyns-state/" ]]; then
+	rsync -rlpt \
+		"$HOME/ribyns-state/bin/"* \
+		"$HOME/.local/bin/"
+fi

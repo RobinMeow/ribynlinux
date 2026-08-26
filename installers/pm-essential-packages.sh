@@ -43,7 +43,7 @@ else
 	exit 1
 fi
 
-"$RIBYN_ROOT/apps/cargo-bins/sync.sh"
-"$RIBYN_ROOT/apps/cargo-bins/install.sh"
+"$RIBYN_ROOT/lib/cargo-bins/sync.sh"
+"$RIBYN_ROOT/lib/cargo-bins/install.sh"
 
 success "essential packages installed"
