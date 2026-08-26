@@ -3,6 +3,7 @@ set -euo pipefail
 
 source "$RIBYN_ROOT/core/run_on_distro.sh"
 source "$RIBYN_ROOT/core/utils.sh"
+info "installing brave"
 
 if on_arch; then
 	"$RIBYN_ROOT/core/ensure-installed-yay.sh"

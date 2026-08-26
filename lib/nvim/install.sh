@@ -10,6 +10,7 @@ set -euo pipefail
 source "$RIBYN_ROOT/lib/nvim/env.sh"
 source "$RIBYN_ROOT/core/run_on_distro.sh"
 source "$RIBYN_ROOT/core/utils.sh"
+info "installing nvim"
 
 # treesitter depends on (since 0.12 nvim depends on it itself now)
 # - tree-sitter-cli

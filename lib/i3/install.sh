@@ -4,6 +4,7 @@ set -euo pipefail
 source "$RIBYN_ROOT/config.sh"
 source "$RIBYN_ROOT/core/utils.sh"
 source "$RIBYN_ROOT/core/run_on_distro.sh"
+info "installing i3"
 
 if [[ $RIBYN_I3_ENABLED == "no" ]]; then
 	info "i3 disabled. skipping."

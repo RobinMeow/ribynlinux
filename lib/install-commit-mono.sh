@@ -3,6 +3,9 @@ set -euo pipefail
 
 # https://docs.fedoraproject.org/en-US/quick-docs/fonts/#unpackaged
 source "$RIBYN_ROOT/core/run_on_distro.sh"
+source "$RIBYN_ROOT/core/utils.sh"
+
+info "installing CommitMono"
 
 reinstall=false
 for arg in "$@"; do

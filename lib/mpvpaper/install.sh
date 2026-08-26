@@ -4,6 +4,8 @@ set -euo pipefail
 # https://github.com/GhostNaN/mpvpaper
 
 source "$RIBYN_ROOT/core/run_on_distro.sh"
+source "$RIBYN_ROOT/core/utils.sh"
+info "installing mpvpaper"
 
 if on_arch; then
 	sudo pacman -S --needed --noconfirm \

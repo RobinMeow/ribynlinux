@@ -3,6 +3,7 @@ set -euo pipefail
 
 source "$RIBYN_ROOT/core/run_on_distro.sh"
 source "$RIBYN_ROOT/core/utils.sh"
+info "Installing vale"
 
 if on_arch; then
 	sudo pacman -S --needed --noconfirm \

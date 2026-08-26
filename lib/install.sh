@@ -11,112 +11,46 @@ source "$RIBYN_ROOT/core/utils.sh"
 source "$RIBYN_ROOT/core/run_on_distro.sh"
 
 info "Installing from source: $RIBYN_ROOT"
+
 "$RIBYN_ROOT/lib/install-essentials-packages.sh"
 
 # WARN: uses brew. and brew resets sudo timestamp.
 # means we have to re-prompt our pw. I'd rather do it earlier
 # than later so I can afk after.
-info "Installing yazi"
 "$RIBYN_ROOT/lib/yazi/install.sh"
 
-info "Installing core packages"
 "$RIBYN_ROOT/lib/install-core-packages.sh"
-
-info "Installing zsh"
 "$RIBYN_ROOT/lib/zsh/install.sh"
-
 "$RIBYN_ROOT/lib/install-no-tofu.sh"
 "$RIBYN_ROOT/lib/install-catppuccin-cursors.sh"
-
-info "Installing qt6ct"
 "$RIBYN_ROOT/lib/qt6ct/install.sh"
-
-info "Installing CommitMono"
 "$RIBYN_ROOT/lib/install-commit-mono.sh"
-
-info "Installing brave"
 "$RIBYN_ROOT/lib/brave/install.sh"
-
-info "Installing firefox"
 "$RIBYN_ROOT/lib/firefox/install.sh"
-
-info "Installing bat"
 "$RIBYN_ROOT/lib/bat/install.sh"
-
-info "Installing btop"
 "$RIBYN_ROOT/lib/btop/install.sh"
-
-info "Installing kitty"
 "$RIBYN_ROOT/lib/kitty/install.sh"
-
-info "Installing wezterm"
 "$RIBYN_ROOT/lib/wezterm/install.sh"
-
-info "Installing nvim"
 "$RIBYN_ROOT/lib/nvim/install.sh"
-
-info "Installing vale"
 "$RIBYN_ROOT/lib/vale/install.sh"
-
-info "Installing tmux"
 "$RIBYN_ROOT/lib/tmux/install.sh"
-
-info "Installing wiremix"
 "$RIBYN_ROOT/lib/wiremix/install.sh"
-
-info "Installing mpd"
 "$RIBYN_ROOT/lib/mpd/install.sh"
-
-info "Installing rmpc"
 "$RIBYN_ROOT/lib/rmpc/install.sh"
-
-info "Installing zathura"
 "$RIBYN_ROOT/lib/zathura/install.sh"
-
-info "Installing bluetui"
 "$RIBYN_ROOT/lib/bluetui/install.sh"
-
-info "Installing rofi"
 "$RIBYN_ROOT/lib/rofi/install.sh"
-
-info "Installing screenshot tools"
 "$RIBYN_ROOT/lib/wayland/install-screenshot-tools.sh"
-
-info "Installing wl-freeze"
 "$RIBYN_ROOT/lib/wl-freeze/install.sh"
-
-info "Installing waybar"
 "$RIBYN_ROOT/lib/waybar/install.sh"
-
-info "Installing wayscriber"
 "$RIBYN_ROOT/lib/wayscriber/install.sh"
-
-info "Installing dunst"
 "$RIBYN_ROOT/lib/dunst/install.sh"
-
-info "Installing mpvpaper"
 "$RIBYN_ROOT/lib/mpvpaper/install.sh"
-
-info "Installing wob"
 "$RIBYN_ROOT/lib/wob/install.sh"
-
-info "Installing i3"
 "$RIBYN_ROOT/lib/i3/install.sh"
-
-info "Installing hypr"
 "$RIBYN_ROOT/lib/hypr/install.sh"
-
-info "Installing kde"
 "$RIBYN_ROOT/lib/kde/install.sh"
-
-info "Installing xdg-desktop-portal-termfilechooser"
-"$RIBYN_ROOT/lib/xdg-desktop-portal-termfilechooser/build-from-source.sh"
-
-for arg in "$@"; do
-	# TODO: move these out into config.sh
-	if [[ "$arg" == "--gadgets" ]]; then
-		"$RIBYN_ROOT/lib/install-gadget-packages.sh"
-	fi
-done
+"$RIBYN_ROOT/lib/xdg-desktop-portal-termfilechooser/install.sh"
+"$RIBYN_ROOT/lib/install-gadget-packages.sh"
 
 success "ribynliniux installed"

@@ -3,6 +3,7 @@ set -euo pipefail
 
 source "$RIBYN_ROOT/config.sh"
 source "$RIBYN_ROOT/core/utils.sh"
+info "installing kde"
 
 if [[ "$RIBYN_INSTALL_KDE_ENABLED" == "no" ]]; then
 	info "KDE install disabled. skipping."

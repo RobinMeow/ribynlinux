@@ -39,8 +39,4 @@ info "Syncing from source: $RIBYN_ROOT"
 "$RIBYN_ROOT/lib/kde/sync.sh"
 "$RIBYN_ROOT/lib/desktop-files/sync.sh"
 
-# TODO: move desktop files sync to sync from install
-# omitted. its in rin, feels more like an install then syncing dotfiles
-# info "Syncing desktop files"
-
 success "ribynlinux synced"

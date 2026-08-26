@@ -3,6 +3,7 @@ set -euo pipefail
 
 source "$RIBYN_ROOT/core/run_on_distro.sh"
 source "$RIBYN_ROOT/core/utils.sh"
+info "installing waybar"
 
 mkdir -p "$HOME/.local/share/ribyn/waybar"
 first_time_install="$HOME/.local/share/ribyn/waybar/first_time_install"

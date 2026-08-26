@@ -4,7 +4,7 @@ set -euo pipefail
 source "$RIBYN_ROOT/core/utils.sh"
 source "$RIBYN_ROOT/core/run_on_distro.sh"
 
-info "Installing core packages..."
+info "installing core packages"
 
 if on_arch; then
 	sudo pacman -S --needed --noconfirm \

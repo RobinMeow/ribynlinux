@@ -2,6 +2,8 @@
 set -euo pipefail
 
 source "$RIBYN_ROOT/core/run_on_distro.sh"
+source "$RIBYN_ROOT/core/utils.sh"
+info "Installing btop"
 
 run_on_arch sudo pacman -S --needed --noconfirm \
 	btop

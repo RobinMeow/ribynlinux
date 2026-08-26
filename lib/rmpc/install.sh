@@ -4,6 +4,7 @@ set -euo pipefail
 source "$RIBYN_ROOT/config.sh"
 source "$RIBYN_ROOT/core/utils.sh"
 source "$RIBYN_ROOT/core/run_on_distro.sh"
+info "installing rmpc"
 
 if on_arch; then
 	sudo pacman -S --needed --noconfirm \

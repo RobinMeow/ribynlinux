@@ -3,6 +3,8 @@ set -euo pipefail
 
 source "$RIBYN_ROOT/core/run_on_distro.sh"
 source "$RIBYN_ROOT/core/ensure-installed-homebrew.sh"
+source "$RIBYN_ROOT/core/utils.sh"
+info "installing yazi"
 
 brew install --no-ask \
 	yazi \
