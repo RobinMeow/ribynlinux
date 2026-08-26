@@ -6,7 +6,7 @@ function m.setup()
   key.bind("SUPER + T", hl.dsp.exec_cmd("kitty"), { desc = "open kitty terminal" })
 
   ---@diagnostic disable-next-line: unused-local
-  local closeWindowBind = key.bind("SUPER + Q", hl.dsp.window.close(), { desc = "close window" })
+  local closeWindowBind = key.bind("SUPER + SHIFT + Q", hl.dsp.window.close(), { desc = "close window" })
   -- closeWindowBind:set_enabled(false)
 
   key.bind(
