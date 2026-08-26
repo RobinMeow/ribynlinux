@@ -2,7 +2,7 @@
 set -euo pipefail
 
 source "$RIBYN_ROOT/config.sh"
-source "$RIBYN_ROOT/lib/utils.sh"
+source "$RIBYN_ROOT/core/utils.sh"
 info "Syncing kde"
 
 if [[ "$RIBYN_SYNC_KDE_ENABLED" == "no" ]]; then

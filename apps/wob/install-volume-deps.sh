@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-source "$RIBYN_ROOT/lib/run_on_distro.sh"
+source "$RIBYN_ROOT/core/run_on_distro.sh"
 
 # these are for wob volumne.sh
 if on_arch; then

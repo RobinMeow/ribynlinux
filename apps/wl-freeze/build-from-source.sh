@@ -3,8 +3,8 @@ set -euo pipefail
 
 # https://github.com/Zerodya/wl-freeze
 
-source "$RIBYN_ROOT/lib/utils.sh"
-source "$RIBYN_ROOT/lib/run_on_distro.sh"
+source "$RIBYN_ROOT/core/utils.sh"
+source "$RIBYN_ROOT/core/run_on_distro.sh"
 
 if on_arch; then
 	sudo pacman -S --needed --noconfirm \
@@ -20,7 +20,7 @@ elif on_fedora; then
 		libnotify
 fi
 
-source "$RIBYN_ROOT/lib/source-manager.sh"
+source "$RIBYN_ROOT/core/source-manager.sh"
 export RIBYN_WL_FREEZE_GITREV=${RIBYN_WL_FREEZE_GITREV:-"v2.1.0"}
 
 function build_and_install() {

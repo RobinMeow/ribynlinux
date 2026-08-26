@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-source "$RIBYN_ROOT/lib/utils.sh"
+source "$RIBYN_ROOT/core/utils.sh"
 info "Syncing git"
 # overide the entries for core and advice
 # Not a real migration. If a previous version of this git repo had values and are not deleted

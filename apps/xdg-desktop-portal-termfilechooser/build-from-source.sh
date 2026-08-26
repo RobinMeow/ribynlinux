@@ -3,8 +3,8 @@ set -euo pipefail
 
 # https://github.com/hunkyburrito/xdg-desktop-portal-termfilechooser
 
-source "$RIBYN_ROOT/lib/utils.sh"
-source "$RIBYN_ROOT/lib/run_on_distro.sh"
+source "$RIBYN_ROOT/core/utils.sh"
+source "$RIBYN_ROOT/core/run_on_distro.sh"
 
 mkdir -p "$HOME/local/share/ribyn/"
 gitdest="$HOME/.local/share/ribyn/xdg-desktop-portal-filechooser"

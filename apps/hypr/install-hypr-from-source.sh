@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-source "$RIBYN_ROOT/lib/source-manager.sh"
+source "$RIBYN_ROOT/core/source-manager.sh"
 
 function hypr_build() {
 	# WARN: installs into /usr

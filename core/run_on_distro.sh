@@ -5,7 +5,7 @@ set -euo pipefail
 # or kinda of a single dispatch pattern
 
 declare OSD_DISTRIBUTION=""
-source "$RIBYN_ROOT/lib/os-detect.sh"
+source "$RIBYN_ROOT/core/os-detect.sh"
 detect_distribution
 
 # Convert to lowercase for consistent comparison
@@ -14,7 +14,7 @@ DISTRO="${OSD_DISTRIBUTION,,}"
 
 SUPPORTED_DISTROS=("arch" "fedora")
 if [[ ! " ${SUPPORTED_DISTROS[*]} " =~ " ${DISTRO} " ]]; then
-	source "$RIBYN_ROOT/lib/utils.sh"
+	source "$RIBYN_ROOT/core/utils.sh"
 	warn "Distro '$OSD_DISTRIBUTION' not supported for installing nvim"
 fi
 
@@ -62,7 +62,7 @@ function on_fedora() {
 }
 
 # Usage
-# source "$RIBYN_ROOT/lib/run_on_distro.sh"
+# source "$RIBYN_ROOT/core/run_on_distro.sh"
 #
 # # 1. Direct command usage
 # run_on_arch echo "Hello from Arch (Direct)"

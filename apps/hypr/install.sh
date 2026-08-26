@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-source "$RIBYN_ROOT/lib/utils.sh"
+source "$RIBYN_ROOT/core/utils.sh"
 source "$RIBYN_ROOT/config.sh"
 
 if [[ "$RIBYN_HYPR_INSTALL_ENABLED" == "no" ]]; then
@@ -9,7 +9,7 @@ if [[ "$RIBYN_HYPR_INSTALL_ENABLED" == "no" ]]; then
 	exit 0
 fi
 
-source "$RIBYN_ROOT/lib/run_on_distro.sh"
+source "$RIBYN_ROOT/core/run_on_distro.sh"
 source "$RIBYN_ROOT/apps/hypr/install-hypr-from-source.sh"
 
 if on_arch; then

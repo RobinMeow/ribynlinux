@@ -2,7 +2,7 @@
 set -euo pipefail
 
 source "$RIBYN_ROOT/config.sh"
-source "$RIBYN_ROOT/lib/utils.sh"
+source "$RIBYN_ROOT/core/utils.sh"
 info "Syncing godot"
 
 if [[ "$RIBYN_GODOT_SYNC_ENABLED" == "yes" ]]; then

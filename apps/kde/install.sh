@@ -2,14 +2,14 @@
 set -euo pipefail
 
 source "$RIBYN_ROOT/config.sh"
-source "$RIBYN_ROOT/lib/utils.sh"
+source "$RIBYN_ROOT/core/utils.sh"
 
 if [[ "$RIBYN_INSTALL_KDE_ENABLED" == "no" ]]; then
 	info "KDE install disabled. skipping."
 	exit 0
 fi
 
-source "$RIBYN_ROOT/lib/run_on_distro.sh"
+source "$RIBYN_ROOT/core/run_on_distro.sh"
 
 # NOTE: not a kde dependecy, but if I do use kde I want flameshot again
 # its a nice screenshotting tool. but I have grim/slurp for hypr

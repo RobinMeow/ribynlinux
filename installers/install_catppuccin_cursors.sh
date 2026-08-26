@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-source "$RIBYN_ROOT/lib/utils.sh"
+source "$RIBYN_ROOT/core/utils.sh"
 
 # https://github.com/catppuccin/cursors (see picture here for available themes and variants)
 
@@ -11,7 +11,7 @@ theme="$RIBYN_CATPPUCCIN_CURSOR_THEME"
 variant="$RIBYN_CATPPUCCIN_CURSOR_VARIANT"
 
 if [[ ! -d "$HOME/.icons/catppuccin-$theme-$variant-cursors" ]]; then
-	source "$RIBYN_ROOT/lib/run_on_distro.sh"
+	source "$RIBYN_ROOT/core/run_on_distro.sh"
 
 	run_on_arch sudo pacman -S --needed --noconfirm \
 		curl unzip

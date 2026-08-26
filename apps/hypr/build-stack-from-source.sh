@@ -14,8 +14,8 @@ exec > >(tee "$logfile") 2>&1
 # https://github.com/hyprwm/Hyprland/discussions/284
 
 source "$RIBYN_ROOT/config.sh"
-source "$RIBYN_ROOT/lib/utils.sh"
-source "$RIBYN_ROOT/lib/run_on_distro.sh"
+source "$RIBYN_ROOT/core/utils.sh"
+source "$RIBYN_ROOT/core/run_on_distro.sh"
 
 if on_arch; then
 	error "ERROR: Use pacman on archlinux to install hyperland. use pacman -S hyprland instead."
@@ -45,7 +45,7 @@ elif on_fedora; then
 		gcc \
 		gcc-c++
 
-	source "$RIBYN_ROOT/lib/source-manager.sh"
+	source "$RIBYN_ROOT/core/source-manager.sh"
 	source "$RIBYN_ROOT/apps/hypr/install-hypr-from-source.sh"
 
 	# SC2016 $SOURCE_NAME does not expand here on purpose

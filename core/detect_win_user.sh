@@ -2,7 +2,7 @@
 set -euo pipefail
 
 detect_win_user() {
-	source "$RIBYN_ROOT/lib/utils.sh"
+	source "$RIBYN_ROOT/core/utils.sh"
 	local user_dir="/mnt/c/Users"
 
 	# Determine Windows user directory
@@ -51,7 +51,7 @@ detect_win_user() {
 
 # Run detection if script is executed directly
 if [[ "${BASH_SOURCE[0]}" == "${0}" ]]; then
-	source "$RIBYN_ROOT/lib/detect_env.sh"
+	source "$RIBYN_ROOT/core/detect_env.sh"
 	detect_env
 	detect_win_user
 	info "WINDOWS_USER=$WINDOWS_USER"

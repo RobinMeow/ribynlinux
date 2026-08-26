@@ -61,13 +61,13 @@ function init_source() {
 	giturl=$1
 
 	if [[ "${SOURCE_STATE:-"unset"}" == "unset" ]]; then
-		source "$RIBYN_ROOT/lib/utils.sh"
+		source "$RIBYN_ROOT/core/utils.sh"
 		error "incorrect use of init_source. call check_source_state before initilasing."
 		exit 1
 	fi
 
 	if [[ "$SOURCE_STATE" != "source n/a" ]]; then
-		source "$RIBYN_ROOT/lib/utils.sh"
+		source "$RIBYN_ROOT/core/utils.sh"
 		error "source already exists. cannot initialize."
 		exit 1
 	fi
@@ -83,17 +83,17 @@ function init_source() {
 
 function update_source() {
 	if [[ "${SOURCE_STATE:-"unset"}" == "unset" ]]; then
-		source "$RIBYN_ROOT/lib/utils.sh"
+		source "$RIBYN_ROOT/core/utils.sh"
 		error "incorrect use of update_source. call check_source_state before updating."
 		exit 1
 	fi
 
 	if [[ "$SOURCE_STATE" == "source n/a" ]]; then
-		source "$RIBYN_ROOT/lib/utils.sh"
+		source "$RIBYN_ROOT/core/utils.sh"
 		error "source does not exist. cannot update."
 		exit 1
 	elif [[ "$SOURCE_STATE" == "gitrev equals" ]]; then
-		source "$RIBYN_ROOT/lib/utils.sh"
+		source "$RIBYN_ROOT/core/utils.sh"
 		error "source is already at requested gitrev. no reason to update."
 		exit 1
 	fi

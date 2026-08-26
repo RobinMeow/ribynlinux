@@ -2,7 +2,7 @@
 set -euo pipefail
 
 detect_env() {
-	source "$RIBYN_ROOT/lib/utils.sh"
+	source "$RIBYN_ROOT/core/utils.sh"
 
 	OS_TYPE="unknown"
 	WSL_VERSION="none"

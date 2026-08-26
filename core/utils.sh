@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-source "$RIBYN_ROOT/lib/catppuccin-colors.sh"
+source "$RIBYN_ROOT/core/catppuccin-colors.sh"
 
 RED="${CATRED}"
 ORANGE="${CATORANGE}"

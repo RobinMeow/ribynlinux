@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-source "$RIBYN_ROOT/lib/run_on_distro.sh"
+source "$RIBYN_ROOT/core/run_on_distro.sh"
 
 # https://github.com/devmobasa/wayscriber#from-source
 
 if on_arch; then
-	"$RIBYN_ROOT/lib/ensure_installed_yay.sh"
+	"$RIBYN_ROOT/core/ensure_installed_yay.sh"
 	yay -S --needed --noconfirm \
 		wayscriber-bin
 

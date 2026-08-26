@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-source "$RIBYN_ROOT/lib/utils.sh"
+source "$RIBYN_ROOT/core/utils.sh"
 
 info "[Godot] [1/4] checking git repo"
 "$RIBYN_ROOT/apps/godot/git_clone.sh"

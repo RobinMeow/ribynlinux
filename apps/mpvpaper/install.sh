@@ -3,7 +3,7 @@ set -euo pipefail
 
 # https://github.com/GhostNaN/mpvpaper
 
-source "$RIBYN_ROOT/lib/run_on_distro.sh"
+source "$RIBYN_ROOT/core/run_on_distro.sh"
 
 if on_arch; then
 	sudo pacman -S --needed --noconfirm \
@@ -18,8 +18,8 @@ elif on_fedora; then
 	# mpv-devel brings in mpv, and mpv-libs
 fi
 
-source "$RIBYN_ROOT/lib/source-manager.sh"
-source "$RIBYN_ROOT/lib/utils.sh"
+source "$RIBYN_ROOT/core/source-manager.sh"
+source "$RIBYN_ROOT/core/utils.sh"
 source "$RIBYN_ROOT/config.sh"
 
 function build_and_install() {

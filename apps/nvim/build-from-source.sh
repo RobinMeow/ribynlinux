@@ -2,7 +2,7 @@
 set -euo pipefail
 
 source "$RIBYN_ROOT/apps/nvim/config.sh"
-source "$RIBYN_ROOT/lib/utils.sh"
+source "$RIBYN_ROOT/core/utils.sh"
 
 # NOTE: use this before building,
 # if I have issue and git clean -fdx is not enough
@@ -33,7 +33,7 @@ function neovim_build_and_install() {
 function neovim_installed() {
 	command -v nvim >/dev/null 2>&1
 }
-source "$RIBYN_ROOT/lib/source-manager.sh"
+source "$RIBYN_ROOT/core/source-manager.sh"
 check_source_state "neovim" "$RIBYN_NVIM_GITREV"
 source_git "https://github.com/neovim/neovim"
 

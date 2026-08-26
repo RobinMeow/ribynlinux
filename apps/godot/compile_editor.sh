@@ -2,8 +2,8 @@
 set -euo pipefail
 
 source "$RIBYN_ROOT/config.sh"
-source "$RIBYN_ROOT/lib/utils.sh"
-source "$RIBYN_ROOT/lib/run_on_distro.sh"
+source "$RIBYN_ROOT/core/utils.sh"
+source "$RIBYN_ROOT/core/run_on_distro.sh"
 
 if ! command -v dotnet &>/dev/null; then
 	error "Error: .NET CLI is not installed or not found in PATH." >&2

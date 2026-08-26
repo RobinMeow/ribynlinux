@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-source "$RIBYN_ROOT/lib/run_on_distro.sh"
-source "$RIBYN_ROOT/lib/ensure_installed_homebrew.sh"
+source "$RIBYN_ROOT/core/run_on_distro.sh"
+source "$RIBYN_ROOT/core/ensure_installed_homebrew.sh"
 
 brew install --no-ask \
 	yazi \

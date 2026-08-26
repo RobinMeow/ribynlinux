@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-source "$RIBYN_ROOT/lib/utils.sh"
+source "$RIBYN_ROOT/core/utils.sh"
 info "Syncing wezterm"
 
 RIBYN_WEZTERM_ENABLED=${RIBYN_WEZTERM_ENABLED:-"no"}
@@ -32,10 +32,10 @@ rsync -rlpt \
 	"$HOME/.wezterm.lua"
 
 # WSL
-source "$RIBYN_ROOT/lib/detect_env.sh"
+source "$RIBYN_ROOT/core/detect_env.sh"
 detect_env
 if [[ "$OS_TYPE" == "wsl" && "$RIBYN_SKIP_DETECT_SLOP_USER" != "yes" ]]; then
-	source "$RIBYN_ROOT/lib/detect_win_user.sh"
+	source "$RIBYN_ROOT/core/detect_win_user.sh"
 	detect_win_user
 
 	# do the same as above for linux,

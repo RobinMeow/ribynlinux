@@ -17,7 +17,7 @@ EOF
 	exit 0
 }
 
-source "$RIBYN_ROOT/lib/utils.sh"
+source "$RIBYN_ROOT/core/utils.sh"
 
 # Defaults
 fps=30

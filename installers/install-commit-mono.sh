@@ -2,7 +2,7 @@
 set -euo pipefail
 
 # https://docs.fedoraproject.org/en-US/quick-docs/fonts/#unpackaged
-source "$RIBYN_ROOT/lib/run_on_distro.sh"
+source "$RIBYN_ROOT/core/run_on_distro.sh"
 
 reinstall=false
 for arg in "$@"; do
