@@ -61,9 +61,7 @@ vim.o.scrolloff = 10 -- amount of lines to keep visible above and beneath the cu
 vim.o.confirm = true
 
 -- [[ DOTNET ]]
--- comment in, if desired (when project is warning heavy)
--- TODO: enable this on a by machine locally (read ENV variable)
--- vim.g.dotnet_errors_only = true
+vim.g.dotnet_errors_only = os.getenv("RIBYN_NVIM_DOTNET_ERROS_ONLY") or false
 
 -- exclude file path to make the quickfix list less noisy
 -- vim.g.dotnet_show_project_file = false
