@@ -18,8 +18,18 @@ install_dest="$HOME/.local/share/fonts/commit-mono"
 
 if [[ ! -d "$install_dest" ]] || [[ "$reinstall" == true ]]; then
 	# coreutils contain cut and xargs
-	run_on_fedora sudo dnf install -y unzip grep coreutils curl restorecon fc-cache
-	run_on_arch sudo pacman -S --needed --noconfirm unzip grep coreutils curl
+	run_on_fedora sudo dnf install --assumeyes \
+		unzip \
+		grep \
+		coreutils \
+		curl \
+		restorecon \
+		fc-cache
+	run_on_arch sudo pacman -S --needed --noconfirm \
+		unzip \
+		grep \
+		coreutils \
+		curl
 
 	# first curl gets infos of latest, next two pipes retrieve the url, las curl downloads it
 	mkdir -p "$HOME/Downloads"
@@ -41,7 +51,11 @@ if [[ ! -d "$install_dest" ]] || [[ "$reinstall" == true ]]; then
 	run_on_fedora sudo restorecon -vFr "$install_dest"
 
 	# update font cache
-	fc-cache -f -v
+	if [[ "$reinstall" == true ]]; then
+		sudo fc-cache -f
+	else
+		sudo fc-cache
+	fi
 else
 	echo "CommitMono is already installed. run '$RIBYN_ROOT/lib/install-commit-mono.sh --reinstall' to reinstall"
 fi
