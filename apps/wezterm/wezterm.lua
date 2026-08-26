@@ -36,12 +36,55 @@ if running_on_windows then
   config.default_domain = "WSL:fedorai3"
 end
 
+local function bind_key(mods, key, action)
+  config.keys = config.keys or {}
+  table.insert(config.keys, { mods = mods, key = key, action = action })
+end
+
 -- background
-config.window_background_opacity = 1 -- kill transparent (can probably remove this)
-config.colors = { background = "black" }
-local sep = package.config:sub(1, 1)
-config.window_background_image = wezterm.config_dir .. sep .. ".config" .. sep .. "wezterm" .. sep .. "background.png"
-config.window_background_image_hsb = { brightness = 0.025 }
+local env_bg = os.getenv("RIBYN_WEZTERM_BG")
+if env_bg == "transparent" then
+  config.window_background_opacity = 0
+elseif env_bg == "transparent-darkened" then
+  config.colors = { background = "black" }
+  config.window_background_opacity = 0.9
+elseif env_bg == "solid" then
+  config.colors = { background = "#161616" }
+elseif env_bg == "fallen-knight" then
+  local sep = package.config:sub(1, 1)
+  config.window_background_image = wezterm.config_dir .. sep .. ".config" .. sep .. "wezterm" .. sep .. "wallpaper.png"
+  config.window_background_image_hsb = { brightness = 0.025 }
+end
+
+bind_key(
+  "CTRL|SHIFT",
+  "f",
+  wezterm.action_callback(function(window, pane)
+    if env_bg ~= "transparent-darkened" then
+      return
+    end
+
+    local overrides = window:get_config_overrides() or {}
+    local sep = package.config:sub(1, 1)
+    local wallpaper = wezterm.config_dir .. sep .. ".config" .. sep .. "wezterm" .. sep .. "wallpaper.png"
+
+    if overrides.window_background_image then
+      -- Switch back to darkened transparent
+      overrides.window_background_image = nil
+      overrides.window_background_image_hsb = nil
+      overrides.colors = { background = "black" }
+      overrides.window_background_opacity = 0.9
+    else
+      -- Switch to wallpaper
+      overrides.colors = nil
+      overrides.window_background_opacity = 1.0
+      overrides.window_background_image = wallpaper
+      overrides.window_background_image_hsb = { brightness = 0.025 }
+    end
+
+    window:set_config_overrides(overrides)
+  end)
+)
 
 config.window_decorations = "INTEGRATED_BUTTONS" -- remove the window title-bar which includes minmizing, fullscreening, and closing
 
@@ -57,14 +100,6 @@ wezterm.on("gui-startup", function(cmd)
     end
   end
 end)
-
--- tmux
-config.leader = { key = "b", mods = "CTRL", timeout_milliseconds = 2000 }
-
-local function bind_key(mods, key, action)
-  config.keys = config.keys or {}
-  table.insert(config.keys, { mods = mods, key = key, action = action })
-end
 
 bind_key("CTRL|SHIFT", "LeftArrow", act.ActivateTabRelative(-1))
 bind_key("CTRL|SHIFT", "RightArrow", act.ActivateTabRelative(1))

@@ -8,34 +8,35 @@ config.color_scheme = "Catppuccin Mocha" -- https://wezterm.org/colorschemes/c/i
 config.font = wezterm.font("CommitMono Nerd Font")
 config.font_size = 16
 
--- padding becuase microslop red bordler on screenshare
-config.window_padding = { left = 4, right = 0, top = 5, bottom = 5 }
+-- using 4 padding instead of 0 because of teams
+-- screen sharing red border covering text otherwise
+config.window_padding = {
+  left = 4,
+  right = 4,
+  top = 4,
+  bottom = 4,
+}
 
 config.tab_bar_at_bottom = true
 config.use_fancy_tab_bar = false
 
--- https://wezterm.org/config/lua/config/default_domain.html
--- https://github.com/wezterm/wezterm/issues/2090
-local wsl_domains = wezterm.default_wsl_domains()
+-- Windows/Wsl/Linux
+-- ensure wezterm starts in wsl and cwd is correctly carried over to new panes/tabs
+local running_on_windows = package.config:sub(1, 1) == "\\"
+if running_on_windows then
+  -- https://wezterm.org/config/lua/config/default_domain.html
+  -- https://github.com/wezterm/wezterm/issues/2090
+  local wsl_domains = wezterm.default_wsl_domains()
 
-for _, dom in ipairs(wsl_domains) do
-  dom.default_cwd = "~"
+  for _, dom in ipairs(wsl_domains) do
+    dom.default_cwd = "~"
+  end
+
+  config.wsl_domains = wsl_domains
+  config.default_domain = "WSL:fedorai3"
 end
 
-config.wsl_domains = wsl_domains
-config.default_domain = "WSL:archlinux"
-
--- PERFORMANCE & GPU TUNING
-config.front_end = "WebGpu"
-config.webgpu_power_preference = "HighPerformance"
-config.max_fps = 60
-config.animation_fps = 1
-config.cursor_blink_ease_in = "Constant"
-config.cursor_blink_ease_out = "Constant"
-config.scrollback_lines = 3500
-
 -- background
-config.window_background_opacity = 1 -- no transparent
 config.colors = { background = "#161616" }
 
 config.window_decorations = "INTEGRATED_BUTTONS" -- remove the window title-bar which includes minmizing, fullscreening, and closing
@@ -58,7 +59,6 @@ local function bind_key(mods, key, action)
   table.insert(config.keys, { mods = mods, key = key, action = action })
 end
 
--- mimic kitty switch tabs
 bind_key("CTRL|SHIFT", "LeftArrow", act.ActivateTabRelative(-1))
 bind_key("CTRL|SHIFT", "RightArrow", act.ActivateTabRelative(1))
 
@@ -67,13 +67,13 @@ bind_key("CTRL|SHIFT", "h", act.ActivatePaneDirection("Left"))
 bind_key("CTRL|SHIFT", "j", act.ActivatePaneDirection("Down"))
 bind_key("CTRL|SHIFT", "k", act.ActivatePaneDirection("Up"))
 bind_key("CTRL|SHIFT", "l", act.ActivatePaneDirection("Right"))
-bind_key("CTRL|SHIFT", "d", wezterm.action.ShowDebugOverlay)
 
 -- https://wezterm.org/config/keys.html#physical-vs-mapped-key-assignments
 -- using phys maps to a physical key. meaning it works for qwerty and qwertz (on qwertz ctrl+shift would cause the minus key to make an underscore)
 -- NOTE: using the phys doesnt solve any qwerty/qwertz issues. e.g. qwertz requires pressing AltGr to press Pipe, so I will fail regardless.
-bind_key("CTRL|SHIFT", "F6", act.SplitHorizontal({ domain = "CurrentPaneDomain" }))
-bind_key("CTRL|SHIFT", "F7", act.SplitVertical({ domain = "CurrentPaneDomain" }))
+-- They dont work. I tried inversing them, but the behavior stays as Enter = horizontal and Backspace vert
+bind_key("CTRL|SHIFT", "Backspace", act.SplitVertical({ domain = "CurrentPaneDomain" }))
+bind_key("CTRL|SHIFT", "Enter", act.SplitHorizontal({ domain = "CurrentPaneDomain" }))
 
 bind_key("CTRL|SHIFT", "w", act.CloseCurrentTab({ confirm = false }))
 
@@ -82,7 +82,6 @@ bind_key("CTRL|SHIFT", "w", act.CloseCurrentTab({ confirm = false }))
 local function enter_resize_mode()
   return act.ActivateKeyTable({ name = "resize_pane", one_shot = false })
 end
-
 bind_key("CTRL|SHIFT", "r", enter_resize_mode())
 
 config.key_tables = {

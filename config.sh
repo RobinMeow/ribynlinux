@@ -141,17 +141,6 @@ set -euo pipefail
 	export RIBYN_HYPR_BLUETUI_GIT_REF=${RIBYN_HYPR_BLUETUI_GIT_REF:-"v0.8.1"}
 }
 
-# WEZTERM
-{
-	# yes/no (yes will clean everything. mostly relevant for the motions)
-	export RIBYN_WEZTERM_CLEAN_ON_SYNC=${RIBYN_WEZTERM_CLEAN_ON_SYNC:-"no"}
-
-	# set to "no" if you test in docker, which doesnt have /mnt/c/Users
-	# mounted causing detect_win_user to fail. so wezterm cant sync the config.
-	# when skipped, will normally sync to linux home
-	export RIBYN_SKIP_DETECT_SLOP_USER=${RIBYN_SKIP_DETECT_SLOP_USER:-"no"}
-}
-
 # KDE
 {
 	# whether or not to install the KDE desktop environment

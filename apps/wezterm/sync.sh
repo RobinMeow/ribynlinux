@@ -1,65 +1,51 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-. "$RIBYN_ROOT/lib/utils.sh"
-. "$RIBYN_ROOT/config.sh"
+source "$RIBYN_ROOT/lib/utils.sh"
+RIBYN_WEZTERM_ENABLED=${RIBYN_WEZTERM_ENABLED:-"no"}
 
-# NOTE: i can still use wezterm from within wsl.
-# so might as well install as normally and for wsl copy additionially
+if [[ "$RIBYN_WEZTERM_ENABLED" == "no" ]]; then
+	info "wezterm disabled. Skipping sync."
+	exit 0
+fi
 
-DEST_CONFIG_DIR="$HOME/.config/wezterm"
-WEZTERM_LUA_ORIGIN="$RIBYN_ROOT/apps/wezterm/wezterm.lua"
-DEST_HOME_DIR="$HOME"
+# set to "no" if you test in docker, which doesnt have /mnt/c/Users
+# mounted causing detect_win_user to fail. so wezterm cant sync the config.
+# when skipped, will normally sync to linux home
+RIBYN_SKIP_DETECT_SLOP_USER=${RIBYN_SKIP_DETECT_SLOP_USER:-"no"}
+
+# solid | transparent | wallpaper
+RIBYN_WEZTERM_BG=${RIBYN_WEZTERM_BG:-"wallpaper"}
+
+source "$RIBYN_ROOT/config.sh"
+
+mkdir -p "$HOME/.config/wezterm"
+
+cp \
+	"$RIBYN_ROOT/assets/images/wallpapers/fallen-knight-blossom-field-3840x2160.png" \
+	"$HOME/.config/wezterm/wallpaper.png"
+
+rsync -rlpt \
+	"$RIBYN_ROOT/apps/wezterm/wezterm.lua" \
+	"$HOME/.wezterm.lua"
+
+# WSL
 source "$RIBYN_ROOT/lib/detect_env.sh"
 detect_env
-
-mkdir -p "$DEST_CONFIG_DIR"
-
-# copying the background image to both dirs, since I cant bother
-cp "$RIBYN_ROOT/assets/images/wallpapers/fallen-knight-blossom-field-3840x2160.png" "$DEST_CONFIG_DIR/background.png"
-
 if [[ "$OS_TYPE" == "wsl" && "$RIBYN_SKIP_DETECT_SLOP_USER" != "yes" ]]; then
 	. "$RIBYN_ROOT/lib/detect_win_user.sh"
 	detect_win_user
 
-	DEST_CONFIG_DIR="$WINDOWS_HOME/.config/wezterm"
-	DEST_HOME_DIR="$WINDOWS_HOME"
-	# NOTE: now using wsl as default. because I dont use wezterm outside wsl
-	WEZTERM_LUA_ORIGIN="$RIBYN_ROOT/apps/wezterm/wezterm.lua"
-	mkdir -p "$DEST_CONFIG_DIR"
-	cp "$RIBYN_ROOT/assets/images/wallpapers/fallen-knight-blossom-field-3840x2160.png" "$DEST_CONFIG_DIR/background.png"
-fi
+	# do the same as above for linux,
+	# but replace $HOME with $WINDOWS_HOME
 
-rsync -rlpt \
-	"$WEZTERM_LUA_ORIGIN" \
-	"$DEST_HOME_DIR/.wezterm.lua"
+	mkdir -p "$WINDOWS_HOME/.config/wezterm"
 
-source "$RIBYN_ROOT/config.sh"
-if [[ "$RIBYN_WEZTERM_CLEAN_ON_SYNC" == "yes" ]]; then
-	info "Cleaning up wezterm config dir"
-	rm -rf "$DEST_CONFIG_DIR"
-fi
+	cp \
+		"$RIBYN_ROOT/assets/images/wallpapers/fallen-knight-blossom-field-3840x2160.png" \
+		"$WINDOWS_HOME/.config/wezterm/wallpaper.png"
 
-mkdir -p "$DEST_CONFIG_DIR/wallpapers"
-if [[ -d "$RIBYN_ROOT/assets/images/wallpapers" ]]; then
-	cp "$RIBYN_ROOT/assets/images/wallpapers/"* "$DEST_CONFIG_DIR/wallpapers/"
-fi
-
-# copy .config/wezterm content (excluding my-workspaces.lua)
-for file in "$RIBYN_ROOT/apps/wezterm/config/"*; do
-	if [[ "$(basename "$file")" != "my-workspaces.lua" ]]; then
-		cp -r "$file" "$DEST_CONFIG_DIR/"
-	fi
-done
-
-# WARN: motions on other branches are not yet transferred to the new dir structure
-motions_dir="$RIBYN_ROOT/images/motions"
-if [[ -d $motions_dir ]]; then
-	info "Syncing motions $motions_dir"
-	mkdir -p "$DEST_CONFIG_DIR/motions"
-	cp "$RIBYN_ROOT/images/motions/"* "$DEST_CONFIG_DIR/motions/"
-else
-	source "$RIBYN_ROOT/lib/utils.sh"
-	warn "No motions found in $motions_dir"
-	info "Motions are found in the branches named 'motions*'"
+	rsync -rlpt \
+		"$RIBYN_ROOT/apps/wezterm/wezterm.lua" \
+		"$WINDOWS_HOME/.wezterm.lua"
 fi
