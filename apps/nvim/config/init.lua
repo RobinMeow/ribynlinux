@@ -1,25 +1,6 @@
 require("options")
 require("keymaps")
 
--- dont know how to use to dedup item
--- local function deduplicate_qflist()
---   local function on_list(what)
---     vim.list.unique(what.items, function(item)
---       return ("%s\0%d\0%d\0%d\0%d"):format(
---         item.filename or "",
---         item.lnum or 0,
---         item.col or 0,
---         item.end_lnum or 0,
---         item.end_col or 0
---       )
---     end)
---
---     vim.fn.setqflist({}, " ", what)
---     vim.cmd("botright copen")
---   end
---   vim.lsp.buf.definition({ on_list = on_list })
---   vim.lsp.buf.references(nil, { on_list = on_list })
--- end
 --require("idle-numbers").setup()
 
 -- no "press Enter" interrupptions
@@ -92,35 +73,7 @@ require("lazy").setup({
             mode = mode or "n"
             vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
           end
-          map("grn", function()
-            local clients = vim.tbl_filter(function(c)
-              return c:supports_method("textDocument/rename")
-            end, vim.lsp.get_clients({ bufnr = 0 }))
-
-            require("telescope.pickers")
-              .new({}, {
-                prompt_title = "LSP Rename",
-                finder = require("telescope.finders").new_table({
-                  results = clients,
-                  entry_maker = function(c)
-                    return { value = c, display = c.name, ordinal = c.name }
-                  end,
-                }),
-                sorter = require("telescope.config").values.generic_sorter({}),
-                attach_mappings = function(_, map)
-                  local actions = require("telescope.actions")
-                  local state = require("telescope.actions.state")
-
-                  map("i", "<CR>", function()
-                    local c = state.get_selected_entry().value
-                    actions.close(_)
-                    vim.lsp.buf.rename(nil, { name = c.name })
-                  end)
-                  return true
-                end,
-              })
-              :find()
-          end, "Rename")
+          map("grn", vim.lsp.buf.rename, "rename")
           map("gra", vim.lsp.buf.code_action, "[G]oto Code [A]ction", { "n", "x" })
           map("grf", function()
             vim.lsp.buf.code_action({
@@ -243,10 +196,7 @@ require("lazy").setup({
         ["eslint"] = {},
         ["shellcheck"] = {},
         ["shellharden"] = {},
-        ["angularls"] = {
-          -- on_attach = function(client, bufnr)
-          -- end,
-        },
+        ["angularls"] = {},
         ["cssls"] = {},
         ["html"] = {
           -- NOTE: in testing. comment out again, if not good.
