@@ -69,7 +69,10 @@
 
 ## Neovim
 
-- lsp-linked_editing_range (e.g. auto update closing tags html)
+- [remove unused imports example](https://github.com/nvim-telescope/telescope.nvim/issues/3328#issuecomment-2977174031)
+  `vim.keymap.set('n', 'gro', organizeImports, { buffer = bufnr,  remap = false, desc = "Reorganize imports"});`
+- [prevent double rename](https://github.com/nvim-telescope/telescope.nvim/issues/3328#issuecomment-2472420006)
+- lsp-linked_editing_range (e.g. auto update closing tags html) [telescope dedup](https://github.com/nvim-telescope/telescope.nvim/issues/3328)
 - review prs from github/gitlab in neovim [atlas.nvim](https://github.com/emrearmagan/atlas.nvim)
   I have not yet compared this to other plugins. Just as an idea
 - use go typescript compiler for my new CompileTsc
