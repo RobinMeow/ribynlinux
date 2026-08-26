@@ -69,6 +69,12 @@
 
 ## Neovim
 
+- consider cnext keybinds
+  `vim.keymap.set("n", "<leader>cn", ":cnext<CR>")`
+  `vim.keymap.set("n", "<leader>ct", ":cprev<CR>")`
+  `vim.keymap.set("n", "<leader>cc", ":cclose<CR>")`
+  `vim.keymap.set("n", "<leader>cf", ":cnfile<CR>")`
+- close all buffers and reopen last edited `vim.keymap.set("n", "cab", ":%bd|e#|bd#<CR><C-O><CR>")` (close all but current would be nicer)
 - [remove unused imports example](https://github.com/nvim-telescope/telescope.nvim/issues/3328#issuecomment-2977174031)
   `vim.keymap.set('n', 'gro', organizeImports, { buffer = bufnr,  remap = false, desc = "Reorganize imports"});`
 - [prevent double rename](https://github.com/nvim-telescope/telescope.nvim/issues/3328#issuecomment-2472420006)

@@ -1,7 +1,3 @@
--- TODO: set up csharp debugging
--- TODO: set up godot templates
--- TODO: checkout gdtoolscipt and gdscriptformattter (already set up the install for them) i think its gdscript only
-
 -- WARN: dont think I need this. my serach already respects gitignore etc,
 -- tho those files might not be gitignored
 -- ignore godot .uid files in wild menus
@@ -27,17 +23,6 @@
 -- NOTE: dont use netrw but, still need to check if I need to filter those files out
 -- hide godot files
 -- vim.g.netrw_list_hide = "\\.uid"
-
--- TODO: interesting one
--- close all buffers and reopen last edited buffer
--- vim.keymap.set("n", "cab", ":%bd|e#|bd#<CR><C-O><CR>")
-
--- TODO: im still fine without
--- quick-list navigation
--- vim.keymap.set("n", "<leader>cn", ":cnext<CR>")
--- vim.keymap.set("n", "<leader>ct", ":cprev<CR>")
--- vim.keymap.set("n", "<leader>cc", ":cclose<CR>")
--- vim.keymap.set("n", "<leader>cf", ":cnfile<CR>")
 
 local paths_to_check = { "/", "/../" }
 local is_godot_project = false
