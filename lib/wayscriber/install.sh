@@ -6,7 +6,7 @@ source "$RIBYN_ROOT/core/run_on_distro.sh"
 # https://github.com/devmobasa/wayscriber#from-source
 
 if on_arch; then
-	"$RIBYN_ROOT/core/ensure_installed_yay.sh"
+	"$RIBYN_ROOT/core/ensure-installed-yay.sh"
 	yay -S --needed --noconfirm \
 		wayscriber-bin
 

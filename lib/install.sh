@@ -20,7 +20,7 @@ info "Installing yazi"
 "$RIBYN_ROOT/lib/yazi/install.sh"
 
 info "Installing core packages"
-"$RIBYN_ROOT/scripts/pm-core.sh"
+"$RIBYN_ROOT/scripts/install-core-packages.sh"
 
 info "Installing zsh"
 "$RIBYN_ROOT/lib/zsh/install.sh"

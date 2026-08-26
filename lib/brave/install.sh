@@ -5,7 +5,7 @@ source "$RIBYN_ROOT/core/run_on_distro.sh"
 source "$RIBYN_ROOT/core/utils.sh"
 
 if on_arch; then
-	"$RIBYN_ROOT/core/ensure_installed_yay.sh"
+	"$RIBYN_ROOT/core/ensure-installed-yay.sh"
 
 	yay -Sy --needed --noconfirm \
 		brave-bin
