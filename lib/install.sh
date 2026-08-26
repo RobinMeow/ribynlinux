@@ -116,9 +116,6 @@ info "Installing kde"
 info "Installing xdg-desktop-portal-termfilechooser"
 "$RIBYN_ROOT/lib/xdg-desktop-portal-termfilechooser/build-from-source.sh"
 
-info "Syncing desktop files"
-"$RIBYN_ROOT/desktop-files/install.sh"
-
 for arg in "$@"; do
 	# TODO: move these out into config.sh
 	if [[ "$arg" == "--gadgets" ]]; then
