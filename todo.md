@@ -69,6 +69,7 @@
 
 ## Neovim
 
+- lsp-linked_editing_range (e.g. auto update closing tags html)
 - review prs from github/gitlab in neovim [atlas.nvim](https://github.com/emrearmagan/atlas.nvim)
   I have not yet compared this to other plugins. Just as an idea
 - use go typescript compiler for my new CompileTsc
