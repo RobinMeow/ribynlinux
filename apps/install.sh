@@ -7,8 +7,8 @@ logfile="$HOME/.cache/ribyn/rin.log"
 # use --append flag if you want to append, instead of override
 exec > >(tee "$logfile") 2>&1
 
-. "$RIBYN_ROOT/lib/utils.sh"
-. "$RIBYN_ROOT/lib/run_on_distro.sh"
+source "$RIBYN_ROOT/lib/utils.sh"
+source "$RIBYN_ROOT/lib/run_on_distro.sh"
 
 info "Installing from source: $RIBYN_ROOT"
 info "Installing essential packages"

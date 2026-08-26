@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-. "$RIBYN_ROOT/lib/utils.sh"
+source "$RIBYN_ROOT/lib/utils.sh"
 
 # warn about deprecated hyprland.conf file
 hypr_conf="$HOME/.config/hypr/hyprland.conf"

@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-. "$RIBYN_ROOT/lib/utils.sh"
-. "$RIBYN_ROOT/config.sh"
+source "$RIBYN_ROOT/lib/utils.sh"
+source "$RIBYN_ROOT/config.sh"
 
 if [[ "$RIBYN_HYPR_INSTALL_ENABLED" == "no" ]]; then
 	info "hypr install disabled in config. skipping."

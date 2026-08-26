@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-. "$RIBYN_ROOT/lib/utils.sh"
-. "$RIBYN_ROOT/lib/run_on_distro.sh"
+source "$RIBYN_ROOT/lib/utils.sh"
+source "$RIBYN_ROOT/lib/run_on_distro.sh"
 
 # essential packages are required by many shell scripts
 # (like git or rsync) which do not install them themselves

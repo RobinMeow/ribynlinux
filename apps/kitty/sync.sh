@@ -18,7 +18,7 @@ else
 	cp "$RIBYN_ROOT/apps/kitty/kitty-solid-bg.conf" "$HOME/.config/kitty/kitty.conf"
 fi
 
-# . "$RIBYN_ROOT/lib/detect_env.sh"
+# source "$RIBYN_ROOT/lib/detect_env.sh"
 # detect_env
 # if [[ "$OS_TYPE" == "wsl" ]]; then
 # 	cat >>"$HOME/.config/kitty/kitty.conf" <<EOF

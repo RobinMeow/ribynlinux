@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-. "$RIBYN_ROOT/lib/utils.sh"
+source "$RIBYN_ROOT/lib/utils.sh"
 
 if [ ! -d "$HOME/.oh-my-zsh" ]; then
 	info "Installing Oh My Zsh"

@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-. "$RIBYN_ROOT/lib/utils.sh"
+source "$RIBYN_ROOT/lib/utils.sh"
 
 mkdir -p "$HOME/.config/vale"
 

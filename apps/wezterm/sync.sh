@@ -33,7 +33,7 @@ rsync -rlpt \
 source "$RIBYN_ROOT/lib/detect_env.sh"
 detect_env
 if [[ "$OS_TYPE" == "wsl" && "$RIBYN_SKIP_DETECT_SLOP_USER" != "yes" ]]; then
-	. "$RIBYN_ROOT/lib/detect_win_user.sh"
+	source "$RIBYN_ROOT/lib/detect_win_user.sh"
 	detect_win_user
 
 	# do the same as above for linux,

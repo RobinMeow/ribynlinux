@@ -3,8 +3,8 @@ set -euo pipefail
 
 # https://github.com/Zerodya/wl-freeze
 
-. "$RIBYN_ROOT/lib/utils.sh"
-. "$RIBYN_ROOT/lib/run_on_distro.sh"
+source "$RIBYN_ROOT/lib/utils.sh"
+source "$RIBYN_ROOT/lib/run_on_distro.sh"
 
 if on_arch; then
 	sudo pacman -S --needed --noconfirm \

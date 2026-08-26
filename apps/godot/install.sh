@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-. "$RIBYN_ROOT/config.sh"
-. "$RIBYN_ROOT/lib/utils.sh"
+source "$RIBYN_ROOT/config.sh"
+source "$RIBYN_ROOT/lib/utils.sh"
 
 git_clone_exit=0
 ("$RIBYN_ROOT/apps/godot/git_clone.sh") || git_clone_exit=$?

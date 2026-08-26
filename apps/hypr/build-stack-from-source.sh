@@ -13,9 +13,9 @@ exec > >(tee "$logfile") 2>&1
 # how to build hyprland on fedora
 # https://github.com/hyprwm/Hyprland/discussions/284
 
-. "$RIBYN_ROOT/config.sh"
-. "$RIBYN_ROOT/lib/utils.sh"
-. "$RIBYN_ROOT/lib/run_on_distro.sh"
+source "$RIBYN_ROOT/config.sh"
+source "$RIBYN_ROOT/lib/utils.sh"
+source "$RIBYN_ROOT/lib/run_on_distro.sh"
 
 if on_arch; then
 	error "ERROR: Use pacman on archlinux to install hyperland. use pacman -S hyprland instead."
