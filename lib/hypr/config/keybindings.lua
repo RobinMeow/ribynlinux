@@ -17,6 +17,8 @@ function m.setup()
   )
   key.bind("SUPER + E", hl.dsp.exec_cmd("kitty -e yazi"), { desc = "open explorer yazi" })
 
+  key.bind("SUPER + SHIFT + E", hl.dsp.exec_cmd("kaomoji-picker"), { desc = "open kaomoji picker (emoticons)" })
+
   -- https://wiki.hypr.land/Configuring/Basics/Dispatchers/#fullscreenstate
   -- internal is a reference to the state maintained by Hyprland.
   -- client is a reference to the state that the application receives.
