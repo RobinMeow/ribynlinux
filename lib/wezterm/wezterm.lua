@@ -88,11 +88,9 @@ bind_key(
 
 config.window_decorations = "INTEGRATED_BUTTONS" -- remove the window title-bar which includes minmizing, fullscreening, and closing
 
--- maximize window on startup
 wezterm.on("gui-startup", function(cmd)
   if mux then
     local _, pane, window = mux.spawn_window(cmd or {})
-    window:gui_window():maximize()
     if workspaces_ok then
       workspaces.setup(window, pane)
     else
