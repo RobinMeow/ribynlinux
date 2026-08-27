@@ -36,7 +36,7 @@ Ahh, you mean **kaomoji / ASCII emoticons** — like these:
 For **programming comments**, these are especially good:
 
 ```text
-// TODO: fix this ╯°□°）╯︵ ┻━┻
+// fix this ╯°□°）╯︵ ┻━┻
 // It works ¯\_(ツ)_/¯
 // Why? ಠ_ಠ
 // Don't touch this (ง'̀-'́)ง

@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+json="$RIBYN_ROOT/lib/kaomoji/kaomoji.json"
+
+selection="$(
+	jq -r '.[] | "\(.kaomoji)\t\(.description)"' "$json" |
+		rofi \
+			-dmenu \
+			-i \
+			-matching fuzzy \
+			-p "Kaomoji"
+)"
+
+[[ -z "$selection" ]] && exit 0
+
+kaomoji="${selection%%$'\t'*}"
+
+printf '%s' "$kaomoji" | wl-copy
