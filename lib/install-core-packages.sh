@@ -9,7 +9,6 @@ info "installing core packages"
 if on_arch; then
 	sudo pacman -S --needed --noconfirm \
 		wireplumber \
-		gawk \
 		zsh \
 		eza \
 		vi \
@@ -67,7 +66,6 @@ if on_arch; then
 elif on_fedora; then
 	sudo dnf install -y \
 		wireplumber \
-		gawk \
 		zsh \
 		eza \
 		vi \

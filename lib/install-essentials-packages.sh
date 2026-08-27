@@ -4,14 +4,6 @@ set -euo pipefail
 source "$RIBYN_ROOT/core/utils.sh"
 source "$RIBYN_ROOT/core/run_on_distro.sh"
 
-# TODO:os-detect depends on awk, nothing else. should not be
-# an essential
-#
-# essential packages are required by many shell scripts
-# (like git or rsync) which do not install them themselves
-# unfortunately run_on_distro depends on awk as a transient dependency
-# but awk is a nice programm, so its fine.
-
 info "installing essential packages"
 
 if on_arch; then
@@ -24,7 +16,7 @@ if on_arch; then
 		fd \
 		cargo \
 		pkgconf \
-		awk
+		gawk
 elif on_fedora; then
 	sudo dnf install -y \
 		@development-tools \
@@ -36,7 +28,7 @@ elif on_fedora; then
 		fd-find \
 		cargo \
 		pkgconf-pkg-config \
-		awk
+		gawk
 
 	# NOTE essential if you have intel gpu/onboard
 	# and want e.g. firefox to use gpu for video decoding
