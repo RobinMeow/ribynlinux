@@ -1,12 +1,13 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+source "$RIBYN_ROOT/lib/catppuccin-cursors/env.sh"
+[[ "$RIBYN_CATPPUCCIN_ENABLED" == "no" ]] && exit 0
+
 source "$RIBYN_ROOT/core/utils.sh"
-info "Installing catppuccin cursors"
+info "installing catppuccin cursors"
 
 # https://github.com/catppuccin/cursors (see picture here for available themes and variants)
-
-source "$RIBYN_ROOT/config.sh"
 
 theme="$RIBYN_CATPPUCCIN_CURSOR_THEME"
 variant="$RIBYN_CATPPUCCIN_CURSOR_VARIANT"

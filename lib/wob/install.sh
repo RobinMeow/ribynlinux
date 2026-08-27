@@ -1,18 +1,22 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-source "$RIBYN_ROOT/core/run_on_distro.sh"
+source "$RIBYN_ROOT/lib/wob/env.sh"
+[[ "$RIBYN_WOB_ENABLED" == "no" ]] && exit 0
+
 source "$RIBYN_ROOT/core/utils.sh"
-info "Installing wob"
+info "installing wob"
 
-run_on_arch sudo pacman -S --needed --noconfirm \
-	wob
+source "$RIBYN_ROOT/core/run_on_distro.sh"
 
-run_on_fedora sudo dnf install -y \
-	wob
+if on_arch; then
+	sudo pacman -S --needed --noconfirm \
+		wob
+elif on_fedora; then
+	sudo dnf install --assumeyes \
+		wob
+else
+	info "distro not supported"
+fi
 
 "$RIBYN_ROOT/lib/wob/install-volume-deps.sh"
-
-# NOTE: replace in favor of binary install
-#
-# "$RIBYN_ROOT/lib/wob/build-from-source.sh"

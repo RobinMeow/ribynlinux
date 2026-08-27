@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-source "$RIBYN_ROOT/config.sh"
+source "$RIBYN_ROOT/lib/rmpc/env.sh"
+[[ "$RIBYN_RMPC_ENABLED" == "no" ]] && exit 0
+
 source "$RIBYN_ROOT/core/utils.sh"
 source "$RIBYN_ROOT/core/run_on_distro.sh"
 info "installing rmpc"

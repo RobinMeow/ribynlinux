@@ -1,9 +1,11 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-source "$RIBYN_ROOT/config.sh"
+source "$RIBYN_ROOT/lib/godot/env.sh"
+[[ "$RIBYN_GODOT_ENABLED" == "no" ]] && exit 0
+
 source "$RIBYN_ROOT/core/utils.sh"
-info "Syncing godot"
+info "syncing godot"
 
 if [[ "$RIBYN_GODOT_SYNC_ENABLED" == "yes" ]]; then
 	info "[Godot] syncing editor preferences"

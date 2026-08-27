@@ -1,14 +1,13 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-source "$RIBYN_ROOT/config.sh"
-source "$RIBYN_ROOT/core/utils.sh"
-info "Syncing i3"
-
+source "$RIBYN_ROOT/lib/i3/env.sh"
 if [[ "$RIBYN_I3_ENABLED" == "no" ]]; then
-	info "i3 disabled. skipping."
 	exit 0
 fi
+
+source "$RIBYN_ROOT/core/utils.sh"
+info "syncing i3"
 
 mkdir -p "$HOME/.config/i3/"
 rsync -rlpt \

@@ -1,17 +1,20 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-source "$RIBYN_ROOT/config.sh"
-source "$RIBYN_ROOT/core/run_on_distro.sh"
+source "$RIBYN_ROOT/lib/bluetui/env.sh"
+[[ "$RIBYN_BLUETUI_ENABLED" == "no" ]] && exit 0
+
 source "$RIBYN_ROOT/core/utils.sh"
 info "installing bluetui"
+
+source "$RIBYN_ROOT/core/run_on_distro.sh"
 
 if on_arch; then
 	sudo pacman -S --needed --noconfirm \
 		bluez \
 		bluetui
 elif on_fedora; then
-	sudo dnf install -y \
+	sudo dnf install --assumeyes \
 		cargo \
 		bluez \
 		dbus-devel \
@@ -41,7 +44,7 @@ elif on_fedora; then
 	# 	else
 	# 		git clone "https://github.com/pythops/bluetui.git" "$dest"
 	# 		cd "$dest"
-	# 		git checkout $RIBYN_HYPR_BLUETUI_GITREV
+	# 		git checkout $RIBYN_BLUETUI_GITREV
 	# 		cargo build --release
 	# 	fi
 	# )

@@ -17,7 +17,7 @@ elif on_fedora; then
 	cargobin pastel
 fi
 
-# NOTE: removed in favor of binstall. to reenable add config.sh env var
+# NOTE: removed in favor of binstall. to reenable create env.sh
 #
 # git clone --depth 1 https://github.com/sharkdp/pastel "$HOME/pastel"
 # cargo install --path "$HOME/pastel"

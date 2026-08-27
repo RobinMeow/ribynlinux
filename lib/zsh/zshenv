@@ -1,5 +1,9 @@
 # prepend to take preceedence over windows/wsl passthrough paths
 export PATH="$HOME/.dotnet:$HOME/.dotnet/tools:$PATH"
+
+# dotnet decided without asking where to install dotnet
+# yet, without the env variable set, some tools dont know
+# where it is. sloppy
 export DOTNET_ROOT="$HOME/.dotnet"
 export DOTNET_ROOT_X64="$HOME/.dotnet"
 
@@ -19,5 +23,14 @@ export MANPATH="/usr/local/man:$MANPATH"
 export EDITOR='nvim'
 
 export RIBYN_ROOT="$HOME/ribynlinux"
+
+# the directory name of the cursor theme located in "$HOME/.icons"
+if [[ -d "$HOME/.icons/catppuccin-latte-mauve-cursors" ]]; then
+	export XCURSOR_THEME="catppuccin-latte-mauve-cursors"
+fi
+# WARN: do not mistake with hyprland cursor themes
+#
+# xcursor and hyprcursor are both set in hyprland.lua
+# to make sure hyprland knows about those env vars
 
 # vim: ft=bash

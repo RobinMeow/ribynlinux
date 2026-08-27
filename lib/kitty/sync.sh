@@ -1,9 +1,13 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-source "$RIBYN_ROOT/config.sh"
+source "$RIBYN_ROOT/lib/kitty/env.sh"
+if [[ "$RIBYN_KITTY_ENABLED" == "no" ]]; then
+	exit 0
+fi
+
 source "$RIBYN_ROOT/core/utils.sh"
-info "Syncing kitty"
+info "syncing kitty"
 
 mkdir -p "$HOME/.config/kitty"
 

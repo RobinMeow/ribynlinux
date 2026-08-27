@@ -1,25 +1,11 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+source "$RIBYN_ROOT/lib/wezterm/env.sh"
+[[ "$RIBYN_WEZTERM_ENABLED" == "no" ]] && exit 0
+
 source "$RIBYN_ROOT/core/utils.sh"
-info "Syncing wezterm"
-
-RIBYN_WEZTERM_ENABLED=${RIBYN_WEZTERM_ENABLED:-"no"}
-
-if [[ "$RIBYN_WEZTERM_ENABLED" == "no" ]]; then
-	info "wezterm disabled. Skipping sync."
-	exit 0
-fi
-
-# set to "no" if you test in docker, which doesnt have /mnt/c/Users
-# mounted causing detect_win_user to fail. so wezterm cant sync the config.
-# when skipped, will normally sync to linux home
-RIBYN_SKIP_DETECT_SLOP_USER=${RIBYN_SKIP_DETECT_SLOP_USER:-"no"}
-
-# solid | transparent | wallpaper
-RIBYN_WEZTERM_BG=${RIBYN_WEZTERM_BG:-"wallpaper"}
-
-source "$RIBYN_ROOT/config.sh"
+info "syncing wezterm"
 
 mkdir -p "$HOME/.config/wezterm"
 
@@ -34,7 +20,7 @@ rsync -rlpt \
 # WSL
 source "$RIBYN_ROOT/core/detect_env.sh"
 detect_env
-if [[ "$OS_TYPE" == "wsl" && "$RIBYN_SKIP_DETECT_SLOP_USER" != "yes" ]]; then
+if [[ "$OS_TYPE" == "wsl" ]]; then
 	source "$RIBYN_ROOT/core/detect_win_user.sh"
 	detect_win_user
 

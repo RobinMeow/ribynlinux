@@ -1,7 +1,7 @@
 #!/bin/bash
 set -euo pipefail
 
-source "$RIBYN_ROOT/lib/nvim/config.sh"
+source "$RIBYN_ROOT/lib/nvim/env.sh"
 source "$RIBYN_ROOT/core/utils.sh"
 
 # NOTE: use this before building,

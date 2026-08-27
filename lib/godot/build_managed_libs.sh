@@ -2,7 +2,7 @@
 set -euo pipefail
 
 source "$RIBYN_ROOT/core/utils.sh"
-source "$RIBYN_ROOT/config.sh"
+source "$RIBYN_ROOT/lib/godot/env.sh"
 
 (
 	cd "$RIBYN_GODOT_ROOT"

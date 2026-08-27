@@ -1,14 +1,11 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-source "$RIBYN_ROOT/config.sh"
-source "$RIBYN_ROOT/core/utils.sh"
-info "Syncing kde"
+source "$RIBYN_ROOT/lib/kde/env.sh"
+[[ "$RIBYN_SYNC_KDE_ENABLED" == "no" ]] && exit 0
 
-if [[ "$RIBYN_SYNC_KDE_ENABLED" == "no" ]]; then
-	info "KDE sync disabled. skipping."
-	exit 0
-fi
+source "$RIBYN_ROOT/core/utils.sh"
+info "syncing kde"
 
 # kde config files are usually directly in .config
 mkdir -p "$HOME/.config"

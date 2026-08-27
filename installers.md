@@ -34,13 +34,6 @@ export RIBYN_ROOT="$HOME/ribynlinux" && \
   export RIBYN_HYPR_ENABLED="no" && \
   git clone --depth 1 https://github.com/RobinMeow/ribynlinux.git $RIBYN_ROOT \
   && "$RIBYN_ROOT/bin/rinsy"
-
-# if testing in docker in wsl (full install)
-export RIBYN_ROOT="$HOME/ribynlinux" && \
-  export RIBYN_SKIP_DETECT_SLOP_USER="yes" && \
-  git clone --depth 1 https://github.com/RobinMeow/ribynlinux.git $RIBYN_ROOT \
-  && "$RIBYN_ROOT/bin/rinsy"
-
 ```
 
 > `RIBYN_ROOT` environment variable is required by almost every script

@@ -3,10 +3,15 @@ set -euo pipefail
 
 # https://github.com/GhostNaN/mpvpaper
 
-source "$RIBYN_ROOT/core/run_on_distro.sh"
+source "$RIBYN_ROOT/lib/mpvpaper/env.sh"
+if [[ "$RIBYN_MPVPAPER_ENABLED" == "no" ]]; then
+	exit 0
+fi
+
 source "$RIBYN_ROOT/core/utils.sh"
 info "installing mpvpaper"
 
+source "$RIBYN_ROOT/core/run_on_distro.sh"
 if on_arch; then
 	sudo pacman -S --needed --noconfirm \
 		mpv \
@@ -21,8 +26,6 @@ elif on_fedora; then
 fi
 
 source "$RIBYN_ROOT/core/source-manager.sh"
-source "$RIBYN_ROOT/core/utils.sh"
-source "$RIBYN_ROOT/config.sh"
 
 function build_and_install() {
 	meson setup build --prefix=/usr/local

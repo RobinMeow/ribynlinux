@@ -1,15 +1,15 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-source "$RIBYN_ROOT/config.sh"
-source "$RIBYN_ROOT/core/utils.sh"
-source "$RIBYN_ROOT/core/run_on_distro.sh"
-info "installing i3"
-
+source "$RIBYN_ROOT/lib/i3/env.sh"
 if [[ $RIBYN_I3_ENABLED == "no" ]]; then
-	info "i3 disabled. skipping."
 	exit 0
 fi
+
+source "$RIBYN_ROOT/core/utils.sh"
+info "installing i3"
+
+source "$RIBYN_ROOT/core/run_on_distro.sh"
 
 if on_arch; then
 	error "i3 not setup for arch."

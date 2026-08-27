@@ -3,7 +3,6 @@
 - buy small nvme about 250/500 GB for windows. has to fit my mainboard
 - rin/rsy is getting tedious.
   maybe publish/subscribe pattern to make this more auto-maintained
-- allow "latest tag", "latest commit" etc. for config.sh
 - rename GITREV to GITREV git rev-parse "$gitref^{commit}"
 - move git aliases and function I use from ohmyzsh into my own.
   and merge my git config alongside
@@ -22,15 +21,11 @@
 - find something, which renders a grid on the screen flash-vimium-like
   to let me click on areas
 - rename to run_on_distro to distro_strategies.sh and include pacin dnfin
-- config.sh is the single point of truth, all others shell scripts should
   not have fall back values
 - automate build from sources and use a lock file system
 - rmpc configure for my use case wich is dir only
   improved performance and copies only files when neccessary)
 - rmpc primary colors needs to be orange
-- config.sh should defined env variables for syncing which each sync.sh
-  reachs as needed (instead of having rsy defining its own fallbacks)
-- Rename shell variable $RIBYN_ROOT to $RIBYN or $RIBYNLINUX $RIBYN_GIT $RIBYNLNX
 - make sure I can do volume control outside hypr as needed (cli?)
 - depends on firefox;make a cli tool to replace the need for bookmarks
 
@@ -47,9 +42,9 @@
 
 ## app ideas
 
-- cli with promp questions for generating a config.sh file in ~/.config/ribyn/config.sh
+- cli(i think I prefer tui for my future) with promp questions for generating a ~/.config/ribyn/local-env.sh
+- tui to manage ~/.config/ribyn/local-env.sh
 - tui for managing worktrees
-- tui to manage config.sh
 - tui app for pomodora using my own timer bin
 - music dl (TUI)
 - calendar for birthdays (family sharable sync in Android?)
