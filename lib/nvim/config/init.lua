@@ -256,9 +256,8 @@ require("lazy").setup({
         ["vale"] = {},
 
         -- godot
-        ["gdtoolkit"] = {},
-        ["gdscript-formatter"] = {},
-        -- TODO: no idea if I need this
+        -- ["gdtoolkit"] = {},
+        -- ["gdscript-formatter"] = {},
         -- ["gdscript"] = {
         --   name = "godot_editor",
         --   cmd = cmd,
@@ -270,8 +269,6 @@ require("lazy").setup({
         --     inline_hints.enable_for_buffer(client, bufnr)
         --   end,
         -- },
-        -- TODO: External Editor Setup: This is actually the only thing I need, I think since I develop on csharp, and got dotnet stuff already configured
-        -- https://github.com/Mathijs-Bakker/godotdev.nvim/blob/master/doc/neovim-external-editor-setup.md
       }
 
       require("mason-tool-installer").setup({ ensure_installed = vim.tbl_keys(servers or {}) })
@@ -280,12 +277,6 @@ require("lazy").setup({
         vim.lsp.config(name, config)
         vim.lsp.enable(name)
       end
-
-      -- vim.lsp.config("roslyn_ls", {
-      --   -- TODO: test performance in larger project. it was fast in small one.
-      --   -- otherwise get easy-dotnet back? or go into its repo to copy they vscode conf
-      -- })
-      -- vim.lsp.enable("roslyn_ls")
 
       -- NOTE: requires rosyln-language-server to be in path. dotnet tool install -g roslyn-language-server --prerelease
       -- WARN: do not enable manually when using easy-dotnet
@@ -369,12 +360,6 @@ require("lazy").setup({
     config = function()
       local treesitter = require("nvim-treesitter")
 
-      -- TODO: checkout these tree sitter parsers, they sound interesting:
-      -- git_config	unstable	HF J 	@amaanq
-      -- git_rebase	unstable	H  J 	@gbprod
-      -- gitattributes	unstable	H  JL	@ObserverOfTime
-      -- gitcommit	unstable	H  J 	@gbprod
-      -- gitignore	unstable	H  J 	@theHamsta
       local ensure_installed = {
         "c",
         "lua",

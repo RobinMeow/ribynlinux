@@ -64,6 +64,12 @@
 
 ## Neovim
 
+- checkout these tree sitter parsers, they sound interesting
+  `git_config	unstable	HF J 	@amaanq`
+  `git_rebase	unstable	H  J 	@gbprod`
+  `gitattributes	unstable	H  JL	@ObserverOfTime`
+  `gitcommit	unstable	H  J 	@gbprod`
+  `gitignore	unstable	H  J 	@theHamsta`
 - consider cnext keybinds
   `vim.keymap.set("n", "<leader>cn", ":cnext<CR>")`
   `vim.keymap.set("n", "<leader>ct", ":cprev<CR>")`
