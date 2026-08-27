@@ -1,7 +1,7 @@
 [Desktop Entry]
 Version=1.0
 Name=ChatGPT
-Exec=firefox --kiosk https://chatgpt.com/
+Exec=firefox --new-window https://chatgpt.com/
 Terminal=false
 Type=Application
 Icon=chatgpt

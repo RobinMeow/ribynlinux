@@ -28,6 +28,7 @@
 - rmpc primary colors needs to be orange
 - make sure I can do volume control outside hypr as needed (cli?)
 - depends on firefox;make a cli tool to replace the need for bookmarks
+- some cli bin which invokes firefox --search my-search-text
 
 # Further Education
 

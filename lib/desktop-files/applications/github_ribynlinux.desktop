@@ -1,7 +1,7 @@
 [Desktop Entry]
 Version=1.0
 Name=GitHub ribynlinux
-Exec=firefox --kiosk https://github.com/RobinMeow/ribynlinux
+Exec=firefox --new-window https://github.com/RobinMeow/ribynlinux
 Terminal=false
 Type=Application
 Icon=github

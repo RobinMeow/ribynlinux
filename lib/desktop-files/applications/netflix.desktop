@@ -1,7 +1,7 @@
 [Desktop Entry]
 Version=1.0
 Name=Netflix
-Exec=firefox --kiosk https://www.netflix.com/browse/my-list
+Exec=firefox --new-window https://www.netflix.com/browse/my-list
 Terminal=false
 Type=Application
 Icon=netflix

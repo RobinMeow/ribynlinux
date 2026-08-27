@@ -1,7 +1,7 @@
 [Desktop Entry]
 Version=1.0
 Name=Gemini
-Exec=firefox --kiosk https://gemini.google.com/app
+Exec=firefox --new-window https://gemini.google.com/app
 Terminal=false
 Type=Application
 Icon=gemini

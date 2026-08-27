@@ -1,7 +1,7 @@
 [Desktop Entry]
 Version=1.0
 Name=WhatsApp
-Exec=firefox --kiosk https://web.whatsapp.com/
+Exec=firefox --new-window https://web.whatsapp.com/
 Terminal=false
 Type=Application
 Icon=whatsapp
