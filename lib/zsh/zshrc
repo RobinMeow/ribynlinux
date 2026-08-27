@@ -36,7 +36,7 @@ eval "$(starship init zsh)"
 . "$HOME/.config/ribyn/zsh/functions"
 . "$HOME/.config/ribyn/zsh/local.sh"
 
-echo "And whatever you do, do it heartily, as to the Lord and not to men, Colossians 3, 23 (NKJV)"
+echo "And whatever you do, do it heartily, as to the Lord and not to men, Colossians 3:23 (NKJV)"
 
 # zprof
 # vim: ft=zsh
