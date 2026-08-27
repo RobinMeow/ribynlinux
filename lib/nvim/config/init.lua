@@ -75,7 +75,7 @@ require("lazy").setup({
           end
           map("grn", vim.lsp.buf.rename, "rename")
           map("gra", vim.lsp.buf.code_action, "[G]oto Code [A]ction", { "n", "x" })
-          map("grf", function()
+          map("gro", function()
             vim.lsp.buf.code_action({
               apply = true,
               context = {
