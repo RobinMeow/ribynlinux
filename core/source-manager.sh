@@ -18,6 +18,9 @@ function check_source_state() {
 		git -C "$SOURCE_DEST" fetch --all --tags --prune --jobs=10
 
 		if [[ "$SOURCE_GITREV" == "latest-tag" ]]; then
+			# apparently my solution gets the latest tag, using git tag aware versioning.
+			# to to use the latest git tag, based on commit dates, you can use this:
+			# git describe --tags $(git rev-list --tags --max-count=1)
 			SOURCE_GITREV=$(git -C "$SOURCE_DEST" tag --sort=v:refname | tail -n 1)
 			info "latest tag is: $SOURCE_GITREV"
 		fi
