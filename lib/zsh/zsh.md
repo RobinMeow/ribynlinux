@@ -12,22 +12,6 @@ and I dont use it anyways I have my own fh fn for this)_
 keeping these to compare against my own, and pick the better one:
 TODO: append --verbose to all my git `add` aliases:
 TODO: consider adding -w (ignore whitespace changes) to the git diff aliases
-`glod`                 | `git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ad) %C(bold blue)<%an>%Creset'` iso date
-`glods`                | `git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ad) %C(bold blue)<%an>%Creset' --date=short` iso day no time
-`glol`                 | `git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset'` close to mine, slight differences
-`glola`                | `git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset' --all` --all shows every branch and makes the --graph more usefull
-`glols`                | `git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset' --stat` git metrics. much better than my current glast
-`glgp`                 | `git log --stat --patch` --patch shows the git diff, also much better then my current glast
-`gl`                   | `git pull` already had this one shadows with gpl, will shadow again
-`gp`                   | `git push --verbose`
-TODO: git reset hard/soft aliases
-NOTE: I usually don't need this, becuase I either want their changes, or I want them gone, and I dont have the issue of auto fetching
-`gpf`                  | On Git >= 2.30: `git push --force-with-lease --force-if-includes` "-if my local branch -includes the remotes commit hashes" prevents the flaw from --force-with-lease
-`gpsup`                | `git push --set-upstream origin $(git_current_branch)` if not changing origin name, nor setting autoSetupRemote = true in config
-`gpristine`            | `git reset --hard && git clean --force -dfx`
-`gwipe`                | `git reset --hard && git clean --force -df`
-`gst`               | `git stash`
-`gss`                  | `git status --short --branch`
 `gsm`                  | `git submodule`
 `gsw`                  | `git switch`
 `gswd`                 | `git switch $(git_develop_branch)`

@@ -38,12 +38,38 @@ alias glastp='git l -1 --stat --patch'
 # TODO: testing git pull --verbose --stat as new default
 alias gpl='git pull --verbose --stat'
 
-alias gp='git push --verbose --stat'
+alias gp='git push --verbose'
+alias gpf='git push --verbose --force-with-lease'
+
+alias gwipe="echo 'depr. use grhcfdf instead'"
+# -d recurse into directories
+# --force allow deletion of files
+alias grhcfd='git reset --hard && git clean --force -d'
+# NOTE: probably wont need this one
+# alias grhcffd='git reset --hard && git clean --force -fd'
+# -f allow deletion of files when requireForce = true (which is false by default)
+
+alias gst='git stash'
+
+# NOTE: I usually don't need this, becuase I either want their changes, or I want them gone, and I dont have the issue of auto fetching
+# `gpf`                  | On Git >= 2.30: `git push --force-with-lease --force-if-includes` "-if my local branch -includes the remotes commit hashes" prevents the flaw from --force-with-lease
+
+# git reset --mixed HEAD~1 discard the last commit and brings its changes into working tree
+# --mixed is the default for git reset HEAD~1
+alias grm='git reset --mixed'
+# git reset --hard HEAD~1 discard the last commit
+alias grh='git reset --hard'
+# git reset --soft HEAD~1 discard the last commit and brings its changes into staging
+alias grs='git reset --soft'
+
+alias gss='git status --short --untracked-files=all'
+
+alias gsm='git submodule'
+alias gsmfe='git submodule foreach'
 
 # TODO: merge into above at the end
 alias gpf='git push --force-with-lease' # exlude flag: --force-if-includes
 alias gl='git log -7 --graph --pretty=format:"%C(auto)%h%d%Creset %s %C(green)%cn%Creset %C(cyan)(%cr)%Creset"'
-alias gss='git status --short --untracked-files=all'
 alias gce='git commit --allow-empty-message --no-edit --verbose'
 alias gaacanepf='git add --all && git commit --amend --no-edit --verbose && git push --force-with-lease'
 
