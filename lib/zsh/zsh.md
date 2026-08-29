@@ -67,6 +67,12 @@ keeping these for reference. I dont use them currently but I might want to in th
 | `gf`                   | `git fetch`                                                                                                                     |
 | `gfo`                  | `git fetch origin`                                                                                                              |
 | `gfg`                  | `git ls-files \| grep` git find files by grep
+TODO: remove --rebase as default from my config
+| `gpr`                  | `git pull --rebase`                                                                                                             |
+| `gprv`                 | `git pull --rebase -v`                                                                                                          |
+TODO: maybe these as default, if I use fixup more?
+| `gpra`                 | `git pull --rebase --autostash`                                                                                                 |
+| `gprav`                | `git pull --rebase --autostash -v`                                                                                              |
 
 merging / rebasing (always write these out but I might want some in the future, now that I now which aliases are used)
 | `gm`                   | `git merge`                                                                                                                     |
@@ -76,24 +82,17 @@ merging / rebasing (always write these out but I might want some in the future, 
 | `gmff`                 | `git merge --ff-only`                                                                                                           |
 | `gmom`                 | `git merge origin/$(git_main_branch)` I can pass in more flags with auto completions after, so they could have niche use cases
 | `gmum`                 | `git merge upstream/$(git_main_branch)`                                                                                         |
+these sound interesting for working on forked repos as contributer
+| `ggpull`               | `git pull origin "$(git_current_branch)"`                                                                                       |
+| `ggl`                  | `git pull origin $(current_branch)`                                                                                             |
+| `gluc`                 | `git pull upstream $(git_current_branch)`                                                                                       |
+| `glum`                 | `git pull upstream $(git_main_branch)`                                                                                          |
 
 TODO: use a function for git commit --message to allow `gcm all args will be passed in as message without apostrophes`
 the ones not deleted in here I will keeep
 
 | Alias                  | Command                                                                                                                         |
 | :--------------------- | :------------------------------------------------------------------------------------------------------------------------------ |
-| `gpr`                  | `git pull --rebase`                                                                                                             |
-| `gprv`                 | `git pull --rebase -v`                                                                                                          |
-| `gpra`                 | `git pull --rebase --autostash`                                                                                                 |
-| `gprav`                | `git pull --rebase --autostash -v`                                                                                              |
-| `gprom`                | `git pull --rebase origin $(git_main_branch)`                                                                                   |
-| `gpromi`               | `git pull --rebase=interactive origin $(git_main_branch)`                                                                       |
-| `gprum`                | `git pull --rebase upstream $(git_main_branch)`                                                                                 |
-| `gprumi`               | `git pull --rebase=interactive upstream $(git_main_branch)`                                                                     |
-| `ggpull`               | `git pull origin "$(git_current_branch)"`                                                                                       |
-| `ggl`                  | `git pull origin $(current_branch)`                                                                                             |
-| `gluc`                 | `git pull upstream $(git_current_branch)`                                                                                       |
-| `glum`                 | `git pull upstream $(git_main_branch)`                                                                                          |
 | `gp`                   | `git push`                                                                                                                      |
 | `gpd`                  | `git push --dry-run`                                                                                                            |
 | `gpf!`                 | `git push --force`                                                                                                              |
