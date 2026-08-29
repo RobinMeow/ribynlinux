@@ -1,9 +1,11 @@
 # TicketSystem
 
-- buy small nvme about 250/500 GB for windows. has to fit my mainboard
-- rin/rsy is getting tedious.
-  maybe publish/subscribe pattern to make this more auto-maintained
-- rename GITREV to GITREV git rev-parse "$gitref^{commit}"
+- checkout [keyboardmouseoverlay or similar solutions](https://github.com/o293A/KeyboardMouseOverlay)
+- [keyboard overlay for mouse controls with windows support](https://github.com/petoncle/mousemaster)
+  [neru - newer and perhaps currently more stable, but more bloated, and mainly macos development](https://github.com/y3owk1n/neru)
+  [warpd - has currently issue with wayland or hyprland specifically but is generally more stable](https://github.com/rvaiya/warpd)
+  [warpd has hyprland issue](https://github.com/rvaiya/warpd/issues/318)
+  [wayland: fix rendering and licking on hyprland](https://github.com/rvaiya/warpd/pull/340)
 - move git aliases and function I use from ohmyzsh into my own.
   and merge my git config alongside
 - use yay for hyprmoncfg instead of build from source
