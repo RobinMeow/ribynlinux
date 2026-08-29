@@ -117,6 +117,23 @@ alias gs="echo 'gs launches ghost script. you meant to type gss ╯°□°）╯
 function gcm() {
 	git commit --message "$*"
 }
+function gcmp() {
+	git commit --message "$*" && git push --verbose
+}
+function gcmpf() {
+	git commit --message "$*" && git push --verbose --force-with-lease
+}
+function gaacm() {
+	git add --all --verbose && git commit --message "$*"
+}
+function gaacmp() {
+	git add --all --verbose && git commit --message "$*" && git push --verbose
+
+}
+function gaacmpf() {
+	git add --all --verbose && git commit --message "$*" && git push --verbose --force-with-lease
+
+}
 
 alias gsw='git switch'
 alias gswm='git switch $(git_master_branch)'
