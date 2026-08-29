@@ -41,6 +41,10 @@ TODO: consider adding -w (ignore whitespace changes) to the git diff aliases
 | `glols`                | `git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset' --stat` git metrics. much better than my current glast
 | `glgp`                 | `git log --stat --patch` --patch shows the git diff, also much better then my current glast
 | `gl`                   | `git pull` already had this one shadows with gpl, will shadow again
+| `gp`                   | `git push`                                                                                                                      |
+NOTE: I usually don't need this, becuase I either want their changes, or I want them gone, and I dont have the issue of auto fetching
+| `gpf`                  | On Git >= 2.30: `git push --force-with-lease --force-if-includes` "-if my local branch -includes the remotes commit hashes" prevents the flaw from --force-with-lease
+| `gpsup`                | `git push --set-upstream origin $(git_current_branch)` if not changing origin name, nor setting autoSetupRemote = true in config
 
 keeping these for reference. I dont use them currently but I might want to in the future:
 | `grt`                  | `cd "$(git rev-parse --show-toplevel \|\| echo .)"` change dir to git root
@@ -93,16 +97,6 @@ the ones not deleted in here I will keeep
 
 | Alias                  | Command                                                                                                                         |
 | :--------------------- | :------------------------------------------------------------------------------------------------------------------------------ |
-| `gp`                   | `git push`                                                                                                                      |
-| `gpd`                  | `git push --dry-run`                                                                                                            |
-| `gpf!`                 | `git push --force`                                                                                                              |
-| `ggf`                  | `git push --force origin $(current_branch)`                                                                                     |
-| `gpf`                  | On Git >= 2.30: `git push --force-with-lease --force-if-includes`                                                               |
-| `gpf`                  | On Git < 2.30: `git push --force-with-lease`                                                                                    |
-| `ggfl`                 | `git push --force-with-lease origin $(current_branch)`                                                                          |
-| `gpsup`                | `git push --set-upstream origin $(git_current_branch)`                                                                          |
-| `gpsupf`               | On Git >= 2.30: `git push --set-upstream origin $(git_current_branch) --force-with-lease --force-if-includes`                   |
-| `gpsupf`               | On Git < 2.30: `git push --set-upstream origin $(git_current_branch) --force-with-lease`                                        |
 | `gpv`                  | `git push --verbose`                                                                                                            |
 | `gpoat`                | `git push origin --all && git push origin --tags`                                                                               |
 | `gpod`                 | `git push origin --delete`                                                                                                      |
