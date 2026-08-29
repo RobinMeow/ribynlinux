@@ -16,7 +16,7 @@ rsync -rlpt \
 	"$HOME/.zshenv"
 
 rsync -rlpt \
-	"$RIBYN_ROOT/lib/zsh/"{aliases,functions} \
+	"$RIBYN_ROOT/lib/zsh/"{aliases,functions,gitrc} \
 	"$HOME/.config/ribyn/zsh/"
 
 rsync -rlpt \
