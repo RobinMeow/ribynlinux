@@ -29,4 +29,7 @@ alias pacinnnc="sudo pacman -S --needed --no-confirm"
 # use \gs to use ghost script
 alias gs="gss"
 
+# use monday as start of week
+alias cal="cal --monday"
+
 # vim: ft=bash
