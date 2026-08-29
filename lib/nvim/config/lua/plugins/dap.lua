@@ -159,9 +159,9 @@ return {
     -- dap.configurations.cs = {
     --   {
     --     type = "coreclr",
-    --     name = "microslop",
+    --     name = "helping-microsoft",
     --     program = function()
-    --       return require("microslop").build_dll_path()
+    --       return require("helping-microsoft").build_dll_path()
     --     end,
     --     request = "attach",
     --     cwd = "${workspaceFolder}",

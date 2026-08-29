@@ -1,6 +1,5 @@
 # TicketSystem
 
-- do not judge others. rename microslop to ms or microsoft
 - checkout [keyboardmouseoverlay or similar solutions](https://github.com/o293A/KeyboardMouseOverlay)
 - [keyboard overlay for mouse controls with windows support](https://github.com/petoncle/mousemaster)
   [neru - newer and perhaps currently more stable, but more bloated, and mainly macos development](https://github.com/y3owk1n/neru)

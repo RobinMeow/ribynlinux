@@ -1,9 +1,9 @@
 # prepend to take preceedence over windows/wsl passthrough paths
 export PATH="$HOME/.dotnet:$HOME/.dotnet/tools:$PATH"
 
-# dotnet decided without asking where to install dotnet
-# yet, without the env variable set, some tools dont know
-# where it is. sloppy
+# dotnet decided without asking where to install dotnet.
+# yet, without the env variable set, some dotnet tools dont
+# know where it is. So we gotta help out :)
 export DOTNET_ROOT="$HOME/.dotnet"
 export DOTNET_ROOT_X64="$HOME/.dotnet"
 

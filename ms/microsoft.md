@@ -1,6 +1,6 @@
-# microslop
+# Microsoft
 
-## WSL / Slop
+## WSL
 
 **Wezterm**
 Terminal Emulator is `wezterm`.
@@ -52,7 +52,7 @@ you can install templates with the dotnet cli. e.g. xunit3 classlib
 
 ## NVIM
 
-dotnet (meaning, microslop) is a mess, I use easy-dotnet nvim plugin now,
+dotnet is a mess, I use easy-dotnet nvim plugin now,
 which is bloated but works pretty reliably at least.
 
 ---

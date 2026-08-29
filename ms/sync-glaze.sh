@@ -8,5 +8,5 @@ if [[ "$OS_TYPE" == "wsl" ]]; then
 	source "$RIBYN_ROOT/core/detect_win_user.sh"
 	detect_win_user
 	mkdir -p "$WINDOWS_HOME/.glzr/glazewm"
-	"$RIBYN_ROOT/microslop/glaze.yaml" "$WINDOWS_HOME/.glzr/glazewm/config.yaml"
+	"$RIBYN_ROOT/ms/glaze.yaml" "$WINDOWS_HOME/.glzr/glazewm/config.yaml"
 fi
