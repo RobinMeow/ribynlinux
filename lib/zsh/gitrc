@@ -4,6 +4,7 @@ alias ga='git add --verbose'
 alias gaa='git add --all --verbose'
 
 alias gb='git branch'
+alias gbD='git branch -D'
 alias gba='git branch --all'
 alias gbr='git branch --remotes'
 
@@ -11,8 +12,24 @@ alias gco='git checkout'
 
 alias gc='git commit --verbose'
 alias gca='git commit --verbose --amend'
-# TODO: no-edit makes --verbose pointless I think
-alias gcane='git commit --verbose --amend --no-edit'
+alias gcane='git commit --amend --no-edit'
+
+alias gaac='git add --all && git commit --verbose'
+alias gaaca='git add --all && git commit --verbose --amend'
+alias gaacane='git add --all && git commit --verbose --amend --no-edit'
+
+alias gcp='git commit --verbose && git push --verbose'
+alias gcanep='git commit --amend --no-edit && git push --verbose'
+alias gaacp='git add --all && git commit --verbose && git push --verbose'
+alias gaacap='git add --all && git commit --verbose --amend && git push --verbose'
+alias gaacanep='git add --all && git commit --verbose --amend --no-edit && git push --verbose'
+
+alias gcpf='git commit --verbose && git push --verbose --force-with-lease'
+alias gcanepf='git commit --amend --no-edit && git push --verbose --force-with-lease'
+alias gaacpf='git add --all && git commit --verbose && git push --verbose --force-with-lease'
+alias gaacapf='git add --all && git commit --verbose --amend && git push --verbose --force-with-lease'
+alias gaacanepf='git add --all && git commit --verbose --amend --no-edit && git push --verbose --force-with-lease'
+# alias gaacanepffii='git add --all && git commit --verbose --amend --no-edit && git push --verbose --force-with-lease --force-if-includes'
 
 alias gd='git diff'
 alias gdw='git diff --word-diff'
@@ -22,23 +39,29 @@ alias gdws='git diff --word-diff --staged'
 alias gdup='git diff @{upstream}'
 alias gdwup='git diff --word-diff @{upstream}'
 
-alias gfa='git fetch --all --tags --prune'
+alias gfa="echo 'depr. use gfpat instead \`git fetch --prune --all --tags\`'"
+alias gfpat='git fetch --prune --all --tags'
 
-# TODO: make my own use my current orange purple color theme and compare to this
-# which one is easier to read. also make name bold I think
-# `glod`                 | `git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ad) %C(bold blue)<%an>%Creset'` iso date
-# `glods`                | `git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ad) %C(bold blue)<%an>%Creset' --date=short` iso day no time
-# `glol`                 | `git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset'` close to mine, slight differences
-# `glola`                | `git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset' --all` --all shows every branch and makes the --graph more usefull
+logformat='"%C(auto)%h%d%Creset %C(bold #FFAC00)%s%Creset %C(#F6A4B3)%cn%Creset %C(#cba6f7)%cr%Creset"'
+# shellcheck disable=SC2139
+alias gl="git log -7 --graph --pretty=format:$logformat"
+# shellcheck disable=SC2139
+alias gl1="git log -1 --graph --pretty=format:$logformat"
+# --all shows all branches making the --graph more usefull
+# shellcheck disable=SC2139
+alias gla="git log -7 --graph --pretty=format:$logformat --all"
 
-# TODO: dont use the git config
-alias glast='git l -1 --stat'
-alias glastp='git l -1 --stat --patch'
+# shellcheck disable=SC2139
+alias glast="git log -1 --graph --pretty=format:$logformat --stat"
+# shellcheck disable=SC2139
+alias glastp="git log -1 --graph --pretty=format:$logformat --stat --patch"
 
-# TODO: testing git pull --verbose --stat as new default
+# testing git pull --verbose --stat as new default
 alias gpl='git pull --verbose --stat'
 
 alias gp='git push --verbose'
+# nice for removing remote branches gpo :<remote-branch>
+alias gpo='git push --verbose origin'
 alias gpf='git push --verbose --force-with-lease'
 
 alias gwipe="echo 'depr. use grhcfdf instead'"
@@ -50,9 +73,6 @@ alias grhcfd='git reset --hard && git clean --force -d'
 # -f allow deletion of files when requireForce = true (which is false by default)
 
 alias gst='git stash'
-
-# NOTE: I usually don't need this, becuase I either want their changes, or I want them gone, and I dont have the issue of auto fetching
-# `gpf`                  | On Git >= 2.30: `git push --force-with-lease --force-if-includes` "-if my local branch -includes the remotes commit hashes" prevents the flaw from --force-with-lease
 
 # git reset --mixed HEAD~1 discard the last commit and brings its changes into working tree
 # --mixed is the default for git reset HEAD~1
@@ -67,13 +87,60 @@ alias gss='git status --short --untracked-files=all'
 alias gsm='git submodule'
 alias gsmfe='git submodule foreach'
 
-# TODO: merge into above at the end
-alias gpf='git push --force-with-lease' # exlude flag: --force-if-includes
-alias gl='git log -7 --graph --pretty=format:"%C(auto)%h%d%Creset %s %C(green)%cn%Creset %C(cyan)(%cr)%Creset"'
-alias gce='git commit --allow-empty-message --no-edit --verbose'
-alias gaacanepf='git add --all && git commit --amend --no-edit --verbose && git push --force-with-lease'
+alias gwt='git worktree'
+
+alias gskip='git update-index --skip-worktree'
+alias gnoskip='git update-index --no-skip-worktree'
+alias gskipped='git ls-files -v | grep "^S"'
+alias gnoskipall="git update-index --skip-worktree \$(git ls-files -v | grep \"^S\" | cut -c 3-)"
 
 # I often mistype this
 alias gs="echo 'gs launches ghost script. you meant to type gss ╯°□°）╯︵ ┻━┻'"
+
+alias gsw='git switch'
+alias gswm='git switch $(git_master_branch)'
+alias gswd='git switch $(git_dev_branch)'
+
+function git_dev_branch() {
+	command git rev-parse --git-dir &>/dev/null || return
+	local branch
+	for branch in dev devel develop development; do
+		if command git show-ref -q --verify refs/heads/$branch; then
+			echo $branch
+			return 0
+		fi
+	done
+
+	echo dev
+	return 1
+}
+
+# Get the default branch name from common branch names or fallback to remote HEAD
+function git_master_branch() {
+	command git rev-parse --git-dir &>/dev/null || return
+
+	local remote ref
+
+	# omz's original: {main,trunk,mainline,default,stable,master}
+	for ref in refs/{heads,remotes/{origin,upstream}}/{master,main}; do
+		if command git show-ref -q --verify $ref; then
+			echo ${ref:t}
+			return 0
+		fi
+	done
+
+	# Fallback: try to get the default branch from remote HEAD symbolic refs
+	for remote in origin upstream; do
+		ref=$(command git rev-parse --abbrev-ref $remote/HEAD 2>/dev/null)
+		if [[ $ref == $remote/* ]]; then
+			echo ${ref#"$remote/"}
+			return 0
+		fi
+	done
+
+	# If no main branch was found, fall back to master but return error
+	echo master
+	return 1
+}
 
 # vim: ft=bash

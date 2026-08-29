@@ -8,9 +8,7 @@
 	addIgnoreFile = false
 	addIgnoredFile = false
 [push]
-  autoSetupRemote = true
-[pull]
-	rebase = true
+  autoSetupRemote = false
 [alias]
 	ss = status --short --untracked-files=all
 	sw = switch
@@ -21,25 +19,22 @@
 	b = branch
 	p = push
 	pl = pull
-	br = for-each-ref refs/remotes/ --sort=authorname --sort=-authordate --format="%(refname:short) %(authorname) (%(authordate:relative))"
-	branches = "!git branch && git branch --remote"
-	puoh = push -u origin HEAD
 	aa = add --all
 	aac = "!git add --all && git commit --verbose"
+	aaca = "!git add --all && git commit --amend --verbose"
+	aacane = "!git add --all && git commit --amend --no-edit --verbose"
 	aacp = "!git add --all && git commit --verbose && git push"
 	aacpf = "!git add --all && git commit --verbose && git push --force-with-lease"
+	aacapf = "!git add --all && git commit --amend --verbose && git push --force-with-lease"
+	aacanep = "!git add --all && git commit --amend --no-edit --verbose && git push"
+	aacanepf = "!git add --all && git commit --amend --no-edit --verbose && git push --force-with-lease"
 	wt = worktree
 	fpa = fetch --prune --all
 	pf = push --force-with-lease
 	ca = commit --amend --verbose
-	aaca = "!git add --all && git commit --amend --verbose"
 	cane = commit --amend --no-edit --verbose
-	aacane = "!git add --all && git commit --amend --no-edit --verbose"
 	canep = "!git commit --amend --no-edit && git push"
 	canepf = "!git commit --amend --no-edit && git push --force-with-lease"
-	aacapf = "!git add --all && git commit --amend --verbose && git push --force-with-lease"
-	aacanep = "!git add --all && git commit --amend --no-edit --verbose && git push"
-	aacanepf = "!git add --all && git commit --amend --no-edit --verbose && git push --force-with-lease"
 	cp = "!git commit --verbose && git push"
 	smfe = submodule foreach
 	skipped = !git ls-files -v | grep \"^S\"

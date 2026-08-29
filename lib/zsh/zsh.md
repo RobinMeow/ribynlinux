@@ -12,13 +12,8 @@ and I dont use it anyways I have my own fh fn for this)_
 keeping these to compare against my own, and pick the better one:
 TODO: append --verbose to all my git `add` aliases:
 TODO: consider adding -w (ignore whitespace changes) to the git diff aliases
-`gsm`                  | `git submodule`
-`gsw`                  | `git switch`
-`gswd`                 | `git switch $(git_develop_branch)`
-`gswm`                 | `git switch $(git_main_branch)`
 TODO: gskip gnoskip
 TODO: learn --patch includes git diff for past history on gl -2 --patch
-`gwt`                  | `git worktree`
 
 keeping these for reference. I dont use them currently but I might want to in the future:
 `grt`                  | `cd "$(git rev-parse --show-toplevel \|\| echo .)"` change dir to git root
