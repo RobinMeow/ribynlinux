@@ -14,30 +14,33 @@ alias gc='git commit --verbose'
 alias gca='git commit --verbose --amend'
 alias gcane='git commit --amend --no-edit'
 
-alias gaac='git add --all && git commit --verbose'
-alias gaaca='git add --all && git commit --verbose --amend'
-alias gaacane='git add --all && git commit --verbose --amend --no-edit'
+alias gaac='git add --all --verbose && git commit --verbose'
+alias gaaca='git add --all --verbose && git commit --verbose --amend'
+alias gaacane='git add --all --verbose && git commit --verbose --amend --no-edit'
 
 alias gcp='git commit --verbose && git push --verbose'
 alias gcanep='git commit --amend --no-edit && git push --verbose'
-alias gaacp='git add --all && git commit --verbose && git push --verbose'
-alias gaacap='git add --all && git commit --verbose --amend && git push --verbose'
-alias gaacanep='git add --all && git commit --verbose --amend --no-edit && git push --verbose'
+alias gaacp='git add --all --verbose && git commit --verbose && git push --verbose'
+alias gaacap='git add --all --verbose && git commit --verbose --amend && git push --verbose'
+alias gaacanep='git add --all --verbose && git commit --verbose --amend --no-edit && git push --verbose'
 
 alias gcpf='git commit --verbose && git push --verbose --force-with-lease'
 alias gcanepf='git commit --amend --no-edit && git push --verbose --force-with-lease'
-alias gaacpf='git add --all && git commit --verbose && git push --verbose --force-with-lease'
-alias gaacapf='git add --all && git commit --verbose --amend && git push --verbose --force-with-lease'
-alias gaacanepf='git add --all && git commit --verbose --amend --no-edit && git push --verbose --force-with-lease'
-# alias gaacanepffii='git add --all && git commit --verbose --amend --no-edit && git push --verbose --force-with-lease --force-if-includes'
+alias gaacpf='git add --all --verbose && git commit --verbose && git push --verbose --force-with-lease'
+alias gaacapf='git add --all --verbose && git commit --verbose --amend && git push --verbose --force-with-lease'
+alias gaacanepf='git add --all --verbose && git commit --verbose --amend --no-edit && git push --verbose --force-with-lease'
+# alias gaacanepffii='git add --all --verbose && git commit --verbose --amend --no-edit && git push --verbose --force-with-lease --force-if-includes'
 
-alias gd='git diff'
-alias gdw='git diff --word-diff'
-alias gds='git diff --staged'
-alias gdws='git diff --word-diff --staged'
+# -w ignores most whitespace changes.
+# excluding things which could be prolematic for languages like
+# phtyhon, which depend on indending to change behavior
+alias gd='git diff -w'
+alias gdw='git diff --word-diff -w'
+alias gds='git diff --staged -w'
+alias gdws='git diff --word-diff --staged -w'
 # compares everything, unstaged + staged + local commits against my currently locally fetched remote copy
-alias gdup='git diff @{upstream}'
-alias gdwup='git diff --word-diff @{upstream}'
+alias gdup='git diff @{upstream} -w'
+alias gdwup='git diff --word-diff @{upstream} -w'
 
 alias gfa="echo 'depr. use gfpat instead \`git fetch --prune --all --tags\`'"
 alias gfpat='git fetch --prune --all --tags'
@@ -110,6 +113,10 @@ alias gnoskipall="git update-index --skip-worktree \$(git ls-files -v | grep \"^
 
 # I often mistype this
 alias gs="echo 'gs launches ghost script. you meant to type gss ╯°□°）╯︵ ┻━┻'"
+
+function gcm() {
+	git commit --message "$*"
+}
 
 alias gsw='git switch'
 alias gswm='git switch $(git_master_branch)'

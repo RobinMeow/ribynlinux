@@ -10,10 +10,6 @@ and I dont use it anyways I have my own fh fn for this)_
 ### oh my zsh git aliases
 
 keeping these to compare against my own, and pick the better one:
-TODO: append --verbose to all my git `add` aliases:
-TODO: consider adding -w (ignore whitespace changes) to the git diff aliases
-TODO: gskip gnoskip
-TODO: learn --patch includes git diff for past history on gl -2 --patch
 
 keeping these for reference. I dont use them currently but I might want to in the future:
 `grt`                  | `cd "$(git rev-parse --show-toplevel \|\| echo .)"` change dir to git root
@@ -40,10 +36,8 @@ keeping these for reference. I dont use them currently but I might want to in th
 `gf`                   | `git fetch`
 `gfo`                  | `git fetch origin`
 `gfg`                  | `git ls-files \| grep` git find files by grep
-TODO: remove --rebase as default from my config
 `gpr`                  | `git pull --rebase`
 `gprv`                 | `git pull --rebase -v`
-TODO: maybe these as default, if I use fixup more?
 `gpra`                 | `git pull --rebase --autostash`
 `gprav`                | `git pull --rebase --autostash -v`
 `gru`                  | `git reset --` read like "git reset unstage" -- is a safe guard, when a file is named master or main it gets confused with branches or commits/tags..
@@ -77,7 +71,3 @@ these sound interesting for working on forked repos as contributer (origin point
 `gluc`                 | `git pull upstream $(git_current_branch)`
 `glum`                 | `git pull upstream $(git_main_branch)`
 `gpu`                  | `git push upstream`
-
-TODO: use a function for git commit --message to allow `gcm all args will be passed in as message without apostrophes`
-the ones not deleted in here I will keeep
-
