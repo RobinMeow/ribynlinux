@@ -1,0 +1,53 @@
+alias g='git'
+
+alias ga='git add --verbose'
+alias gaa='git add --all --verbose'
+
+alias gb='git branch'
+alias gba='git branch --all'
+alias gbr='git branch --remotes'
+
+alias gco='git checkout'
+
+alias gc='git commit --verbose'
+alias gca='git commit --verbose --amend'
+# TODO: no-edit makes --verbose pointless I think
+alias gcane='git commit --verbose --amend --no-edit'
+
+alias gd='git diff'
+alias gdw='git diff --word-diff'
+alias gds='git diff --staged'
+alias gdws='git diff --word-diff --staged'
+# compares everything, unstaged + staged + local commits against my currently locally fetched remote copy
+alias gdup='git diff @{upstream}'
+alias gdwup='git diff --word-diff @{upstream}'
+
+alias gfa='git fetch --all --tags --prune'
+
+# TODO: make my own use my current orange purple color theme and compare to this
+# which one is easier to read. also make name bold I think
+# `glod`                 | `git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ad) %C(bold blue)<%an>%Creset'` iso date
+# `glods`                | `git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ad) %C(bold blue)<%an>%Creset' --date=short` iso day no time
+# `glol`                 | `git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset'` close to mine, slight differences
+# `glola`                | `git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset' --all` --all shows every branch and makes the --graph more usefull
+
+# TODO: dont use the git config
+alias glast='git l -1 --stat'
+alias glastp='git l -1 --stat --patch'
+
+# TODO: testing git pull --verbose --stat as new default
+alias gpl='git pull --verbose --stat'
+
+alias gp='git push --verbose --stat'
+
+# TODO: merge into above at the end
+alias gpf='git push --force-with-lease' # exlude flag: --force-if-includes
+alias gl='git log -7 --graph --pretty=format:"%C(auto)%h%d%Creset %s %C(green)%cn%Creset %C(cyan)(%cr)%Creset"'
+alias gss='git status --short --untracked-files=all'
+alias gce='git commit --allow-empty-message --no-edit --verbose'
+alias gaacanepf='git add --all && git commit --amend --no-edit --verbose && git push --force-with-lease'
+
+# I often mistype this
+alias gs="echo 'gs launches ghost script. you meant to type gss ╯°□°）╯︵ ┻━┻'"
+
+# vim: ft=bash
