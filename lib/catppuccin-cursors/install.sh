@@ -2,7 +2,7 @@
 set -euo pipefail
 
 source "$RIBYN_ROOT/lib/catppuccin-cursors/env.sh"
-[[ "$RIBYN_CATPPUCCIN_ENABLED" == "no" ]] && exit 0
+[[ "$RIBYN_CATPPUCCIN_CURSORS_ENABLED" == "no" ]] && exit 0
 
 source "$RIBYN_ROOT/core/utils.sh"
 info "installing catppuccin cursors"
