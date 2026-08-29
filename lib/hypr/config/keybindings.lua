@@ -58,14 +58,14 @@ function m.setup()
 
   key.bind(
     "SUPER + SHIFT + H",
-    hl.dsp.window.swap({ direction = "l" }),
+    hl.dsp.window.move({ direction = "l" }),
     { desc = "swap window with window to the left" }
   )
-  key.bind("SUPER + SHIFT + J", hl.dsp.window.swap({ direction = "d" }), { desc = "swap window with window below" })
-  key.bind("SUPER + SHIFT + K", hl.dsp.window.swap({ direction = "u" }), { desc = "swap window with window above" })
+  key.bind("SUPER + SHIFT + J", hl.dsp.window.move({ direction = "d" }), { desc = "swap window with window below" })
+  key.bind("SUPER + SHIFT + K", hl.dsp.window.move({ direction = "u" }), { desc = "swap window with window above" })
   key.bind(
     "SUPER + SHIFT + L",
-    hl.dsp.window.swap({ direction = "r" }),
+    hl.dsp.window.move({ direction = "r" }),
     { desc = "swap window with window to the right" }
   )
 
