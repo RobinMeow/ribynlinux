@@ -1,23 +1,20 @@
 # Tasks
 
+full install tests:
+
+- arch only i think; cargo breaks ci on first install,
+  asking if install from rust or rustup
+- hypr wayland-protocol is missing on wob install
+
+- learn about security, and apply some basic stuff like firewall
 - configure dunst to have a timer and build tools based on it `notify-send "test"`
 - checkout [palemoon](https://github.com/RealityRipple/Pale-Moon) as alternative
   browser to firefox
 - password manager from the ebook
-- arch only i think; cargo breaks ci on first install,
-  asking if install from rust or rustup
-- hypr wayland-protocol is missing on wob install
-- find something, which renders a grid on the screen flash-vimium-like
-  to let me click on areas
-- rename to run_on_distro to distro_strategies.sh and include pacin dnfin
-  not have fall back values
-- automate build from sources and use a lock file system
-- rmpc configure for my use case wich is dir only
-  improved performance and copies only files when neccessary)
-- rmpc primary colors needs to be orange
-- make sure I can do volume control outside hypr as needed (cli?)
+- rmpc primary color is too neon like. need more pastel like
 - depends on firefox;make a cli tool to replace the need for bookmarks
 - some cli bin which invokes firefox --search my-search-text
+- consider replacing apps like rofi, with quickshell. quickshell everwhere.
 
 # Further Education
 
@@ -27,17 +24,12 @@
 
 ## app ideas
 
-- cli(i think I prefer tui for my future) with promp questions for generating a ~/.config/ribyn/local-env.sh
 - tui to manage ~/.config/ribyn/local-env.sh
-- tui for managing worktrees
-- tui app for pomodora using my own timer bin
-- music dl (TUI)
+- music dl (TUI) yt-dlp
+- audio cutting tui
 - calendar for birthdays (family sharable sync in Android?)
-- Raster-Selection for Kitty (not only left right, but also up down tab bar)
 - Ribyn-Distro installer
-- lest I sleep the sleep of death
 - jesus parables
-- Isaiah 35:6. "Then will the lame leap like a deer, and the mute tongue shout for joy. Water will gush forth in the wilderness and streams in the desert." (New International Version)
 
 ## Fedora
 
