@@ -77,11 +77,13 @@ function init_source() {
 
 	info "[$SOURCE_NAME] initialising..."
 	git clone "$giturl" "$SOURCE_DEST"
-	(
-		cd "$SOURCE_DEST"
-		git checkout --detach "$SOURCE_GITREV"
-		git submodule update --init --recursive
-	)
+	if [[ "${SOURCE_SUBMODULES:-"yes"}" == "yes" ]]; then
+		(
+			cd "$SOURCE_DEST"
+			git checkout --detach "$SOURCE_GITREV"
+			git submodule update --init --recursive
+		)
+	fi
 }
 
 function update_source() {
