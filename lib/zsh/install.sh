@@ -19,10 +19,4 @@ elif on_fedora; then
 fi
 
 "$RIBYN_ROOT/lib/zsh/oh-my-zsh/install.sh"
-
-# Powerlevel10k
-p10k_dest="${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k"
-if [[ ! -d "$p10k_dest" ]]; then
-	info "Cloning powerlevel10k"
-	git clone --depth 1 "https://github.com/romkatv/powerlevel10k.git" "$p10k_dest"
-fi
+"$RIBYN_ROOT/lib/zsh/install-p10k.sh"
