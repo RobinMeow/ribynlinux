@@ -1,16 +1,9 @@
-# TicketSystem
+# Tasks
 
-- build hyprwarp and dotool from source on hyprwarp branch
-- move git aliases and function I use from ohmyzsh into my own.
-  and merge my git config alongside
-- use yay for hyprmoncfg instead of build from source
 - configure dunst to have a timer and build tools based on it `notify-send "test"`
-- checkout [palemoon](https://github.com/RealityRipple/Pale-Moon)
+- checkout [palemoon](https://github.com/RealityRipple/Pale-Moon) as alternative
+  browser to firefox
 - password manager from the ebook
-- maybe rsy before rin (because things like cargo-binstall want to collect telemetry)
-- defer homebrew installs to the end, to improve unattended installs.
-  or replace homebrew with from source builds.
-  tho I think that was difficult for brave
 - move logs from .cache to .local/state
 - arch only i think; cargo breaks ci on first install,
   asking if install from rust or rustup
@@ -32,11 +25,6 @@
 - [practical bash scripting: what AI cant teach you](https://www.youtube.com/watch?v=aqEIE6Jn0mU)
 - learn sed
 - continue on [learn cpp chapter 11](https://www.learncpp.com/cpp-tutorial/implicit-type-conversion/)
-
-## Godot
-
-- with godot an overlay grid which allows me to trigger mouse clicks
-- https://github.com/CSharpGodotTools/Template godot learning resource for visualized debugging and multiplayer
 
 ## app ideas
 
@@ -106,6 +94,11 @@
 ## Hyprland
 
 decided to wait at least until im no longer on nvidia. Even pre-configured "themes" have an install scripts which will auto download open-nvidia-dkms driver or sth, and i dont wanna mess with my working system, nor maintain 4 versions of hyprland to have the same desktop env on my lenovo (amd), macbook (intel?) and pc (nvidia). and only my bluetooth keyboard in qwerty
+
+## deferred
+
+- build hyprwarp and dotool from source on hyprwarp branch
+  becuase, dotool doesnt use modern reduced permission ctl using uaccess
 
 ## random notes
 

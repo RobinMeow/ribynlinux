@@ -12,7 +12,8 @@ source "$RIBYN_ROOT/core/utils.sh"
 # fi
 
 if on_arch; then
-	cargo-binstall pastel
+	cargo-binstall --disable-telemetry --no-confirm \
+		pastel
 elif on_fedora; then
 	cargobin pastel
 fi
