@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-mkdir -p "$HOME/.cache/ribyn/"
-logfile="$HOME/.cache/ribyn/rin.log"
+mkdir -p "$HOME/.local/state/ribyn/"
+logfile="$HOME/.local/state/ribyn/rin.log"
 # Append to file and print to terminal simultaneously
 # use --append flag if you want to append, instead of override
 exec > >(tee "$logfile") 2>&1

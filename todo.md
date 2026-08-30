@@ -4,7 +4,6 @@
 - checkout [palemoon](https://github.com/RealityRipple/Pale-Moon) as alternative
   browser to firefox
 - password manager from the ebook
-- move logs from .cache to .local/state
 - arch only i think; cargo breaks ci on first install,
   asking if install from rust or rustup
 - hypr wayland-protocol is missing on wob install
