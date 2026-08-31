@@ -12,5 +12,10 @@ function m.setup()
 
   hl.env("HYPRCURSOR_SIZE", "32")
   hl.env("HYPRCURSOR_THEME", "catppuccin-latte-mauve-cursors")
+
+  -- prevents hyprland layer issue.
+  -- where keyboard focus is only captured
+  -- correctly after mouse movement.
+  hl.env("WAYSCRIBER_FORCE_INLINE_TOOLBARS", "1")
 end
 return m
