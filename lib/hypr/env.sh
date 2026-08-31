@@ -30,8 +30,6 @@ export RIBYN_HYPR_HYPRCURSOR_GITREV=${RIBYN_HYPR_HYPRCURSOR_GITREV:-"v0.1.13"}
 # * 482d4b7 (tag: v0.5.1) version: bump to 0.5.1 Vaxry (4 months ago)
 export RIBYN_HYPR_HYPRGRAPHICS_GITREV=${RIBYN_HYPR_HYPRGRAPHICS_GITREV:-"v0.5.1"}
 
-# * 6d43ce84 (HEAD -> main, origin/main, origin/HEAD) input/seat: check HID caps directly for focus enters (#15841) GitHub (3 days ago)
-# * 36b2e0cf (tag: v0.56.0) version: bump to 0.56.0 Vaxry (4 weeks ago)
 export RIBYN_HYPR_HYPRLAND_GITREV=${RIBYN_HYPR_HYPRLAND_GITREV:-"v0.56.0"}
 
 export RIBYN_HYPR_HYPRWIRE_GITREV=${RIBYN_HYPR_HYPRWIRE_GITREV:-"v0.3.1"} # 4 months ago
@@ -49,3 +47,16 @@ export RIBYN_HYPR_HYPRPAPER_GITREV=${RIBYN_HYPR_HYPRPAPER_GITREV:-"v0.8.4"}
 export RIBYN_HYPR_HYPRLOCK_GITREV=${RIBYN_HYPR_HYPRLOCK_GITREV:-"v0.9.6"}
 export RIBYN_HYPR_HYPRPICKER_GITREV=${RIBYN_HYPR_HYPRPICKER_GITREV:-"v0.4.7"}
 export RIBYN_HYPR_HYPRMONCFG_GITREV=${RIBYN_HYPR_HYPRMONCFG_GITREV:-"v1.13.0"}
+
+# should match above RIBYN_HYPR_HYPRLAND_GITREV
+# for fedora
+# but for arch, you pray, or override local env to "origin/master"
+# which build againgst the latest untagged hyprland release
+export RIBYN_HYPR_HY3_GITREV=${RIBYN_HYPR_HY3_GITREV:-"hl0.56.0"}
+
+# disabled, and not recommended to use, until hyprland fixes the issue
+# of plugins not loading at bootstrap time, without reload.
+# this particular plugin causes 3 reloads. all 3 should not be
+# required. i do not know which reload is caused by the plugin
+# or the plugin system.
+export RIBYN_HYPR_HY3_ENABLED=${RIBYN_HYPR_HY3_ENABLED:-"no"}

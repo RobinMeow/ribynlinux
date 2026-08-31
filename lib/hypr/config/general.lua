@@ -22,7 +22,8 @@ function m.setup()
       -- use with care: https://wiki.hypr.land/Configuring/Advanced-and-Cool/Tearing/
       allow_tearing = false, -- used in gaming, for better latency
 
-      layout = "dwindle", -- "dwindle" "master" "scrolling" "monocle" (default: dwindle)
+      -- set in environments.lua
+      layout = require("hy3").enabled and "hy3" or "diwndle", -- "dwindle" "master" "scrolling" "monocle" (default: dwindle)
     },
   })
 end

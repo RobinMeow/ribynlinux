@@ -30,6 +30,8 @@ if on_arch; then
 	# qt5ct qt6ct for dark themed qt apps. also required for live switching themes.
 	# removed qt5ct. apparently I can only choose one of em
 	# hyprpicker is just nice to have. install standalone cli tool.
+	# TODO: I think these are removeable, because hyprlock is installed using pacman?
+	# these were maybe meant for hyprmoncfg instead..
 	function pacin_hyprlock() {
 		# check if I really need all those. probably do, cause some are only build dependencies
 		sudo pacman -S --needed --noconfirm \
@@ -135,3 +137,10 @@ hypr_install "hyprmoncfg" \
 	"$RIBYN_HYPR_HYPRMONCFG_GITREV" \
 	'command -v hyprmoncfg >/dev/null 2>&1 && command -v hyprmoncfgd >/dev/null 2>&1' \
 	build_hyprmoncfg
+
+if [[ "$RIBYN_HYPR_HY3_ENABLED" == "yes" ]]; then
+	hypr_install "hy3" \
+		"https://github.com/outfoxxed/hy3" \
+		"$RIBYN_HYPR_HY3_GITREV" \
+		'[[ -f "/usr/lib/libhy3.so" ]]'
+fi

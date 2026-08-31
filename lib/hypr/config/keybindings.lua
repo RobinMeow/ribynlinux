@@ -48,7 +48,9 @@ function m.setup()
     { desc = "open rofi - window switcher" }
   )
 
-  key.bind("SUPER + V", hl.dsp.layout("togglesplit"), { locked = true, desc = "toggle split (dwindle only)" })
+  -- works only for dwindle according to the docs
+  -- but also works for the hy3 plugin
+  key.bind("SUPER + V", hl.dsp.layout("togglesplit"), { locked = true, desc = "toggle split" })
 
   -- Move focus with SUPER + vim keys
   key.bind("SUPER + H", hl.dsp.focus({ direction = "left" }), { desc = "focus window: to the left" })
@@ -56,18 +58,22 @@ function m.setup()
   key.bind("SUPER + K", hl.dsp.focus({ direction = "up" }), { desc = "focus window: upwards" })
   key.bind("SUPER + L", hl.dsp.focus({ direction = "right" }), { desc = "focus window: to the right" })
 
-  key.bind(
-    "SUPER + SHIFT + H",
-    hl.dsp.window.move({ direction = "l" }),
-    { desc = "swap window with window to the left" }
-  )
-  key.bind("SUPER + SHIFT + J", hl.dsp.window.move({ direction = "d" }), { desc = "swap window with window below" })
-  key.bind("SUPER + SHIFT + K", hl.dsp.window.move({ direction = "u" }), { desc = "swap window with window above" })
-  key.bind(
-    "SUPER + SHIFT + L",
-    hl.dsp.window.move({ direction = "r" }),
-    { desc = "swap window with window to the right" }
-  )
+  if require("hy3").enabled then
+    -- mainly, hy3 allows me to manage windows in nvim/i3 style
+    -- using the movement, against the screenedge to give a window prio
+    -- in size. which is node-tree based and not supported by hyprland's
+    -- default layouts
+    local hy3 = hl.plugin.hy3
+    key.bind("SUPER + SHIFT + H", hy3.move_window("l"), { desc = "move window to the left" })
+    key.bind("SUPER + SHIFT + J", hy3.move_window("d"), { desc = "move window downwards" })
+    key.bind("SUPER + SHIFT + K", hy3.move_window("u"), { desc = "move window upwards" })
+    key.bind("SUPER + SHIFT + L", hy3.move_window("r"), { desc = "move window to the right" })
+  else
+    key.bind("SUPER + SHIFT + H", hl.dsp.window.move({ direction = "l" }), { desc = "move window to the left" })
+    key.bind("SUPER + SHIFT + J", hl.dsp.window.move({ direction = "d" }), { desc = "move window downwards" })
+    key.bind("SUPER + SHIFT + K", hl.dsp.window.move({ direction = "u" }), { desc = "move window upwards" })
+    key.bind("SUPER + SHIFT + L", hl.dsp.window.move({ direction = "r" }), { desc = "move window to the right" })
+  end
 
   for i = 1, 10 do
     local digit = i % 10 -- 10 maps to key 0 (which is after 9 on most keyboards)
@@ -114,6 +120,7 @@ function m.setup()
   -- local RMB = "mouse:273" -- right mouse button
   -- key.bind("SUPER + " .. RMB, hl.dsp.window.resize(), { mouse = true })
 
+  -- TODO: use submap with R resize. more consitent with all the other multiplexers
   local step = 100
   key.bind(
     "SUPER + left",

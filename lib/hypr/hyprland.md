@@ -2,15 +2,15 @@
 
 [hyprland lua docs](https://alejandrominaya.github.io/hyprland-lua-docs/)
 
-## Tasks
+when setting the env to specific git revs it is helpful
+to know, that you need to try to build it in docker,
+to get the required deps, you can just look into the
+`CMakeLists.txt` to see execat minimum dependencies
+and optional depencencies.
 
--no current tasks-
+## Abadoned Tasks
 
-deferred:
-
--no deferred tasks-
-
-abandoned i think:
+tasks from when I migrated to hyprland, but ended up not doing
 
 - [ ] ~~only blur terminal, for performance~~
   had a discord discussion with the result, that I dont need to bother with it.
@@ -36,13 +36,16 @@ abandoned i think:
 - [ ] ~~file_chooser needs some rules to be focused and floating probably~~
 - [ ] ~~bluetooth open bluetui using a desktop file~~
 
-completed:
+## Completed Tasks
+
+most tasks I had written down when migrating to hyprland
+and completed, one way or another.
 
 - [x] allow hyprpicker for screencopy
 - [x] wayscriber = EpicPen. Fortunatly I no longer use the mouse, but maybe...
 - [x] mpvpaper engine (using mp4 and others for wallpapers)
 - [x] use something else for desktop notifications
-- [x] build from source for fedora: https://github.com/hyprwm/hyprland-guiutils
+- [x] build from source for fedora: [gh/hyprland-guiutils](https://github.com/hyprwm/hyprland-guiutils)
 - [x] waybar should kill itself on lockscreen. remember it was running,
   and start backup after lock screen
 - [x] wl-freeze
@@ -80,7 +83,7 @@ completed:
 - [x] volume
 - [x] follow cursor? should not be centered in the middle of the focused window
 
----
+## Migration Notes
 
 - [x] disable login sddm `sudo systemctl disable sddm.service`
 
@@ -94,7 +97,11 @@ xdg-desktop-portal requires a graphical session target or it refuses to start.
 `systemctl --user edit --full --force hyprland-session.target`
 to create the config file
 
----
+> I don't know what this one was about..
+> Don't remember running it for my other machines, so I assume
+> this is not needed.
+
+## Other Notes
 
 > has a built in [timer](https://wiki.hypr.land/Configuring/Advanced-and-Cool/Expanding-functionality/#timers)
 
@@ -105,7 +112,7 @@ to create the config file
 
 dead code I ended up not needing
 
-```
+```sh
 # build-stack-from-source.sh
 # NOTE: according to ai I thought I had to manually build those.
 # didnt need to do so in docker. Ima keep the idea around tho

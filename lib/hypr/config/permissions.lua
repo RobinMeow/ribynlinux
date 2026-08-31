@@ -23,6 +23,11 @@ function m.setup()
     type = "screencopy",
     mode = "allow",
   })
+  hl.permission({
+    binary = "/usr/lib/libhy3.so",
+    type = "plugin",
+    mode = "allow",
+  })
   -- hl.permission({
   --   binary = "/usr/(bin|local/bin)/hyprpm",
   --   type = "plugin",

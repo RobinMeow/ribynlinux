@@ -22,6 +22,7 @@ require("autostart").setup()
 
 require("general").setup()
 require("gaps").setup()
+require("hy3").setup()
 
 -- https://wiki.hypr.land/Configuring/Basics/Variables/
 hl.config({

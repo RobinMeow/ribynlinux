@@ -25,6 +25,7 @@ function hypr_install() {
 	check_source_state "$name" "$gitrev"
 
 	if [[ "$SOURCE_STATE" == "source n/a" ]]; then
+		info "[$SOURCE_NAME] initialising source..."
 		init_source "$giturl"
 		info "[$SOURCE_NAME] installing..."
 		(cd "$SOURCE_DEST" && "$build_and_install")
