@@ -15,7 +15,10 @@ function check_source_state() {
 
 	if [[ -d "$SOURCE_DEST" ]]; then
 		# quick and dirty, fetch everything, so we dont have to bother with origin/checks
-		git -C "$SOURCE_DEST" fetch --all --tags --prune --jobs=10
+		# do not ues --jobs=10. which will cause gh rate limits to block my requests.
+		# then it will prompt for a login to fetch/clone anything..
+		# even tho, I did not exceed the rate limit
+		git -C "$SOURCE_DEST" fetch --all --tags --prune
 
 		if [[ "$SOURCE_GITREV" == "latest-tag" ]]; then
 			# apparently my solution gets the latest tag, using git tag aware versioning.
