@@ -47,6 +47,8 @@ sudo ufw status
 sudo ufw status verbose
 ```
 
+[Uncomplicated Firewall - ArchWiki](https://wiki.archlinux.org/title/Uncomplicated_Firewall)
+
 > knowing when to suspect firewall being the issue for something not working
 > outgoing connection works, but not incomming
 > timeouts (no response)
@@ -93,3 +95,7 @@ if you have physical access to the machine.
 [Not using AppArmor or SELinux](https://christitus.com/linux-security-mistakes/#application-level---not-using-apparmor-or-selinux)
 for example, it can limit my ribynlinux installers, to only allow the HOME
 filesystem, even when elevated.
+
+## further reading
+
+[linux workstation security](https://github.com/lfit/itpol/blob/master/linux-workstation-security.md)

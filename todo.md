@@ -10,7 +10,7 @@ full install tests:
 - configure dunst to have a timer and build tools based on it `notify-send "test"`
 - checkout [palemoon](https://github.com/RealityRipple/Pale-Moon) as alternative
   browser to firefox
-- password manager from the ebook
+- password manager from the ebook. and make it compatible for android using termux
 - rmpc primary color is too neon like. need more pastel like
 - depends on firefox;make a cli tool to replace the need for bookmarks
 - some cli bin which invokes firefox --search my-search-text
