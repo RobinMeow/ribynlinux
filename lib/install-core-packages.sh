@@ -51,7 +51,8 @@ if on_arch; then
 		docker-buildx \
 		postgresql \
 		jq \
-		openvpn
+		openvpn \
+		ufw
 
 # WARN: i remember targeting pack being a bug fix for dotnet
 # specifically for archlinux. but I ll wait until I run into it again.
@@ -102,7 +103,8 @@ elif on_fedora; then
 		docker-compose \
 		postgresql \
 		jq \
-		openvpn
+		openvpn \
+		ufw
 
 	sudo dnf install -y --allowerasing \
 		ffmpeg
