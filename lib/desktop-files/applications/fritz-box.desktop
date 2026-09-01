@@ -1,0 +1,6 @@
+[Desktop Entry]
+Version=1.0
+Name=FritzBox
+Exec=firefox --new-window http://fritz.box
+Terminal=false
+Type=Application
