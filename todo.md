@@ -6,6 +6,8 @@ full install tests:
   asking if install from rust or rustup
 - hypr wayland-protocol is missing on wob install
 
+- shared partition in exFAT
+- automate backups
 - learn about security, and apply some basic stuff like firewall
 - configure dunst to have a timer and build tools based on it `notify-send "test"`
 - checkout [palemoon](https://github.com/RealityRipple/Pale-Moon) as alternative
