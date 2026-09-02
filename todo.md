@@ -6,7 +6,11 @@ full install tests:
   asking if install from rust or rustup
 - hypr wayland-protocol is missing on wob install
 
+- [mpv-cut](https://github.com/familyfriendlymikey/mpv-cut) plugin for mpv for cutting videos or audio
+  or [lazycut](https://github.com/ozemin/lazycut) also supports video triming
+  or [tui-wave](https://github.com/biomassa/tui-wave) which is only for audio
 - shared partition in exFAT
+- portable linux (a nvme in an enclosure)
 - automate backups
 - learn about security, and apply some basic stuff like firewall
 - configure dunst to have a timer and build tools based on it `notify-send "test"`
