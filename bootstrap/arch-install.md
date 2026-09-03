@@ -106,6 +106,23 @@ exit and reboot
 > see [UEFI boot entry disappears after removing its referenced drive](https://wiki.archlinux.org/title/Unified_Extensible_Firmware_Interface)
 > or the section beneath it 'Boot entries are randomly removed'
 dual boot with existing windows on seperate drive?
+> INFO: thats what i did and seemed to work. but it just needed the file as an
+> fake OS. It still uses the usual cfg at /boot/grub/grub.cfg
+
+## chainloader with fedora
+
+1. get id sudo blkid `/dev/<fedora boot partition>`
+2. edit sudo nvim `/etc/grub.d/40_custom`
+3. add this code block at the bottom repalace `1245-5678` with the id from blkid
+```
+menuentry "Fedora Linux (Chainload)" {
+    insmod part_gpt
+    insmod fat
+    search --no-floppy --fs-uuid --set=root 1245-5678
+    chainloader /EFI/fedora/grubx64.efi
+}
+```
+4. regenerate `grub-mkconfig -o /boot/grub/grub.cfg`
 
 your new system on reboot. log into root.
 run `systemctl enable NetworkManager.service`
