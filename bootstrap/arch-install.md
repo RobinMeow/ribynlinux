@@ -94,21 +94,18 @@ to set your root password
 
 time for grub bootloader
 https://wiki.archlinux.org/title/GRUB
-`pacman -S grub efibootmgr`
+`pacman -S grub efibootmgr os-prober`
 assuming your still chrooted (as you should be)
 `grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB`
 <dual boot windows? read ahead first>
 `grub-mkconfig -o /boot/grub/grub.cfg`
 exit and reboot
 
+> if it disappears after reboot. get back into live iso. mount /mnt and /mnt/boot > chroot
+> and regenerate the config with -o /boot/EFI/BOOT/BOOTx64.EFI
+> see [UEFI boot entry disappears after removing its referenced drive](https://wiki.archlinux.org/title/Unified_Extensible_Firmware_Interface)
+> or the section beneath it 'Boot entries are randomly removed'
 dual boot with existing windows on seperate drive?
-before running grub-mkconfig enable the os-prober to have grub-mkconfig automatically detect windows and add it to the boot menu entries:
-`pacman -S os-prober`
-you need to mount the windows efi partition so the os-prober will actually find it. and also change some file to allow the prober to run.
-see arch wiki for more info.
-I ended up running grub install and mkconfig a few times and got a GRUB entry point in arch/boot/EFI/GRUB and in windows/boot/EFI/GRUB and idk which one is used now.
-only worked after going into uefi settings with DEL and changing the boot order there on the harddisk section. Boot > Harddisk and then set grub first
-
 
 your new system on reboot. log into root.
 run `systemctl enable NetworkManager.service`
