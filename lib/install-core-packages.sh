@@ -52,7 +52,8 @@ if on_arch; then
 		postgresql \
 		jq \
 		openvpn \
-		ufw
+		ufw \
+		exfatprogs
 
 # WARN: i remember targeting pack being a bug fix for dotnet
 # specifically for archlinux. but I ll wait until I run into it again.
@@ -104,7 +105,8 @@ elif on_fedora; then
 		postgresql \
 		jq \
 		openvpn \
-		ufw
+		ufw \
+		exfatprogs
 
 	sudo dnf install -y --allowerasing \
 		ffmpeg
