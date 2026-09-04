@@ -115,14 +115,15 @@ dual boot with existing windows on seperate drive?
 2. edit sudo nvim `/etc/grub.d/40_custom`
 3. add this code block at the bottom repalace `1245-5678` with the id from blkid
 ```
-menuentry "Fedora Linux (Chainload)" {
+menuentry "Fedora Linux (Chainload)" --id 'fedora-chainloader' {
     insmod part_gpt
     insmod fat
     search --no-floppy --fs-uuid --set=root 1245-5678
     chainloader /EFI/fedora/grubx64.efi
 }
 ```
-4. regenerate `grub-mkconfig -o /boot/grub/grub.cfg`
+4. set default to 'saved' or 'fedora-chainloader' in `/etc/default/grub`
+5. regenerate as root `grub-mkconfig -o /boot/grub/grub.cfg`
 
 your new system on reboot. log into root.
 run `systemctl enable NetworkManager.service`
