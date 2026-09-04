@@ -1,11 +1,20 @@
+# arch setup
+
 ## GPU GTX 4080S and Mainboard MSI Z890 Edge struggle
 
-connect to wifi using iwctl and then download the chipset for msi Z890 mainboard
+connect to wifi
 Intel® Killer™ E5000B 5G LAN
 Vendor Device ID [10ec:5000]
 Kernel driver in use: r8169
 Kernel modules: r8169, r8129
 > endded up not needing them or sth idk. i still used my old usb drive and installed using wifi instead. after install it just worked. again using r8169.
+
+those work, but arent the official supported ones, becase this network adapter is only supported for win10 and 11
+arch wiki which explains how to load your needed module: https://wiki.archlinux.org/title/Network_configuration/Ethernet
+
+[nvidia transitions fully towards open source gpu kernel modules](https://developer.nvidia.com/blog/nvidia-transitions-fully-towards-open-source-gpu-kernel-modules)
+WARN: ran an Syu update and seems like i switched to extra/nvidia-open
+
 NV190 family (Ada Lovelace)
 Code name	Official Name
 NV192 (AD102)	GeForce RTX 4090
@@ -14,8 +23,8 @@ NV194 (AD104)	GeForce RTX (4070, 4070 Ti)
 NV196 (AD106)	GeForce RTX 4060 Ti
 NV197 (AD107)	GeForce RTX 4060
 
-those work, but arent the official supported ones, becase this network adapter is only supported for win10 and 11
-arch wiki which explains how to load your needed module: https://wiki.archlinux.org/title/Network_configuration/Ethernet
+> the second monitor worked after installing nvidia drivers and running
+mudprobe nvidia. it than worked on restart as well.
 
 ## Partition and format disk
 
@@ -135,10 +144,6 @@ Alternatively, use the setup script to create a user:
 curl -fsSL https://codeberg.org/Ribyn/ribynlinux/raw/branch/master/scripts/setup-linux.sh | bash
 ```
 
-WARN: ran an Syu update and seems like i switched to extra/nvidia-open (open source drivers, prolly better was wasnt supported prev i think?)
-and gpu drivers, if pacman -S nvidia is for the 4080 (nvidia is precomiled, consider compiling yourself using dkms)
-
-
 `groupadd sudo`
 visudo and uncomment the sudo line:
 `EDITOR=vim visudo`
@@ -174,9 +179,6 @@ run it with `google-chrome-stable`
 Enabled=false
 ```
 you can set the background to the image in the img in this repo.
-
-
-the second monitor worked after installing nvidia drivers and running mudprobe nvidia. it than worked on restart as well.
 
 ### KDE
 

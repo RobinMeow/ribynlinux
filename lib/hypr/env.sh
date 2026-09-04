@@ -60,3 +60,7 @@ export RIBYN_HYPR_HY3_GITREV=${RIBYN_HYPR_HY3_GITREV:-"hl0.56.0"}
 # required. i do not know which reload is caused by the plugin
 # or the plugin system.
 export RIBYN_HYPR_HY3_ENABLED=${RIBYN_HYPR_HY3_ENABLED:-"no"}
+
+# uses hyprpaper by default. set 1440p or 1080p to use mpvpaper default
+# set to 'default' to use hyprpaper again.
+export RIBYN_HYPR_MPVPAPER_RESOLUTION=${RIBYN_HYPR_MPVPAPER_RESOLUTION:-"default"}
