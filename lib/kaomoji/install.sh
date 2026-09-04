@@ -12,7 +12,7 @@ if on_arch; then
 		rofi \
 		jq
 elif on_fedora; then
-	sudo pacman -S --needed --noconfirm \
+	sudo dnf install --assumeyes \
 		wl-clipboard \
 		rofi \
 		jq

@@ -25,7 +25,8 @@ repo_gpgcheck=1
 gpgkey=https://wayscriber.com/rpm/RPM-GPG-KEY-wayscriber.asc
 EOF
 	sudo dnf clean all
-	sudo dnf install wayscriber
+	sudo dnf install --assumeyes \
+		wayscriber
 
 	# Optional GUI configurator
 	# sudo dnf install wayscriber-configurator

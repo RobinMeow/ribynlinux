@@ -41,6 +41,18 @@ git remote add cb ssh://git@codeberg.org/Ribyn/ribynlinux.git
 git config remotes.all "gh cb"
 ```
 
+## generating ssh key
+
+```sh
+# recommended
+ssh-keygen -t ed25519 -C "your-comment"
+# optinally older key
+ssh-keygen -t rsa -b 4096 -C "your-comment"
+
+ssh-keyscan -H github.com >>~/.ssh/known_hosts
+ssh-keyscan -H codeberg.org >>~/.ssh/known_hosts
+```
+
 ## MonkeyType 
 
 100% acc
