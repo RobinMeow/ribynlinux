@@ -47,6 +47,9 @@ local function autostart()
   hl.exec_cmd("mpd") -- uses daemon by default otherwise --no-daemon or --systemd
   hl.exec_cmd("wob_volume listen")
   hl.exec_cmd("hyprpaper") -- uses daemon by default otherwise --no-daemon or --systemd
+  -- use mpvpaper default if env RIBYN_HYPR_MPVPAPER_RESOLUTION is locally set on the machine
+  -- not for hyprland environments.lua but for sync.sh scripts in local.sh
+  hl.exec_cmd(os.getenv("HOME") .. "/.config/hypr/optimized-background-motion")
 
   hl.exec_cmd("kitty --class kitty_main", { workspace = "1" })
 

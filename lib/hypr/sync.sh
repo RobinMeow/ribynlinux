@@ -65,3 +65,5 @@ rsync -rlpt \
 rsync -rlpt \
 	"$RIBYN_ROOT/assets/images/good-morning-groot.jpg" \
 	"$HOME/.config/hypr/i-am-root/"
+
+"$RIBYN_ROOT/lib/hypr/sync-fallen-knight.sh"
