@@ -25,6 +25,7 @@ function m.setup()
 
     -- https://wiki.hypr.land/Useful-Utilities/Systemd-start/#hyprland-sessiontarget
     hl.exec_cmd("systemctl --user start hyprland-session.target")
+    hl.exec_cmd("systemctl --user start hyprpolkitagent")
     -- now using mpvpaper, so each machine has to decide on their own
     -- hl.exec_cmd("hyprpaper")
     hl.exec_cmd("dunst")
@@ -34,7 +35,7 @@ function m.setup()
     -- https://wiki.hypr.land/Useful-Utilities/Systemd-start/#hyprland-sessiontarget
     -- uses a blocking exec function and sleeps a bit to give things time to close
     os.execute("systemctl --user stop hyprland-session.target && sleep 0.1")
-
+    os.execute("systemctl --user stop hyprpolkitagent && sleep 0.1")
     -- you can kill troublesome apps which don't want to close:
     -- os.execute("pkill wallpaperthing; systemctl --user stop hyprland-session.target && sleep 0.1")
   end)

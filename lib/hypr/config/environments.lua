@@ -3,6 +3,8 @@ local m = {}
 function m.setup()
   hl.env("GTK_THEME", "Adwaita:dark")
   hl.env("GTK2_RC_FILES", "/usr/share/themes/Adwaita-dark/gtk-2.0/gtkrc")
+  -- TODO: maybe move to /etc/environment for system-wide default
+  -- https://wiki.hypr.land/hypr-ecosystem/user/hyprqt6engine/
   hl.env("QT_QPA_PLATFORMTHEME", "qt6ct")
   -- WARN: use override if qt6ct is not being picked up
   -- hl.env("QT_STYLE_OVERRIDE", "Adwaita-Dark")
