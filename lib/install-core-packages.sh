@@ -53,7 +53,8 @@ if on_arch; then
 		jq \
 		openvpn \
 		ufw \
-		exfatprogs
+		exfatprogs \
+		kdiskmark
 
 # WARN: i remember targeting pack being a bug fix for dotnet
 # specifically for archlinux. but I ll wait until I run into it again.
@@ -106,7 +107,8 @@ elif on_fedora; then
 		jq \
 		openvpn \
 		ufw \
-		exfatprogs
+		exfatprogs \
+		kdiskmark
 
 	sudo dnf install -y --allowerasing \
 		ffmpeg
