@@ -28,14 +28,6 @@ else
 	echo "Testing in $TARGET"
 fi
 
-DRIVE=$(df $TARGET | grep /dev | cut -d/ -f3 | cut -d" " -f1 | rev | cut -c 2- | rev)
-DRIVEMODEL=$(cat /sys/block/$DRIVE/device/model)
-DRIVESIZE=$(($(cat /sys/block/$DRIVE/size) * 512 / 1024 / 1024 / 1024))GB
-
-echo "Configuration: Size:$SIZE Loops:$LOOPS Write Only Zeroes:$WRITEZERO
-Running Benchmark on: /dev/$DRIVE, $DRIVEMODEL ($DRIVESIZE), please wait...
-"
-
 fio --loops=$LOOPS --size=$SIZE --filename=$TARGET/.fiomark.tmp --stonewall --ioengine=libaio --direct=1 --zero_buffers=$WRITEZERO --output-format=json \
 	--name=Bufread --loops=1 --bs=$SIZE --iodepth=1 --numjobs=1 --rw=readwrite \
 	--name=Seqread --bs=$SIZE --iodepth=1 --numjobs=1 --rw=read \
@@ -65,7 +57,7 @@ FK8R="$(($(cat $TARGET/.fiomark.txt | grep -A15 '"name" : "4kQ8T8read"' | grep b
 FK8W="$(($(cat $TARGET/.fiomark.txt | grep -A80 '"name" : "4kQ8T8write"' | grep bw_bytes | sed 's/        "bw_bytes" : //g' | sed 's:,::g' | awk '{ SUM += $1} END { print SUM }') / 1024 / 1024))MB/s IOPS=$(cat $TARGET/.fiomark.txt | grep -A80 '"name" : "4kQ8T8write"' | grep '"iops" ' | sed 's/        "iops" : //g' | sed 's:,::g' | awk '{ SUM += $1} END { print SUM }' | cut -d. -f1)"
 
 echo -e "
-Results from /dev/$DRIVE, $DRIVEMODEL ($DRIVESIZE):  
+Results:
 \033[0;33m
 Sequential Read: $SEQR
 Sequential Write: $SEQW
