@@ -1,5 +1,16 @@
 # firefox
 
+## manual settings
+
+open firefox
+run sync script
+close it agin
+run sync script
+re-open it, check if google search is dark mode
+if not repeat.
+install vimium and uorigin block extensions
+done.
+
 ## choosing firefox over chromium based browsers
 
 - they display no tofus (did not manage to fix in chrome)
@@ -26,8 +37,6 @@ make sure to install pipewire-pulse for compat, since firefox uses pulseaudio/al
 instead of wireplumber.
 
 ## setting firefox as default browser
-
-TODO: shell script
 
 ```sh
 xdg-settings get default-web-browser
