@@ -54,7 +54,8 @@ if on_arch; then
 		openvpn \
 		ufw \
 		exfatprogs \
-		kdiskmark
+		core/usbutils \
+		fio
 
 # WARN: i remember targeting pack being a bug fix for dotnet
 # specifically for archlinux. but I ll wait until I run into it again.
@@ -108,7 +109,8 @@ elif on_fedora; then
 		openvpn \
 		ufw \
 		exfatprogs \
-		kdiskmark
+		fio \
+		usbutils
 
 	sudo dnf install -y --allowerasing \
 		ffmpeg
