@@ -56,7 +56,7 @@ if on_arch; then
 		exfatprogs \
 		core/usbutils \
 		fio \
-		obs
+		obs-studio
 
 # WARN: i remember targeting pack being a bug fix for dotnet
 # specifically for archlinux. but I ll wait until I run into it again.

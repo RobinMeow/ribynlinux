@@ -30,25 +30,6 @@ if on_arch; then
 	# qt5ct qt6ct for dark themed qt apps. also required for live switching themes.
 	# removed qt5ct. apparently I can only choose one of em
 	# hyprpicker is just nice to have. install standalone cli tool.
-	# TODO: I think these are removeable, because hyprlock is installed using pacman?
-	# these were maybe meant for hyprmoncfg instead..
-	function pacin_hyprlock() {
-		# check if I really need all those. probably do, cause some are only build dependencies
-		sudo pacman -S --needed --noconfirm \
-			cmake \
-			cairo \
-			hyprgraphics \
-			hyprlang \
-			hyprutils \
-			hyprwayland-scanner \
-			mesa \
-			pam \
-			pango \
-			sdbus-cpp \
-			wayland \
-			extra/wayland-protocols
-	}
-	pacin_hyprlock
 elif on_fedora; then
 	"$RIBYN_ROOT/lib/hypr/build-stack-from-source.sh"
 

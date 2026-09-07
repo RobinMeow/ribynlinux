@@ -16,7 +16,8 @@ if on_arch; then
 	sudo pacman -S --needed --noconfirm \
 		mpv \
 		meson \
-		ninja
+		ninja \
+		wayland-protocols
 elif on_fedora; then
 	sudo dnf install --assumeyes \
 		mpv-devel \

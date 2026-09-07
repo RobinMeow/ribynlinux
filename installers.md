@@ -27,7 +27,8 @@ export RIBYN_ROOT="$HOME/ribynlinux" \
 # full install
 export RIBYN_ROOT="$HOME/ribynlinux" \
   && git clone --depth 1 https://github.com/RobinMeow/ribynlinux.git "$RIBYN_ROOT" \
-  && "$RIBYN_ROOT/bin/rinsy"
+  && "$RIBYN_ROOT/lib/install.sh" \
+  && "$RIBYN_ROOT/lib/sync.sh"
 
 # skip hypr
 export RIBYN_ROOT="$HOME/ribynlinux" && \

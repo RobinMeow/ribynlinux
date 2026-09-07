@@ -14,7 +14,7 @@ if [[ -d "$BREW_PREFIX" ]]; then
 		eval "$("$BREW_PREFIX/bin/brew" shellenv)"
 	fi
 else
-	warn "hypocrites request sudo permission just to remove it again after calling their bin, just so their own script can remain \"secure\"."
+	warn "homebrew requires sudo perm for first time install. then revokes it after, for the next scripts."
 	sudo --validate
 
 	NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
