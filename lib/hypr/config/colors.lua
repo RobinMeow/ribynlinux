@@ -41,6 +41,7 @@ local silver_armor_neon = "#eeeeee"
 m.primary = sunrise_neon
 m.secondary = earth_neon
 m.tertiary = flower_rose
+m.tertiary2 = electric_purple
 
 m.shaow = "#ee1a1a1a"
 

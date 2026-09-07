@@ -34,6 +34,8 @@ full install tests:
 - [practical bash scripting: what AI cant teach you](https://www.youtube.com/watch?v=aqEIE6Jn0mU)
 - learn sed
 - continue on [learn cpp chapter 11](https://www.learncpp.com/cpp-tutorial/implicit-type-conversion/)
+- [learnxinminutes/lua](https://learnxinyminutes.com/lua)
+  prolly has others as well like rust/cpp
 
 ## app ideas
 

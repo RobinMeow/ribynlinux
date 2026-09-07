@@ -39,12 +39,12 @@ function m.setup()
 
   -- NOTE: alternatives are hyprlauncher (just-works), anyrun (for powerusers: as in, run anything), fuzzel (for speed)
   key.bind(
-    "SUPER + R",
+    "SUPER + A",
     hl.dsp.exec_cmd('rofi -show drun -show-icons -icon-theme "Adwaita"'),
     { desc = "open rofi - desktop file launcher" }
   )
   key.bind(
-    "SUPER + SHIFT + R",
+    "SUPER + SHIFT + A",
     hl.dsp.exec_cmd('rofi -show window -show-icons -icon-theme "Adwaita"'),
     { desc = "open rofi - window switcher" }
   )
@@ -122,28 +122,47 @@ function m.setup()
   -- local RMB = "mouse:273" -- right mouse button
   -- key.bind("SUPER + " .. RMB, hl.dsp.window.resize(), { mouse = true })
 
-  -- TODO: use submap with R resize. more consitent with all the other multiplexers
+  local prev_active_border = nil
+  key.bind("SUPER + R", function()
+    prev_active_border = hl.get_config("general.col.active_border")
+    local resize_gradient = {
+      colors = { require("colors").tertiary, require("colors").tertiary2 },
+      angle = 45,
+    }
+    hl.config({ ["general.col.active_border"] = resize_gradient })
+    hl.dispatch(hl.dsp.submap("resize"))
+  end, { desc = "enter resizing submap. exit with Q or ESC" })
+
+  -- Start a submap called "resize".
   local step = 100
-  key.bind(
-    "SUPER + left",
-    hl.dsp.window.resize({ x = -step, y = 0, relative = true }),
-    { desc = "relative resizing: left" }
-  )
-  key.bind(
-    "SUPER + down",
-    hl.dsp.window.resize({ x = 0, y = step, relative = true }),
-    { desc = "relative resizing: down" }
-  )
-  key.bind(
-    "SUPER + up",
-    hl.dsp.window.resize({ x = 0, y = -step, relative = true }),
-    { desc = "relative resizing: up" }
-  )
-  key.bind(
-    "SUPER + right",
-    hl.dsp.window.resize({ x = step, y = 0, relative = true }),
-    { desc = "relative resizing: right" }
-  )
+  hl.define_submap("resize", function()
+    hl.bind("LEFT", hl.dsp.window.resize({ x = -step, y = 0, relative = true }), { repeating = true })
+    hl.bind("H", hl.dsp.window.resize({ x = -step, y = 0, relative = true }), { repeating = true })
+    hl.bind("DOWN", hl.dsp.window.resize({ x = 0, y = step, relative = true }), { repeating = true })
+    hl.bind("J", hl.dsp.window.resize({ x = 0, y = step, relative = true }), { repeating = true })
+    hl.bind("UP", hl.dsp.window.resize({ x = 0, y = -step, relative = true }), { repeating = true })
+    hl.bind("K", hl.dsp.window.resize({ x = 0, y = -step, relative = true }), { repeating = true })
+    hl.bind("RIGHT", hl.dsp.window.resize({ x = step, y = 0, relative = true }), { repeating = true })
+    hl.bind("L", hl.dsp.window.resize({ x = step, y = 0, relative = true }), { repeating = true })
+    -- WARN: run this in cli to quit submap if you screw up while tinkering
+    -- hyprctl dispatch 'hl.dsp.submap("reset")'
+    local reset_resize = function()
+      hl.dispatch(hl.dsp.submap("reset"))
+      hl.config({ ["general.col.active_border"] = prev_active_border })
+    end
+    hl.bind("ESCAPE", reset_resize)
+    hl.bind("Q", reset_resize)
+  end)
+  -- these are freed up now, but I don't have another use for them,
+  -- so might as well leave em here
+	-- stylua: ignore
+  key.bind( "SUPER + LEFT", hl.dsp.window.resize({ x = -step, y = 0, relative = true }), { desc = "relative resizing: left" })
+	-- stylua: ignore
+  key.bind( "SUPER + DOWN", hl.dsp.window.resize({ x = 0, y = step, relative = true }), { desc = "relative resizing: down" })
+	-- stylua: ignore
+  key.bind( "SUPER + UP", hl.dsp.window.resize({ x = 0, y = -step, relative = true }), { desc = "relative resizing: up" })
+	-- stylua: ignore
+  key.bind( "SUPER + RIGHT", hl.dsp.window.resize({ x = step, y = 0, relative = true }), { desc = "relative resizing: right" })
 
   key.bind("SUPER + P", require("potato_mode").toggle, { locked = true, desc = "toggle potato mode" })
   key.bind("SUPER + G", require("gaps").toggle, { locked = true, desc = "toggle gaps (padding/margins)" })
