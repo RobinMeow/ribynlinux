@@ -108,8 +108,6 @@ decided to wait at least until im no longer on nvidia. Even pre-configured "them
 
 ## random notes
 
-- let Robin know about mise (nvm improvement)
-
 [30 vim commands must-know: refresher for features which exist](https://www.youtube.com/watch?v=RSlrxE21l_k)
 
 - [yazi bulk rename](https://yazi-rs.github.io/features/)
