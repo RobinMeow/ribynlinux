@@ -31,7 +31,9 @@ config: `about:config`
 in home:
 ~/.mozilla/firefox
 
-[user.js](https://github.com/pyllyukko/user.js)
+[mentioned by arch wiki: pyllyukko/user.js](https://github.com/pyllyukko/user.js)
+[most used: arkenfox/user.js](https://github.com/arkenfox/user.js/)
+[next most used: yokoffing/Betterfox](https://github.com/yokoffing/Betterfox)
 
 make sure to install pipewire-pulse for compat, since firefox uses pulseaudio/alsa
 instead of wireplumber.
@@ -45,3 +47,30 @@ xdg-settings set default-web-browser firefox.desktop
 
 in case it happens:
 [5.37 Notifications are not floating in tiling window managers or Wayland compositors](https://wiki.archlinux.org/title/Firefox)
+
+## windows
+
+> be aware, on german OS "Users" directory name will differ.
+same for Program Files
+
+`C:\Users\<Your-Username>\AppData\Roaming\Mozilla\Firefox\Profiles\<profile-folder>\`
+
+use cmd to create the profiles, otherwise they will be named
+"Profile 1", etc.. when using the browser ui
+create both profiles without launching the browser.
+sync, then launch. prompt for AGB or sth, expand advanced
+and select disable telemetry.
+```cmd
+"C:\Program Files\Mozilla Firefox\firefox.exe" -P ribyn
+"C:\Program Files\Mozilla Firefox\firefox.exe" -P robin
+```
+
+> the ribyn/robin arguments do not matter. it will open a profile creation wizard
+unless the profiles already exists. then it will open that specific profile.
+
+## extensions
+
+[vimium](https://addons.mozilla.org/en-US/firefox/addon/vimium-ff/)
+[uBlock origin](https://addons.mozilla.org/de/firefox/addon/ublock-origin/)
+
+TODO: enable ask for password firefox word profile
