@@ -237,8 +237,8 @@ function m.setup()
   end, { desc = "start wayscriber" })
 
   -- dunst
-  key.bind("SUPER + C", hl.dsp.exec_cmd("dunstctl close"), { desc = "close notification" })
-  key.bind("SUPER + SHIFT + C", hl.dsp.exec_cmd("dunstctl close-all"), { desc = "close all notifications" })
+  key.bind("SUPER + N", hl.dsp.exec_cmd("dunstctl close"), { desc = "close notification" })
+  key.bind("SUPER + SHIFT + N", hl.dsp.exec_cmd("dunstctl close-all"), { desc = "close all notifications" })
   key.bind("SUPER + D", hl.dsp.exec_cmd("dunstctl history-pop"), { desc = "display last notification again" })
 
   key.bind("SUPER + Space", function()
@@ -287,6 +287,8 @@ function m.setup()
   key.bind("XF86AudioPause", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true, desc = "media audio pause" })
   key.bind("XF86AudioNext", hl.dsp.exec_cmd("playerctl next"), { locked = true, desc = "media audio next" })
   key.bind("XF86AudioPrev", hl.dsp.exec_cmd("playerctl previous"), { locked = true, desc = "media audio prev" })
+
+  require("wl-kbptr-keybindings").setup()
 end
 
 return m
