@@ -5,7 +5,7 @@
 -- show virtual text of values https://github.com/theHamsta/nvim-dap-virtual-text
 
 return {
-  enabled = true,
+  enabled = false,
   "mfussenegger/nvim-dap",
   dependencies = {
     "rcarriga/nvim-dap-ui",
