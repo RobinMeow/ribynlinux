@@ -12,8 +12,7 @@ general:
 
   # Whether to switch back and forth between the previously focused
   # workspace when focusing the current workspace.
-  # default was false, I think this is what messed up my keypass
-  toggle_workspace_on_refocus: true
+  toggle_workspace_on_refocus: false
 
   cursor_jump:
     # Whether to automatically move the cursor on the specified trigger.
@@ -134,12 +133,12 @@ binding_modes:
     keybindings:
       - commands: ['resize --width -2%']
         bindings: ['h', 'left']
+      - commands: ['resize --height +2%']
+        bindings: ['j', 'down']
+      - commands: ['resize --height -2%']
+        bindings: ['k', 'up']
       - commands: ['resize --width +2%']
         bindings: ['l', 'right']
-      - commands: ['resize --height +2%']
-        bindings: ['k', 'up']
-      - commands: ['resize --height -2%']
-        bindings: ['j', 'down']
       # Press enter/escape to return to default keybindings.
       - commands: ['wm-disable-binding-mode --name resize']
         bindings: ['escape', 'enter']
@@ -179,7 +178,7 @@ keybindings:
   - commands: ['toggle-tiling-direction']
     bindings: ['alt+v']
 
-  # Change the focused window to be tiling.
+  # toggle between float/tiling
   - commands: ['toggle-tiling']
     bindings: ['alt+t']
 
@@ -242,6 +241,16 @@ keybindings:
     bindings: ['alt+shift+up']
   - commands: ['move-workspace --direction right']
     bindings: ['alt+shift+right']
+
+  # resize
+  - commands: ['resize --width -2%']
+    bindings: ['alt+left']
+  - commands: ['resize --height +2%']
+    bindings: ['alt+down']
+  - commands: ['resize --height -2%']
+    bindings: ['alt+up']
+  - commands: ['resize --width +2%']
+    bindings: ['alt+right']
 
   # Move focused window to a workspace defined in `workspaces` config.
   - commands: ['move --workspace 1', 'focus --workspace 1']
