@@ -253,36 +253,15 @@ function m.setup()
 
   -- multimedia keys for volume and LCD brightness (usually on laptops for fn keys)
   -- NOTE: according to AI, locked is for allow in lock-screen and repeating for hold to spam
-  key.bind(
-    "XF86AudioRaiseVolume",
-    hl.dsp.exec_cmd("wob_volume up"),
-    { locked = true, repeating = true, desc = "volume up +5%" }
-  )
-  key.bind(
-    "XF86AudioLowerVolume",
-    hl.dsp.exec_cmd("wob_volume down"),
-    { locked = true, repeating = true, desc = "volume down -5%" }
-  )
-  key.bind(
-    "XF86AudioMute",
-    hl.dsp.exec_cmd("wob_volume mute"),
-    { locked = true, repeating = true, desc = "mute volume" }
-  )
-  key.bind(
-    "XF86AudioMicMute",
-    hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"),
-    { locked = true, repeating = true, desc = "mute microphone" }
-  )
-  key.bind(
-    "XF86MonBrightnessUp",
-    hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 5%+"),
-    { locked = true, repeating = true, desc = "monitor brightness up +5%" }
-  )
-  key.bind(
-    "XF86MonBrightnessDown",
-    hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 5%-"),
-    { locked = true, repeating = true, desc = "monitor brightness up -5%" }
-  )
+	
+	-- stylua: ignore start
+  key.bind( "XF86AudioRaiseVolume", hl.dsp.exec_cmd("wob_volume up"), { locked = true, repeating = true, desc = "volume up +5%" })
+  key.bind( "XF86AudioLowerVolume", hl.dsp.exec_cmd("wob_volume down"), { locked = true, repeating = true, desc = "volume down -5%" })
+  key.bind( "XF86AudioMute", hl.dsp.exec_cmd("wob_volume mute"), { locked = true, repeating = true, desc = "mute volume" })
+  key.bind( "XF86AudioMicMute", hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"), { locked = true, repeating = true, desc = "mute microphone" })
+  key.bind( "XF86MonBrightnessUp", hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 5%+"), { locked = true, repeating = true, desc = "monitor brightness up +5%" })
+  key.bind( "XF86MonBrightnessDown", hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 5%-"), { locked = true, repeating = true, desc = "monitor brightness up -5%" })
+  -- stylua: ignore end
   key.bind("XF86AudioPlay", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true, desc = "media audio play" })
   key.bind("XF86AudioPause", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true, desc = "media audio pause" })
   key.bind("XF86AudioNext", hl.dsp.exec_cmd("playerctl next"), { locked = true, desc = "media audio next" })
