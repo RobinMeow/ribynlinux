@@ -26,24 +26,29 @@ function m.setup()
         local reset_submap = "hyprctl dispatch 'hl.dsp.submap(\"reset\")'"
 				-- INFO: https://github.com/moverest/wl-kbptr
         -- spawn grid and wait for typed letters, then teleport the cursor. exit proccess.
-        local wlkbptr_floating = "wl-kbptr -o modes=floating,click -o mode_floating.source=detect"
+				-- NOTE: use append ,click to modes=floating,click to execute a click event
+        local wlkbptr_floating = "wl-kbptr -o modes=floating -o mode_floating.source=detect"
         local enter_submap = "hyprctl dispatch 'hl.dsp.submap(\"cursor\")'"
         hl.dispatch(hl.dsp.exec_cmd(reset_submap .. " && " .. wlkbptr_floating .. " && " .. enter_submap))
       end,
       { desc = "cursor: enter wl-kbptr floating" }
     )
-    -- TODO: bisect tile mode
-    -- TODO: split tile mode
-		key.bind(
-      "Z",
-      function()
-        local reset_submap = "hyprctl dispatch 'hl.dsp.submap(\"reset\")'"
-        local wlkbptr_tilemode = "wl-kbptr -o modes=tile,click"
-        local enter_submap = "hyprctl dispatch 'hl.dsp.submap(\"cursor\")'"
-        hl.dispatch(hl.dsp.exec_cmd(reset_submap .. " && " .. wlkbptr_tilemode .. " && " .. enter_submap))
-      end,
-      { desc = "cursor: enter wl-kbptr tile" }
-    )
+
+		-- modes: tile,bisect,split,click
+		local wlkbptr = function(mode)
+			return function ()
+				local reset_submap = "hyprctl dispatch 'hl.dsp.submap(\"reset\")'"
+				local wlkbptr_mode = "wl-kbptr -o modes=" .. mode
+				local enter_submap = "hyprctl dispatch 'hl.dsp.submap(\"cursor\")'"
+				hl.dispatch(hl.dsp.exec_cmd(reset_submap .. " && " .. wlkbptr_mode .. " && " .. enter_submap))
+			end
+		end
+		-- tile if probably my fav, becuase its the quickest. but only for when no precision is required
+		-- or combine it with mouse movements
+		key.bind("Z", wlkbptr("tile"), { desc = "cursor: enter wl-kbptr tile" })
+		key.bind("B", wlkbptr("bisect"), { desc = "cursor: enter wl-kbptr bisect" })
+		-- use arrow keys to choose a split
+		key.bind("X", wlkbptr("split"), { desc = "cursor: enter wl-kbptr split" })
     -- TODO: submap visualiser
 
     -- Cursor movement
