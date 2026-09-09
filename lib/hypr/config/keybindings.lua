@@ -125,11 +125,11 @@ function m.setup()
   local prev_active_border = nil
   key.bind("SUPER + R", function()
     prev_active_border = hl.get_config("general.col.active_border")
-    local resize_gradient = {
-      colors = { require("colors").tertiary, require("colors").tertiary2 },
+    local gradient = {
+      colors = { require("colors").tertiary2, require("colors").tertiary },
       angle = 45,
     }
-    hl.config({ ["general.col.active_border"] = resize_gradient })
+    hl.config({ ["general.col.active_border"] = gradient })
     hl.dispatch(hl.dsp.submap("resize"))
   end, { desc = "enter resizing submap. exit with Q or ESC" })
 

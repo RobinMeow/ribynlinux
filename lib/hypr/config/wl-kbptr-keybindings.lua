@@ -5,6 +5,7 @@ function m.setup()
   local key = require("key")
 
   local prev_cursor_settings = nil
+  local prev_active_border = nil
   hl.bind("SUPER + C", function()
     prev_cursor_settings = hl.get_config("cursor")
     hl.config({
@@ -13,6 +14,14 @@ function m.setup()
         hide_on_key_press = false, -- do not hide cursor on keyboard presses
       },
     })
+
+    prev_active_border = hl.get_config("general.col.active_border")
+    local gradient = {
+      colors = { require("colors").secondary,require("colors").tertiary2  },
+      angle = 45,
+    }
+    hl.config({ ["general.col.active_border"] = gradient })
+
     hl.dispatch(hl.dsp.submap("cursor"))
   end, { desc = "enter cursor submap" })
 
@@ -49,7 +58,6 @@ function m.setup()
 		key.bind("B", wlkbptr("bisect"), { desc = "cursor: enter wl-kbptr bisect" })
 		-- use arrow keys to choose a split
 		key.bind("X", wlkbptr("split"), { desc = "cursor: enter wl-kbptr split" })
-    -- TODO: submap visualiser
 
     -- Cursor movement
 		local big_step = 150
@@ -81,6 +89,7 @@ function m.setup()
 
     local reset = function()
       hl.config({ cursor = prev_cursor_settings })
+      hl.config({ ["general.col.active_border"] = prev_active_border })
       hl.dispatch(hl.dsp.submap("reset"))
     end
     key.bind("Q", reset, { desc = "cursor: exit submap" })
