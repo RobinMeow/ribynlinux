@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+export RIBYN_ZATHURA_SET_AS_DEFAULT_MIMETYPE_FOR_PDF=${RIBYN_ZATHURA_SET_AS_DEFAULT_MIMETYPE_FOR_PDF:-"yes"}
