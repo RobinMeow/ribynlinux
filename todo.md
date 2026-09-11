@@ -1,11 +1,5 @@
 # Tasks
 
-full install tests:
-
-- arch only i think; cargo breaks ci on first install,
-  asking if install from rust or rustup
-- hypr wayland-protocol is missing on wob install
-
 - fhyprland move my hyprland from source build into a public repo with MIT
   fyprland, hydora
 - installing firefox, has set it as default mimetype for unzipping in yazi. w hat the?
