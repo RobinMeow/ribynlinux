@@ -2,7 +2,9 @@
 set -euo pipefail
 
 source "$RIBYN_ROOT/core/utils.sh"
-info "Syncing zathura"
+info "syncing zathura"
 
 mkdir -p "$HOME/.config/zathura"
-cp -r "$RIBYN_ROOT/lib/zathura/config/"* "$HOME/.config/zathura/"
+rsync -rlpt \
+	"$RIBYN_ROOT/lib/zathura/config/"* \
+	"$HOME/.config/zathura/"

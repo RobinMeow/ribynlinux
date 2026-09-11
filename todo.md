@@ -1,7 +1,6 @@
 # Tasks
 
 - hydora move my hyprland from source build into a public repo with MIT
-- installing firefox, has set it as default mimetype for unzipping in yazi. what the?
 - replace waybar with quickshell and have whatsapp/thunderbird icons for unread messages
 - discord automated install is missing. requires non-free rpm on fedora
 - [mpv-cut](https://github.com/familyfriendlymikey/mpv-cut) plugin for mpv for cutting videos or audio
