@@ -56,7 +56,8 @@ if on_arch; then
 		exfatprogs \
 		core/usbutils \
 		fio \
-		obs-studio
+		obs-studio \
+		discord
 
 # WARN: i remember targeting pack being a bug fix for dotnet
 # specifically for archlinux. but I ll wait until I run into it again.
@@ -112,7 +113,8 @@ elif on_fedora; then
 		exfatprogs \
 		fio \
 		usbutils \
-		obs-studio
+		obs-studio \
+		discord
 
 	sudo dnf install -y --allowerasing \
 		ffmpeg

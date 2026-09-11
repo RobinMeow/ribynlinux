@@ -9,7 +9,6 @@ if on_arch; then
 	sudo pacman -S --needed --noconfirm \
 		mpd
 elif on_fedora; then
-	"$RIBYN_ROOT/core/ensure-installed-fedora-rpm.sh"
 	sudo dnf install -y \
 		mpd
 fi

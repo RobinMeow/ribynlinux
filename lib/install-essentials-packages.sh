@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+"$RIBYN_ROOT/core/ensure-installed-fedora-rpm.sh"
+
 source "$RIBYN_ROOT/core/utils.sh"
 source "$RIBYN_ROOT/core/run_on_distro.sh"
 

@@ -2,7 +2,6 @@
 
 - hydora move my hyprland from source build into a public repo with MIT
 - replace waybar with quickshell and have whatsapp/thunderbird icons for unread messages
-- discord automated install is missing. requires non-free rpm on fedora
 - [mpv-cut](https://github.com/familyfriendlymikey/mpv-cut) plugin for mpv for cutting videos or audio
   or [lazycut](https://github.com/ozemin/lazycut) also supports video triming
   or [tui-wave](https://github.com/biomassa/tui-wave) which is only for audio
@@ -16,6 +15,7 @@
 - depends on firefox; make a cli tool to replace the need for bookmarks
 - some cli bin which invokes firefox --search my-search-text
 - consider replacing apps like rofi, with quickshell. quickshell everwhere.
+- [budget-tracker-tui](https://github.com/Feromond/budget-tracker-tui)
 
 # Further Education
 
