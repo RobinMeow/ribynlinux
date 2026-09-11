@@ -1,0 +1,2 @@
+# if a prefs joins multiple lines it breaks
+lib/firefox/*.js

@@ -7,9 +7,7 @@ info "syncing firefox"
 
 # Enable nullglob to safely handle non-matching globs under 'set -u'
 shopt -s nullglob
-# TODO: default and default-release are created by default
-# but I should use something me-specific.
-profiles=("$HOME/.config/mozilla/firefox"/*.default*)
+profiles=("$HOME/.config/mozilla/firefox"/*.ribyn)
 shopt -u nullglob
 
 if [[ ${#profiles[@]} -eq 0 ]]; then
@@ -20,9 +18,10 @@ fi
 for profile in "${profiles[@]}"; do
 	if [[ -d "${profile}" ]]; then
 		info "syncing config to $profile"
-		rsync -rlpt \
-			"$RIBYN_ROOT/lib/firefox/config/profiledir/"* \
-			"$profile"
+		cat \
+			"$RIBYN_ROOT/lib/firefox/less-breakage-betterfox.js" \
+			"$RIBYN_ROOT/lib/firefox/ribyn.js" \
+			>"$profile/user.js"
 	fi
 done
 
@@ -56,7 +55,7 @@ if [[ "$OS_TYPE" == "wsl" ]]; then
 		info "syncing windows firefox profile $ribyn_dir"
 		cat \
 			"$RIBYN_ROOT/lib/firefox/betterfox-154.0-user.js" \
-			"$RIBYN_ROOT/lib/firefox/config/profiledir/user.js" \
+			"$RIBYN_ROOT/lib/firefox/ribyn.js" \
 			>"$ribyn_dir/user.js"
 	fi
 
@@ -68,7 +67,7 @@ if [[ "$OS_TYPE" == "wsl" ]]; then
 		info "syncing windows firefox profile $robin_dir"
 		cat \
 			"$RIBYN_ROOT/lib/firefox/betterfox-154.0-user.js" \
-			"$RIBYN_ROOT/lib/firefox/config/profiledir/user.js" \
+			"$RIBYN_ROOT/lib/firefox/ribyn.js" \
 			>"$robin_dir/user.js"
 	fi
 fi

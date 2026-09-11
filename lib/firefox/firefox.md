@@ -72,5 +72,3 @@ unless the profiles already exists. then it will open that specific profile.
 
 [vimium](https://addons.mozilla.org/en-US/firefox/addon/vimium-ff/)
 [uBlock origin](https://addons.mozilla.org/de/firefox/addon/ublock-origin/)
-
-TODO: enable ask for password firefox word profile
