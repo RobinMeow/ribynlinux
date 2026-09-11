@@ -53,11 +53,11 @@ logformat_full='"%C(auto)%h%Creset %C(bold #FFAC00)%<(50,trunc)%s%Creset Comitte
 logformat='"%C(auto)%h%d%Creset %C(#FFAC00)%s%Creset %C(#cba6f7)%cn%Creset %C(#F6B0BC)%cr%Creset"'
 
 # shellcheck disable=SC2139
-alias gl="git log -7 --graph --pretty=format:$logformat_aligned"
+alias gl="git log -7 --pretty=format:$logformat_aligned"
 # shellcheck disable=SC2139
 alias glfull="git log -7 --graph --pretty=format:$logformat_full"
 # shellcheck disable=SC2139
-alias gl1="git log -1 --graph --pretty=format:$logformat"
+alias gl1="git log -1 --pretty=format:$logformat"
 # --all shows all branches making the --graph more usefull
 # shellcheck disable=SC2139
 alias gla="git log -7 --graph --pretty=format:$logformat_aligned --all"
@@ -70,9 +70,7 @@ alias glo="git log -7 --graph --pretty=format:$logformat"
 alias glao="git log -7 --graph --pretty=format:$logformat --all"
 
 # shellcheck disable=SC2139
-alias glast="git log -1 --graph --pretty=format:$logformat --stat"
-# shellcheck disable=SC2139
-alias glastp="git log -1 --graph --pretty=format:$logformat --stat --patch"
+alias gl1p="git log -1 --pretty=format:$logformat --stat --patch"
 
 # testing git pull --verbose --stat as new default
 alias gpl='git pull --verbose --stat'
