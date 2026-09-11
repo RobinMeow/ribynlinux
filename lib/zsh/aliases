@@ -29,4 +29,6 @@ alias gs="gss"
 # use monday as start of week
 alias cal="cal --monday"
 
+alias fehss='feh --fullscreen --auto-zoom --slideshow-delay 5 --randomize --recursive'
+
 # vim: ft=bash
