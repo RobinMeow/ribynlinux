@@ -33,4 +33,12 @@ fi
 # xcursor and hyprcursor are both set in hyprland.lua
 # to make sure hyprland knows about those env vars
 
+export QT_QPA_PLATFORMTHEME='qt6ct'
+export GTK_THEME='Adwaita:dark'
+export GTK2_RC_FILES='/usr/share/themes/Adwaita-dark/gtk-2.0/gtkrc'
+# WARN: use override if qt6ct is not being picked up
+# export QT_STYLE_OVERRIDE='Adwaita-Dark'
+# better to only use this for the apps that need it. e.g.
+# QT_STYLE_OVERRIDE='Adwaita-Dark' firefox
+
 # vim: ft=bash

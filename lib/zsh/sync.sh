@@ -20,6 +20,10 @@ rsync -rlpt \
 	"$HOME/.config/ribyn/zsh/"
 
 rsync -rlpt \
+	"$RIBYN_ROOT/lib/zsh/zprofile.sh" \
+	"$HOME/.zprofile"
+
+rsync -rlpt \
 	"$RIBYN_ROOT/lib/zsh/starship.toml" \
 	"$HOME/.config/starship.toml"
 
