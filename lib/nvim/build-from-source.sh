@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 set -euo pipefail
 
 source "$RIBYN_ROOT/lib/nvim/env.sh"
