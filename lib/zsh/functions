@@ -17,6 +17,7 @@ function y() {
 
 # shadow hyprmoncfg bin to set the env variable and act as a short alias
 function hyprmoncfg() {
+	echo "lua file will be stored at ~/.config/hypr/hyprmoncfg.lua"
 	HYPRMONCFG_MONITORS_CONF="$HOME/.config/hypr/hyprmoncfg.lua" command hyprmoncfg "$@"
 }
 

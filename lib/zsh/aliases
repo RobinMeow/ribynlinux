@@ -31,4 +31,10 @@ alias cal="cal --monday"
 
 alias fehss='feh --fullscreen --auto-zoom --slideshow-delay 5 --randomize --recursive'
 
+if command -v n &>/dev/null; then
+	echo "⚠️ Warning: The 'n' command is hidden by your nvim alias."
+	echo "you can run shadowed command by escaping (prepend) the alias with a backslash"
+fi
+alias n='nvim'
+
 # vim: ft=bash
