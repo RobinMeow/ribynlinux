@@ -51,3 +51,6 @@
 - [yazi tips and tricks e.g. drag and drop](https://yazi-rs.github.io/docs/tips/#drag-and-drop)
 - make sure simple kind of man is in my music playlist
 - [rclone to sync cloud as a mounted filesystem](https://github.com/rclone/rclone)
+
+show Robin minimap
+- https://youtu.be/VeCptqGSahs?t=3122
