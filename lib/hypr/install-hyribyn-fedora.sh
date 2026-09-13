@@ -35,7 +35,7 @@ SOURCERER_DEST="$HYRIBYN_ROOT" source "$RIBYN_ROOT/core/sourcerer.sh"
 function hyribyn_installed() {
 	# never consider it to be installed.
 	# hyribyn is already idempotent and knows what it needs to run what not.
-	return 0
+	return 1
 }
 
 function hyribyn_build_and_install() {
