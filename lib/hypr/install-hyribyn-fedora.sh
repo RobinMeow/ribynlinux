@@ -20,10 +20,17 @@ exec > >(tee "$logfile") 2>&1
 
 info "installing hyribyn-fedora"
 
+# this is where hyribyn will clone all the git repos,
+# build, install and update them.
+# hyribyn will also look in here for its own git location
+# unless you set HYRIBYN
+export HYRIBYN_ROOT="$HOME/.local/share/ribyn"
+
 # hyribyn will be installed in ~/.local/share/ribyn/hyribyn
 # will use HYRIBYN_ROOT if not set.
 export HYRIBYN="$HOME/.local/share/ribyn/hyribyn"
-SOURCERER_DEST="$HYRIBYN" source "$RIBYN_ROOT/core/sourcerer.sh"
+
+SOURCERER_DEST="$HYRIBYN_ROOT" source "$RIBYN_ROOT/core/sourcerer.sh"
 
 function hyribyn_installed() {
 	# never consider it to be installed.
@@ -34,12 +41,6 @@ function hyribyn_installed() {
 function hyribyn_build_and_install() {
 	# use fedora as target distro
 	export HYRIBYN_DISTRO="fedora"
-
-	# this is where hyribyn will clone all the git repos,
-	# build, install and update them.
-	# hyribyn will also look in here for its own git location
-	# unless you set HYRIBYN
-	export HYRIBYN_ROOT="$HOME/.local/share/ribyn"
 
 	# install all hyprland dependencies, hyprland itself,
 	# and hyprland runtime dependencies
