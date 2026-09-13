@@ -22,7 +22,7 @@ info "installing hyribyn-fedora"
 
 # hyribyn will be installed in ~/.local/share/ribyn/hyribyn
 # will use HYRIBYN_ROOT if not set.
-export HYRIBYN="$HOME/.local/share/ribyn/"
+export HYRIBYN="$HOME/.local/share/ribyn/hyribyn"
 SOURCERER_DEST="$HYRIBYN" source "$RIBYN_ROOT/core/sourcerer.sh"
 
 function hyribyn_installed() {
