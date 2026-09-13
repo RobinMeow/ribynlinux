@@ -6,6 +6,8 @@
   or [lazycut](https://github.com/ozemin/lazycut) also supports video triming
   or [tui-wave](https://github.com/biomassa/tui-wave) which is only for audio
 - shared partition in exFAT
+- make use of [piper1-gpl text-to-speech](https://github.com/OHF-Voice/piper1-gpl)
+  or another one [top 10 blog post](https://modal.com/blog/open-source-tts)
 - portable linux (a nvme in an enclosure)
 - automate backups
 - learn about security, and apply some basic stuff like firewall
