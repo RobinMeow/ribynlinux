@@ -74,6 +74,7 @@ alias gl1p="git log -1 --pretty=format:$logformat --stat --patch"
 
 # testing git pull --verbose --stat as new default
 alias gpl='git pull --verbose --stat'
+alias gplr='git pull --rebase --verbose --stat'
 
 alias gp='git push --verbose'
 # nice for removing remote branches gpo :<remote-branch>
