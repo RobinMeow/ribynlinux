@@ -1,23 +1,12 @@
 # Tasks
 
-- hydora move my hyprland from source build into a public repo with MIT
-- replace waybar with quickshell and have whatsapp/thunderbird icons for unread messages
 - [mpv-cut](https://github.com/familyfriendlymikey/mpv-cut) plugin for mpv for cutting videos or audio
   or [lazycut](https://github.com/ozemin/lazycut) also supports video triming
   or [tui-wave](https://github.com/biomassa/tui-wave) which is only for audio
-- shared partition in exFAT
 - make use of [piper1-gpl text-to-speech](https://github.com/OHF-Voice/piper1-gpl)
   or another one [top 10 blog post](https://modal.com/blog/open-source-tts)
-- portable linux (a nvme in an enclosure)
-- automate backups
-- learn about security, and apply some basic stuff like firewall
-- configure dunst to have a timer and build tools based on it `notify-send "test"`
-- password manager from the ebook. and make it compatible for android using termux
+- learn SELinux for security
 - rmpc primary color is too neon like. need more pastel like
-- depends on firefox; make a cli tool to replace the need for bookmarks
-- some cli bin which invokes firefox --search my-search-text
-- consider replacing apps like rofi, with quickshell. quickshell everwhere.
-- [budget-tracker-tui](https://github.com/Feromond/budget-tracker-tui)
 
 # Further Education
 
@@ -30,13 +19,18 @@
 
 ## app ideas
 
+- make a cli tool to replace the need for browser bookmarks
 - tui to manage ~/.config/ribyn/local-env.sh
 - music dl (TUI) yt-dlp
 - audio cutting tui
+- replace waybar with quickshell and have whatsapp/thunderbird icons for unread messages
+  & consider replacing apps like rofi, with quickshell. quickshell everwhere.
+- configure dunst to have a timer and build tools based on it `notify-send "test"`
 
 ## Fedora
 
 - virtualization is not tested
+- steam games not tested with mods and compatibility
 
 ## Kitty
 
@@ -53,6 +47,3 @@
 - [yazi tips and tricks e.g. drag and drop](https://yazi-rs.github.io/docs/tips/#drag-and-drop)
 - make sure simple kind of man is in my music playlist
 - [rclone to sync cloud as a mounted filesystem](https://github.com/rclone/rclone)
-
-show Robin minimap
-- https://youtu.be/VeCptqGSahs?t=3122
