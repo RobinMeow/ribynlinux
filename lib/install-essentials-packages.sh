@@ -1,8 +1,6 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-"$RIBYN_ROOT/core/ensure-installed-fedora-rpm.sh"
-
 source "$RIBYN_ROOT/core/utils.sh"
 source "$RIBYN_ROOT/core/run_on_distro.sh"
 
@@ -20,6 +18,8 @@ if on_arch; then
 		pkgconf \
 		gawk
 elif on_fedora; then
+	"$RIBYN_ROOT/core/ensure-installed-fedora-rpm.sh"
+
 	sudo dnf install -y \
 		@development-tools \
 		git \
