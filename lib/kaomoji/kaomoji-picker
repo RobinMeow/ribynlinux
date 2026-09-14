@@ -3,14 +3,13 @@ set -euo pipefail
 
 json="$RIBYN_ROOT/lib/kaomoji/kaomoji.json"
 
-selection="$(
-	jq -r '.[] | "\(.kaomoji)\t\(.description)"' "$json" |
-		rofi \
-			-dmenu \
-			-i \
-			-matching fuzzy \
-			-p "Kaomoji"
-)"
+list="$(jq -r '.[] | "\(.kaomoji)\t\(.description)"' "$json")"
+if [[ "${1:-""}" == "--fzf" ]]; then
+	selection="$(fzf --prompt="Kaomoji: " <<<"$list")"
+else
+	# not tested. can't test it in wsl rn
+	selection="$(rofi -dmenu -i -matching fuzzy -p "Kaomoji" <<<"$list")"
+fi
 
 [[ -z "$selection" ]] && exit 0
 
