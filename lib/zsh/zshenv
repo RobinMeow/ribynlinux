@@ -23,6 +23,8 @@ export MANPATH="/usr/local/man:$MANPATH"
 export EDITOR='nvim'
 
 export RIBYN_ROOT="$HOME/ribynlinux"
+export RIBYNLINUX="$HOME/ribynlinux"
+export RIBYNS_STATE="$HOME/ribyns-state"
 
 # the directory name of the cursor theme located in "$HOME/.icons"
 if [[ -d "$HOME/.icons/catppuccin-latte-mauve-cursors" ]]; then

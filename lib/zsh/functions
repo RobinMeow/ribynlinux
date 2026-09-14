@@ -25,6 +25,10 @@ function rrt() {
 	cd "$RIBYN_ROOT" || exit
 }
 
+function rst() {
+	cd "$RIBYNS_STATE" || exit
+}
+
 function rcd() {
 	cd "$( (
 		fd --type d . "$RIBYN_ROOT"
