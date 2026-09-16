@@ -29,7 +29,8 @@ if on_arch; then
 		go \
 		cargo \
 		wget \
-		npm
+		npm \
+		dotnet-sdk
 
 	if [[ "$RIBYN_NVIM_BUILD_FROM_SOURCE" == "yes" ]]; then
 		"$RIBYN_ROOT/lib/nvim/build-from-source.sh"
@@ -43,7 +44,8 @@ elif on_fedora; then
 		golang \
 		cargo \
 		wget2-wget \
-		npm
+		npm \
+		"dotnet-sdk-10.0"
 
 	if [[ "$RIBYN_NVIM_BUILD_FROM_SOURCE" == "yes" ]]; then
 		"$RIBYN_ROOT/lib/nvim/build-from-source.sh"
