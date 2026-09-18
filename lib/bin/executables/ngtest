@@ -2,11 +2,12 @@
 set -euo pipefail
 
 # Configuration
-CACHE_DIR="${XDG_CACHE_HOME:-$HOME/.cache}/ribyn"
+CACHE_DIR="${XDG_CACHE_HOME:-$HOME/.cache}/ribyn/ngtest"
 HISTORY_FILE="$CACHE_DIR/ng_test_fzf_history"
 BROWSER=""
 WATCH_MODE=true
 COVERAGE=false
+cmds="yes"
 
 show_help() {
 	echo "Usage: $(basename "$0") [QUERY] [OPTIONS]"
@@ -17,6 +18,7 @@ show_help() {
 	echo "  --karma            Use ChromeHeadless (default: chromiumheadless)"
 	echo "  --browsers         Specify a custom browser engine"
 	echo "  --no-watch         Disable watch mode"
+	echo "  --no-cmds          Turn cmds persistance off"
 	echo ""
 	echo "Arguments:"
 	echo "  QUERY              Initial filter string for fzf"
@@ -42,6 +44,10 @@ while [[ $# -gt 0 ]]; do
 		;;
 	--no-watch)
 		WATCH_MODE=false
+		shift
+		;;
+	--no-cmds)
+		cmds="no"
 		shift
 		;;
 	*)
@@ -84,10 +90,6 @@ fi
 # Prepend --include to each selected file
 INCLUDE_FLAGS=$(echo "$FZF_OUT" | sed 's|^|--include |' | tr '\n' ' ')
 
-# Strip paths and all suffixes (e.g., path/file.spec.ts -> file)
-# BASENAMES=$(echo "$FZF_OUT" | sed 's|.*/||; s|\..*||' | paste -sd ", " -)
-BASENAMES=$(echo "$FZF_OUT" | sed 's|.*/||; s|\..*||' | paste -sd, - | sed 's/,/, /g')
-
 # --- Build Execution Command ---
 CMD=(npx ng test --watch="$WATCH_MODE")
 
@@ -99,14 +101,47 @@ if [ -n "$BROWSER" ]; then
 	CMD+=(--browsers="$BROWSER")
 fi
 
-# Add spec inclusions
-CMD+=($INCLUDE_FLAGS)
+CMDS_DIR="$CACHE_DIR/cmds"
 
-# --- Execution ---
-clear
-echo "▶ Running Angular specs"
-echo "  Files: ${BASENAMES}"
-echo "  Coverage: ${COVERAGE}"
-echo "--------------------------------------"
+prompt_cmd_name() {
+	read -rp "Enter cmd name [leave empty for \"default\"]: " filename
 
-exec "${CMD[@]}"
+	filename="${filename:-"default"}"
+
+	if [[ -f "$CMDS_DIR/$filename" ]]; then
+		echo "Overriding existing cmd."
+		rm "$CMDS_DIR/$filename"
+	fi
+}
+
+if [[ "$cmds" == "yes" ]]; then
+	mkdir -p "$CMDS_DIR"
+	prompt_cmd_name
+
+	cat \
+		<(echo "#!/usr/bin/env bash") \
+		<(echo "set -euo pipefail") \
+		<(echo "") \
+		<(echo "exec" "${CMD[@]}" "\\") \
+		<(echo " " "$INCLUDE_FLAGS") \
+		>"$CMDS_DIR/$filename"
+
+	chmod +x "$CMDS_DIR/$filename"
+	echo "$CMDS_DIR/$filename" | wl-copy --trim-newline
+	echo "cmd filepath copied to clipboard"
+else
+
+	# Strip paths and all suffixes (e.g., path/file.spec.ts -> file)
+	# BASENAMES=$(echo "$FZF_OUT" | sed 's|.*/||; s|\..*||' | paste -sd ", " -)
+	BASENAMES=$(echo "$FZF_OUT" | sed 's|.*/||; s|\..*||' | paste -sd, - | sed 's/,/, /g')
+
+	# --- Execution ---
+	clear
+	echo "▶ Running Angular specs"
+	echo "  Files: ${BASENAMES}"
+	echo "  Coverage: ${COVERAGE}"
+	echo "--------------------------------------"
+
+	CMD+=("$INCLUDE_FLAGS")
+	exec "${CMD[@]}"
+fi
