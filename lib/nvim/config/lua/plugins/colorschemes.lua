@@ -8,6 +8,10 @@ return {
     config = function()
       require("catppuccin").setup({
         flavour = "mocha", -- Change this to 'frappe', 'macchiato', or 'latte' if desired
+        -- TODO: consider enabling italics. not sure why its in the color scheme, but I
+        -- do want italics in markdown files and others
+        -- WARN: since installing the correct CommitMono Nerd Font the italics are
+        -- enabled somehow. so this setting is not really working?
         no_italic = true,
         integrations = {
           -- integrate on more stuff like cmp, gitsigns, etc..

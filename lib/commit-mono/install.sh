@@ -1,7 +1,10 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+# WARN: this is not a nerd font
+
 # https://docs.fedoraproject.org/en-US/quick-docs/fonts/#unpackaged
+source "$RIBYN_ROOT/lib/commit-mono/env.sh"
 source "$RIBYN_ROOT/core/run_on_distro.sh"
 source "$RIBYN_ROOT/core/utils.sh"
 
@@ -14,9 +17,7 @@ for arg in "$@"; do
 	fi
 done
 
-install_dest="$HOME/.local/share/fonts/commit-mono"
-
-if [[ ! -d "$install_dest" ]] || [[ "$reinstall" == true ]]; then
+if [[ ! -d "$RIBYN_COMMIT_MONO_INSTALL_DIR" ]] || [[ "$reinstall" == true ]]; then
 	# coreutils contain cut and xargs
 	run_on_fedora sudo dnf install --assumeyes \
 		unzip \
@@ -34,21 +35,21 @@ if [[ ! -d "$install_dest" ]] || [[ "$reinstall" == true ]]; then
 	# first curl gets infos of latest, next two pipes retrieve the url, las curl downloads it
 	mkdir -p "$HOME/Downloads"
 	font_zip="$HOME/Downloads/CommitMono.zip"
-	curl https://api.github.com/repos/eigilnikolajsen/commit-mono/releases/latest |
+	curl "https://api.github.com/repos/eigilnikolajsen/commit-mono/releases/latest" |
 		grep "browser_download_url" |
 		cut -d '"' -f 4 |
 		xargs -I downloadurl curl --fail --location --show-error --output "$font_zip" "downloadurl"
 
-	mkdir -p "$install_dest"
+	mkdir -p "$RIBYN_COMMIT_MONO_INSTALL_DIR"
 
 	# clean previous versions of commit-mono
-	rm -rf "${install_dest:?}"/*
-	unzip "$font_zip" -d "$install_dest"
+	rm -rf "${RIBYN_COMMIT_MONO_INSTALL_DIR:?}"/*
+	unzip "$font_zip" -d "$RIBYN_COMMIT_MONO_INSTALL_DIR"
 
 	rm "$font_zip"
 
 	# NOTE:fedora uses SELinux, Arch does not
-	run_on_fedora sudo restorecon -vFr "$install_dest"
+	run_on_fedora sudo restorecon -vFr "$RIBYN_COMMIT_MONO_INSTALL_DIR"
 
 	# update font cache
 	if [[ "$reinstall" == true ]]; then

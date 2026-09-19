@@ -1,0 +1,58 @@
+return {
+  "c",
+  "lua",
+  "vim",
+  "vimdoc",
+  "query",
+  "go",
+  "rust",
+
+  -- for bevy rust based game engine
+  "wgsl",
+  "wgsl_bevy",
+
+  "markdown",
+  "markdown_inline",
+  "yaml",
+  "bash",
+  "zsh",
+  "diff",
+  "html",
+  "css",
+  "scss",
+  "toml",
+  "yaml",
+  "regex",
+  "kitty", -- for kitty.conf files
+  "csv",
+  "cmake",
+  -- NOTE: not sure if I should include those two
+  -- "awk",
+  -- "jq",
+  "angular",
+  "c_sharp",
+  "luadoc",
+  "javascript",
+  "json",
+  "python",
+  "regex",
+  "tsx",
+  "typescript",
+  "cpp",
+
+  -- godot
+  "gdscript",
+  "godot_resource",
+  "gdshader",
+  -- went through the whole list and added what I felt like
+  -- I should have, could maybe use, or might use in the future
+  "zsh",
+  "toml",
+  "awk",
+  "just",
+  "gitcommit",
+  "gitignore",
+  "gitattributes",
+  "git_config",
+  "css",
+}

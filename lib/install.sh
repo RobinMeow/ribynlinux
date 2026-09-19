@@ -10,6 +10,8 @@ exec > >(tee "$logfile") 2>&1
 source "$RIBYN_ROOT/core/utils.sh"
 source "$RIBYN_ROOT/core/run_on_distro.sh"
 
+"$RIBYN_ROOT/lib/run-migrations.sh"
+
 info "Installing from source: $RIBYN_ROOT"
 
 "$RIBYN_ROOT/lib/install-essentials-packages.sh"
@@ -25,7 +27,7 @@ info "Installing from source: $RIBYN_ROOT"
 "$RIBYN_ROOT/lib/kaomoji/install.sh"
 "$RIBYN_ROOT/lib/catppuccin-cursors/install.sh"
 "$RIBYN_ROOT/lib/qt6ct/install.sh"
-"$RIBYN_ROOT/lib/install-commit-mono.sh"
+"$RIBYN_ROOT/lib/nerd-fonts/install.sh"
 "$RIBYN_ROOT/lib/brave/install.sh"
 "$RIBYN_ROOT/lib/firefox/install.sh"
 "$RIBYN_ROOT/lib/thunderbird/install.sh"

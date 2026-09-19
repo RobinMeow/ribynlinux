@@ -1,5 +1,6 @@
 # Tasks
 
+- change hyprcusor color when in cursor mode
 - [mpv-cut](https://github.com/familyfriendlymikey/mpv-cut) plugin for mpv for cutting videos or audio
   or [lazycut](https://github.com/ozemin/lazycut) also supports video triming
   or [tui-wave](https://github.com/biomassa/tui-wave) which is only for audio
