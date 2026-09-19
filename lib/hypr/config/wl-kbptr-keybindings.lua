@@ -25,10 +25,13 @@ function m.setup()
     hl.dispatch(hl.dsp.submap("cursor"))
   end, { desc = "enter cursor submap" })
 
+	key.bind("SUPER + SHIFT + C", hl.dsp.exec_cmd("wl-kbptr -o modes=tile,tile,click"), { desc = "wl-kbptr tile,tile,click" })
+	key.bind("SUPER + CTRL + C", hl.dsp.exec_cmd("wl-kbptr -o modes=bisect,tile,click"), { desc = "wl-kbptr bisect,tile,click" })
+
   hl.define_submap("cursor", function()
     -- Jump cursor to a position
     key.bind(
-      "A",
+      "V",
       -- disable submap to allow typing letters, spawn the grid,
       -- type the letters, cursor jumps, re-enter the submap for clicking keymaps or exit
       function()
@@ -55,23 +58,25 @@ function m.setup()
 		-- tile if probably my fav, becuase its the quickest. but only for when no precision is required
 		-- or combine it with mouse movements
 		key.bind("Z", wlkbptr("tile"), { desc = "cursor: enter wl-kbptr tile" })
-		key.bind("B", wlkbptr("bisect"), { desc = "cursor: enter wl-kbptr bisect" })
 		-- use arrow keys to choose a split
-		key.bind("X", wlkbptr("split"), { desc = "cursor: enter wl-kbptr split" })
+		key.bind("C", wlkbptr("split"), { desc = "cursor: enter wl-kbptr split" })
+		-- A: floating, see above
+		key.bind("B", wlkbptr("bisect"), { desc = "cursor: enter wl-kbptr bisect" })
 
     -- Cursor movement
-		local big_step = 150
+		local big_step = 250
     key.bind("Y", hl.dsp.exec_cmd("wlrctl pointer move -" .. big_step .. " 0"), { repeating = true, desc = "cursor: move pointer left " .. big_step .. "u" })
     key.bind("U", hl.dsp.exec_cmd("wlrctl pointer move 0 ".. big_step), { repeating = true ,  desc = "cursor: move pointer down " .. big_step .. "u" })
     key.bind("I", hl.dsp.exec_cmd("wlrctl pointer move 0 -" .. big_step), { repeating = true, desc = "cursor: move pointer up " .. big_step .. "u" })
     key.bind("O", hl.dsp.exec_cmd("wlrctl pointer move " .. big_step .. " 0"), { repeating = true , desc = "cursor: move pointer right " .. big_step .. "u"})
 
-    key.bind("H", hl.dsp.exec_cmd("wlrctl pointer move -10 0"), { repeating = true, desc = "cursor: move pointer left" })
-    key.bind("J", hl.dsp.exec_cmd("wlrctl pointer move 0 10"), { repeating = true ,  desc = "cursor: move pointer down" })
-    key.bind("K", hl.dsp.exec_cmd("wlrctl pointer move 0 -10"), { repeating = true, desc = "cursor: move pointer up" })
-    key.bind("L", hl.dsp.exec_cmd("wlrctl pointer move 10 0"), { repeating = true , desc = "cursor: move pointer right"})
+		local normal_step = 20
+    key.bind("H", hl.dsp.exec_cmd("wlrctl pointer move -" .. normal_step .. " 0"), { repeating = true, desc = "cursor: move pointer left" })
+    key.bind("J", hl.dsp.exec_cmd("wlrctl pointer move 0 " .. normal_step), { repeating = true ,  desc = "cursor: move pointer down" })
+    key.bind("K", hl.dsp.exec_cmd("wlrctl pointer move 0 -" .. normal_step), { repeating = true, desc = "cursor: move pointer up" })
+    key.bind("L", hl.dsp.exec_cmd("wlrctl pointer move " .. normal_step .. " 0"), { repeating = true , desc = "cursor: move pointer right"})
 
-		local small_step = 1
+		local small_step = 10
     key.bind("N", hl.dsp.exec_cmd("wlrctl pointer move -" .. small_step .. " 0"), { repeating = true, desc = "cursor: move pointer left " .. small_step .. "u" })
     key.bind("M", hl.dsp.exec_cmd("wlrctl pointer move 0 ".. small_step), { repeating = true ,  desc = "cursor: move pointer down " .. small_step .. "u" })
     key.bind("COMMA", hl.dsp.exec_cmd("wlrctl pointer move 0 -" .. small_step), { repeating = true, desc = "cursor: move pointer up " .. small_step .. "u" })

@@ -16,13 +16,13 @@ label_color=#fd971f
 label_select_color=#00ff99
 
 # Background color for unselectable regions
-unselectable_bg_color=#2226
+unselectable_bg_color=#00000044
 
 # Background color for selectable regions
-selectable_bg_color=#0304
+selectable_bg_color=#00000088
 
 # Border color for selectable regions
-selectable_border_color=#040c
+selectable_border_color=#000000FF
 
 label_font_family=Noto Sans
 
@@ -79,7 +79,7 @@ pointer_size=20
 pointer_color=#e22d
 
 # Background color for unselectable regions
-unselectable_bg_color=#2226
+unselectable_bg_color=#00000044
 
 # Background color for even areas.
 # Odd/even areas are selectable areas with odd/even indices,
