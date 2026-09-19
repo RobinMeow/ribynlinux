@@ -39,5 +39,6 @@ info "Syncing from source: $RIBYN_ROOT"
 "$RIBYN_ROOT/lib/waybar/sync.sh"
 "$RIBYN_ROOT/lib/kde/sync.sh"
 "$RIBYN_ROOT/lib/desktop-files/sync.sh"
+"$RIBYN_ROOT/lib/wl-kbptr/sync.sh"
 
 success "ribynlinux synced"
