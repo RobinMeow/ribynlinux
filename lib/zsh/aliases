@@ -37,4 +37,6 @@ if command -v n &>/dev/null; then
 fi
 alias n='nvim'
 
+alias qml='qml-qt6'
+
 # vim: ft=bash

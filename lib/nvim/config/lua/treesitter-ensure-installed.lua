@@ -26,6 +26,8 @@ return {
   "kitty", -- for kitty.conf files
   "csv",
   "cmake",
+  "qmldir",
+  "qmljs",
   -- NOTE: not sure if I should include those two
   -- "awk",
   -- "jq",

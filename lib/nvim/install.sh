@@ -30,7 +30,12 @@ if on_arch; then
 		cargo \
 		wget \
 		npm \
-		dotnet-sdk
+		dotnet-sdk \
+		quickshell
+
+	sudo pacman -S --needed --noconfirm \
+		qt6-base \
+		qt6-declarative
 
 	if [[ "$RIBYN_NVIM_BUILD_FROM_SOURCE" == "yes" ]]; then
 		"$RIBYN_ROOT/lib/nvim/build-from-source.sh"
@@ -45,7 +50,16 @@ elif on_fedora; then
 		cargo \
 		wget2-wget \
 		npm \
-		"dotnet-sdk-10.0"
+		"dotnet-sdk-10.0" \
+		quickshell
+
+	# qt qml and c++ development. the essentials
+	sudo dnf install --assumeyes \
+		qt6-qtbase-devel \
+		qt6-qtdeclarative-devel
+	# sudo dnf in -y "qt6-*-devel" to pull in everything,
+	# but its bloated with stuff I won't ever need.
+	# Like a chromiu browser engine.
 
 	if [[ "$RIBYN_NVIM_BUILD_FROM_SOURCE" == "yes" ]]; then
 		"$RIBYN_ROOT/lib/nvim/build-from-source.sh"
