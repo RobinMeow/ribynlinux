@@ -1,8 +1,8 @@
 # Tasks
 
+- voice to text (on OS layer)
 - change hyprcusor color when in cursor mode
-- [mpv-cut](https://github.com/familyfriendlymikey/mpv-cut) plugin for mpv for cutting videos or audio
-  or [lazycut](https://github.com/ozemin/lazycut) also supports video triming
+- [lazycut](https://github.com/ozemin/lazycut) also supports video triming
   or [tui-wave](https://github.com/biomassa/tui-wave) which is only for audio
 - make use of [piper1-gpl text-to-speech](https://github.com/OHF-Voice/piper1-gpl)
   or another one [top 10 blog post](https://modal.com/blog/open-source-tts)
