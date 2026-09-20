@@ -10,35 +10,35 @@
 [push]
   autoSetupRemote = false
 [alias]
-	ss = status --short --untracked-files=all
-	sw = switch
-	l = log -7 --graph --pretty=format:\"%C(auto)%h%d%Creset %s %C(green)%cn%Creset %C(cyan)(%cr)%Creset\"
-	last = l -1
-	co = checkout
-	c = commit --verbose
-	b = branch
-	p = push
-	pl = pull
-	aa = add --all
-	aac = "!git add --all && git commit --verbose"
-	aaca = "!git add --all && git commit --amend --verbose"
-	aacane = "!git add --all && git commit --amend --no-edit --verbose"
-	aacp = "!git add --all && git commit --verbose && git push"
-	aacpf = "!git add --all && git commit --verbose && git push --force-with-lease"
-	aacapf = "!git add --all && git commit --amend --verbose && git push --force-with-lease"
-	aacanep = "!git add --all && git commit --amend --no-edit --verbose && git push"
-	aacanepf = "!git add --all && git commit --amend --no-edit --verbose && git push --force-with-lease"
-	wt = worktree
-	fpa = fetch --prune --all
-	pf = push --force-with-lease
-	ca = commit --amend --verbose
-	cane = commit --amend --no-edit --verbose
-	canep = "!git commit --amend --no-edit && git push"
-	canepf = "!git commit --amend --no-edit && git push --force-with-lease"
-	cp = "!git commit --verbose && git push"
-	smfe = submodule foreach
-	skipped = !git ls-files -v | grep \"^S\"
-	skip = update-index --skip-worktree
-	no-skip = update-index --no-skip-worktree
-	crime = log --all --numstat --date=short --pretty=format:--%h--%ad--%aN
-	bvvawkgone = "!git branch --verbose --verbose | awk '/: gone]/ {print $1}'"
+	ss = "!echo -e \"use zsh aliases instead 'gss'\""
+	sw = "!echo -e \"use zsh aliases instead 'gsw'\""
+	l = "!echo -e \"use zsh aliases instead 'gl'\""
+	last = "!echo -e \"use zsh aliases instead 'glast'\""
+	co = "!echo -e \"use zsh aliases instead 'gco'\""
+	c = "!echo -e \"use zsh aliases instead 'gc'\""
+	b = "!echo -e \"use zsh aliases instead 'gb'\""
+	p = "!echo -e \"use zsh aliases instead 'gp'\""
+	pl = "!echo -e \"use zsh aliases instead 'gpl'\""
+	aa = "!echo -e \"use zsh aliases instead 'gaa'\""
+	aac = "!echo -e \"use zsh aliases instead 'gaac'\""
+	aaca = "!echo -e \"use zsh aliases instead 'gaaca'\""
+	aacane = "!echo -e \"use zsh aliases instead 'gaacane'\""
+	aacp = "!echo -e \"use zsh aliases instead 'gaacp'\""
+	aacpf = "!echo -e \"use zsh aliases instead 'gaacpf'\""
+	aacapf = "!echo -e \"use zsh aliases instead 'gaacapf'\""
+	aacanep = "!echo -e \"use zsh aliases instead 'gaacanep'\""
+	aacanepf = "!echo -e \"use zsh aliases instead 'gaacanepf'\""
+	wt = "!echo -e \"use zsh aliases instead 'gwt'\""
+	fpa = "!echo -e \"use zsh aliases instead 'gfpa'\""
+	pf = "!echo -e \"use zsh aliases instead 'gpf'\""
+	ca = "!echo -e \"use zsh aliases instead 'gca'\""
+	cane = "!echo -e \"use zsh aliases instead 'gcane'\""
+	canep = "!echo -e \"use zsh aliases instead 'gcanep'\""
+	canepf = "!echo -e \"use zsh aliases instead 'gcanepf'\""
+	cp = "!echo -e \"use zsh aliases instead 'gcp'\""
+	smfe = "!echo -e \"use zsh aliases instead 'gsmfe'\""
+	skipped = "!echo -e \"use zsh aliases instead 'gskipped'\""
+	skip = "!echo -e \"use zsh aliases instead 'gskip'\""
+	no-skip = "!echo -e \"use zsh aliases instead 'gno-skip'\""
+	crime = "!echo -e \"use zsh aliases instead 'gcrime'\""
+	bvvawkgone = "!echo -e \"use zsh aliases instead 'gbvvawkgone'\""
