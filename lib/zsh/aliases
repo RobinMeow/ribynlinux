@@ -37,4 +37,5 @@ if command -v n &>/dev/null; then
 fi
 alias n='nvim'
 
+alias yt-dlpm='yt-dlp -x --audio-format mp3 --audio-quality 0 -o "%(title)s.%(ext)s"'
 # vim: ft=bash
