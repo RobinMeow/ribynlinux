@@ -50,24 +50,6 @@ return {
       -- See `:help telescope.builtin`
       local builtin = require("telescope.builtin")
 
-      local function SearchCurrentDirectory()
-        local current_file = vim.fn.expand("%:p")
-
-        -- Check if the buffer is a file
-        if current_file == "" or vim.fn.filereadable(current_file) == 0 then
-          -- Fallback to regular find_files
-          builtin.find_files()
-          return
-        end
-
-        local currWorkingDir = vim.fn.expand("%:p:h")
-
-        builtin.find_files(require("telescope.themes").get_ivy({
-          cwd = currWorkingDir,
-          prompt_title = "Current Buffer's Directory",
-        }))
-      end
-
       vim.keymap.set("n", "<leader>sh", builtin.help_tags, { desc = "[S]earch [H]elp" })
       vim.keymap.set("n", "<leader>sk", builtin.keymaps, { desc = "[S]earch [K]eymaps (which_key i => C-/ n => ?)" })
       local function search_files()
@@ -79,7 +61,6 @@ return {
       vim.keymap.set("n", "<leader>se", function()
         builtin.find_files({ hidden = false, no_ignore = true, no_ignore_parent = true })
       end, { desc = "[s]earch [e]verything (hidden, ignored and ignored by parent)" })
-      vim.keymap.set("n", "<leader>scd", SearchCurrentDirectory, { desc = "[S]earch [C]urrent [D]irectory" })
       vim.keymap.set("n", "<leader>ss", builtin.builtin, { desc = "[S]earch [S]elect Telescope" })
       vim.keymap.set("n", "<leader>s*", builtin.grep_string, { desc = "[s]earch [w]ord under cursor" })
       vim.keymap.set("n", "<leader>sg", builtin.live_grep, { desc = "[S]earch by [G]rep" })
