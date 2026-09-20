@@ -2,8 +2,6 @@
 
 - voice to text (on OS layer)
 - change hyprcusor color when in cursor mode
-- [lazycut](https://github.com/ozemin/lazycut) also supports video triming
-  or [tui-wave](https://github.com/biomassa/tui-wave) which is only for audio
 - make use of [piper1-gpl text-to-speech](https://github.com/OHF-Voice/piper1-gpl)
   or another one [top 10 blog post](https://modal.com/blog/open-source-tts)
 - learn SELinux for security
@@ -48,3 +46,4 @@
 - [yazi tips and tricks e.g. drag and drop](https://yazi-rs.github.io/docs/tips/#drag-and-drop)
 - make sure simple kind of man is in my music playlist
 - [rclone to sync cloud as a mounted filesystem](https://github.com/rclone/rclone)
+- this is AI driven project. The dev doesnt know rust [tui-wave](https://github.com/biomassa/tui-wave)
