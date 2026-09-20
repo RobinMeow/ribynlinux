@@ -6,6 +6,8 @@ vim.keymap.set(
 )
 vim.keymap.set("t", "<Esc><Esc>", "<c-\\><c-n>")
 
+vim.keymap.set("n", "<leader>o", ":Oil<CR>", { desc = "open Oil" })
+
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move visual selectoin down" })
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move visual selection up" })
 

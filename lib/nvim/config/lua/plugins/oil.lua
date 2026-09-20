@@ -4,6 +4,11 @@ return {
     ---@module 'oil'
     ---@type oil.SetupOpts
     opts = {
+      -- TODO: Oil: configure preview
+      -- preview_win = {
+      --   update_on_cursor_moved = true,
+      --   preview_method = "fast_scratch",
+      -- },
       keymaps = {
         -- remove
         ["<C-h>"] = false,
