@@ -31,3 +31,12 @@ use the scripts for normal installation. You can install onto vda (the image fil
 then your base vm is ready. before doing further things.
 use virt-clone to clone the base over and over again, so you can start on fresh installs.
 virt-clone --original fedora-base --name fedora --file "$HOME/.local/share/libvirt/images/fedora.qcow2"
+
+## start on boot
+
+`sudo systemctl enable --now libvirtd.service`
+
+## allow your user to manage virtual machines
+
+`sudo usermod -aG libvirt "$USER"`
+requires re-log for the group to be applied.
