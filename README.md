@@ -2,7 +2,7 @@
 
 My personalized environment for Arch Linux, Fedora, Neovim, WSL and many other things.
 
-![gource](./gource-august.png)
+![gource](./doc/assets/gource-august.png)
 [gourced full history](./gourced.md)
 
 > checkout [installers and helpers](./installers.md) for first time clones / installs
@@ -56,32 +56,38 @@ ssh-keyscan -H codeberg.org >>~/.ssh/known_hosts
 ## MonkeyType 
 
 100% acc
-![monkeytype](./monkey.png)
+![monkeytype](./doc/assets/monkey.png)
 
 <100% acc
-![monkeytype](./monkey-fastest-with-errors.png)
+![monkeytype](./doc/assets/monkey-fastest-with-errors.png)
 
-```
-Sat Jun 20 11:21:42 PM CEST 2026
+```sh
+Sun Sep 20 12:50:51 PM CEST 2026
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
  Language              Files        Lines         Code     Comments       Blanks
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- BASH                     16          734          527           75          132
+ BASH                     17          557          390           77           90
  Batch                     1           10            4            4            2
- CSS                       1           26           26            0            0
- INI                       1           18            5            9            4
- JSON                      1           53           53            0            0
- Lua                      36         2569         1893          455          221
- Rusty Object Nota|        2          568          568            0            0
- Shell                    66         2120         1358          394          368
- TOML                      5         1863         1673           98           92
+ CSS                       2          212          173            5           34
+ Forge Config              1           36           29            0            7
+ INI                       2           21            8            9            4
+ JavaScript                4         1659          516          860          283
+ JSON                      3         1910         1910            0            0
+ Lua                      74         5212         3621         1072          519
+ Rusty Object Nota|        2          526          526            0            0
+ Shell                   162         4941         3191          945          805
+ TOML                     10         2425         1916          303          206
+ YAML                      1          273          172           63           38
  Zsh                       1         1720          443         1103          174
 ─────────────────────────────────────────────────────────────────────────────────
- Markdown                 20         1369            0         1020          349
- |- BASH                   5           12            9            2            1
- (Total)                             1381            9         1022          350
+ Markdown                 48         3244            0         2441          803
+ |- BASH                   7           49           30           13            6
+ (Total)                             3293           30         2454          809
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- Total                   150        11062         6559         3160         1343
+ Total                   328        22795        12929         6895         2971
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 
+> interstingly since Sat Jun 20 11:21:42 PM CEST 2026
+the amount of bash files +1, comment lines +2, lines -200~, code -140~
+and blank very largely reduced while new features where being added.
