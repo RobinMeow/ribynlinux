@@ -142,6 +142,7 @@ else
 	echo "  Coverage: ${COVERAGE}"
 	echo "--------------------------------------"
 
-	CMD+=("$INCLUDE_FLAGS")
+	# shellcheck disable=SC2206
+	CMD+=($INCLUDE_FLAGS)
 	exec "${CMD[@]}"
 fi
