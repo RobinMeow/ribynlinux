@@ -26,6 +26,9 @@ return {
           sorting_strategy = "ascending",
           layout_config = {
             prompt_position = "top",
+            -- make <leader>sf search files as large as possible
+            width = 0.99,
+            height = 0.99,
           },
           -- mappings = {
           --   i = { ['<c-enter>'] = 'to_fuzzy_refine' },
