@@ -59,6 +59,10 @@ if on_arch; then
 		obs-studio \
 		discord
 
+	sudo pacman -S --needed --noconfirm \
+		extra/cifs-utils \
+		extra/smbclient
+
 # WARN: i remember targeting pack being a bug fix for dotnet
 # specifically for archlinux. but I ll wait until I run into it again.
 # It might not occur anymore, since I include latest verson install
@@ -116,6 +120,14 @@ elif on_fedora; then
 		obs-studio \
 		discord
 
+	sudo dnf install --assumeyes \
+		cifs-utils \
+		samba-client
+
+	# cifs-utils for smb nas file transfer
+	# client is optional for tinkering
+
+	# TODO: if I install this first. I can maybe get rid of the allowerasing flag
 	sudo dnf install -y --allowerasing \
 		ffmpeg
 fi
