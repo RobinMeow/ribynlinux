@@ -60,8 +60,9 @@ if on_arch; then
 		discord
 
 	sudo pacman -S --needed --noconfirm \
-		extra/cifs-utils \
-		extra/smbclient
+		cifs-utils \
+		smbclient \
+		rclone
 
 # WARN: i remember targeting pack being a bug fix for dotnet
 # specifically for archlinux. but I ll wait until I run into it again.
@@ -122,7 +123,8 @@ elif on_fedora; then
 
 	sudo dnf install --assumeyes \
 		cifs-utils \
-		samba-client
+		samba-client \
+		rclone
 
 	# cifs-utils for smb nas file transfer
 	# client is optional for tinkering
