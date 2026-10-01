@@ -2,6 +2,27 @@ vim.keymap.set("n", "<leader>nh", function()
   Snacks.notifier.show_history()
 end, { desc = "Notification History" })
 
+local dashboard_config = {
+  enabled = false,
+  pane_gap = 2,
+  sections = {
+    -- Tip: you can also dynamically hide some sections if your screen is too small for example. by adding an enabled function and then checking vim.o.columns.
+    {
+      section = "terminal",
+      cmd = "cat " .. vim.fn.stdpath("config") .. "/eeyore-59w-35h.ascii",
+      height = 35, -- its generated with the --height 35 flag width is assumed
+      width = 60,
+    },
+    {
+      text = "Thanks for noticin' me.",
+      padding = 1, -- i use it like bottom padding. doesnt seem to do anything else.
+    },
+    {
+      section = "startup", -- how long nvim took to startup
+    },
+  },
+}
+
 return {
   {
     "folke/snacks.nvim",
@@ -19,26 +40,7 @@ return {
           },
         }, -- nice ui e.g. rename variable
 
-        dashboard = {
-          enabled = true,
-          pane_gap = 2,
-          sections = {
-            -- Tip: you can also dynamically hide some sections if your screen is too small for example. by adding an enabled function and then checking vim.o.columns.
-            {
-              section = "terminal",
-              cmd = "cat " .. vim.fn.stdpath("config") .. "/eeyore-59w-35h.ascii",
-              height = 35, -- its generated with the --height 35 flag width is assumed
-              width = 60,
-            },
-            {
-              text = "Thanks for noticin' me.",
-              padding = 1, -- i use it like bottom padding. doesnt seem to do anything else.
-            },
-            {
-              section = "startup", -- how long nvim took to startup
-            },
-          },
-        },
+        dashboard = dashboard_config,
 
         notifier = {
           timeout = 5000,
