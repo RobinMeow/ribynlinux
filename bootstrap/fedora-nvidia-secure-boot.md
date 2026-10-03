@@ -70,7 +70,6 @@ sudo mokutil --import /etc/pki/akmods/certs/public_key.der
 # confirm enrollment by selection 'Yes'
 # run 'system ctl reboot' to reboot and boot back into fedora.
 # after reboot re-install nvidia drivers
-# WARN: my bluetooth went crazy on the glove80 for some reason
 ```
 
 ## installing nvidia drivers
