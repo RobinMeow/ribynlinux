@@ -11,6 +11,9 @@ if not repeat.
 install vimium and uorigin block extensions
 done.
 
+> you can open the profile creation wizard with `firefox -P`
+> you can delete all and create a new one named `ribyn`
+
 ## choosing firefox over chromium based browsers
 
 - they display no tofus (did not manage to fix in chrome)
