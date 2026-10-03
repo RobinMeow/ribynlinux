@@ -34,9 +34,6 @@ sudo grubby --update-kernel=ALL --args=quiet
 sudo dnf install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
 sudo dnf install https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 
-# update the system. potentially updating the kernels
-sudo upgrade --refresh
-
 # list installed nvidia drivers
 dnf -C list installed "xorg-x11-drv-nvidia*"
 # save to file if you want
@@ -46,6 +43,9 @@ dnf -C list installed "xorg-x11-drv-nvidia*" >> ~/nvidia-drivers.log
 dnf remove xorg-x11-drv-nvidia\*
 # backslash \ is esacpe character. you also use a string
 dnf remove "xorg-x11-drv-nvidia*"
+
+# update the system. potentially updating the kernels
+sudo upgrade --refresh
 
 # installing tools for secure boot with nvidia
 sudo dnf install --assumeyes \
