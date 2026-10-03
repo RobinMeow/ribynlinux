@@ -22,6 +22,10 @@ fi
 if [[ "$RIBYN_FIREFOX_SET_DEFAULT_BROWSER" == "yes" ]]; then
 	default_browser=$(xdg-settings get default-web-browser)
 	if [[ "$default_browser" != "org.mozilla.firefox.desktop" ]]; then
-		xdg-settings set default-web-browser "org.mozilla.firefox.desktop"
+		if xdg-settings set default-web-browser "org.mozilla.firefox.desktop"; then
+			# exit code 2 if it was already set. I think
+			echo "default browser firefox was set"
+		fi
+
 	fi
 fi
