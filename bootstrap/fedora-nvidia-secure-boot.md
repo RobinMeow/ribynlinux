@@ -69,6 +69,18 @@ sudo mokutil --import /etc/pki/akmods/certs/public_key.der
 # or 'View key 0' to show the keys already enrolled
 # confirm enrollment by selection 'Yes'
 # run 'system ctl reboot' to reboot and boot back into fedora.
+# after reboot re-install nvidia drivers
+# WARN: my bluetooth went crazy on the glove80 for some reason
+```
+
+## installing nvidia drivers
+
+```sh
+# rhel/centos users can use kmod-nvidia instead
+sudo dnf install akmod-nvidia
+
+#optional for cuda/nvdec/nvenc support
+sudo dnf install xorg-x11-drv-nvidia-cuda 
 ```
 
 use `modinfo -F version nvidia` to check current nvidia driver version
