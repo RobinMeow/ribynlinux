@@ -20,6 +20,16 @@ you can do so with this cmd:
 ## setup secure boot
 
 ```sh
+#for easier debugging if things go wrong you can
+# temporarly disable the quiet option in grub 
+
+# Disable 'quiet' mode
+sudo grubby --update-kernel=ALL --remove-args=quiet
+
+# Re-enable 'quiet' mode
+sudo grubby --update-kernel=ALL --args=quiet
+
+# list installed nvidia drivers
 dnf -C list installed "xorg-x11-drv-nvidia*"
 # save to file if you want
 dnf -C list installed "xorg-x11-drv-nvidia*" >> ~/nvidia-drivers.log
