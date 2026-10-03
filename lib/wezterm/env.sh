@@ -5,3 +5,4 @@ export RIBYN_WEZTERM_ENABLED=${RIBYN_WEZTERM_ENABLED:-"no"}
 
 # solid | transparent | wallpaper
 export RIBYN_WEZTERM_BG=${RIBYN_WEZTERM_BG:-"wallpaper"}
+export RIBYN_WEZTERM_DOMAIN=${RIBYN_WEZTERM_DOMAIN:-"fedora"}

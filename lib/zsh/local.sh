@@ -3,6 +3,11 @@
 # export CODE_COMPANION_DEFAULT_ADAPTER="ollama"
 # export CODE_COMPANION_OLLAMA_MODEL="qwen2.5-coder:3b"
 
+# NOTE: in wsl you probably want to use these
+# export RIBYN_HYPR_ENABLED="no"
+# export RIBYN_WEZTERM_ENABLED="yes"
+# export RIBYN_WEZTERM_DOMAIN="fedora"
+
 # NOTE: Extend CDPATH with annoying to reach sub-dirs
 #
 # allows you to cd into the sub-dirs of the added dirs

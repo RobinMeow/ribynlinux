@@ -33,7 +33,7 @@ if running_on_windows then
   end
 
   config.wsl_domains = wsl_domains
-  config.default_domain = "WSL:fedorai3"
+  config.default_domain = "WSL:" .. os.getenv("RIBYN_WEZTERM_DOMAIN")
 end
 
 local function bind_key(mods, key, action)
