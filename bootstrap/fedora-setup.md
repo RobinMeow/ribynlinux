@@ -14,7 +14,7 @@ sudo dnf install --assumeyes \
 WARN: ensure your kernels are up2date.
 `sudo dnf update`
 `sudo dnf upgrade --refresh`
-becuase nvidia will will the latests ones in, as needed.
+becuase nvidia will pull the latests ones in, as needed.
 but then fail and ruin sound/bluetooth and much more.
 and rebuilding manually wont work.
 so update, reboot. and only then install nvidia
@@ -22,6 +22,7 @@ so update, reboot. and only then install nvidia
 watch akmod processes in btop after install.
 its still doing stuff in the background, patiently wait for them.
 5-10min on fast machine.
+or run `modinfo -F version nvidia` if it returns the version, it's done.
 
 `akmod-nvidia-open` vs `kmod-nvidia-open`
 akmod is auto-compiled on the machine, when kernels update.
