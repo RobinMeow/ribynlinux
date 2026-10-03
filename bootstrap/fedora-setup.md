@@ -84,3 +84,15 @@ becuase only updating security patches increases the risk
 of dependecy breakages.
 optionally, to get the absolute latest security updates
 `sudo dnf upgrade --refresh`
+
+## dual boot
+
+after installing another os you can just regenerate grub config
+from within fedora and reboot:
+
+```sh
+sudo grub2-mkconfig -o /etc/grub2-efi.cfg
+sudo grub2-mkconfig -o /etc/grub2.cfg
+```
+
+it will use the os-prober and detect other linux distros and window boot manager
