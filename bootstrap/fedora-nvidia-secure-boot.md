@@ -57,9 +57,11 @@ sudo dnf install --assumeyes \
 # generating a key with default values
 # --auto use default values for cacert.config
 sudo kmodgenca --auto
+# WARN: it said I already have one. I think because of rclone or fritz.box
 
 # enrolling public key (new keypair with certificate) in MOK
 # moktuil will ask to generate a password to enroll the public key
+# doesnt need to be a complex password. make sure you can type it on qwerty keyboard
 sudo mokutil --import /etc/pki/akmods/certs/public_key.der
 
 # on next reboot, mok management is launched and you have to choose 'Enroll MOK'
