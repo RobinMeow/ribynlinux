@@ -36,3 +36,9 @@ which allows you to use a local account, so you don't need to log in.
 1. in a cmd shell run: `powercfg /H off`
 2. after disabling, shutdown (using the shutdown button, not restart)
 to apply the settings.
+
+## getting network drivers
+
+in shift + f11 dos cmd window:
+`copy E:\filename.ext C:\TargetFolder\` to copy the files from an usb drive
+and `tar -xf C:\my.zip -C C:\dest` to extract the zip. (or use ntfs usb drive and extract it on another laptop beforehand)
