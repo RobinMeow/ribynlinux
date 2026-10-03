@@ -69,6 +69,7 @@ function m.setup()
   local key = require("key") -- be careful of bi-dicretional dep. ez to create inf loop
   key.bind("SUPER + code:61", m.open, { desc = "Open this keybinding help" }, "SUPER + ?")
   key.bind("SUPER + SHIFT + code:61", m.open, { desc = "Open this keybinding help" }, "SUPER + SHIFT + ?")
+  key.bind("SUPER + SHIFT + Y", m.open, { desc = "Open this keybinding help" }, "SUPER + SHIFT + ?")
   generate_help_file()
 end
 
