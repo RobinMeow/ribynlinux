@@ -26,10 +26,8 @@ covers dual booting in great detail
 ## Installation wizard
 
 at some point it will ask for microsoft login.
-Hopefully you can bypass using `SHIFT + F10`
-and run `start ms-cxh:localonly`
-ask AI what other methods to try, if it doesnt work, on your current win11
-version.
+You can bypass using `SHIFT + F10` and run `start ms-cxh:localonly`,
+which allows you to use a local account, so you don't need to log in.
 
 ## After installation
 
