@@ -29,6 +29,14 @@ sudo grubby --update-kernel=ALL --remove-args=quiet
 # Re-enable 'quiet' mode
 sudo grubby --update-kernel=ALL --args=quiet
 
+# rpmfusion repos free and non-free are required,
+# but if its not a first time install my ribynlinux already enables those
+sudo dnf install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
+sudo dnf install https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+
+# update the system. potentially updating the kernels
+sudo upgrade --refresh
+
 # list installed nvidia drivers
 dnf -C list installed "xorg-x11-drv-nvidia*"
 # save to file if you want
