@@ -14,6 +14,7 @@ function m.setup()
     mode = "allow",
   })
   hl.permission({
+    -- TODO: allow usr/bin/hyprlock as well
     binary = "/usr/local/bin/hyprlock",
     type = "screencopy",
     mode = "allow",
