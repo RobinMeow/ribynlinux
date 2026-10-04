@@ -41,4 +41,6 @@ alias yt-dlpm='yt-dlp -x --audio-format mp3 --audio-quality 0 -o "%(title)s.%(ex
 
 alias c='clear'
 
+alias help="chafa $RIBYN_ROOT/keyboard/glove80/psalm-23.png"
+
 # vim: ft=bash
