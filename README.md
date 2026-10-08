@@ -55,11 +55,11 @@ ssh-keyscan -H codeberg.org >>~/.ssh/known_hosts
 
 ## MonkeyType 
 
-100% acc
-![monkeytype](./doc/assets/monkey.png)
+100% acc (with homerow mods)
+![monkeytype](./doc/assets/monkey-with-homerow-mods.png)
 
 <100% acc
-![monkeytype](./doc/assets/monkey-fastest-with-errors.png)
+![monkeytype](./doc/assets/monkey-with-errors.png)
 
 ```sh
 Sun Sep 20 12:50:51 PM CEST 2026
