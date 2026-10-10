@@ -18,5 +18,6 @@ if on_arch; then
 	# https://wiki.archlinux.org/title/Steam
 elif on_fedora; then
 	sudo dnf install -y \
-		steam
+		steam \
+		protontricks
 fi
