@@ -108,4 +108,5 @@ hl.window_rule({
 })
 
 require("xwayland").setup()
+require("devices")
 require("help").setup()
