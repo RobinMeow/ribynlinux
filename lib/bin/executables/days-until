@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+TARGET_DATE=${1:?"requires iso date as first argument. The till date."}
+
+# convert to epoch seconds
+target_sec=$(date --date "$TARGET_DATE" +%s)
+current_sec=$(date +%s)
+
+# 60s * 60m * 24h
+sec_per_day=86400
+
+# Calculate difference in days
+days_left=$(((target_sec - current_sec) / $sec_per_day))
+
+echo "$days_left days (today excluded, truncated due to int division)"
