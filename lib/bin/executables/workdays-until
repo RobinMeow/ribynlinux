@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+TARGET_DATE=${1:?"requires iso date as first argument. The till date."}
+
+# start from midnight today
+current_sec=$(date -d "$(date +%Y-%m-%d)" +%s)
+target_sec=$(date -d "$TARGET_DATE" +%s)
+
+workdays=0
+
+# loop day by day until we reach the target date
+while [ "$current_sec" -lt "$target_sec" ]; do
+	current_date_str=$(date -d "@$current_sec" +%Y-%m-%d)
+
+	# get day of week: 1 = Monday, ..., 5 = Friday, 6 = Saturday, 7 = Sunday
+	dow=$(date -d "$current_date_str" +%u)
+
+	# if it's Monday through Friday, count it as a workday
+	if [ "$dow" -le 5 ]; then
+		workdays=$((workdays + 1))
+	fi
+
+	# move to the next calendar day
+	current_sec=$(date -d "$current_date_str + 1 day" +%s)
+done
+
+# echo "There are $workdays workdays until $TARGET_DATE"
+
+# push the number to stdout only to allow others scripts to build upon it
+echo $workdays

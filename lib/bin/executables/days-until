@@ -13,4 +13,7 @@ sec_per_day=86400
 # Calculate difference in days
 days_left=$(((target_sec - current_sec) / $sec_per_day))
 
-echo "$days_left days (today excluded, truncated due to int division)"
+# echo "$days_left days (today excluded, truncated due to int division)"
+
+# push the number to stdout only to allow others scripts to build upon it
+echo $days_left
