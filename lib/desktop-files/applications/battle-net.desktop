@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=WIP Battle.net
+Comment=Launch Battle.net via Protontricks
+Exec=nohup /home/ribyn/ribynlinux/lib/battle-net/launcher.sh > /dev/null 2>&1 &
+Terminal=false
+Categories=Game;
+Icon=steam
