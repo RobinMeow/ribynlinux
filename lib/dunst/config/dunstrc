@@ -23,7 +23,9 @@
   separator_height = 1
 
   # Padding between text and separator
-  padding = 8
+  padding = 4
+	# (min, max)
+	width = (400, 800)
 
   # Horizontal padding
   horizontal_padding = 10
@@ -45,7 +47,7 @@
   show_age_threshold = 60
 
   # Split notifications into multiple lines if they don't fit into geometry.
-  word_wrap = no
+  word_wrap = yes
 
   # Ignore newlines '\n' in notifications.
   ignore_newline = no
@@ -97,7 +99,7 @@
   icon_path = /usr/share/icons/Adwaita/16x16/status/:/usr/share/icons/Adwaita/16x16/devices/
 
   # Limit icons size
-  max_icon_size=128
+  max_icon_size=64
 
   # Shortcuts are specified as [modifier+][modifier+]...key
   # Available modifiers are "ctrl", "mod1" (the alt-key), "mod2",
