@@ -69,7 +69,7 @@ hl.config({
   },
 
   cursor = {
-    inactive_timeout = 2000, -- hide cursor after 2s
+    inactive_timeout = 2, -- hide cursor after 2s
     persistent_warps = true, -- remember mouse position per window
     -- WARN: I solved it myself already. and I think my solution is better, becuase of chrome/discord use cases.
     -- see local/monitors.lua for examples, why default_monitor is probably not sufficient
