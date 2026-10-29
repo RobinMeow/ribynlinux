@@ -44,7 +44,6 @@ hl.config({
     force_default_wallpaper = 2, -- -1 is random, 2 is hypr_chan (I don't like 0 and 1)
     -- font_family = "Sans", -- global default font including debug/dps/notifications (default: Sans)
     vrr = 0, -- adaptive sync 0 = off, 1 = on, 2 = fullscreen only, 3 = fullscreen with `video` or `game` content type (default: 0)
-    layers_hog_keyboard_focus = true, -- ensures mouse movement doesnt drop focus on apps like rofi (default: true)
     -- NOTE: my sync.sh calls hyprctl reload. and I still manually invoke it (prevents duplicated notifications, which run on each copied file)
     disable_autoreload = true, -- use hyprctl reload instead (default: false)
     focus_on_activate = false, -- whether or not to focus a window which requests focus on activate
@@ -55,6 +54,10 @@ hl.config({
     render_unfocused_fps = 15, -- maximum fps for unfocused windows' in the background
     -- screencopy_force_8b = true, -- forces 8 bit screencopy (default: true)
     -- bell_sound = "default", -- path to custom wav/ogg system bell. "none" or an empty str mute it (default: default)
+  },
+
+  layers = {
+    layers_hog_keyboard_focus = true, -- ensures mouse movement doesnt drop focus on apps like rofi (default: true)
   },
 
   opengl = {
