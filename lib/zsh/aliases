@@ -43,4 +43,11 @@ alias c='clear'
 
 alias help="chafa $RIBYN_ROOT/keyboard/glove80/psalm-23.png"
 
+alias dotnet-nuget-clear-cache="dotnet nuget locals all --clear"
+
+rmpcs() {
+	# show current song filename
+	rmpc song | awk 'match($0, /"file":"([^"]+)"/, m) {print m[1]}'
+}
+
 # vim: ft=bash
