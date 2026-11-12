@@ -4,12 +4,25 @@ store creds in plaintext for badly configured remotes.
 `git config --global credential.helper store`
 [source](https://stackoverflow.com/questions/35942754/how-can-i-save-username-and-password-in-git)
 
+## Tipps and Tricks
+
 [conditional include parent dir git](https://stackoverflow.com/questions/21307793/set-git-config-values-for-all-child-folders/48088291#48088291)
 
 ```gitconfig
 [includeIf "gitdir:~/toplevelFolder1/"]
     path = ~/topLevelFolder1/.gitconfig_include
 ```
+
+**find and restore files deleted in the past**
+
+show deleted files
+`git log --all --diff-filter=D --summary`
+
+show deleted files and search for a filename
+`git log --all --full-history --name-status --diff-filter=D -- "*filename*"`
+
+restore the file using the found commit hash
+`git checkout <commit-hash>^ -- path/to/file`
 
 # temporarly disable git aliases to practise muscle memory on git aliases and functions
 
