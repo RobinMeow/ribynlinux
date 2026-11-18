@@ -1,6 +1,28 @@
 -- https://wiki.hypr.land/Configuring/Basics/Autostart/
 local m = {}
 
+-- TODO: move into dedicated local.lua
+--
+-- hl.window_rule({
+-- 	name = "aion-dps-plugins",
+-- 	match = {
+-- 		class = "^(a2tools\\-dps\\-meter)$",
+-- 		initial_title = "^(A2Tools Plugins \\(plugin\\))$",
+-- 	},
+-- 	float = false,
+-- 	workspace = "1",
+-- })
+-- hl.window_rule({
+-- 	name = "aion-dps-meter",
+-- 	match = {
+-- 		class = "^(a2tools\\-dps\\-meter)$",
+-- 		initial_title = "^(A2Tools DPS Meter)$",
+-- 	},
+-- 	float = true,
+-- 	pin = true,
+-- 	move = { 500, 0 },
+-- })
+
 local function default_autostart()
   -- daemons / jobs / etc.
   hl.exec_cmd("mpd") -- uses daemon by default otherwise --no-daemon or --systemd
