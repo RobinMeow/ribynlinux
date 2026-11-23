@@ -102,10 +102,12 @@ function m.setup()
     hl.dispatch(hl.dsp.workspace.move({ monitor = "-1" }))
   end, { desc = "move the workspace to the prev monitor" })
 
-  -- special workspace (aka scratchpad)
-  key.bind("SUPER + S", hl.dsp.workspace.toggle_special("magic"), { desc = "toggle special workspace" })
+  -- special workspaces (aka scratchpad)
+  local music_workspace = "music"
 	-- stylua: ignore
-  key.bind( "SUPER + SHIFT + S", hl.dsp.window.move({ workspace = "special:magic" }), { desc = "move window to special workspace" })
+  key.bind( "SUPER + M", hl.dsp.workspace.toggle_special(music_workspace), { desc = "toggle " .. music_workspace .. " workspace" })
+	-- stylua: ignore
+  key.bind( "SUPER + SHIFT + M", hl.dsp.window.move({ workspace = "special:" .. music_workspace }), { desc = "move window to "..music_workspace.." workspace" })
 
   key.bind("SUPER + E", hl.dsp.workspace.toggle_special("email"), { desc = "toggle email workspace" })
 	-- stylua: ignore

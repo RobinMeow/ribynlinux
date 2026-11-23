@@ -22,9 +22,9 @@ local function autostart()
 
   -- special
   hl.exec_cmd("thunderbird", { workspace = "special:email silent", no_initial_focus = true })
+  hl.exec_cmd('kitty sh -c "rmpc play && rmpc"', { workspace = "special:music silent", no_initial_focus = true })
 
   -- workspace 1 (left monitor)
-  hl.exec_cmd('kitty sh -c "rmpc play && rmpc"', { workspace = "1 silent", no_initial_focus = true })
   hl.exec_cmd("discord", { workspace = "1 silent", no_initial_focus = true })
 
   -- workspace 2 (front monitor)
